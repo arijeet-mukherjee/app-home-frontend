@@ -1,0 +1,121 @@
+@import url("../../global.module.css");
+
+.hero {
+    display: grid;
+    height: 964px;
+    grid-template-rows: auto 1fr 1fr;
+    background-color: var(--primary-background-dark-color);
+    padding-left: var(--hero-section-left-padding);
+    padding-right: var(--hero-section-right-padding);
+    padding-top: var(--hero-section-top-padding);
+}
+
+.header {
+    max-height: 48px;
+    margin-bottom: 130px;
+}
+
+@media (max-width: 768px) { 
+
+    .hero { 
+        grid-template-rows: 1fr;
+        height: auto; 
+        padding: 20px; 
+        }
+}
+
+@media (min-width: 1200px) {
+    /* Your CSS code for larger than laptop or desktop screen goes here */
+    .framer-text {
+        font-size: 72px;
+    }
+    .secondary-text {
+        font-size: 72px;
+    }
+}
+
+
+.framer-text{
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    color: var(--framer-text-color, #000);
+    font-size: 62px;
+    text-transform: var(--framer-text-transform, none);
+    text-decoration: var(--framer-text-decoration, none);
+    text-align: var(--framer-text-alignment, start);
+}
+
+.secondary-text{
+    color: var(--text-primary-color);
+    font-size: 62px;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    line-height: 72px;
+}
+
+.about-text{
+    color: var(--text-primary-color);
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.5rem;
+}
+
+.online-text{
+    color: var(--framer-text-color, #000);
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    line-height: 2.5rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hear-back-text {
+    color : var(--framer-text-color, #000);
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5rem;
+}
+
+.button-text {
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--primary-background-dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* All a tag inside hero class none text-decoration */
+.hero a {
+    text-decoration: none;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-button {
+    align-items: center;
+    display: flex;
+    background-color: var(--text-primary-color);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    width: min-content;
+    padding: 10px 34px;
+    justify-content: center;
+    overflow: visible;
+}
