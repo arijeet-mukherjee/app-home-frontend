@@ -1,0 +1,20 @@
+.button{
+    background-color: var(--text-primary-color);
+    border: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding-left: 23px;
+    padding-right: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: "DM Sans", sans-serif;
+}

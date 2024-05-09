@@ -1,0 +1,29 @@
+.navItemContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 3;
+}
+.navItem{                                                                                                                                                                                                                                                                                     
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dropdown{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 2rem;
+    min-width: 200px;
+    translate: -75px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: all 250ms;
+    
+}
+
+.ddmItem{
+    color: black;
+    font-weight: 600;
+}
