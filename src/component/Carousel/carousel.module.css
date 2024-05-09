@@ -1,0 +1,8 @@
+@import url("../../global.module.css");
+
+.carousel {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto;
+}
