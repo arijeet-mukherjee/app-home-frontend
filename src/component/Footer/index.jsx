@@ -2,7 +2,10 @@ import React from 'react'
 import styles from "./styles.module.css";
 import Image from 'next/image';
 
-export default function index() {
+export default function footer() {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <div className={styles.container}>
       <Image src="/netherland.svg"
@@ -20,7 +23,7 @@ export default function index() {
           height={48}
           priority
         /></div>
-      <div className={styles.topBtn}><Image
+      <div className={styles.topBtn} aria-label='go to top'><Image
         className={styles.topBtn_img}
         src="/topBtn.svg"
         alt="top button"
@@ -28,9 +31,9 @@ export default function index() {
         height={10}
         priority />Back to top</div>
 
-      <hr className={styles.horizontalLine} />
+      <hr className={styles.horizontalLine} aria-label='seperator'/>
 
-      <div className={styles.center}>
+      <div className={styles.center} aria-label='select an option'>
         <ul className={styles.center_options}>
           <li>Contact</li>
           <li>Jobs</li>
@@ -46,33 +49,33 @@ export default function index() {
         </ul>
       </div>
 
-      <div className={styles.branding}>© Secdesk, Netherlands, 2024</div>
+      <div className={styles.branding} aria-label='branding'>© Secdesk, Netherlands, {year}</div>
 
       <div className={styles.socials}>
         <Image
           src="/twitter.svg"
-          alt="Vercel Logo"
+          alt="Twitter Logo"
           width={20}
           height={20}
           priority
         />
         <Image
           src="/youtube.svg"
-          alt="Vercel Logo"
+          alt="Youtube Logo"
           width={20}
           height={20}
           priority
         />
         <Image
           src="/insta.svg"
-          alt="Vercel Logo"
+          alt="Instagram Logo"
           width={20}
           height={20}
           priority
         />
         <Image
           src="/spotify.svg"
-          alt="Vercel Logo"
+          alt="Spotify Logo"
           width={20}
           height={20}
           priority
