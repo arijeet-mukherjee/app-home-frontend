@@ -1,8 +1,29 @@
 @import url("../../global.module.css");
 
-.carousel {
+.carousel-wrapper {
     display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    box-sizing: border-box;
+    border: 2px solid black;
     justify-content: center;
     align-items: center;
-    grid-template-columns: auto;
+}
+
+.carousel-header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.carousel-subheader {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+
+.carousel-content {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    column-gap: 50px;
+    align-items: center;
 }

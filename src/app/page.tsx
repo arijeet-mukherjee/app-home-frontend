@@ -20,7 +20,14 @@ export default function Home() {
     }, {
       image: "/next.svg",
       title: "Carousel Card Title 2",
-      description: "Carousel Card Description 2 askldfblasdbfalbfalfbalsdfbalksdbfalkbfalskhbflaksdbflkasdbflkasbflaksbfaslkdfbalwkdbflaksdhb",
+      description: "Carousel Card Description 2 askldfblasdbfalbfal fbalsdfbalksdbfalk bfalskhbflak sdbflkasdbflkasbf laksbfaslkd fbalwkdbfl aksdb",
+      link: "/carousel-card-link",
+      toggleButton: true,
+      buttonText: "Learn More 2"
+    }, {
+      image: "/next.svg",
+      title: "Carousel Card Title 2",
+      description: "Carousel Card Description 2 askldfblasdbfalbfal fbalsdfbalksdbfalk bfalskhbflak sdbflkasdbflkasbf laksbfaslkd fbalwkdbfl aksdb",
       link: "/carousel-card-link",
       toggleButton: true,
       buttonText: "Learn More 2"

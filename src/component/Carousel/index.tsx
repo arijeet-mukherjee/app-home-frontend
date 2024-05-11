@@ -25,14 +25,9 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
     const { title, description, toggleScrollButtonPosition, hideIndicator, cardProps } = props;
 
     return (
-        <div className={styles["carousel"]}>
-            <div className={styles["carousel-wrapper"]}>
-                {toggleScrollButtonPosition && hideIndicator && (
-                    <div className={styles["carousel-scroll-buttons"]}>
-                        <button className={styles["carousel-scroll-button-top"]}></button>
-                    </div>
-                )}
-                <div className={styles["carousel-header"]}>
+        <div className={styles["carousel-wrapper"]}>
+            <div className={styles["carousel-header"]}>
+                <div className={styles["carousel-subheader"]}>
                     <h2 className={styles["carousel-title"]}>{title}</h2>
                     {description && (
                         <p className={styles["carousel-description"]}>
@@ -40,22 +35,28 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
                         </p>
                     )}
                 </div>
-                <div className={styles["carousel-content"]}>
-                    {cardProps && cardProps.map((cardProp: CardProps, index: number) => {
-                        return (
-                            <div className={styles["carousel-card-wrapper"]} key={index}>
-                                <CarouselCard {...cardProp} />
-                            </div>
-                        )
-                    })}
-                </ div>
-                {toggleScrollButtonPosition && hideIndicator && (
+                {toggleScrollButtonPosition && (
                     <div className={styles["carousel-scroll-buttons"]}>
-                        <button className={styles["carousel-scroll-button-bottom"]}></button>
+                        <button className={styles["carousel-scroll-button-top-prev"]}>left</button>
+                        <button className={styles["carousel-scroll-button-top-next"]}>right</button>
                     </div>
                 )}
+            </div>
+            <div className={styles["carousel-content"]}>
+                {cardProps && cardProps.map((cardProp: CardProps, index: number) => {
+                    return (
+                        <div className={styles["carousel-card-wrapper"]} key={index}>
+                            <CarouselCard {...cardProp} />
+                        </div>
+                    )
+                })}
             </ div>
-        </div>
+            {toggleScrollButtonPosition && (
+                <div className={styles["carousel-scroll-buttons"]}>
+                    <button className={styles["carousel-scroll-button-bottom"]}>bottom</button>
+                </div>
+            )}
+        </ div>
     )
 }
 

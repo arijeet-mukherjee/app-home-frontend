@@ -4,12 +4,14 @@
     display: grid;
     grid-template-rows: repeat(2, auto);
     box-sizing: border-box;
-    width: max-content;
     border: 2px solid red;
     justify-content: center;
     align-items: center;
-    width: 22%;
-    height: 62.2%;
+}
+
+.carousel-card-image {
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-card-content {
@@ -17,7 +19,7 @@
     grid-template-rows: repeat(3, auto);
     grid-template-columns: auto;
     padding: 10px;
-    width: 422px;
+    width: 300px;
     height: 300px;
     color: #343434;
 }
