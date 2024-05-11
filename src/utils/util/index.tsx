@@ -22,12 +22,12 @@ export function makeWebServiceCall(url: string, method: string, data: any): Prom
             url: url,
             data: data
         })
-        .then(response => {
-            resolve(response.data);
-        })
-        .catch(error => {
-            reject(error);
-        });
+            .then(response => {
+                resolve(response.data);
+            })
+            .catch(error => {
+                reject(error);
+            });
     });
 }
 
@@ -49,3 +49,37 @@ export function authorizeWithOAuth(provider: string, clientId: string): Promise<
         });
     });
 }
+
+export function debouncer(func: (...args: any[]) => any, delay: number): (...args: any[]) => void {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return function (this: any, ...args: any[]) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+export function throttler(fn: (...args: any[]) => any, delay: number): (...args: any[]) => void {
+    let inThrottle: boolean,
+        lastFn: ReturnType<typeof setTimeout>,
+        lastDelay: number;
+
+    return function (this: any) {
+        const context = this;
+        const args = arguments;
+        if (!inThrottle) {
+            fn.apply(context, [args]);
+            lastDelay = Date.now();
+            inThrottle = true;
+        } else {
+            clearTimeout(lastFn);
+            lastFn = setTimeout(function () {
+                if (Date.now() - lastDelay >= delay) {
+                    fn.apply(context, [args]);
+                    lastDelay = Date.now();
+                }
+            }, Math.max(0, delay - (Date.now() - lastDelay)));
+        }
+    };
+};

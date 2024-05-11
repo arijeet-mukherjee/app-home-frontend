@@ -5,6 +5,7 @@
     grid-template-columns: auto;
     grid-template-rows: repeat(3, auto);
     box-sizing: border-box;
+    height: min-content;
     border: 2px solid black;
     justify-content: center;
     align-items: center;
@@ -26,4 +27,16 @@
     justify-content: center;
     column-gap: 50px;
     align-items: center;
+}
+
+.carousel-description {
+    margin: 0;
+}
+
+.carousel-header {
+    margin: 0;
+}
+
+.carousel-title {
+    margin: 0;
 }
