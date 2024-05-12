@@ -36,9 +36,9 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
                     )}
                 </div>
                 {toggleScrollButtonPosition && (
-                    <div className={styles["carousel-scroll-buttons"]}>
-                        <button className={styles["carousel-scroll-button-top-prev"]}>left</button>
-                        <button className={styles["carousel-scroll-button-top-next"]}>right</button>
+                    <div className={styles["carousel-scroll-buttons-top"]}>
+                        <button className={styles["carousel-scroll-button-top-prev"]}>l</button>
+                        <button className={styles["carousel-scroll-button-top-next"]}>r</button>
                     </div>
                 )}
             </div>
@@ -52,7 +52,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
                 })}
             </ div>
             {toggleScrollButtonPosition && (
-                <div className={styles["carousel-scroll-buttons"]}>
+                <div className={styles["carousel-scroll-buttons-bottom"]}>
                     <button className={styles["carousel-scroll-button-bottom"]}>bottom</button>
                 </div>
             )}

@@ -11,21 +11,21 @@ export default function Home() {
     toggleScrollButtonPosition: true,
     hideIndicator: false,
     cardProps: [{
-      image: "/arrowrightblack.svg",
+      image: "https://framerusercontent.com/images/zZzVnxqDptzvC5PtMzUh55jU4I.svg",
       title: "Carousel Card Title",
       description: "Carousel Card Description",
       link: "/carousel-card-link",
       toggleButton: true,
       buttonText: "Learn More"
     }, {
-      image: "/next.svg",
+      image: "https://framerusercontent.com/images/x3CpxlEoRUYKSuh97qmgwUuJqQ.svg",
       title: "Carousel Card Title 2",
       description: "Carousel Card Description 2 askldfblasdbfalbfal fbalsdfbalksdbfalk bfalskhbflak sdbflkasdbflkasbf laksbfaslkd fbalwkdbfl aksdb",
       link: "/carousel-card-link",
       toggleButton: true,
       buttonText: "Learn More 2"
     }, {
-      image: "/next.svg",
+      image: "https://framerusercontent.com/images/dOOU2Pr6i6Uot5YCH4RWiLP2mk.svg",
       title: "Carousel Card Title 2",
       description: "Carousel Card Description 2 askldfblasdbfalbfal fbalsdfbalksdbfalk bfalskhbflak sdbflkasdbflkasbf laksbfaslkd fbalwkdbfl aksdb",
       link: "/carousel-card-link",

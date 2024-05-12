@@ -5,15 +5,19 @@
     grid-template-columns: auto;
     grid-template-rows: repeat(3, auto);
     box-sizing: border-box;
-    height: min-content;
+    width: calc((100vw / 1920) * 1486);
+    height: calc((100vw / 1920) * 732);
     border: 2px solid black;
+    overflow-x: hidden;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 .carousel-header {
     display: grid;
     grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
 }
 
 .carousel-subheader {
@@ -23,7 +27,7 @@
 
 .carousel-content {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     column-gap: 50px;
     align-items: center;
@@ -39,4 +43,26 @@
 
 .carousel-title {
     margin: 0;
+}
+
+.carousel-scroll-buttons-top {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+.carousel-scroll-button-top-prev {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.carousel-scroll-button-top-next {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }

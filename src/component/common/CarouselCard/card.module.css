@@ -2,11 +2,12 @@
 
 .carousel-card {
     display: grid;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(2, 1fr);
     box-sizing: border-box;
     border: 2px solid red;
-    width: 422px;
-    height: 600px;
+    border-radius: 2%;
+    width: 1fr;
+    height: calc((100vw / 1920) * 600);
 }
 
 .carousel-card-image {
@@ -18,12 +19,14 @@
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: auto;
+    justify-content: space-between;
     padding: 10px;
     color: #343434;
 }
 
 .carousel-card-title {
     font-family: 'Roboto';
+    margin: 0;
     font-style: normal;
     font-weight: 800;
     color: #3E3E3F;
@@ -32,8 +35,9 @@
 
 .carousel-card-description {
     font-family: 'Roboto';
+    margin: 0;
     font-style: normal;
     font-weight: 400;
     color: #343434;
-    word-break: break-all;
+    word-break: break-word;
 }
