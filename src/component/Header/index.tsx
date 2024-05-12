@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from "./styles.module.css";
 import NavBarItem from './NavBarItem/index';
@@ -12,7 +11,7 @@ const Header: React.FC = () => {
             <div className={styles.Logo}>
                 <Image
                     src="/secdesk_logo.svg"
-                    alt="Next.js Logo"
+                    alt="secdesk logo"
                     width={177}
                     height={48}
 
@@ -21,15 +20,13 @@ const Header: React.FC = () => {
             <div className={styles.navbar}>
                 <NavBarItem />
                 <Button label='Contact' action_svg={'phone.svg'} />
-
             </div>
-            <Image src="/burger-menu-icon.svg" alt="burger menu"
+            <Image src="/burger-menu-icon.svg" alt="menu"
                 width={50}
                 height={50}
                 className={styles.burgerMenuLogo}
             />
         </nav>
-
     );
 };
 

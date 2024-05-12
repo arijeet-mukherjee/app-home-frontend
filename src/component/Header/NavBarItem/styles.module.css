@@ -1,29 +1,30 @@
-.navItemContainer{
+@import '../../../global.module.css';
+
+.navItemContainer {
     display: flex;
     justify-content: space-between;
     flex-grow: 3;
 }
-.navItem{                                                                                                                                                                                                                                                                                     
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.dropdown{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    border-radius: 15px;
-    margin-top: 2rem;
-    min-width: 200px;
-    translate: -75px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    transition: all 250ms;
-    
+
+.navItem {
+    color: var(--text-icon-color);
+    word-break: break-word;
 }
 
-.ddmItem{
-    color: black;
+.dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--text-icon-color);
+    align-items: center;
+    border-radius: 15px;
+    min-width: 200px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    z-index: 100;
+}
+
+.ddItem {
+    color: var(--text-tertiary-color);
     font-weight: 600;
 }

@@ -1,11 +1,10 @@
-.button{
+@import url("../../../global.module.css");
+
+.button {
     background-color: var(--text-primary-color);
     border: none;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition-duration: 0.4s;
+    color: var(--primary-background-dark-color);
+    transition-duration: background-color 0.4, scale 0.4;
     cursor: pointer;
     padding-left: 23px;
     padding-right: 23px;
@@ -16,5 +15,10 @@
     height: 44px;
     font-weight: 400;
     font-size: 17px;
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--framer-font-family);
+}
+
+.button:hover {
+    background-color: var(--text-button-background-color-secondary);
+    scale: 105%;
 }

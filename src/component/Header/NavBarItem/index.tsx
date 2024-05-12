@@ -4,21 +4,22 @@ import Link from 'next/link';
 import styles from './styles.module.css';
 import { useState } from 'react';
 
-const DDMenu: React.FC<{ list: string[] }> = ({ list }) => {
-    return (
-
-        <div className={styles.dropdown}>
-            <div className=''>
-                {list.map((item) => {
-                    return (
-                        <div className={styles.ddmItem}>
-                            <Link href="">{item}</Link>
-                        </div>
-                    )
-                })}
-            </div>
-        </div>)
+interface DDMenuProps {
+    list: string[];
+    offsetX: number;
+    offsetY: number;
 }
+const DDMenu: React.FC<DDMenuProps> = ({ list, offsetX = 0, offsetY = 28 }) => {
+    return (
+        <div className={styles.dropdown} style={{ transform: `translateX(${offsetX}px) translateY(${offsetY}px)` }} aria-label='language menu'>
+            {list.map((item, index) => {
+                return (
+                    <Link href="" aria-label={item} className={styles.ddItem} key={index}>{item}</Link>
+                )
+            })}
+        </div>
+    );
+};
 
 const list = ["ENG", "SPN", "DTC"];
 
@@ -30,15 +31,20 @@ const NavBarItem: FC = () => {
         setOpen(!open)
     }
     return (
-        <div className={styles.navItemContainer}>
-            <Link className={styles.navItem} href="">Introduction</Link>
-            <Link className={styles.navItem} href="">USP</Link>
-            <Link className={styles.navItem} href="">offering</Link>
-            <Link className={styles.navItem} href="">More</Link>
-            <Link className={styles.navItem} href="">Quiz</Link>
-            <div>
-                <Link className={styles.navItem} href="" onClick={() => handleClick()}>EN ▼</Link>
-                {open && <DDMenu list={list} />}
+        <div className={styles.navItemContainer} aria-label='site navigation'>
+            <Link className={styles.navItem} href="" aria-label='Introduction'>Introduction</Link>
+            <Link className={styles.navItem} href="" aria-label='USP'>USP</Link>
+            <Link className={styles.navItem} href="" aria-label='Offering'>offering</Link>
+            <Link className={styles.navItem} href="" aria-label='More'>More</Link>
+            <Link className={styles.navItem} href="" aria-label='Quiz'>Quiz</Link>
+            <div aria-label='Language settings'>
+                <Link className={styles.navItem} href="" onClick={(e) => {
+                    e.preventDefault;
+                    handleClick();
+                }}
+                    aria-label='Language settings'
+                >EN ▼</Link>
+                {open && <DDMenu list={list} offsetX={-75} offsetY={28} />}
             </div>
         </div>
     );

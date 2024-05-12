@@ -4,30 +4,26 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    color: black;
     height: 48px;
     margin: auto;
     gap: 20px;
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--framer-font-family);
     font-weight: 400;
-
 }
 
 .logo {
-    text-align: left;
+    /* styling on logo goes here */
 }
 
 .navbar {
     display: flex;
-    color: white;
+    color: var(--text-icon-color);
     gap: 20px;
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
-    text-align: right;
     justify-content: flex-end;
     align-items: center;
-
 }
 
 .burgerMenuLogo {
