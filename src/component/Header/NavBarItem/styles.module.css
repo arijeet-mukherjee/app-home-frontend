@@ -10,21 +10,3 @@
     color: var(--text-icon-color);
     word-break: break-word;
 }
-
-.dropdown {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--text-icon-color);
-    align-items: center;
-    border-radius: 15px;
-    min-width: 200px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    z-index: 100;
-}
-
-.ddItem {
-    color: var(--text-tertiary-color);
-    font-weight: 600;
-}
