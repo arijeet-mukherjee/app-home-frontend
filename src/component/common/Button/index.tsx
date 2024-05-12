@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg
 
   return (
     <>
-      <button className={styles.button} ref={elementRef} aria-label='Contact button'>
+      <button className={styles.button} ref={elementRef} aria-label={`${label} button`}>
         {label}
         <Image
           src={`/${action_svg}`}
