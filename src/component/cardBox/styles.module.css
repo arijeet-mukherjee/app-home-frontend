@@ -3,47 +3,49 @@
 
 .cardbox-card {
     display: grid;
-    grid-template-columns: 2fr;
-    height: 542px;
+    grid-template-columns: auto auto;
+    height: max-content;
     justify-content: center;
     align-items: center;
+    gap: 70px;
+    padding-top: calc((100vw / 1920) * 117);
+    padding-right: calc((100vw / 1920) * 152);
+    padding-bottom: calc((100vw / 1920) * 117);
+    padding-left: calc((100vw / 1920) * 59);
+    margin-bottom: calc((100vw / 1920) * 60);
 }
 
 .cardbox-content {
-    padding: 50px;
     display: grid;
-    grid-template-rows: 3fr;
-    margin-left: 80px;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-
 .cardbox-title {
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
-    color: #3E3E3F;
-    margin-bottom: -5px;
+    color: var(--text-secondary-color);
+    margin-bottom: 5px;
 }
 
 .cardbox-description {
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    color: #343434;
+    color: var(--text-tertiary-color);
+    word-wrap: break-word;
 }
 
-
-
 .cardbox-image {
-    padding: 50px;
     display: grid;
-    grid-row: 1;
     justify-content: center;
     align-items: center;
 }
-
 
 .button-text {
     font-family: "DM Sans", sans-serif;
@@ -54,103 +56,60 @@
     font-weight: 500;
     letter-spacing: 0.1em;
     align-items: center;
-    color: white;
+    color: var(--text-icon-color);
     flex-shrink: 0;
     display: flex;
     flex-wrap: nowrap;
-    margin-left: -5px;
-    margin-top: -6px;
 }
 
 .button {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
+}
+
+.button-icon {
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: min-content;
-    padding: 10px, 34px, 10px, 34px;
+    margin-top: 5px;
 }
 
 .cardbox-button {
-    align-items: center;
-    display: grid;
-    grid-template-rows: 1fr;
-    background-color: var(--text-primary-color);
-    width: min-content;
-    height: 30px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 10px;
+    width: 120px;
+    height: 20px;
+    background-color: var(--text-button-background-color-primary);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px 34px;
     justify-content: center;
     align-items: center;
 }
-/* width: Hug (201.83px)px;
-height: Hug (44px)px;
-padding: 10px 34px 10px 34px;
-gap: 10px;
-opacity: 0px; */
-
-
-@media (min-width: 786px) {
-    .cardbox-card {
-        background: linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%);
-        margin : 0;
-    }
-}
-
 
 @media (max-width: 768px) {
+    .cardbox-card {
+        height: min-content;
+        padding: 0px 0px 0px 0px;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        background-color: var(--text-icon-color);
+    }
 
     .cardbox-image {
-        background: linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%);
-        display: grid;
         justify-content: center;
         align-items: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
     }
 
     .cardbox-content {
         display: grid;
-        grid-template-rows: 3fr;
-        margin-top: -40px;
+        padding: 15px;
+        grid-template-rows: auto auto auto;
+        margin: 0px;
         justify-content: center;
         align-items: center;
     }
-
-    .cardbox-button {
-        width: 120px;
-        height: 20px;
-        background-color: var(--text-primary-color);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        padding: 10px 34px;
-    }
 }
-
-
-
-
-/* .cardbox-title {
-    grid-column: 1;
-    grid-row: 1;
-    border: 5px solid gray;
-}
-
-.cardbox-description {
-    grid-column: 1;
-    grid-row: 2;
-    border: 5px solid gray;
-}
-
-.cardbox-button {
-    grid-column: 1;
-    grid-row: 3;
-    border: 5px solid gray;
-}
-
-.cardbox-image {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    border: 5px solid gray;
-} */
