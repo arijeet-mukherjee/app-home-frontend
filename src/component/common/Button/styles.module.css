@@ -16,6 +16,7 @@
     font-weight: 400;
     font-size: 17px;
     font-family: var(--framer-font-family);
+    word-break: break-word;
 }
 
 .button:hover {

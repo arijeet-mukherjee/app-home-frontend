@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import { useRef, useEffect } from "react";
 
+
 interface ButtonProps {
   label: string;
   action_svg: string;
@@ -15,7 +16,6 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg }) => {
   useEffect(() => {
     function handleResize() {
       let rect = elementRef?.current?.getBoundingClientRect();
-      localStorage.setItem('nav_bar_button_coordinates', JSON.stringify({ x: rect?.x, y: rect?.y }));
       //read the position of the button from the localStorage with key 'nav_bar_button_coordinates
     }
 
