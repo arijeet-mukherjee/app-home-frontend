@@ -27,7 +27,9 @@ const NavBarItem: FC = () => {
                     handleClick();
                 }}
                     aria-label='Language settings'
-                >EN ▼</Link>
+                >EN 
+                <div className={styles.arrowDown}></div>
+                </Link>
                 {open && <DDMenu list={list} offsetX={-75} offsetY={28} />}
             </div>
         </div>

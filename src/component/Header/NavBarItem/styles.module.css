@@ -10,3 +10,11 @@
     color: var(--text-icon-color);
     word-break: break-word;
 }
+
+.arrowDown {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid var(--text-icon-color);
+  }
