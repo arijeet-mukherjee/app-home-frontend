@@ -7,9 +7,11 @@ import { useRef, useEffect } from "react";
 interface ButtonProps {
   label: string;
   action_svg: string;
+  svg_height?: number;
+  svg_width?: number;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, action_svg }) => {
+const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg_width = 18 }) => {
 
 
   const elementRef = useRef<HTMLButtonElement>(null);
@@ -31,8 +33,8 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg }) => {
         <Image
           src={`/${action_svg}`}
           alt={`${label} icon`}
-          width={18}
-          height={18}
+          width={svg_width}
+          height={svg_height}
         />
       </button>
 

@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 interface DDMenuProps {
     list: string[];
-    offsetX: number;
-    offsetY: number;
+    offsetX?: number;
+    offsetY?: number;
 }
 const DDMenu: React.FC<DDMenuProps> = ({ list, offsetX = 0, offsetY = 28 }) => {
     return (
