@@ -1,0 +1,156 @@
+@import url("../../global.module.css");
+
+
+.cardbox-card {
+    display: grid;
+    grid-template-columns: 2fr;
+    height: 542px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardbox-content {
+    padding: 50px;
+    display: grid;
+    grid-template-rows: 3fr;
+    margin-left: 80px;
+}
+
+
+.cardbox-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: #3E3E3F;
+    margin-bottom: -5px;
+}
+
+.cardbox-description {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #343434;
+}
+
+
+
+.cardbox-image {
+    padding: 50px;
+    display: grid;
+    grid-row: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-text {
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    align-items: center;
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -5px;
+    margin-top: -6px;
+}
+
+.button {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: min-content;
+    padding: 10px, 34px, 10px, 34px;
+}
+
+.cardbox-button {
+    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: var(--text-primary-color);
+    width: min-content;
+    height: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+/* width: Hug (201.83px)px;
+height: Hug (44px)px;
+padding: 10px 34px 10px 34px;
+gap: 10px;
+opacity: 0px; */
+
+
+@media (min-width: 786px) {
+    .cardbox-card {
+        background: linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%);
+        margin : 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .cardbox-image {
+        background: linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%);
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardbox-content {
+        display: grid;
+        grid-template-rows: 3fr;
+        margin-top: -40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardbox-button {
+        width: 120px;
+        height: 20px;
+        background-color: var(--text-primary-color);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 10px 34px;
+    }
+}
+
+
+
+
+/* .cardbox-title {
+    grid-column: 1;
+    grid-row: 1;
+    border: 5px solid gray;
+}
+
+.cardbox-description {
+    grid-column: 1;
+    grid-row: 2;
+    border: 5px solid gray;
+}
+
+.cardbox-button {
+    grid-column: 1;
+    grid-row: 3;
+    border: 5px solid gray;
+}
+
+.cardbox-image {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    border: 5px solid gray;
+} */
