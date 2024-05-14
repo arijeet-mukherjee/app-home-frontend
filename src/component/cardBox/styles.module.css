@@ -1,0 +1,115 @@
+@import url("../../global.module.css");
+
+
+.cardbox-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    padding-top: calc((100vw / 1920) * 117);
+    padding-right: calc((100vw / 1920) * 152);
+    padding-bottom: calc((100vw / 1920) * 117);
+    padding-left: calc((100vw / 1920) * 59);
+    margin-bottom: calc((100vw / 1920) * 60);
+}
+
+.cardbox-content {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cardbox-title {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: var(--text-secondary-color);
+    margin-bottom: 5px;
+}
+
+.cardbox-description {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--text-tertiary-color);
+    word-wrap: break-word;
+}
+
+.cardbox-image {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-text {
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    align-items: center;
+    color: var(--text-icon-color);
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.button-icon {
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.cardbox-button {
+    width: 120px;
+    height: 20px;
+    background-color: var(--text-button-background-color-primary);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px 34px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .cardbox-card {
+        height: min-content;
+        padding: 0px 0px 0px 0px;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        background-color: var(--text-icon-color);
+    }
+
+    .cardbox-image {
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
+    }
+
+    .cardbox-content {
+        display: grid;
+        padding: 15px;
+        grid-template-rows: auto auto auto;
+        margin: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+}
