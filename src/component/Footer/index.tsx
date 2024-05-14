@@ -1,85 +1,114 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.css";
 import Image from 'next/image';
-import {getCurrentYear, goToTop} from '../../utils/util/index'
+import { getCurrentYear, goToTop } from '../../utils/util/index';
+import Link from 'next/link';
 
-export default function footer() {
+interface content {
+  contentName: string;
+  contentUrl: string;
+}
+interface socialMedia {
+  socialName: string;
+  socialUrl: string;
+  socialIcon: string;
+}
+interface logo {
+  logoName: string;
+  logoUrl: string;
+}
+interface background{
+  backgroundName: string;
+  backgroundUrl: string;
+}
+interface FooterProps {
+  contents?: Array<content>;
+  socialMedias?: Array<socialMedia>;
+  branding?: string;
+  logo?: logo;
+  background?: background;
+};
+
+const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo, background }) => {
+
+  const [firstHalf, setFirstHalf] = useState<content[]>();
+  const [secondHalf, setSecondHalf] = useState<content[]>();
+
+  useEffect(() => {
+    if (contents && contents.length) {
+      const length = contents.length;
+      const half = Math.ceil(length / 2);
+      setFirstHalf(contents.slice(0, half));
+      setSecondHalf(contents.slice(half, length));
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Image src="/netherland.svg"
-        alt="netherland"
+      <Image src={background?.backgroundUrl ? background.backgroundUrl : "/netherland.svg"}
+        alt={background?.backgroundName ? background.backgroundName : "netherland"}
         className={styles.netherland}
         width={250}
         height={225}
         priority
       />
-      <div className={styles.logo}>
+      
         <Image
-          src="/logo.svg"
-          alt="secDesk logo"
+          className={styles.logo}
+          tabIndex={0}
+          src={logo?.logoUrl ? logo.logoUrl : '/logo.svg'}
+          alt={logo?.logoName ? logo.logoName : "secDesk logo"}
           width={100}
           height={48}
           priority
-        /></div>
-      <div className={styles.topBtn} aria-label="back to top" onClick ={()=>{goToTop()}}><Image
-        className={styles.topBtn_img}
-        src="/topBtn.svg"
-        alt="top button"
-        width={10}
-        height={10}
-        priority />Back to top</div>
+        />
 
-      <hr className={styles.horizontalLine} aria-label='horizontal line'/>
+      <div className={styles.topBtn} aria-label="back to top" onClick={() => { goToTop() }} tabIndex={0}>
+        <Image
+          className={styles.topBtn_img}
+          src="/topBtn.svg"
+          alt="top button"
+          width={10}
+          height={10}
+          priority />Back to top</div>
+
+      <hr className={styles.horizontalLine} aria-label='horizontal line' />
 
       <div className={styles.center}>
         <ul className={styles.center_options}>
-          <li aria-label="contact">Contact</li>
-          <li aria-label="jobs">Jobs</li>
-          <li aria-label="team">Team</li>
-          <li aria-label="location">Location</li>
-          <li aria-label="about us">About Us</li>
+          {firstHalf?.map(function (val, index) {
+            return <li key={index}>
+              <Link href={val.contentUrl}>{val.contentName}</Link>
+            </li>
+          })}
         </ul>
         <ul className={styles.center_options}>
-          <li aria-label="experties">Expertise</li>
-          <li aria-label="subscription">Subscription</li>
-          <li aria-label="training">Training</li>
-          <li aria-label="privacy policy">Privacy Policy</li>
+          {secondHalf?.map(function (val, index) {
+            return <li key={index}>
+              <Link href={val.contentUrl}>{val.contentName}</Link>
+            </li>
+          })}
         </ul>
       </div>
 
-      <div className={styles.branding} aria-label={`copy-right secdesk, Neitherlands, ${getCurrentYear()}`}>© Secdesk, Netherlands, {getCurrentYear()}</div>
+      <div className={styles.branding} aria-label={`${branding ? branding : ''} ${getCurrentYear()}`} tabIndex={0}>{`${branding ? branding + ','  : ''} ${getCurrentYear()}`}</div>
 
       <div className={styles.socials}>
-        <Image
-          src="/twitter.svg"
-          alt="twitter logo"
-          width={20}
-          height={20}
-          priority
-        />
-        <Image
-          src="/youtube.svg"
-          alt="youtube logo"
-          width={20}
-          height={20}
-          priority
-        />
-        <Image
-          src="/insta.svg"
-          alt="instagram logo"
-          width={20}
-          height={20}
-          priority
-        />
-        <Image
-          src="/spotify.svg"
-          alt="spotify logo"
-          width={20}
-          height={20}
-          priority
-        />
+
+        {socialMedias?.map(function (val, index) {
+          return <Link href={val.socialUrl} tabIndex={0} key={index}>
+            <Image
+              src={val.socialIcon}
+              alt={val.socialName}
+              width={20}
+              height={20}
+              priority
+            />
+          </Link>
+        })}
       </div>
     </div>
   )
 }
+export default Footer;
