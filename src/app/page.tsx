@@ -16,6 +16,7 @@ export default function Home() {
           iconPosition={data.introduction.image_position}
           buttonText={data.introduction.button_name}
           buttonIcon={data.introduction.button_icon}
+          paddingLeftContent={data.introduction.paddingLeftContent}
         />
       </div>
       <div style={{ padding: "160px", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
@@ -26,6 +27,7 @@ export default function Home() {
           iconPosition={data.yourShield.image_position}
           buttonText={data.yourShield.button_name}
           buttonIcon={data.yourShield.button_icon}
+          paddingLeftContent={data.yourShield.paddingLeftContent}
         />
         <CardBox
           title={data.jointheMovement.title}
@@ -34,6 +36,7 @@ export default function Home() {
           iconPosition={data.jointheMovement.image_position}
           buttonText={data.jointheMovement.button_name}
           buttonIcon={data.jointheMovement.button_icon}
+          paddingLeftContent={data.jointheMovement.paddingLeftContent}
         />
       </div>
     </div>

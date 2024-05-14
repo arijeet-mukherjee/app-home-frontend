@@ -10,7 +10,8 @@ interface CardBoxProps {
     description: string,
     iconPosition: string,
     buttonText: string,
-    buttonIcon: string
+    buttonIcon: string,
+    paddingLeftContent: string
 };
 
 const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
@@ -30,7 +31,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
             setCardContentStyle({ gridRow: 2, gridColumn: 1 });
             setCardImageStyle({ gridRow: 1, gridColumn: 1, background: "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)" });
         } else {
-            setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1 });
+            setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1, paddingLeft : props.paddingLeftContent ? props.paddingLeftContent : 0});
             setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1 });
             setCardGradient({ background: props.iconPosition == "left" ? "linear-gradient(270.59deg, #FFFFFF 35.89%, #C7D5E0 79.41%)" : "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)", gridRow: 1 });
         }
@@ -49,7 +50,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
             setCardContentStyle({ gridRow: 2, gridColumn: 1 });
             setCardImageStyle({ gridRow: 1, gridColumn: 1, background: "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)" });
         } else {
-            setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1 });
+            setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1, paddingLeft : props.paddingLeftContent ? props.paddingLeftContent : 0 });
             setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1 });
             setCardGradient({ background: props.iconPosition == "left" ? "linear-gradient(270.59deg, #FFFFFF 35.89%, #C7D5E0 79.41%)" : "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)", gridRow: 1 });
         }

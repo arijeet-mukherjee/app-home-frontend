@@ -13,25 +13,28 @@
         "title": "Introduction",
         "description": "Welcome to SecDesk@Home - your shield against cybercriminals in an increasingly digitized world. As technology advances, so do the threats, and SecDesk couldn't stand idly by any longer. We've witnessed too many hard-earned dollars fall into the hands of cybercriminals, and enough is enough. It's time for a solution designed to protect individuals like you who are active online.",
         "image": "/introductiondoubletick.svg",
-        "image_position": "left",
+        "image_position": "right",
         "button_name": "Know More",
-        "button_icon": "/arrowrightwhite.svg"
+        "button_icon": "/arrowrightwhite.svg",
+        "paddingLeftContent": "calc((100vw / 1920) * 115)"
     },
     "yourShield": {
         "title": "Your Shield",
         "description": "SecDesk@Home is more than just a security subscription; it's your personalized defense mechanism crafted by the security specialists at SecDesk. Our mission is clear: to create a more secure world, and SecDesk@Home extends that mission directly to you, the consumer market. With our comprehensive security measures in place, you can navigate the digital landscape with confidence, knowing that your personal information and hard-earned assets are safeguarded against cyber threats.",
         "image": "/yourshield.svg",
-        "image_position": "right",
+        "image_position": "left",
         "button_name": "Know More",
-        "button_icon": "/arrowrightwhite.svg"
+        "button_icon": "/arrowrightwhite.svg",
+        "paddingLeftContent": ""
     },
     "jointheMovement": {
         "title": "Join the Movement",
         "description": "Take control of your online security today by joining the SecDesk@Home community. Together, we can build a safer digital environment for everyone. Don't let cybercriminals dictate your online experience any longer. With SecDesk@Home, you have the power to protect yourself and contribute to a more secure world. Join us in our mission and secure your peace of mind with SecDesk@Home.",
         "image": "/jointhemovement.svg",
-        "image_position": "left",
+        "image_position": "right",
         "button_name": "Know More",
-        "button_icon": "/arrowrightwhite.svg"
+        "button_icon": "/arrowrightwhite.svg",
+        "paddingLeftContent": "calc((100vw / 1920) * 115)"
     }
 
 }
