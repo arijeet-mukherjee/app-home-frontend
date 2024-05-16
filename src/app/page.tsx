@@ -1,12 +1,27 @@
+'use client'
 import Image from "next/image";
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
 import CardBox from "@component/cardBox";
-import data from '../data.json'
+import data from '../data.json';
+import MobileNavModal from "@component/MobileNavModal";
+import Header from "@component/Header";
+import { useState } from "react";
+
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(!modalOpen);
+  };
   return (
     <div className={"container"}>
-      <Hero introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]} content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]} />
+     { modalOpen &&<MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
+      
+
+      <Hero introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]} 
+      content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]} 
+      openModal={openModal} />
+      
       <Shield top={95} left={1300} />
       <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox

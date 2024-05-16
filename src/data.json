@@ -1,5 +1,57 @@
 {
     "header": {
+        "navigation_bar":{
+            "logo":{
+                "src": "secdesk_logo.svg",
+                "alt": "SecDesk Logo",
+                "href": "/"
+            },
+            "button":{
+                "label": "contact",
+                "action_svg": "phone.svg"
+            },
+            "navbarItems":[
+                {
+                    "label": "Introduction",
+                    "url": "/",
+                    "dditem":[]
+                },
+                {
+                    "label": "USP",
+                    "url": "/",
+                    "dditem":[]
+                },
+                {
+                    "label": "Offering",
+                    "url": "/",
+                    "dditem":[]
+                },
+                {
+                    "label": "More",
+                    "url": "/",
+                    "dditem":[]
+                },
+                {
+                    "label": "Quiz",
+                    "url": "/",
+                    "dditem":[]
+                },
+                {
+                    "label": "EN",
+                    "url": "/",
+                    "dditem": [
+                        {
+                            "label": "ENG",
+                            "url": "/"
+                        },
+                        {
+                            "label": "DTC",
+                            "url": "/"
+                        }
+                    ]
+                }
+            ]
+        },
         "text": [
             "Internet can be a dangerous place, Do you sometimes worry",
             "About the online scams?",
