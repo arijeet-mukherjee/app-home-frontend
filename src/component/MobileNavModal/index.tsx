@@ -49,7 +49,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal }) => {
                             >{item.label}</Link>
                             {
                                 item.dditem?.map((dditem, index) => {
-                                    console.log(dditem, "this is speacial")
+                                   
                                     return (
 
                                         <div className={styles.ddItem} key={index} aria-label={`${dditem.label}`}>

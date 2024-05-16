@@ -9,9 +9,10 @@ interface ButtonProps {
   action_svg: string;
   svg_height?: number;
   svg_width?: number;
+  hc?: Function;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg_width = 18 }) => {
+const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg_width = 18, hc}) => {
 
 
   const elementRef = useRef<HTMLButtonElement>(null);
@@ -28,7 +29,9 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg
 
   return (
     <>
-      <button className={styles.button} ref={elementRef} aria-label={`${label} button`}>
+      <button className={styles.button} ref={elementRef} aria-label={`${label} button` } onClick={(e) =>{
+        if(hc) hc(e);
+      }}>
         {label}
         <Image
           src={`/${action_svg}`}

@@ -1,7 +1,15 @@
 {
     "header": {
         "navigation_bar":{
-            "logo_img":"secdesk_logo.svg",
+            "logo":{
+                "src": "secdesk_logo.svg",
+                "alt": "SecDesk Logo",
+                "href": "/"
+            },
+            "button":{
+                "label": "contact",
+                "action_svg": "phone.svg"
+            },
             "navbarItems":[
                 {
                     "label": "Introduction",

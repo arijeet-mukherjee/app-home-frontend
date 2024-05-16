@@ -28,20 +28,20 @@ const NavBarItem: FC<NavBarItemProps> = ({ list }) => {
         setOpen(!open)
     }
 
-    console.log(list[4].dditem);
+
     return (
         <div className={styles.navItemContainer} aria-label='site navigation' tabIndex={0}>
             {
                 list?.map((item, index) => {
                     if (item.dditem?.length === 0) {
                         return (
-                            <div aria-label={item.label}>
+                            <div aria-label={item.label} key={index}>
                                 <Link className={styles.navItem} href={item.url} >{item.label}</Link>
                             </div>
                         )
                     }
                     return (
-                        <div aria-label={item.label}>
+                        <div aria-label={item.label} key={index}>
 
                             <Link className={styles.navItem} href="" onClick={(e) => {
                                 e.preventDefault;

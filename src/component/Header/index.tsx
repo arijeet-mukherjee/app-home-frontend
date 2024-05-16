@@ -9,18 +9,20 @@ import data from '../../data.json';
 
 
 interface HeaderProps {
-    openModal: Function
+    openModal: Function;
 };
 
 const Header: React.FC<HeaderProps> = ({ openModal }) => {
-    console.log(data.header.navigation_bar.navbarItems);
+    function handelClick(e : MouseEvent) {
+        e.preventDefault();
+    };
     return (
         <nav className={styles.header}>
             <div className={styles.Logo}>
-                <Link href="/">
+                <Link href={data.header.navigation_bar.logo.href}>
                     <Image
-                        src="/secdesk_logo.svg"
-                        alt="secdesk logo"
+                        src={data.header.navigation_bar.logo.src}
+                        alt={data.header.navigation_bar.logo.alt}
                         width={177}
                         height={48}
 
@@ -29,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ openModal }) => {
             </div>
             <div className={styles.navbar}>
                 <NavBarItem list={data.header.navigation_bar.navbarItems} />
-                <Button label='Contact' action_svg={'phone.svg'} />
+                <Button label={data.header.navigation_bar.button.label} action_svg={data.header.navigation_bar.button.action_svg} hc={handelClick} />
             </div>
             <Image src="/burger-menu-icon.svg" alt="menu"
                 width={50}
