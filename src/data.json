@@ -87,6 +87,73 @@
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "calc((100vw / 1920) * 115)"
+    },
+    "footer": {
+        "logo": {
+            "logoName": "secDesk logo",
+            "logoUrl": "/logo.svg"
+        },
+        "background": {
+            "backgroundName": "netherland",
+            "backgroundUrl": "/netherland.svg"
+        },
+        "branding" : "© Secdesk, Netherlands",
+        "content": [
+            {
+            "contentName": "Contacts",
+            "contentUrl": "/"
+        },{
+            "contentName": "Jobs",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Team",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Location",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "About Us",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Expertise",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Subscription",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Training",
+            "contentUrl": "/"
+        },
+        {
+            "contentName": "Privacy Policy",
+            "contentUrl": "/"
+        }],
+        "socialMedia":[{
+            "socialName": "X",
+            "socialUrl": "/",
+            "socialIcon": "/twitter.svg"
+        },
+        {
+            "socialName": "Youtube",
+            "socialUrl": "/",
+            "socialIcon": "/youtube.svg"
+        },
+        {
+            "socialName": "Instagram",
+            "socialUrl": "/",
+            "socialIcon": "/insta.svg"
+        },
+        {
+            "socialName": "Spotify",
+            "socialUrl": "/",
+            "socialIcon": "/spotify.svg"
+        }]
     }
 
 }

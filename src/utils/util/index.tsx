@@ -10,6 +10,19 @@ export function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
+export function getCurrentYear(){
+    const date = new Date();
+    const year = date.getFullYear();
+    return year;
+}
+
+export function goToTop(){
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+}
+
 export function makeWebServiceCall(url: string, method: string, data: any): Promise<any> {
     // Implement your web service call logic here
     // You can use libraries like axios or fetch to make the actual HTTP request
