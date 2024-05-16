@@ -8,13 +8,17 @@
 
 .navItem {
     color: var(--text-icon-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     word-break: break-word;
 }
 
 .arrowDown {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 8px solid var(--text-icon-color);
-  }
+}

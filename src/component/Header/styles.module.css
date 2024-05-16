@@ -9,6 +9,7 @@
     gap: 20px;
     font-family: var(--framer-font-family);
     font-weight: 400;
+
 }
 
 .logo {
@@ -45,6 +46,7 @@
         margin-right: 0px;
         justify-content: space-between;
         align-items: center;
+
     }
 
     .navbar {
@@ -54,4 +56,5 @@
     .burgerMenuLogo {
         display: block;
     }
+
 }
