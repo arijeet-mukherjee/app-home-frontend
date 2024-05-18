@@ -7,6 +7,7 @@ import Footer from "@component/Footer";
 import MobileNavModal from "@component/MobileNavModal";
 import Header from "@component/Header";
 import { useState } from "react";
+import CardQuality from "@component/cardQuality"
 import data from '../data.json'
 
 export default function Home() {
@@ -16,15 +17,15 @@ export default function Home() {
   };
   return (
     <div className={"container"}>
-     { modalOpen &&<MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
-      
+      {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
 
-      <Hero 
-        introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]} 
-        content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]} 
-        openModal={openModal} 
-        />
-      
+
+      <Hero
+        introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
+        content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
+        openModal={openModal}
+      />
+
       <Shield top={95} left={1300} />
       <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox
@@ -57,12 +58,19 @@ export default function Home() {
           paddingLeftContent={data.jointheMovement.paddingLeftContent}
         />
       </div>
-      <Footer 
-        branding={data.footer.branding} 
-        logo={data.footer.logo} 
-        background={data.footer.background} 
-        contents={data.footer.content} 
-        socialMedias={data.footer.socialMedia}/>
+      <CardQuality
+        heading={data.qualityCard.heading}
+        content={data.qualityCard.content}
+        button={data.qualityCard.button}
+        childCardProp={data.qualityCard.childCardProp}
+        background={data.qualityCard.background}
+      />
+      <Footer
+        branding={data.footer.branding}
+        logo={data.footer.logo}
+        background={data.footer.background}
+        contents={data.footer.content}
+        socialMedias={data.footer.socialMedia} />
     </div>
   );
 }

@@ -1,40 +1,40 @@
 {
     "header": {
-        "navigation_bar":{
-            "logo":{
+        "navigation_bar": {
+            "logo": {
                 "src": "secdesk_logo.svg",
                 "alt": "SecDesk Logo",
                 "href": "/"
             },
-            "button":{
+            "button": {
                 "label": "contact",
                 "action_svg": "phone.svg"
             },
-            "navbarItems":[
+            "navbarItems": [
                 {
                     "label": "Introduction",
                     "url": "/",
-                    "dditem":[]
+                    "dditem": []
                 },
                 {
                     "label": "USP",
                     "url": "/",
-                    "dditem":[]
+                    "dditem": []
                 },
                 {
                     "label": "Offering",
                     "url": "/",
-                    "dditem":[]
+                    "dditem": []
                 },
                 {
                     "label": "More",
                     "url": "/",
-                    "dditem":[]
+                    "dditem": []
                 },
                 {
                     "label": "Quiz",
                     "url": "/",
-                    "dditem":[]
+                    "dditem": []
                 },
                 {
                     "label": "EN",
@@ -97,63 +97,134 @@
             "backgroundName": "netherland",
             "backgroundUrl": "/netherland.svg"
         },
-        "branding" : "© Secdesk, Netherlands",
+        "branding": "© Secdesk, Netherlands",
         "content": [
             {
-            "contentName": "Contacts",
-            "contentUrl": "/"
-        },{
-            "contentName": "Jobs",
-            "contentUrl": "/"
+                "contentName": "Contacts",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Jobs",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Team",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Location",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "About Us",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Expertise",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Subscription",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Training",
+                "contentUrl": "/"
+            },
+            {
+                "contentName": "Privacy Policy",
+                "contentUrl": "/"
+            }
+        ],
+        "socialMedia": [
+            {
+                "socialName": "X",
+                "socialUrl": "/",
+                "socialIcon": "/twitter.svg"
+            },
+            {
+                "socialName": "Youtube",
+                "socialUrl": "/",
+                "socialIcon": "/youtube.svg"
+            },
+            {
+                "socialName": "Instagram",
+                "socialUrl": "/",
+                "socialIcon": "/insta.svg"
+            },
+            {
+                "socialName": "Spotify",
+                "socialUrl": "/",
+                "socialIcon": "/spotify.svg"
+            }
+        ]
+    },
+    "qualityCard": {
+        "heading": [
+            "We are there for you ",
+            "when you can’t turn ",
+            "to others"
+        ],
+        "content": "Online security threats may come unannounced and this is exactly where our services can really prove to be helpful to you. Don’t rely on George because we know he is not coming to save you in the middle of the night. Let him sleep and put Secdesk to action.",
+        "background": {
+            "name": "Choose Secdesk",
+            "path": "/qualitybackground.svg"
         },
-        {
-            "contentName": "Team",
-            "contentUrl": "/"
+        "button": {
+            "name": "Choose Secdesk",
+            "url": "/"
         },
-        {
-            "contentName": "Location",
-            "contentUrl": "/"
-        },
-        {
-            "contentName": "About Us",
-            "contentUrl": "/"
-        },
-        {
-            "contentName": "Expertise",
-            "contentUrl": "/"
-        },
-        {
-            "contentName": "Subscription",
-            "contentUrl": "/"
-        },
-        {
-            "contentName": "Training",
-            "contentUrl": "/"
-        },
-        {
-            "contentName": "Privacy Policy",
-            "contentUrl": "/"
-        }],
-        "socialMedia":[{
-            "socialName": "X",
-            "socialUrl": "/",
-            "socialIcon": "/twitter.svg"
-        },
-        {
-            "socialName": "Youtube",
-            "socialUrl": "/",
-            "socialIcon": "/youtube.svg"
-        },
-        {
-            "socialName": "Instagram",
-            "socialUrl": "/",
-            "socialIcon": "/insta.svg"
-        },
-        {
-            "socialName": "Spotify",
-            "socialUrl": "/",
-            "socialIcon": "/spotify.svg"
-        }]
+        "childCardProp": {
+            "left": [
+                {
+                    "heading": "Trustworthy",
+                    "content": "All our employees are under very strict Non-Disclosure Agreements",
+                    "image": {
+                        "path": "/trustworthy.svg",
+                        "name": "trustworthy"
+                    },
+                    "backgroundColor": "var(--light-color)",
+                    "textColor": "var(--dark-color)"
+                },
+                {
+                    "heading": "Accessible",
+                    "content": "Quick and discrete answers to your troubles",
+                    "image": {
+                        "path": "/accessible.svg",
+                        "name": "accessible"
+                    },
+                    "backgroundColor": "var(--light-color)",
+                    "textColor": "var(--dark-color)"
+                }
+            ],
+            "right": [
+                {
+                    "heading": "Available",
+                    "content": "We are always available, also when your tech-savvy aunt or friend is not",
+                    "image": {
+                        "path": "/available.svg",
+                        "name": "available"
+                    },
+                    "backgroundColor": "var(--text-button-background-color-primary)",
+                    "textColor": "var(--text-icon-color)"
+                },
+                {
+                    "heading": "Multilingual",
+                    "content": "Currently available in: Dutch, English, Romanian. Request for a new language.",
+                    "image": {
+                        "path": "/multilingual.svg",
+                        "name": "multilingual"
+                    },
+                    "backgroundColor": "var(--light-color)",
+                    "textColor": "var(--dark-color)",
+                    "button": {
+                        "name1": "Request",
+                        "name2":"Request Now",
+                        "url": "/"
+                    }
+                }
+            ]
+        }
     }
 
 }
