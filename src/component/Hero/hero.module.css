@@ -12,7 +12,7 @@
 
 .header {
     max-height: 48px;
-    margin-bottom: 130px;
+    margin-bottom: calc((100vw / 1920) * 130);
 }
 
 @media (max-width: 768px) { 
