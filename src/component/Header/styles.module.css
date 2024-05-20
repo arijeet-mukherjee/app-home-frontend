@@ -1,0 +1,60 @@
+@import '../../global.module.css';
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    height: 48px;
+    margin: auto;
+    gap: 20px;
+    font-family: var(--framer-font-family);
+    font-weight: 400;
+
+}
+
+.logo {
+    /* styling on logo goes here */
+}
+
+.navbar {
+    display: flex;
+    color: var(--text-icon-color);
+    gap: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.burgerMenuLogo {
+    filter: invert(1);
+    display: none;
+}
+
+@media only screen and (max-width: 1724px) {
+    .navbar {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 1546px) {
+    .header {
+        display: flex;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .burgerMenuLogo {
+        display: block;
+    }
+
+}

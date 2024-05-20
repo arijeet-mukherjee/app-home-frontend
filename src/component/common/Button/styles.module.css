@@ -1,0 +1,24 @@
+@import url("../../../global.module.css");
+
+.button {
+    background-color: var(--text-primary-color);
+    border: none;
+    color: var(--primary-background-dark-color);
+    cursor: pointer;
+    padding-left: 23px;
+    padding-right: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: var(--framer-font-family);
+    word-wrap: break-word;
+    transform: translateX(90px);
+}
+
+.button:hover {
+    background-color: var(--text-button-background-color-secondary);
+}

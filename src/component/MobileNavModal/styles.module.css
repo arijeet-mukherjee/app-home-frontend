@@ -1,0 +1,21 @@
+.mobileNavModal {
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-icon-color);
+    gap: 30px;
+
+}
+
+.closebtn {
+
+    align-self: end;
+    margin: 2rem;
+}

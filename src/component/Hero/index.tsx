@@ -3,14 +3,15 @@ import React from 'react';
 import Link from 'next/link';
 import styles from "./hero.module.css";
 import Image from 'next/image';
-
+import Header from '@component/Header';
 interface HeroProps {
     // Your props goes here
     introduction: Array<string>;
-    content: Array<string>
+    content: Array<string>;
+    openModal: Function;
 };
 
-const Hero: React.FC<HeroProps> = ({ introduction, content }) => {
+const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
@@ -18,7 +19,9 @@ const Hero: React.FC<HeroProps> = ({ introduction, content }) => {
     return (
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
-            <div className={styles["header"]}></div>
+            <div className={styles["header"]}>
+            <Header openModal={openModal} />
+            </div>
             <div className='heroContent'>
                 <div className={styles["heroIntrocuction"]}>
                     <p style={{ margin: "0", padding: "0" }}>
