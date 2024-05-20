@@ -15,6 +15,7 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     justify-content: space-between;
+    gap: calc((100vw / 1920) * 12);
 }
 
 .carousel-subheader {
@@ -35,7 +36,12 @@
 
 
 .carousel-description {
-    margin: 0;
+    padding-top: calc((100vw / 1920) * 12);
+    font-family: 'Roboto';
+    font-size: calc((100vw / 1920) * 18);
+    font-weight: 400;
+    word-wrap: break-word;
+    margin: 0 0 15px 0;
 }
 
 .carousel-header {
@@ -51,6 +57,7 @@
     font-weight: 600;
     justify-content: start;
     align-items: start;
+    word-wrap: break-word;
 }
 
 .carousel-scroll-buttons-top {

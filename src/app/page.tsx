@@ -1,14 +1,13 @@
 'use client'
-import Image from "next/image";
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
 import CardBox from "@component/cardBox";
 import Footer from "@component/Footer";
 import MobileNavModal from "@component/MobileNavModal";
-import Header from "@component/Header";
 import { useState } from "react";
-import CardQuality from "@component/cardQuality"
-import data from '../data.json'
+import CardQuality from "@component/cardQuality";
+import Carousel from "@component/Carousel";
+import data from '../data.json';
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -65,6 +64,12 @@ export default function Home() {
         childCardProp={data.qualityCard.childCardProp}
         background={data.qualityCard.background}
       />
+      <div>
+        <Carousel {...data.carouselCurrentSubscription} />
+      </div>
+      <div>
+        <Carousel {...data.carouselUpcomingSubscription} />
+      </div>
       <Footer
         branding={data.footer.branding}
         logo={data.footer.logo}
