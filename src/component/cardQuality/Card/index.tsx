@@ -23,7 +23,8 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ heading, content, image, backgroundColor, textColor, button }) => {
 
-  const [breakPoint, setBreakPoint] = useState<number>(screen.width);
+  //Fixed screen not defined reference error
+  const [breakPoint, setBreakPoint] = useState<number>(typeof window !== 'undefined' ? window.screen.width : 0);
 
   useEffect(() => {
     setBreakPoint(screen.width);
