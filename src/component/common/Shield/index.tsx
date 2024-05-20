@@ -6,12 +6,12 @@ import Image from 'next/image';
 
 interface ShieldProps {
     top: number;
-    left: number;
+    right : number
 };
 
-const Shield: React.FC<ShieldProps> = ({ top, left }) => {
+const Shield: React.FC<ShieldProps> = ({ top, right }) => {
     return (
-        <div className={styles["shield-parent"]} style={{ top: `${top}px`, left: `${left}px` }}>
+        <div className={styles["shield-parent"]} style={{ top: `${top}px`, right: `${right}px` }}>
             <div className={styles["shield"]}>
                 <div className={styles["shield-top"]}>
                     <div className={styles["shield-line"]}></div>
