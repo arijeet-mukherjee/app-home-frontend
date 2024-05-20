@@ -26,7 +26,7 @@ export default function Home() {
         openModal={openModal}
       />
 
-      <Shield top={95} left={1300} />
+      <Shield top={105} right={190} />
       <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
