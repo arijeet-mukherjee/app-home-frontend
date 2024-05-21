@@ -7,6 +7,7 @@ import Footer from "@component/Footer";
 import MobileNavModal from "@component/MobileNavModal";
 import Header from "@component/Header";
 import { useState } from "react";
+import ThreatScorecard from '@component/threatScorecard';
 import data from '../data.json'
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
         />
       
       <Shield top={95} left={1300} />
-      <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
+      <div style={{ padding: "calc((100vw / 1920) * 160)", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
@@ -37,7 +38,7 @@ export default function Home() {
           paddingLeftContent={data.introduction.paddingLeftContent}
         />
       </div>
-      <div style={{ padding: "160px", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
+      <div style={{ padding: "calc((100vw / 1920) * 160)", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.yourShield.title}
           description={data.yourShield.description}
@@ -57,6 +58,15 @@ export default function Home() {
           paddingLeftContent={data.jointheMovement.paddingLeftContent}
         />
       </div>
+      <ThreatScorecard
+        totalthreat={90}
+        score={40}
+      />
+      {/* <VulnerabilityThreat
+        index={1}
+        name={"MAlware threat"}
+        percent={60}
+      /> */}
       <Footer 
         branding={data.footer.branding} 
         logo={data.footer.logo} 

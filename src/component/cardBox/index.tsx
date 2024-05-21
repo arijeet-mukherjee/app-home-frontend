@@ -20,26 +20,19 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     const [cardContentStyle, setCardContentStyle] = useState({});
     const [cardImageStyle, setCardImageStyle] = useState({});
     const [cardGradient, setCardGradient] = useState({});
+    const [imageHeight, setImageHeight] = React.useState(329.61);
+    const [imageWidth, setImageWidth] = React.useState(307.29);
+
 
     const handleResize = () => {
         const isMobile = () => {
             return typeof window !== 'undefined' && window.matchMedia("(max-width: 767px)").matches;
         }
-        const check = isMobile();
-
-        if (check === true) {
-            setCardContentStyle({ gridRow: 2, gridColumn: 1 });
-            setCardImageStyle({ gridRow: 1, gridColumn: 1, background: "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)" });
-        } else {
-            setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1, paddingLeft : props.paddingLeftContent ? props.paddingLeftContent : 0});
-            setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1 });
-            setCardGradient({ background: props.iconPosition == "left" ? "linear-gradient(270.59deg, #FFFFFF 35.89%, #C7D5E0 79.41%)" : "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)", gridRow: 1 });
-        }
     }
 
     useEffect(() => {
 
-        window.addEventListener("resize", handleResize, false);
+        typeof window !== undefined && window.addEventListener("resize", handleResize, false);
         const isMobile = () => {
             return typeof window !== 'undefined' && window.matchMedia("(max-width: 767px)").matches;
         }
@@ -51,14 +44,13 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
             setCardImageStyle({ gridRow: 1, gridColumn: 1, background: "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)" });
         } else {
             setCardContentStyle({ gridColumn: props.iconPosition == "right" ? 1 : 2, gridRow: 1, paddingLeft : props.paddingLeftContent ? props.paddingLeftContent : 0 });
-            setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1 });
+            setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1, paddingLeft : props.paddingLeftContent});
             setCardGradient({ background: props.iconPosition == "left" ? "linear-gradient(270.59deg, #FFFFFF 35.89%, #C7D5E0 79.41%)" : "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)", gridRow: 1 });
         }
     }, [])
 
     const { image, title, description, iconPosition, buttonText } = props;
-    const imageWidth = 'calc((100vw / 1920) * 329.61'
-    const imageHeight = 'calc((100vw / 1920) * 307.29'
+
     return (
         <div className={styles["cardbox-card"]} style={cardGradient} >
             <div className={styles["cardbox-content"]} style={cardContentStyle} >
@@ -76,7 +68,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                 </div>
             </div>
             <div className={styles["cardbox-image"]} style={cardImageStyle}>
-                <Image src={image} alt={title} width={329.61} height={307.29} />
+                <Image src={image} alt={title} width={imageWidth} height={imageHeight} />
             </div>
         </div>
     );
