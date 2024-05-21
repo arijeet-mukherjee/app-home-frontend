@@ -10,17 +10,17 @@ export function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
-export function getCurrentYear(){
+export function getCurrentYear() {
     const date = new Date();
     const year = date.getFullYear();
     return year;
 }
 
-export function goToTop(){
+export function goToTop() {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
-      });
+    });
 }
 
 export function makeWebServiceCall(url: string, method: string, data: any): Promise<any> {
@@ -35,12 +35,12 @@ export function makeWebServiceCall(url: string, method: string, data: any): Prom
             url: url,
             data: data
         })
-        .then(response => {
-            resolve(response.data);
-        })
-        .catch(error => {
-            reject(error);
-        });
+            .then(response => {
+                resolve(response.data);
+            })
+            .catch(error => {
+                reject(error);
+            });
     });
 }
 
@@ -61,4 +61,43 @@ export function authorizeWithOAuth(provider: string, clientId: string): Promise<
             reject(error);
         });
     });
+}
+
+export function debouncer(func: (...args: any[]) => any, delay: number): (...args: any[]) => void {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return function (this: any, ...args: any[]) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+export function throttler(fn: (...args: any[]) => any, delay: number): (...args: any[]) => void {
+    let inThrottle: boolean,
+        lastFn: ReturnType<typeof setTimeout>,
+        lastDelay: number;
+
+    return function (this: any) {
+        const context = this;
+        const args = arguments;
+        if (!inThrottle) {
+            fn.apply(context, [args]);
+            lastDelay = Date.now();
+            inThrottle = true;
+        } else {
+            clearTimeout(lastFn);
+            lastFn = setTimeout(function () {
+                if (Date.now() - lastDelay >= delay) {
+                    fn.apply(context, [args]);
+                    lastDelay = Date.now();
+                }
+            }, Math.max(0, delay - (Date.now() - lastDelay)));
+        }
+    };
+};
+
+
+export const isMobile = () => {
+    return typeof window !== 'undefined' && window.matchMedia("(max-width: 1100px)").matches;
 }

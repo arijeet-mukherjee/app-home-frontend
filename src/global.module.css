@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-color-dark: #0A041F;
   --common-border-radius: 0.25rem;
   --common-padding: 1rem;
   --common-transition: background-color 0.3s ease;
@@ -16,7 +18,7 @@
   --text-icon-color: #ffffff;
   --text-primary-color: #938ef0;
   --text-secondary-color: #3e3e3f;
-  --text-tertiary-color : #343434 ;
+  --text-tertiary-color: #343434;
   --text-button-background-color-primary: #402ea1;
   --text-button-background-color-secondary: #6862ea;
   --text-button-background-color-tertiary: #55e5a0;
