@@ -30,8 +30,8 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     box-sizing: border-box;
-    height: calc((100vw / 1920) * 600);
-    transition-duration: 2000ms;
+    height: calc((100vh / 964) * 600);
+    transition-duration: 1000ms;
 }
 
 .animation {
@@ -50,10 +50,8 @@
     justify-content: center;
     align-items: center;
     width: calc((100vw / 1920) * 274.67);
-    height: calc((100vw / 1920) * 256.08);
+    height: calc((100vh / 964) * 256.08);
 }
-
-.card-image-inner {}
 
 .carousel-card-content {
     display: grid;
@@ -97,39 +95,46 @@
     font-family: 'Roboto';
     font-style: normal;
     font-size: calc((100vw / 1920) * 16);
-    line-height: calc((100vw / 1920) * 24);
+    line-height: calc((100vh / 964) * 24);
     font-weight: 500;
     color: var(--text-icon-color);
 }
 
-@media(max-width: 393px) {
+@media(max-width: 1100px) {
     .carousel-card {
         width: calc((100vw / 393) * 361);
-        height: max-content;
-    }
-
-    .carousel-card-image {
-        width: calc((100vw / 393) * 361);
-        height: 239px;
+        height: min-content;
     }
 
     .card-image-outer {
         width: calc((100vw / 393) * 240);
-        height: calc((100vw / 393) * 191.93);
+        background-size: inherit;
     }
 
     .carousel-card-content {
+        display: grid;
         padding: calc((100vw / 393) * 10);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .carousel-card-title {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: calc((100vw / 393) * 21);
+        word-break: break-word;
+    }
+
+    .carousel-card-description {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: calc((100vw / 393) * 14);
+        word-break: break-word;
     }
 
     .carousel-card-button {
-        padding: calc((100vw / 393) * 10) calc((100vw / 393) * 34);
+        padding: calc((100vw / 393) * 5) calc((100vw / 393) * 7);
         font-size: calc((100vw / 393) * 16);
-        line-height: calc((100vw / 393) * 24);
     }
 }
-
-/*calc((100vw / 1920) * 1486) 
-transition-timing-function: ease-out;
-transition-timing-function: ease-in;
-background-image: url("../../../../public/starvector.svg");*/

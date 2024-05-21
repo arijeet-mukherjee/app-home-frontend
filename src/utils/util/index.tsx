@@ -10,17 +10,17 @@ export function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
-export function getCurrentYear(){
+export function getCurrentYear() {
     const date = new Date();
     const year = date.getFullYear();
     return year;
 }
 
-export function goToTop(){
+export function goToTop() {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
-      });
+    });
 }
 
 export function makeWebServiceCall(url: string, method: string, data: any): Promise<any> {
@@ -99,5 +99,5 @@ export function throttler(fn: (...args: any[]) => any, delay: number): (...args:
 
 
 export const isMobile = () => {
-    return typeof window !== 'undefined' && window.matchMedia("(max-width: 800px)").matches;
+    return typeof window !== 'undefined' && window.matchMedia("(max-width: 1100px)").matches;
 }

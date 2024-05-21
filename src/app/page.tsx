@@ -1,19 +1,28 @@
 'use client'
+import React, { useState } from "react";
+import data from '../data.json';
+import styles from './app.module.css';
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
 import CardBox from "@component/cardBox";
-import Footer from "@component/Footer";
 import MobileNavModal from "@component/MobileNavModal";
-import { useState } from "react";
 import CardQuality from "@component/cardQuality";
 import Carousel from "@component/Carousel";
-import data from '../data.json';
+import Footer from "@component/Footer";
+import { isMobile } from "@util/index";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => {
     setModalOpen(!modalOpen);
   };
+  const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
+  React.useEffect(() => {
+    if (isMobile()) {
+      setCarouselStyle({ backgroundImage: "url(/worldmap.svg)", background: "linear-gradient(to bottom, #0A041F 30%, transparent 30%)" });
+      // setCarouselStyle({})
+    }
+  }, [])
   return (
     <div className={"container"}>
       {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
@@ -26,7 +35,7 @@ export default function Home() {
       />
 
       <Shield top={105} right={190} />
-      <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
+      {/* <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
@@ -63,11 +72,11 @@ export default function Home() {
         button={data.qualityCard.button}
         childCardProp={data.qualityCard.childCardProp}
         background={data.qualityCard.background}
-      />
-      <div>
+      /> */}
+      <div className={styles["carousel-container-1"]} style={carouselStyle}>
         <Carousel {...data.carouselCurrentSubscription} />
       </div>
-      <div>
+      <div className={styles["carousel-container-2"]} >
         <Carousel {...data.carouselUpcomingSubscription} />
       </div>
       <Footer
@@ -79,3 +88,4 @@ export default function Home() {
     </div>
   );
 }
+//style={{ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}

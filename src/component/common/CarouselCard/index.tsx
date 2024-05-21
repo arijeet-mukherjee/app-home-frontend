@@ -32,16 +32,15 @@ const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
     }, []);
 
     React.useEffect(() => {
-        // console.log(currentIndex, (currentIndex <= animate) && (currentIndex + 3 > animate), animate)
         setAnimater(animate ? "animation" : "");
     }, [currentIndex]);
 
     return (
         <div className={styles["carousel-card"] + " " + styles[`${animater}`]}>
             <div className={styles["carousel-card-image"]}>
-                <div className={styles["card-image-outer"]} style={{ backgroundImage: starPath }}>
+                <div className={styles["card-image-outer"]} style={{ backgroundImage: starPath, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
                     <div className={styles["card-image-inner"]}>
-                        <Image src={image} alt={title} height={imageHeight} width={imageWidth} />
+                        <Image src={image} alt={title} height={imageHeight} width={imageWidth} sizes="(max-width: 1100px) calc((100vw / 393) * 120.33)" />
                     </div>
                 </div>
             </div>

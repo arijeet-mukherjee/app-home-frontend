@@ -158,7 +158,6 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
             </div>
             <div className={`${styles["carousel-content"]} `} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                 {cardPropsState && cardPropsState.map((cardProp: CardProps, index: number) => {
-                    // let animate = index <= currentIndex + 3;
                     let newCardProp = { ...cardProp, currentIndex, animate: true };
                     return <CarouselCard {...newCardProp} key={index} />
                 })}
@@ -171,7 +170,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
                         onClick: dotClick,
                         isBackgroundDark: isBackgroundDark
                     }
-                    return <Indicator {...IndicatorProps} />
+                    return <Indicator {...IndicatorProps} key={key} />
                 })}
             </div>
         </div>
@@ -179,9 +178,3 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
 }
 
 export default Carousel;
-
-/* const [fadeIn, setFadeIn] = React.useState(false);
-
-setTimeout(() => setFadeIn(true), 100);
-
-${fadeIn ? 'fade-in' : ''}*/

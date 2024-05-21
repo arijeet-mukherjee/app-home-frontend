@@ -1,0 +1,40 @@
+@import url("../global.module.css");
+
+.carousel-container-1 {
+    background-color: var(--background-color-dark);
+    padding: calc((100vh / 1920) * 116) calc((100vw / 1920) * 217);
+    background-position: center;
+}
+
+.carousel-container-2 {
+    background: var(--input-field-secondary-color);
+    padding: calc((100vh / 1920) * 116) calc((100vw / 1920) * 217);
+    background-position: center;
+}
+
+@media(max-width: 1100px) {
+    .carousel-container-1 {
+        position: relative;
+        background: linear-gradient(to bottom, #0A041F 30%, transparent 70%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100vw;
+        padding: calc((100vw / 393) * 1);
+        margin-bottom: 25px;
+    }
+
+    /* .carousel-container-1::before {
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../public/worldmap.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        height: 40%;
+    } */
+
+    .carousel-container-2 {
+        width: 100vw;
+        padding: calc((100vw / 393) * 1);
+    }
+}
