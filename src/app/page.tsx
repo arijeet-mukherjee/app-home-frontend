@@ -35,7 +35,7 @@ export default function Home() {
       />
 
       <Shield top={105} right={190} />
-      {/* <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
+      <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
@@ -72,7 +72,7 @@ export default function Home() {
         button={data.qualityCard.button}
         childCardProp={data.qualityCard.childCardProp}
         background={data.qualityCard.background}
-      /> */}
+      />
       <div className={styles["carousel-container-1"]} style={carouselStyle}>
         <Carousel {...data.carouselCurrentSubscription} />
       </div>
@@ -88,4 +88,3 @@ export default function Home() {
     </div>
   );
 }
-//style={{ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}
