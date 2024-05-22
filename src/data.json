@@ -68,7 +68,8 @@
         "image_position": "right",
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": "calc((100vw / 1920) * 115)"
+        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "paddingImageContent": ""
     },
     "yourShield": {
         "title": "Your Shield",
@@ -77,7 +78,8 @@
         "image_position": "left",
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": ""
+        "paddingLeftContent": "",
+        "paddingImageContent": "calc((100vw / 1920) * 115)"
     },
     "jointheMovement": {
         "title": "Join the Movement",
@@ -86,7 +88,8 @@
         "image_position": "right",
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": "calc((100vw / 1920) * 115)"
+        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "paddingImageContent": ""
     },
     "footer": {
         "logo": {
@@ -339,6 +342,20 @@
           "toggleButton": false,
           "buttonText": "Learn More"
         }]
-      }
+      },
+      "newsLetter":{
+        "title": "Stay up to date with the latest in security with the Secdesk security newsletter!",
+        "image": "/newsletter.svg",
+        "image_position": "right",
+        "button_name": "Subscribe",
+        "button_icon": "/arrowrightwhite.svg",
+        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "inputBox": "Email*",
+        "bulletPointImg": "/tickmark.svg",
+        "bulletPoints":[
+            "Stay up-to-date with the trends, so you can focus your security effort", "Increase your security posture"
+        ],
+        "goTo": "/google.com"
+    }
 
 }

@@ -8,6 +8,7 @@ import CardBox from "@component/cardBox";
 import MobileNavModal from "@component/MobileNavModal";
 import CardQuality from "@component/cardQuality";
 import Carousel from "@component/Carousel";
+import NewsLetter from "@component/NewsLetter";
 import Footer from "@component/Footer";
 import { isMobile } from "@util/index";
 
@@ -44,6 +45,7 @@ export default function Home() {
           buttonText={data.introduction.button_name}
           buttonIcon={data.introduction.button_icon}
           paddingLeftContent={data.introduction.paddingLeftContent}
+          paddingImageContent={data.introduction.paddingImageContent}
         />
       </div>
       <div style={{ padding: "160px", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
@@ -55,6 +57,7 @@ export default function Home() {
           buttonText={data.yourShield.button_name}
           buttonIcon={data.yourShield.button_icon}
           paddingLeftContent={data.yourShield.paddingLeftContent}
+          paddingImageContent={data.yourShield.paddingImageContent}
         />
         <CardBox
           title={data.jointheMovement.title}
@@ -64,6 +67,7 @@ export default function Home() {
           buttonText={data.jointheMovement.button_name}
           buttonIcon={data.jointheMovement.button_icon}
           paddingLeftContent={data.jointheMovement.paddingLeftContent}
+          paddingImageContent={data.jointheMovement.paddingImageContent}
         />
       </div>
       <CardQuality
@@ -79,6 +83,18 @@ export default function Home() {
       <div className={styles["carousel-container-2"]} >
         <Carousel {...data.carouselUpcomingSubscription} />
       </div>
+      <NewsLetter
+        title={data.newsLetter.title}
+        image={data.newsLetter.image}
+        iconPosition={data.newsLetter.image_position}
+        buttonText={data.newsLetter.button_name}
+        buttonIcon={data.newsLetter.button_icon}
+        paddingLeftContent={data.newsLetter.paddingLeftContent}
+        inputBox={data.newsLetter.inputBox}
+        bulletPointImg={data.newsLetter.bulletPointImg}
+        bulletPoints={data.newsLetter.bulletPoints}
+        goTo={data.newsLetter.goTo}
+      />
       <Footer
         branding={data.footer.branding}
         logo={data.footer.logo}
