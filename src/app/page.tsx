@@ -20,7 +20,6 @@ export default function Home() {
   React.useEffect(() => {
     if (isMobile()) {
       setCarouselStyle({ backgroundImage: "url(/worldmap.svg)", background: "linear-gradient(to bottom, #0A041F 30%, transparent 30%)" });
-      // setCarouselStyle({})
     }
   }, [])
   return (
