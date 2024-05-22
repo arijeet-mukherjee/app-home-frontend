@@ -20,14 +20,14 @@ const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
     const { image, title, description, url, toggleButton, buttonText, currentIndex, animate } = props;
     const [animater, setAnimater] = React.useState("");
     const [starPath, setStarPath] = React.useState("url(/starvector.svg)");
-    const [imageHeight, setImageHeight] = React.useState(178.67);
-    const [imageWidth, setImageWidth] = React.useState(167);
+    const [imageHeight, setImageHeight] = React.useState("calc((100vh / 964) * 166.67)");
+    const [imageWidth, setImageWidth] = React.useState("calc((100vw / 1920) * 178.37)");
 
     React.useEffect(() => {
         if (isMobile()) {
             setStarPath("url(/starvectormobile.svg)")
-            setImageWidth(128.99);
-            setImageHeight(128.99);
+            setImageWidth("auto");
+            setImageHeight("auto");
         }
     }, []);
 
@@ -40,7 +40,7 @@ const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
             <div className={styles["carousel-card-image"]}>
                 <div className={styles["card-image-outer"]} style={{ backgroundImage: starPath, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
                     <div className={styles["card-image-inner"]}>
-                        <Image src={image} alt={title} height={imageHeight} width={imageWidth} sizes="(max-width: 1100px) calc((100vw / 393) * 120.33)" />
+                        <Image src={image} alt={title} height={178.67} width={167} style={{ objectFit: "contain", width: `${imageWidth}`, height: `${imageHeight}` }} />
                     </div>
                 </div>
             </div>
