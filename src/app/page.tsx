@@ -69,17 +69,19 @@ export default function Home() {
           paddingImageContent={data.jointheMovement.paddingImageContent}
         />
       </div>
-      <CardQuality
-        heading={data.qualityCard.heading}
-        content={data.qualityCard.content}
-        button={data.qualityCard.button}
-        childCardProp={data.qualityCard.childCardProp}
-        background={data.qualityCard.background}
-      />
-      <div className={styles["carousel-container-1"]} style={carouselStyle}>
+      <div className={styles["whiteBackground"]}>
+        <CardQuality
+          heading={data.qualityCard.heading}
+          content={data.qualityCard.content}
+          button={data.qualityCard.button}
+          childCardProp={data.qualityCard.childCardProp}
+          background={data.qualityCard.background}
+        />
+      </div>
+      <div className={styles["carousel-container-1"] + " " + styles["cardBoxRemain"]} style={carouselStyle}>
         <Carousel {...data.carouselCurrentSubscription} />
       </div>
-      <div className={styles["carousel-container-2"]} >
+      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} >
         <Carousel {...data.carouselUpcomingSubscription} />
       </div>
       <div className={styles["cardBoxRemain"]}>
