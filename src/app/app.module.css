@@ -1,5 +1,11 @@
 @import url("../global.module.css");
 
+.container{
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
 .carousel-container-1 {
     background-color: var(--background-color-dark);
     padding: calc((100vh / 1920) * 116) calc((100vw / 1920) * 217);
@@ -12,6 +18,17 @@
     background-position: center;
 }
 
+.cardBoxFirst {
+    padding: 160px 160px 0px 160px;
+    margin-top: -30%;
+}
+
+.cardBoxRemain {
+    padding: 0 160px;
+    display: block;
+    gap: 60px;
+}
+
 @media(max-width: 1100px) {
     .carousel-container-1 {
         position: relative;
@@ -21,6 +38,19 @@
         width: 100vw;
         padding: calc((100vw / 393) * 1);
         margin-bottom: 25px;
+    }
+
+    .cardBoxFirst{
+        padding: 0px;
+        margin-top: -10%;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .cardBoxRemain {
+        padding: 0px;
+        margin: 5px;
     }
 
     /* .carousel-container-1::before {
