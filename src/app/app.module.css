@@ -8,25 +8,27 @@
 
 .carousel-container-1 {
     background-color: var(--background-color-dark);
-    padding: calc((100vh / 1920) * 116) calc((100vw / 1920) * 217);
     background-position: center;
 }
 
 .carousel-container-2 {
     background: var(--input-field-secondary-color);
-    padding: calc((100vh / 1920) * 116) calc((100vw / 1920) * 217);
     background-position: center;
 }
 
 .cardBoxFirst {
     padding: 160px 160px 0px 160px;
-    margin-top: -30%;
+    margin-top: calc(-50vh);
 }
 
 .cardBoxRemain {
     padding: 0 160px;
     display: block;
     gap: 60px;
+}
+
+.whiteBackground{
+    background: var(--text-icon-color);
 }
 
 @media(max-width: 1100px) {
