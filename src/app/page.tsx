@@ -82,18 +82,20 @@ export default function Home() {
       <div className={styles["carousel-container-2"]} >
         <Carousel {...data.carouselUpcomingSubscription} />
       </div>
-      <NewsLetter
-        title={data.newsLetter.title}
-        image={data.newsLetter.image}
-        iconPosition={data.newsLetter.image_position}
-        buttonText={data.newsLetter.button_name}
-        buttonIcon={data.newsLetter.button_icon}
-        paddingLeftContent={data.newsLetter.paddingLeftContent}
-        inputBox={data.newsLetter.inputBox}
-        bulletPointImg={data.newsLetter.bulletPointImg}
-        bulletPoints={data.newsLetter.bulletPoints}
-        goTo={data.newsLetter.goTo}
-      />
+      <div className={styles["cardBoxRemain"]}>
+        <NewsLetter
+          title={data.newsLetter.title}
+          image={data.newsLetter.image}
+          iconPosition={data.newsLetter.image_position}
+          buttonText={data.newsLetter.button_name}
+          buttonIcon={data.newsLetter.button_icon}
+          paddingLeftContent={data.newsLetter.paddingLeftContent}
+          inputBox={data.newsLetter.inputBox}
+          bulletPointImg={data.newsLetter.bulletPointImg}
+          bulletPoints={data.newsLetter.bulletPoints}
+          goTo={data.newsLetter.goTo}
+        />
+      </div>
       <Footer
         branding={data.footer.branding}
         logo={data.footer.logo}
