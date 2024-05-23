@@ -112,5 +112,6 @@
         margin: 0px;
         justify-content: center;
         align-items: center;
+        gap: 12px;
     }
 }
