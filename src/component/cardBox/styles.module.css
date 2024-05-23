@@ -39,6 +39,7 @@
     font-size: 18px;
     color: var(--text-tertiary-color);
     word-wrap: break-word;
+    margin-bottom: 10px;
 }
 
 .cardbox-image {
@@ -86,7 +87,7 @@
     align-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .cardbox-card {
         height: min-content;
         padding: 0px 0px 0px 0px;
