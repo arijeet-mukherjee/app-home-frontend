@@ -356,6 +356,39 @@
             "Stay up-to-date with the trends, so you can focus your security effort", "Increase your security posture"
         ],
         "goTo": "#"
+    }, 
+    "CallToAction": {
+    "heading": "Secured Internet Browsing With Our Subscription Plan",
+    "description":["Don’t lose your money to online scammers", "Subscribe now to become more secure.", "All newly added services FREE with the annual subscription."],
+    "cardTitle": "Choose a Plan",
+        "plans": [
+            {
+              "title": "Annual",
+              "price": 75.99,
+              "discountPrice": 40,
+              "buttonText": " Buy now",
+              "currency": "USD",
+              "currencySymbol": "$",
+              "bulletPoint": "100 GB of storage",
+              "ribbonText": "MOST POPULAR",
+              "period": "year"
+            },
+            {
+              "title": "Monthly",
+              "price": 45,
+              "discountPrice": 40,
+              "buttonText": "purchase",
+              "currency": "INR",
+              "currencySymbol": "₹",
+              "bulletPoint": "40 GB of storage",
+              "ribbonText": "MOST POPULAR",
+              "period": "month"
+            }
+          ],
+        "buttonColor": "var(--text-button-background-color-tertiary)",
+        "button_action_svg": "arrowrightblack.svg",
+        "bulletIcon": "tickBulletPoint.svg"
     }
-
 }
+
+ 

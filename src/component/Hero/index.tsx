@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
             <div className={styles["header"]}>
-            <Header openModal={openModal} />
+            {/* <Header openModal={openModal} /> */}
             </div>
             <div className='heroContent'>
                 <div className={styles["heroIntrocuction"]}>

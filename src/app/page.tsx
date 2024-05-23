@@ -11,6 +11,7 @@ import Carousel from "@component/Carousel";
 import NewsLetter from "@component/NewsLetter";
 import Footer from "@component/Footer";
 import { isMobile } from "@util/index";
+import CTASection from "@component/CTASection";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -25,16 +26,19 @@ export default function Home() {
   }, [])
   return (
     <div className={"container"}>
+     
       {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
 
-
+      
       <Hero
         introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
         content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
         openModal={openModal}
       />
 
-      <Shield top={105} right={190} />
+      <Shield top={105} right={190} />  
+
+      
       <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
@@ -94,12 +98,22 @@ export default function Home() {
         bulletPoints={data.newsLetter.bulletPoints}
         goTo={data.newsLetter.goTo}
       />
+      <CTASection 
+        heading={data.CallToAction.heading}
+        description={data.CallToAction.description}
+        cardTitle={data.CallToAction.cardTitle}
+        plans={data.CallToAction.plans}
+        buttonColor={data.CallToAction.buttonColor}
+        button_action_svg={data.CallToAction.button_action_svg}
+        bulletIcon={data.CallToAction.bulletIcon}
+
+      />
       <Footer
         branding={data.footer.branding}
         logo={data.footer.logo}
         background={data.footer.background}
         contents={data.footer.content}
         socialMedias={data.footer.socialMedia} />
-    </div>
+    </div> 
   );
 }

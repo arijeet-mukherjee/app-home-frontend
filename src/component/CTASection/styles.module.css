@@ -1,0 +1,58 @@
+@import url('../../global.module.css');
+.container{
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%);
+    padding: calc((100vw/1920)*60);
+    font-family: "Roboto";
+    
+}
+.title{
+    font-weight: 600;
+    color: black;
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc((100vw/1920)*10);
+    font-weight: 400;
+
+}
+.detailsContainer{
+    margin-top:calc((100vw/1920)*10);
+    display: flex;
+    flex-direction:column;
+    gap: calc((100vw/1920)*10);
+
+}
+
+.bulletPoint{
+    display: flex;
+    gap: calc((100vw/1920)*10);
+    color: var(--dark-color);
+    align-items: center;
+
+}
+
+@media screen and (max-width: 1100px) {
+    .container{
+        flex-direction: column;
+        padding: calc((100vw/1100)*60);
+        gap: calc((100vw/1100)*60);
+    }
+    .detailsContainer{
+        gap: calc((100vw/1100)*20);
+    }
+    .title{
+        font-size: calc((100vw/393)*21);
+        margin-bottom: 20px;
+    }
+    .bulletPoint{
+        font-size:  calc((100vw/393)* 14);
+    }
+    .bullet{
+        align-self: flex-start;
+    }
+}
+
