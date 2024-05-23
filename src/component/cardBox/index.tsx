@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { isMobile } from '@util/index';
 interface CardBoxProps {
     image: string,
     title: string,
@@ -62,10 +63,6 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         
     
     useEffect(() => {        
-            
-        const isMobile = () => {
-            return typeof window !== 'undefined' && window.matchMedia("(max-width: 1100px)").matches;
-        }
 
         const check = isMobile();
 

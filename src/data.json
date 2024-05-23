@@ -355,7 +355,7 @@
         "bulletPoints":[
             "Stay up-to-date with the trends, so you can focus your security effort", "Increase your security posture"
         ],
-        "goTo": "/google.com"
+        "goTo": "#"
     }
 
 }
