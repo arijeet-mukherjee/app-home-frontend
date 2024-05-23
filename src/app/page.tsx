@@ -24,7 +24,7 @@ export default function Home() {
     }
   }, [])
   return (
-    <div className={"container"}>
+    <div className={styles["container"]}>
       {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
 
 
@@ -35,7 +35,7 @@ export default function Home() {
       />
 
       <Shield top={105} right={190} />
-      <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
+      <div className={styles["cardBoxFirst"]}>
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
@@ -47,7 +47,7 @@ export default function Home() {
           paddingImageContent={data.introduction.paddingImageContent}
         />
       </div>
-      <div style={{ padding: "160px", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
+      <div className={styles["cardBoxRemain"]}>
         <CardBox
           title={data.yourShield.title}
           description={data.yourShield.description}
