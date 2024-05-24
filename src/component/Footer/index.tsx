@@ -69,21 +69,21 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
           className={styles.topBtn_img}
           src="/topBtn.svg"
           alt="top button"
-          width={10}
+          width={20}
           height={10}
           priority />Back to top</div>
 
       <hr className={styles.horizontalLine} aria-label='horizontal line' />
 
       <div className={styles.center}>
-        <ul className={styles.center_options}>
+        <ul className={styles.center_options} id={styles.center_list1}>
           {firstHalf?.map(function (val, index) {
             return <li key={index}>
               <Link href={val.contentUrl}>{val.contentName}</Link>
             </li>
           })}
         </ul>
-        <ul className={styles.center_options}>
+        <ul className={styles.center_options} id={styles.center_list2}>
           {secondHalf?.map(function (val, index) {
             return <li key={index}>
               <Link href={val.contentUrl}>{val.contentName}</Link>
@@ -101,6 +101,7 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
             <Image
               src={val.socialIcon}
               alt={val.socialName}
+              className={styles.socials_icon}
               width={20}
               height={20}
               priority
