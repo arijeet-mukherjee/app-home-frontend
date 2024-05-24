@@ -17,6 +17,7 @@
     justify-content: center;
     padding: calc((100vw/1920)*10);
     font-weight: 400;
+    margin-left: calc((100vw/1920)*85);
 
 }
 .detailsContainer{
@@ -40,6 +41,9 @@
         flex-direction: column;
         padding: calc((100vw/1100)*60);
         gap: calc((100vw/1100)*60);
+    }
+    .textContainer{
+        margin-left: 0px;
     }
     .detailsContainer{
         gap: calc((100vw/1100)*20);

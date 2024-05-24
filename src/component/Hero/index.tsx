@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
             <div className={styles["header"]}>
             {/* <Header openModal={openModal} /> */}
             </div>
-            <div className='heroContent'>
+            <div className={styles['heroBlock']}>
                 <div className={styles["heroIntrocuction"]}>
                     <p style={{ margin: "0", padding: "0" }}>
                         <span className={styles['framer-text']}>
@@ -69,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
                     </Link>
                 </div>
             </div>
-            <div className='emptyArea'></div>
+            <div className={styles['emptyArea']}></div>
         </div>
     );
 };

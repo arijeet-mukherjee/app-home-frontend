@@ -12,7 +12,7 @@ import NewsLetter from "@component/NewsLetter";
 import Footer from "@component/Footer";
 import { isMobile } from "@util/index";
 import CTASection from "@component/CTASection";
-
+import CTABox from "@component/CTABox";
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => {
@@ -25,21 +25,18 @@ export default function Home() {
     }
   }, [])
   return (
-    <div className={"container"}>
-     
+    <div className={styles["container"]}>
       {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
 
-      
+
       <Hero
         introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
         content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
         openModal={openModal}
       />
 
-      <Shield top={105} right={190} />  
-
-      
-      <div style={{ padding: "160px", transform: "translateY(-50%)" }}>
+      <Shield top={105} right={190} />
+      <div className={styles["cardBoxFirst"]}>
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
@@ -51,7 +48,7 @@ export default function Home() {
           paddingImageContent={data.introduction.paddingImageContent}
         />
       </div>
-      <div style={{ padding: "160px", display: "block", gap: "60px", transform: "translateY(-50%)" }}>
+      <div className={styles["cardBoxRemain"]}>
         <CardBox
           title={data.yourShield.title}
           description={data.yourShield.description}
@@ -86,34 +83,61 @@ export default function Home() {
       <div className={styles["carousel-container-2"]} >
         <Carousel {...data.carouselUpcomingSubscription} />
       </div>
-      <NewsLetter
-        title={data.newsLetter.title}
-        image={data.newsLetter.image}
-        iconPosition={data.newsLetter.image_position}
-        buttonText={data.newsLetter.button_name}
-        buttonIcon={data.newsLetter.button_icon}
-        paddingLeftContent={data.newsLetter.paddingLeftContent}
-        inputBox={data.newsLetter.inputBox}
-        bulletPointImg={data.newsLetter.bulletPointImg}
-        bulletPoints={data.newsLetter.bulletPoints}
-        goTo={data.newsLetter.goTo}
-      />
-      <CTASection 
-        heading={data.CallToAction.heading}
-        description={data.CallToAction.description}
-        cardTitle={data.CallToAction.cardTitle}
-        plans={data.CallToAction.plans}
-        buttonColor={data.CallToAction.buttonColor}
-        button_action_svg={data.CallToAction.button_action_svg}
-        bulletIcon={data.CallToAction.bulletIcon}
+      
+      
+      {
+        //Uncomment the following code in order to get the backup CTA section
+      /* <CTASection
+          heading={data.CallToAction.heading}
+          description={data.CallToAction.description}
+          cardTitle={data.CallToAction.cardTitle}
+          plans={data.CallToAction.plans}
+          buttonColor={data.CallToAction.buttonColor}
+          button_action_svg={data.CallToAction.button_action_svg}
+          bulletIcon={data.CallToAction.bulletIcon}
 
-      />
+        /> */}
+
+      <div className={styles["cardBoxRemain"]}>
+        <CTABox
+          title={data.CallToAction.heading}
+          image={data.newsLetter.image}
+          iconPosition={data.newsLetter.image_position}
+          buttonText={data.newsLetter.button_name}
+          buttonIcon={data.newsLetter.button_icon}
+          paddingLeftContent={data.newsLetter.paddingLeftContent}
+          inputBox={data.newsLetter.inputBox}
+          bulletPointImg={data.newsLetter.bulletPointImg}
+          bulletPoints={data.CallToAction.description}
+          goTo={data.newsLetter.goTo}
+          childProps={{
+            cardTitle: data.CallToAction.cardTitle,
+            plans: data.CallToAction.plans,
+            buttonColor: data.CallToAction.buttonColor,
+            button_action_svg: data.CallToAction.button_action_svg,
+            bulletIcon: data.CallToAction.bulletIcon,
+          }}/>
+
+        <NewsLetter
+          title={data.newsLetter.title}
+          image={data.newsLetter.image}
+          iconPosition={data.newsLetter.image_position}
+          buttonText={data.newsLetter.button_name}
+          buttonIcon={data.newsLetter.button_icon}
+          paddingLeftContent={data.newsLetter.paddingLeftContent}
+          inputBox={data.newsLetter.inputBox}
+          bulletPointImg={data.newsLetter.bulletPointImg}
+          bulletPoints={data.newsLetter.bulletPoints}
+          goTo={data.newsLetter.goTo}
+        />
+
+      </div>
       <Footer
         branding={data.footer.branding}
         logo={data.footer.logo}
         background={data.footer.background}
         contents={data.footer.content}
         socialMedias={data.footer.socialMedia} />
-    </div> 
+    </div>
   );
 }

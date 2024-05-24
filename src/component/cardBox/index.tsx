@@ -3,15 +3,16 @@ import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, ReactNode} from 'react';
 import { isMobile } from '@util/index';
+
 interface CardBoxProps {
-    image: string,
+    image?: string,
     title: string,
     description?: string,
     iconPosition: string,
-    buttonText: string,
-    buttonIcon: string,
+    buttonText?: string,
+    buttonIcon?: string,
     paddingLeftContent: string,
     paddingImageContent?:string
     inputBox?: string,
@@ -21,7 +22,9 @@ interface CardBoxProps {
         cardContent: string,
         cardImage: string,
     }
-    goTo?:string
+    goTo?:string,
+    child?: ReactNode
+    
 };
 
 const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
@@ -85,7 +88,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         }
     }, [])
 
-    const { image, title, description, iconPosition, buttonText, inputBox, bulletPointImg, bulletPoints } = props;
+    const { image, title, description, iconPosition, buttonText, inputBox, bulletPointImg, bulletPoints, child, paddingImageContent } = props;
     return (
         
         <div className={styles["cardbox-card"]} style={cardGradient} >
@@ -109,9 +112,9 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                 <p className={styles["cardbox-description"]}>{description}</p>
             }
 
-            {inputBox ? <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr 1fr', gridColumnGap: '10px'}}>
-                <input type="email" name='email' placeholder={inputBox} ref={inputEmail} value={email} onChange={handelInput} style={{ background: '#D9D9D9', border: 'none', paddingLeft: '25px' }} />
-                <div className={styles["cardbox-button"]} onClick={handelSubmit}>
+            <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr 1fr', gridColumnGap: '10px'}}>
+                {inputBox && <input type="email" name='email' placeholder={inputBox} ref={inputEmail} value={email} onChange={handelInput} style={{ background: '#D9D9D9', border: 'none', paddingLeft: '25px' }} />}
+                {buttonText && <div className={styles["cardbox-button"]} onClick={handelSubmit}>
                     
                         <a className={styles["button"]}>
                             <span className={styles["button-text"]}>{buttonText}</span>
@@ -119,21 +122,12 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                                 <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
                             </span>
                         </a>
-                </div>
-            </div> :
-                <div className={styles["cardbox-button"]} onClick={handelSubmit}>
-                    
-                        <a className={styles["button"]}>
-                            <span className={styles["button-text"]}>{buttonText}</span>
-                            <span className={styles["button-icon"]}>
-                                <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
-                            </span>
-                        </a>
-                </div>
-            }
+                </div>}
+            </div> 
+            
         </div>
         <div className={styles["cardbox-image"]} style={cardImageStyle}>
-            <Image src={image} alt={title} width={imageWidth} height={imageHeight} />
+            {child? child : <Image src={`${image}`} alt={title} width={imageWidth} height={imageHeight} />}
         </div>
     </div>
     );

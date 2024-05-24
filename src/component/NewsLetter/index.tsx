@@ -1,6 +1,5 @@
 import React from 'react'
 import CardBox from '@component/cardBox'
-import {useEffect} from 'react'
 
 interface newsLetter {
     image: string,
@@ -15,9 +14,7 @@ interface newsLetter {
     goTo: string
 }
 const NewsLetter: React.FC<newsLetter> = ({image, title, iconPosition, buttonIcon, buttonText, goTo, paddingLeftContent, inputBox, bulletPointImg, bulletPoints }) => {
-   useEffect(()=>{
-    console.log(goTo)
-   })
+
     return(
             <CardBox 
             image={image} 
