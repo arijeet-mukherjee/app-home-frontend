@@ -49,11 +49,11 @@ h1{
     width: calc((100vw / 1920)* 605);
     height: calc((100vw / 1920)* 732);
     justify-content: center;
+    z-index: 9999;
 }
 
 .background{
     position: absolute;
-    z-index: -1;
     left: 0;
     right: 0;
     top: 0;
