@@ -21,16 +21,16 @@ export default function Home() {
   const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
 
   const refCarouselCurrentSubscription = useRef<HTMLDivElement>(null);
-  const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '100px');
+  const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '50px');
 
   const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
-  const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '0px');
+  const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
 
   const refNewsLetter = useRef<HTMLDivElement>(null);
-  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '0px');
+  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '100px');
 
   const refFooter = useRef<HTMLDivElement>(null);
-  const isVisiblefFooter = useOnScreen(refFooter, '0px');
+  const isVisiblefFooter = useOnScreen(refFooter, '150px');
 
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = useCallback(() => {
