@@ -1,19 +1,22 @@
 import { useState, useEffect, RefObject } from 'react';
 
 function useOnScreen(ref: RefObject<HTMLElement>, rootMargin: string = '0px'): boolean {
+    // Use a larger root margin on smaller screens
+    const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 600;
+    const actualRootMargin = isSmallScreen ? '500px' : rootMargin;
+
     const [isIntersecting, setIntersecting] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                // Update our state when observer callback fires
                 if (entry.isIntersecting) {
                     setIntersecting(true);
                     observer.unobserve(ref.current!);
                 }
             },
             {
-                rootMargin
+                rootMargin: actualRootMargin
             }
         );
         if (ref.current) {
