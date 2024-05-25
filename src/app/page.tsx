@@ -23,6 +23,9 @@ export default function Home() {
   const refCarouselCurrentSubscription = useRef<HTMLDivElement>(null);
   const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '0px');
 
+  const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
+  const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '0px');
+
   const refNewsLetter = useRef<HTMLDivElement>(null);
   const isVisibleNewsLetter = useOnScreen(refNewsLetter, '0px');
 
@@ -101,8 +104,10 @@ export default function Home() {
           isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
         }
       </div>
-      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]}>
-        <Carousel {...data.carouselUpcomingSubscription} />
+      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} ref={refCarouselUpcomingSubscription}>
+        {
+          isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
+        }
       </div>
       <div ref={refNewsLetter} className={styles["cardBoxRemain"]}>
         {
