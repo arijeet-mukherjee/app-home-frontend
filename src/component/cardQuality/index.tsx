@@ -1,8 +1,9 @@
-import React from 'react'
-import Card from "./Card"
-import styles from "./quality.module.css"
-import Image from 'next/image'
-import Link from 'next/link'
+import React from 'react';
+import dynamic from 'next/dynamic';
+const Card = dynamic(() => import('./Card'));
+import styles from "./quality.module.css";
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface qualityCard {
   heading?: Array<string>;
@@ -49,7 +50,7 @@ interface qualityCard {
   }
 }
 
-const QualityCard: React.FC<qualityCard> = ({ heading, content, background, button, childCardProp }) => {
+const QualityCard: React.FC<qualityCard> = React.memo(({ heading, content, background, button, childCardProp }) => {
   return (
     <div className={styles.homeQuality}>
       <div className={styles.intro}>
@@ -90,6 +91,6 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
       </div>
     </div>
   )
-}
+});
 
 export default QualityCard;
