@@ -30,7 +30,7 @@ interface FooterProps {
   background?: background;
 };
 
-const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo, background }) => {
+const Footer: React.FC<FooterProps> = React.memo(({ contents, socialMedias, branding, logo, background }) => {
 
   const [firstHalf, setFirstHalf] = useState<content[]>();
   const [secondHalf, setSecondHalf] = useState<content[]>();
@@ -51,7 +51,6 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
         className={styles.netherland}
         width={250}
         height={225}
-        priority
       />
       
         <Image
@@ -61,7 +60,6 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
           alt={logo?.logoName ? logo.logoName : "secDesk logo"}
           width={100}
           height={48}
-          priority
         />
 
       <div className={styles.topBtn} aria-label="back to top" onClick={() => { goToTop() }} tabIndex={0}>
@@ -70,8 +68,7 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
           src="/topBtn.svg"
           alt="top button"
           width={20}
-          height={10}
-          priority />Back to top</div>
+          height={10} />Back to top</div>
 
       <hr className={styles.horizontalLine} aria-label='horizontal line' />
 
@@ -104,12 +101,11 @@ const Footer: React.FC<FooterProps> = ({ contents, socialMedias, branding, logo,
               className={styles.socials_icon}
               width={20}
               height={20}
-              priority
             />
           </Link>
         })}
       </div>
     </div>
   )
-}
+});
 export default Footer;
