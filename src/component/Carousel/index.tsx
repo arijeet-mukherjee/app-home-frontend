@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import styles from "./carousel.module.css";
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { isMobile } from '@util/index';
-
-import CarouselCard from '@component/common/CarouselCard';
+const CarouselCard = dynamic(() => import('@component/common/CarouselCard'));
 import Indicator from '@component/common/Indicator';
 
 interface CardProps {
