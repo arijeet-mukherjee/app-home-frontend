@@ -14,6 +14,7 @@ const CardQuality = dynamic(() => import('@component/cardQuality'), { ssr: false
 const Carousel = dynamic(() => import('@component/Carousel'), { ssr: false });
 const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
+const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
 import { isMobile } from "@util/index";
 
 export default function Home() {
@@ -136,6 +137,7 @@ export default function Home() {
             socialMedias={data.footer.socialMedia} />
         }
       </div>
+      <TawkChatWidget />
     </div>
   );
 }
