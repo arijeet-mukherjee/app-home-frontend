@@ -29,6 +29,10 @@ export default function Home() {
   const refFooter = useRef<HTMLDivElement>(null);
   const isVisiblefFooter = useOnScreen(refFooter, '0px');
 
+  const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
+  const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '0px');
+
+
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = useCallback(() => {
     setModalOpen(prevModalOpen => !prevModalOpen);
@@ -101,8 +105,10 @@ export default function Home() {
           isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
         }
       </div>
-      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]}>
-        <Carousel {...data.carouselUpcomingSubscription} />
+      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} ref={refCarouselUpcomingSubscription}>
+        {
+          isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
+        }
       </div>
       <div ref={refNewsLetter} className={styles["cardBoxRemain"]}>
         {
@@ -122,8 +128,8 @@ export default function Home() {
       </div>
       <div ref={refFooter}>
         {
-        isVisiblefFooter &&
-            <Footer
+          isVisiblefFooter &&
+          <Footer
             branding={data.footer.branding}
             logo={data.footer.logo}
             background={data.footer.background}
