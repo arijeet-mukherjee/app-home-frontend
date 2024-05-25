@@ -21,7 +21,7 @@ export default function Home() {
   const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
 
   const refCarouselCurrentSubscription = useRef<HTMLDivElement>(null);
-  const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '0px');
+  const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '100px');
 
   const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
   const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '0px');
