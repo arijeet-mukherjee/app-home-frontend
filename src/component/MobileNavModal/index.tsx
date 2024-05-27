@@ -46,24 +46,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal }) => {
                                     fontSize: "30px",
 
                                 }}
-                            >{item.label}</Link>
-                            {
-                                item.dditem?.map((dditem, index) => {
-                                   
-                                    return (
-
-                                        <div className={styles.ddItem} key={index} aria-label={`${dditem.label}`}>
-                                            <Link href={dditem.url}
-                                            style={{
-                                                textDecoration:"none",
-                                                color:"white",
-                                                fontFamily:"DM Sans"
-                                            }}
-                                            >{dditem.label}</Link>
-                                        </div>
-                                    );
-                                })
-                            }
+                            >{item.label}</Link>   
                         </div>
                     );
                 })

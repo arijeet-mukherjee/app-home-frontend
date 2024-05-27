@@ -2,10 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from "./styles.module.css";
-import NavBarItem from './NavBarItem/index';
 import Button from '../common/Button';
 import Link from 'next/link';
 import data from '../../data.json';
+import { useState } from 'react';
+import DDMenu from '@component/common/DropdownMenu';
 
 
 interface HeaderProps {
@@ -13,7 +14,13 @@ interface HeaderProps {
 };
 
 const Header: React.FC<HeaderProps> = ({ openModal }) => {
-    function handelClick(e : MouseEvent) {
+    const [open, setOpen] = useState(false);
+
+    const handledd = () => {
+        setOpen(!open)
+    }
+
+    function handelClick(e: MouseEvent) {
         e.preventDefault();
     };
     return (
@@ -30,18 +37,68 @@ const Header: React.FC<HeaderProps> = ({ openModal }) => {
                 </Link>
             </div>
             <div className={styles.navbar}>
-                <NavBarItem list={data.header.navigation_bar.navbarItems} />
+                {data.header.navigation_bar.navbarItems?.map((item, index) => {
+                    if (item.dditem?.length === 0) {
+                        return (
+                            <div aria-label={item.label} key={index}>
+                                <Link className={styles.navItem} href={item.url} >{item.label}</Link>
+                            </div>
+                        )
+                    }
+                    return (
+                        <div aria-label={item.label} key={index}>
+                            <Link
+                                style={{ color: "white" }}
+                                className={styles.navItem}
+                                href=""
+                                onClick={(e) => {
+                                    e.preventDefault;
+                                    handledd();
+                                }}
+                            >{item.label}
+                                <span className={styles.arrowDown}></span>
+                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={80} />}
+                            </Link>
+                        </div>
+                    )
+                })
+                }
+
                 <Button label={data.header.navigation_bar.button.label} action_svg={data.header.navigation_bar.button.action_svg} hc={handelClick} />
             </div>
-            <Image src="/burger-menu-icon.svg" alt="menu"
-                width={50}
-                height={50}
-                className={styles.burgerMenuLogo}
-                onClick={(e) => {
-                    e.preventDefault();
-                    openModal();
-                }}
-            />
+            <div className={styles.mobileLang}>
+                {
+                    data.header.navigation_bar.navbarItems?.map((item, index) => {
+                        if (item.dditem?.length !== 0) {
+                            return (
+                                <div aria-label={item.label} key={index}>
+
+                                    <Link className={styles.navItem} href="" onClick={(e) => {
+                                        e.preventDefault;
+                                        handledd();
+                                    }}
+                                    >{item.label}
+                                        <span className={styles.arrowDown}></span>
+                                        {open && <DDMenu list={item.dditem} offsetX={0} offsetY={80} />}
+                                    </Link>
+                                </div>
+                            )
+                        }
+                    })
+                }
+            </div>
+            <div className={styles.burgerMenuLogo}>
+
+                <Image src="/burger-menu-icon.svg" alt="menu"
+                    width={50}
+                    height={50}
+
+                    onClick={(e) => {
+                        e.preventDefault();
+                        openModal();
+                    }}
+                />
+            </div>
         </nav>
     );
 };
