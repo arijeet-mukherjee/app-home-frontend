@@ -68,7 +68,7 @@
         "image_position": "right",
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "paddingImageContent": ""
     },
     "yourShield": {
@@ -79,7 +79,7 @@
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "",
-        "paddingImageContent": "calc((100vw / 1920) * 115)"
+        "paddingImageContent": "calc((100vw / 1920) * 0)"
     },
     "jointheMovement": {
         "title": "Join the Movement",
@@ -88,7 +88,7 @@
         "image_position": "right",
         "button_name": "Know More",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "paddingImageContent": ""
     },
     "footer": {
@@ -349,7 +349,7 @@
         "image_position": "right",
         "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
-        "paddingLeftContent": "calc((100vw / 1920) * 115)",
+        "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "inputBox": "Email*",
         "bulletPointImg": "/tickmark.svg",
         "bulletPoints":[

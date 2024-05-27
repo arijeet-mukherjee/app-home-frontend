@@ -3,7 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import styles from "./hero.module.css";
 import Image from 'next/image';
-import Header from '@component/Header';
+import dynamic from 'next/dynamic';
+const Header = dynamic(() => import('@component/Header'));
 interface HeroProps {
     // Your props goes here
     introduction: Array<string>;
@@ -11,7 +12,7 @@ interface HeroProps {
     openModal: Function;
 };
 
-const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
+const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
@@ -72,6 +73,6 @@ const Hero: React.FC<HeroProps> = ({ introduction, content, openModal }) => {
             <div className={styles['emptyArea']}></div>
         </div>
     );
-};
+});
 
 export default Hero;

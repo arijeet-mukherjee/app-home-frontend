@@ -32,7 +32,6 @@ const Header: React.FC<HeaderProps> = ({ openModal }) => {
                         alt={data.header.navigation_bar.logo.alt}
                         width={177}
                         height={48}
-                        priority={true}
                     />
                 </Link>
             </div>

@@ -1,22 +1,42 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
+import dynamic from 'next/dynamic';
 import data from '../data.json';
 import styles from './app.module.css';
+import useOnScreen from "@util/useOnScreen";
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
-import CardBox from "@component/cardBox";
-import MobileNavModal from "@component/MobileNavModal";
-import CardQuality from "@component/cardQuality";
-import Carousel from "@component/Carousel";
-import NewsLetter from "@component/NewsLetter";
-import Footer from "@component/Footer";
+const CardBox = dynamic(() => import('@component/cardBox'), {
+  loading: () => <p>Loading.....</p>
+});
+const MobileNavModal = dynamic(() => import('@component/MobileNavModal'));
+const CardQuality = dynamic(() => import('@component/cardQuality'), { ssr: false });
+const Carousel = dynamic(() => import('@component/Carousel'), { ssr: false });
+const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
+const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
+const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
 import { isMobile } from "@util/index";
 
 export default function Home() {
+  const refCardQuality = useRef<HTMLDivElement>(null);
+  const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
+
+  const refCarouselCurrentSubscription = useRef<HTMLDivElement>(null);
+  const isVisibleCarouselCurrentSubscription = useOnScreen(refCarouselCurrentSubscription, '50px');
+
+  const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
+  const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
+
+  const refNewsLetter = useRef<HTMLDivElement>(null);
+  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '100px');
+
+  const refFooter = useRef<HTMLDivElement>(null);
+  const isVisiblefFooter = useOnScreen(refFooter, '150px');
+
   const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(!modalOpen);
-  };
+  const openModal = useCallback(() => {
+    setModalOpen(prevModalOpen => !prevModalOpen);
+  }, []);
   const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
   React.useEffect(() => {
     if (isMobile()) {
@@ -69,41 +89,55 @@ export default function Home() {
           paddingImageContent={data.jointheMovement.paddingImageContent}
         />
       </div>
-      <div className={styles["whiteBackground"]}>
-        <CardQuality
-          heading={data.qualityCard.heading}
-          content={data.qualityCard.content}
-          button={data.qualityCard.button}
-          childCardProp={data.qualityCard.childCardProp}
-          background={data.qualityCard.background}
-        />
+      <div ref={refCardQuality} className={styles["whiteBackground"]}>
+        {
+          isVisibleCardQuality && <CardQuality
+            heading={data.qualityCard.heading}
+            content={data.qualityCard.content}
+            button={data.qualityCard.button}
+            childCardProp={data.qualityCard.childCardProp}
+            background={data.qualityCard.background}
+          />
+        }
       </div>
-      <div className={styles["carousel-container-1"] + " " + styles["cardBoxRemain"]} style={carouselStyle}>
-        <Carousel {...data.carouselCurrentSubscription} />
+      <div className={styles["carousel-container-1"] + " " + styles["cardBoxRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
+        {
+          isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
+        }
       </div>
-      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} >
-        <Carousel {...data.carouselUpcomingSubscription} />
+      <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} ref={refCarouselUpcomingSubscription}>
+        {
+          isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
+        }
       </div>
-      <div className={styles["cardBoxRemain"]}>
-        <NewsLetter
-          title={data.newsLetter.title}
-          image={data.newsLetter.image}
-          iconPosition={data.newsLetter.image_position}
-          buttonText={data.newsLetter.button_name}
-          buttonIcon={data.newsLetter.button_icon}
-          paddingLeftContent={data.newsLetter.paddingLeftContent}
-          inputBox={data.newsLetter.inputBox}
-          bulletPointImg={data.newsLetter.bulletPointImg}
-          bulletPoints={data.newsLetter.bulletPoints}
-          goTo={data.newsLetter.goTo}
-        />
+      <div ref={refNewsLetter} className={styles["cardBoxRemain"]}>
+        {
+          isVisibleNewsLetter && <NewsLetter
+            title={data.newsLetter.title}
+            image={data.newsLetter.image}
+            iconPosition={data.newsLetter.image_position}
+            buttonText={data.newsLetter.button_name}
+            buttonIcon={data.newsLetter.button_icon}
+            paddingLeftContent={data.newsLetter.paddingLeftContent}
+            inputBox={data.newsLetter.inputBox}
+            bulletPointImg={data.newsLetter.bulletPointImg}
+            bulletPoints={data.newsLetter.bulletPoints}
+            goTo={data.newsLetter.goTo}
+          />
+        }
       </div>
-      <Footer
-        branding={data.footer.branding}
-        logo={data.footer.logo}
-        background={data.footer.background}
-        contents={data.footer.content}
-        socialMedias={data.footer.socialMedia} />
+      <div ref={refFooter}>
+        {
+        isVisiblefFooter &&
+            <Footer
+            branding={data.footer.branding}
+            logo={data.footer.logo}
+            background={data.footer.background}
+            contents={data.footer.content}
+            socialMedias={data.footer.socialMedia} />
+        }
+      </div>
+      <TawkChatWidget />
     </div>
   );
 }
