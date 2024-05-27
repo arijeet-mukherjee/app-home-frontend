@@ -32,7 +32,6 @@
     box-sizing: border-box;
     height: calc((100vw / 1920) * 600);
     transition-duration: 1000ms;
-    aspect-ratio: 3/4;
 }
 
 .animation {
