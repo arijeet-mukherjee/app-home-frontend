@@ -14,7 +14,6 @@ interface newsLetter {
     goTo: string
 }
 const NewsLetter: React.FC<newsLetter> = ({image, title, iconPosition, buttonIcon, buttonText, goTo, paddingLeftContent, inputBox, bulletPointImg, bulletPoints }) => {
-
     return(
             <CardBox 
             image={image} 

@@ -9,6 +9,8 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .carousel-header {
@@ -29,7 +31,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     justify-content: center;
-    column-gap: calc((100vw / 1920) * 50);
+    gap: calc((100vw / 1920) * 50);
     align-items: center;
     transform-style: preserve-3d;
 }
@@ -45,7 +47,7 @@
 }
 
 .carousel-header {
-    margin: 0;
+    margin: 0 0 10px 0;
 }
 
 .carousel-title {
@@ -124,5 +126,10 @@
         padding-top: calc((100vw / 393) * 21);
         gap: calc((100vw / 393) * 10);
         margin-bottom: 10px;
+    }
+    
+     .carousel-wrapper {
+        padding-top: 15px;
+        padding-bottom: 5px;
     }
 }

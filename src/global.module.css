@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -44,6 +45,7 @@
   --hero-section-top-padding: 60px;
   --cards-left-padding: 216.195px;
   --cards-right-padding: 216.195px;
+  --padding-cardbox-left: 160px;
   --line-height: 1.5;
   --border-radius: 4px;
   --padding: 10px;

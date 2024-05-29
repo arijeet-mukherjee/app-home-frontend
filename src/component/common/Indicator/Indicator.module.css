@@ -5,11 +5,14 @@
     border: 1px;
     border-radius: 50%;
     transition: 200ms;
+    height: 18px;
+    width: 18px;
 }
 
 .dot-button-active {
     background-color: var(--text-icon-color);
-    width: calc((100vw / 1920) * 48);
+    width: calc((100vw / 1920) * 36);
+    height: calc((100vw / 1920) * 18);
     border: 1px;
     border-radius: calc((100vw / 1920) * 300);
     aspect-ratio: 2.6666666666666665 / 1;
@@ -26,5 +29,9 @@
         width: calc((100vw / 393) * 48);
         border: 1px;
         border-radius: calc((100vw / 393) * 300);
+    }
+
+    .dot-button {
+        height: auto;
     }
 }

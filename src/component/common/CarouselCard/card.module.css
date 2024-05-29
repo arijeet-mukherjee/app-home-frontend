@@ -30,7 +30,7 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     box-sizing: border-box;
-    height: calc((100vh / 964) * 600);
+    height: calc((100vw / 1920) * 600);
     transition-duration: 1000ms;
 }
 
@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     width: calc((100vw / 1920) * 274.67);
-    height: calc((100vh / 964) * 256.08);
+    height: calc((100vw / 1920) * 256.08);
 }
 
 .carousel-card-content {
@@ -95,7 +95,7 @@
     font-family: 'Roboto';
     font-style: normal;
     font-size: calc((100vw / 1920) * 16);
-    line-height: calc((100vh / 964) * 24);
+    line-height: calc((100vw / 1920) * 24);
     font-weight: 500;
     color: var(--text-icon-color);
 }
@@ -104,10 +104,12 @@
     .carousel-card {
         width: calc((100vw / 393) * 361);
         height: min-content;
+        aspect-ratio: 3/4;
     }
 
     .card-image-outer {
         width: calc((100vw / 393) * 240);
+        height: calc((100vw / 393) * 191.13);
         background-size: inherit;
     }
 
@@ -134,7 +136,8 @@
     }
 
     .carousel-card-button {
-        padding: calc((100vw / 393) * 5) calc((100vw / 393) * 7);
+        padding: calc((100vw / 393) * 15) calc((100vw / 393) * 7);
         font-size: calc((100vw / 393) * 16);
+        width: calc((100vw / 393) * 115);
     }
 }

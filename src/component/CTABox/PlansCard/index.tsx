@@ -1,6 +1,7 @@
 import styles from './styles.module.css';
 import Image from 'next/image';
 import Button from "@component/common/Button";
+import Link from 'next/link';
 import { FC, useRef, useEffect, useState } from 'react';
 
 
@@ -94,23 +95,11 @@ const PlansCard: FC<PlansCardProps> = ({
 
 
             <p className={styles.originalPrice}>{`${currentPlan.currencySymbol}${currentPlan.price}`}</p>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                gap: '20px',
-                width: 'min-content',
-            }}>
+            <div className={styles.discountPriceContainer}>
                 <p className={styles.dicountedPrice}>{`${currentPlan.currencySymbol}${currentPlan.discountPrice}`}</p>
                 <p>{`${currentPlan.currency} /${currentPlan.period}`}</p>
             </div>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                gap: 'calc((100vw / 1920 )*6)',
-
-            }}>
+            <div className={styles.bulletPointContainer}>
                 <Image src={bulletIcon} alt='bullet point'
                     width={30}
                     height={30}
@@ -119,11 +108,16 @@ const PlansCard: FC<PlansCardProps> = ({
             </div>
 
 
-            <Button
-                label={currentPlan.buttonText}
-                action_svg={button_action_svg}
-                buttonColor={buttonColor}
-                aria-label = {`${currentPlan.buttonText} button`}/>
+            <div className={styles["cta-button"]}>
+                    <Link href="/about" legacyBehavior>
+                        <a className={styles["button"]}>
+                            <span className={styles["button-text"]}>{currentPlan.buttonText}</span>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
+                            </span>
+                        </a>
+                    </Link>
+                </div>
 
         </div>
     )

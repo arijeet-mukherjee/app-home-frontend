@@ -11,7 +11,7 @@
     padding-top: calc((100vw / 1920) * 117);
     padding-right: calc((100vw / 1920) * 152);
     padding-bottom: calc((100vw / 1920) * 117);
-    padding-left: calc((100vw / 1920) * 59);
+    padding-left: var(--padding-cardbox-left);
     margin-bottom: calc((100vw / 1920) * 60);
 }
 
