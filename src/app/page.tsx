@@ -87,7 +87,7 @@ export default function Home() {
       
       {
         //Uncomment the following code in order to get the backup CTA section
-      /* <CTASection
+      <CTASection
           heading={data.CallToAction.heading}
           description={data.CallToAction.description}
           cardTitle={data.CallToAction.cardTitle}
@@ -96,7 +96,7 @@ export default function Home() {
           button_action_svg={data.CallToAction.button_action_svg}
           bulletIcon={data.CallToAction.bulletIcon}
 
-        /> */}
+        /> }
 
       <div className={styles["cardBoxRemain"]}>
         <CTABox
