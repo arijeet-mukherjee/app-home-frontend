@@ -36,30 +36,19 @@ h1{
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 20px;
     aspect-ratio: 1 / 1;
     box-sizing: border-box;
-    margin-top: 40px;
-    margin-bottom: 60px;
 }
 
 .subCardContainer{
-    display: flex;
-    gap: 20px;
+    gap: calc((100vw / 1920)* 25);
     width: calc((100vw / 1920)* 605);
-    height: calc((100vw / 1920)* 732);
+    height: calc((100vw / 1920)* 675);
     justify-content: center;
     z-index: 9999;
-}
-
-.background{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .cards{
@@ -84,8 +73,8 @@ h1{
 }
 
 .buttonImage{
-    filter: invert(1);
-    width: calc((100vw / 1920)*39);
+    height: calc((100vw/1920)*25);
+    width: calc((100vw/1920)*25);
 }
 
 a {
@@ -95,7 +84,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: calc((100vw/1920)*6);
 }
 
 .home-button {
@@ -110,42 +99,65 @@ a {
     padding: calc((100vw / 1920)* 10) calc((100vw / 1920)* 34);
     justify-content: center;
     overflow: visible;
+    transition: background-color 1s linear, border 1s;
 }
 
-@media screen and (max-width : 768px) {
+.home-button:hover{
+    background-color: #ffff;
+    border: 1px solid black;
+}
+.home-button:hover a span {
+    color: black !important;
+}
+.home-button:hover .buttonImage {
+    filter: invert(1);
+}
+
+@media screen and (max-width : 1100px) {
     .homeQuality{
         flex-direction: column;
     }
+    .background{
+        display: none;
+    }
     .intro{
-        width: calc((100vw / 391)* 360);
+        width: calc((100vw / 393)* 360);
+        gap: 15px;
     }
     .introHeading{
-        font-size: calc((100vw / 391)*21);
+        font-size: calc((100vw / 393)*21);
     }
     .introContent{
-        font-size: calc((100vw / 391)*14);
-        line-height: calc((100vw / 391)*16);
+        font-size: calc((100vw / 393)*14);
+        line-height: calc((100vw / 393)*16);
     }
     .cardContainer{
-        width: calc((100vw / 391)* 357);
+        width: calc((100vw / 393)* 361);
     }
     .subCardContainer{
-        gap: 15px;
-        width: calc((100vw / 391)* 292);
-        height: calc((100vw / 391)* 365);
+        gap: calc((100vw / 393)* 15);
+        width: calc((100vw / 393)* 361);
+        height: calc((100vw / 393)* 1773);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
     }
     .cards{
         gap: 15px;
     }
     .home-button{
-        height: calc((100vw / 391)* 28);
-        width: calc((100vw / 391)* 152);
+        height: calc((100vw / 393)* 28);
+        width: calc((100vw / 393)* 152);
+        padding: calc((100vw/393)*5) calc((100vw/393)*14);
     }
     .button-text{
-        font-size: calc((100vw / 391)* 14);
-        line-height: calc((100vw / 391)* 16);
+        font-size: calc((100vw / 393)* 14);
+        line-height: calc((100vw / 393)* 16);
     }
     .buttonImage{
-        width: calc((100vw / 391)* 10);
+        height: calc((100vw/393)*25);
+        width: calc((100vw/393)*25);
+    }
+    a{
+        gap: calc((100vw / 393)*4);
     }
 }

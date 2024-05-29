@@ -4,47 +4,81 @@ import Image from 'next/image';
 import styles from "./card.module.css"
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { isMobile } from '@util/index';
 
 interface CardProps {
   heading?: string;
   content?: string;
   image?: {
-    path: string;
+    pathDesktop?: string;
+    pathMobile?: string;
     name: string;
   }
-  backgroundColor?: string;
-  textColor?: string;
+  bg?: {
+    backgroundColorDesktop?: string;
+    backgroundColorMobile?: string;
+    backgroundImg?: string,
+    backgroundPosition?: string;
+  }
+  textColor?: {
+    desktop?: string;
+    mobile?: string;
+  };
+  translate?: string;
+  gridArea?: string;
   button?: {
-    name1: string;
-    name2?: string;
+    backgroundColorDesktop?: string,
+    textColorDesktop?: string,
+    backgroundColorMobile?: string,
+    textColorMobile?: string,
+    desktopText?: string;
+    mobileText?: string;
+    mobileImg?: string;
+    desktopImg?: string;
     url: string;
   }
 };
 
-const Card: React.FC<CardProps> = ({ heading, content, image, backgroundColor, textColor, button }) => {
-
-  //Fixed screen not defined reference error
-  const [breakPoint, setBreakPoint] = useState<number>(0);
+const Card: React.FC<CardProps> = ({ heading, content, image, bg, textColor, translate, gridArea, button }) => {
+  const [backgroundImage, setBackgroundImage] = useState('none');
+  const [backgroundColor, setBackgroundColor] = useState(bg?.backgroundColorDesktop);
+  const [cardImage, setCardImage] = useState(image?.pathDesktop)
+  const [txtColor, setTxtColor] = useState(textColor?.desktop);
+  const [buttonTxt, setButtonTxt] = useState(button?.desktopText);
+  const [buttonColor, setButtonColor] = useState(button?.backgroundColorDesktop);
+  const [buttonTextColor, setButtonTextColor] = useState(button?.textColorDesktop);
+  const [buttonImg, setButtonImg] = useState(button?.desktopImg);
 
   useEffect(() => {
-    setBreakPoint(typeof window !== 'undefined' ? window.screen.width : 0);
-  }, [])
+    if (isMobile()) {
+      setBackgroundImage(`url(${bg?.backgroundImg})`);
+      setBackgroundColor(bg?.backgroundColorMobile);
+      setCardImage(image?.pathMobile);
+      setTxtColor(textColor?.mobile);
+      setButtonTxt(button?.mobileText);
+      setButtonColor(button?.backgroundColorMobile);
+      setButtonTextColor(button?.textColorMobile);
+      setButtonImg(button?.mobileImg);
+    }
+  }, []);
 
   return (
-    <div className={styles.card} style={{ background: backgroundColor, color: textColor }}>
-      {image &&
-        <Image src={image?.path} alt={image?.name} width={62} height={62} className={styles.cardImage} />
+    <div className={styles.card} style={{ backgroundColor: backgroundColor, color: txtColor, backgroundImage: backgroundImage, backgroundRepeat: 'no-repeat', backgroundSize: 'calc((100vw / 393)*173)', backgroundPosition: bg?.backgroundPosition, translate: translate, gridArea: gridArea }}>
+      {image && cardImage &&
+      <div className={styles['cardImgContainer']}>
+        <Image src={cardImage} alt={image?.name} height={60} width={60} className={styles.cardImage} />
+        </div>
       }
-      <h3 aria-label={heading}>{heading}</h3>
-      <p aria-label={content}>{content}</p>
-      {button && <div className={styles["card-button"]} role='button'>
-        <Link href={button.url} tabIndex={0} legacyBehavior>
+      <h3 aria-label={heading} className={styles.heading}>{heading}</h3>
+      <p aria-label={content} className={styles.content}>{content}</p>
+      {buttonTxt && button && <div className={styles["card-button"]} style={{backgroundColor: buttonColor}} role='button'>
+        <Link href={button?.url} tabIndex={0} legacyBehavior>
           <a className={styles["button"]}>
-            <span className={styles["button-text"]}>
-              {button.name2 ? breakPoint >= 768 ? button.name1 : button.name2 : button.name1}
-            </span>
-            <span style={{ display: 'flex', alignItems: 'center' }}>
-              <Image src="/arrowrightblack.svg" className={styles.arrowImg} alt="arrow right" width={19.43} height={7.77} />
+            <span className={styles["button-text"]} style={{color: buttonTextColor}}>{buttonTxt}</span>
+            <span className={styles['button-icon']}>
+              {buttonImg &&
+               <Image src={buttonImg} className={styles.buttonImage} alt="arrow right" width={30} height={23.31} />
+              }
             </span>
           </a>
         </Link>

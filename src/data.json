@@ -183,21 +183,61 @@
                     "heading": "Trustworthy",
                     "content": "All our employees are under very strict Non-Disclosure Agreements",
                     "image": {
-                        "path": "/trustworthy.svg",
+                        "pathDesktop": "/trustworthy.svg",
+                        "pathMobile": "/trustworthy2.svg",
                         "name": "trustworthy"
                     },
-                    "backgroundColor": "var(--light-color)",
-                    "textColor": "var(--dark-color)"
+                    "bg":{
+                        "backgroundColorDesktop": "var(--light-color)",
+                        "backgroundColorMobile": "var(--text-button-background-color-primary)",
+                        "backgroundImg": "/qualitybackground-part4.svg",
+                        "backgroundPosition": "left top"
+                    },
+                    "textColor":{
+                        "desktop": "var(--dark-color)",
+                        "mobile": "var(--light-color)"
+                    },
+                    "button": {
+                        "backgroundColorDesktop": "var(--light-color)",
+                        "textColorDesktop": "var(--text-button-background-color-primary)",
+                        "backgroundColorMobile": "var(--light-color)",
+                        "textColorMobile": "var(--text-button-background-color-primary)",
+                        "desktopText": "",
+                        "mobileText":"",
+                        "mobileImg": "/arrowrightprimary.svg",
+                        "desktopImg": "",
+                        "url": "/"
+                    }
                 },
                 {
                     "heading": "Accessible",
                     "content": "Quick and discrete answers to your troubles",
                     "image": {
-                        "path": "/accessible.svg",
+                        "pathDesktop": "/accessible.svg",
+                        "pathMobile": "/accessible2.svg",
                         "name": "accessible"
                     },
-                    "backgroundColor": "var(--light-color)",
-                    "textColor": "var(--dark-color)"
+                    "bg":{
+                        "backgroundColorDesktop": "var(--light-color)",
+                        "backgroundColorMobile": "var(--light-color)",
+                        "backgroundImg": "/qualitybackground-part2.svg",
+                        "backgroundPosition": "right top"
+                    },
+                    "textColor":{
+                        "desktop": "var(--dark-color)",
+                        "mobile": "var(--dark-color)"
+                    },
+                    "button": {
+                        "backgroundColorDesktop": "var(--light-color)",
+                        "textColorDesktop": "var(--text-button-background-color-primary)",
+                        "backgroundColorMobile": "var(--light-color)",
+                        "textColorMobile": "var(--text-button-background-color-primary)",
+                        "desktopText": "",
+                        "mobileText":"",
+                        "mobileImg": "",
+                        "desktopImg": "",
+                        "url": "/"
+                    }
                 }
             ],
             "right": [
@@ -205,24 +245,59 @@
                     "heading": "Available",
                     "content": "We are always available, also when your tech-savvy aunt or friend is not",
                     "image": {
-                        "path": "/available.svg",
+                        "pathDesktop": "/available.svg",
+                        "pathMobile": "/available2.svg",
                         "name": "available"
                     },
-                    "backgroundColor": "var(--text-button-background-color-primary)",
-                    "textColor": "var(--text-icon-color)"
+                    "bg":{
+                        "backgroundColorDesktop": "var(--text-button-background-color-primary)",
+                        "backgroundColorMobile": "var(--light-color)",
+                        "backgroundImg": "/qualitybackground-part1.svg",
+                        "backgroundPosition": "right bottom"
+                    },
+                    "textColor":{
+                        "desktop": "var(--light-color)",
+                        "mobile": "var(--dark-color)"
+                    },
+                    "button": {
+                        "backgroundColorDesktop": "var(--text-button-background-color-primary)",
+                        "textColorDesktop": "var(--light-color)",
+                        "backgroundColorMobile": "var(--text-button-background-color-primary)",
+                        "textColorMobile": "var(--light-color)",
+                        "desktopText": "",
+                        "mobileText":"",
+                        "mobileImg": "/arrowrightwhite.svg",
+                        "desktopImg": "",
+                        "url": "/"
+                    }
                 },
                 {
                     "heading": "Multilingual",
                     "content": "Currently available in: Dutch, English, Romanian. Request for a new language.",
                     "image": {
-                        "path": "/multilingual.svg",
+                        "pathDesktop": "/multilingual.svg",
+                        "pathMobile": "/multilingual2.svg",
                         "name": "multilingual"
                     },
-                    "backgroundColor": "var(--light-color)",
-                    "textColor": "var(--dark-color)",
+                    "bg":{
+                        "backgroundColorDesktop": "var(--light-color)",
+                        "backgroundColorMobile": "var(--light-color)",
+                        "backgroundImg": "/qualitybackground-part3.svg",
+                        "backgroundPosition": "left bottom"
+                    },
+                    "textColor":{
+                        "desktop": "var(--dark-color)",
+                        "mobile": "var(--dark-color)"
+                    },
                     "button": {
-                        "name1": "Request",
-                        "name2":"Request Now",
+                        "backgroundColorDesktop": "var(--text-button-background-color-primary)",
+                        "textColorDesktop": "var(--light-color)",
+                        "backgroundColorMobile": "var(--text-button-background-color-primary)",
+                        "textColorMobile": "var(--light-color)",
+                        "desktopText": "Request",
+                        "mobileText":"Request Now",
+                        "mobileImg": "/arrowrightwhite.svg",
+                        "desktopImg": "/arrowrightwhite.svg",
                         "url": "/"
                     }
                 }
