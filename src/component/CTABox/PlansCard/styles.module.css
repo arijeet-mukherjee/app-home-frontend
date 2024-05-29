@@ -184,8 +184,11 @@ a {
         font-size: calc((100vw / 393)*15);
     }
 
-    .dicountedPrice {
-        font-size: calc((100vw / 393)*40);
+    .discountPriceContainer {
+        font-size: calc((100vw / 393)*11);
+    }
+    .dicountedPrice{
+        font-size: calc((100vw / 393)*30);
     }
     .bulletIcon{
         width: calc((100vw / 393)*15);
@@ -196,6 +199,16 @@ a {
     }
     h1{
         font-size: calc((100vw / 393)* 23);
+    }
+    .cta-button{
+        padding-top:calc((100vw / 393)* 2);
+        padding-bottom:calc((100vw / 393)* 2);
+        padding-left: calc((100vw / 393)* 20);
+        padding-right: calc((100vw / 393)* 20);
+        
+    }
+    .button-text{
+        font-size: calc((100vw /393)*11);
     }
 
 }
