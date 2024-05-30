@@ -1,22 +1,74 @@
 @import url('../../global.module.css');
+
 .mobileNavModal {
-    background-color: var( --primary-background-dark-color);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    width: 100vw;
+    background-color: var(--primary-background-dark-color);
     height: 100vh;
-    position: absolute;
-    z-index: 10000;
-    display: grid;
-
-    align-items: center;
+    width: 100vw;
+    box-sizing: border-box;
     color: var(--text-icon-color);
-    gap: 30px;
+    padding:0px;
+    margin: 0px;  font-family: 'Roboto';
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
 
+}
+
+.headerContainer {
+    margin: 20px;
+}
+
+.navBar {
+    display: grid;
+    grid-template-rows: auto;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+
+}
+
+.navItmCont {
+    width: calc((100vw / 393)* 200);
+    height: calc((100vw / 393)* 50);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.navItem {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+
+}
+
+.navItem:hover {
+    border-bottom: 2px solid rgb(194, 146, 238);
+}
+
+.btnContainer {
+    margin: auto;
+    width: fit-content;
 }
 
 .closebtn {
 
     align-self: end;
     margin: 2rem;
+}
+
+.navModalBackground {
+    position: absolute;
+    transform: translateY(50px);
+    bottom: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 40vh;
 }

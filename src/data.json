@@ -41,11 +41,11 @@
                     "url": "/",
                     "dditem": [
                         {
-                            "label": "ENG",
+                            "label": "EN",
                             "url": "/"
                         },
                         {
-                            "label": "DTC",
+                            "label": "NL",
                             "url": "/"
                         }
                     ]

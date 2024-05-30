@@ -1,18 +1,32 @@
 @import url("../../../global.module.css");
+
 .dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: var(--text-icon-color);
-    align-items: center;
-    border-radius: 15px;
-    min-width: 200px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    background-color: black;
+    width: auto;
     z-index: 100;
+    gap: 0.1rem;
+
+}
+
+.tile {
+    background-color: var(  --text-button-background-color-secondary);
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile:hover {
+    background-color: rgb(117, 72, 207);
+    
 }
 
 .ddItem {
+
     color: var(--text-tertiary-color);
-    font-weight: 600;
+    font-weight: 200;
+    color: black;
 }

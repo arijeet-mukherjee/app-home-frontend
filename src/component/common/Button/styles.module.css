@@ -18,7 +18,3 @@
     word-wrap: break-word;
     
 }
-
-.button:hover {
-    background-color: var(--text-button-background-color-secondary);
-}
