@@ -64,9 +64,22 @@
     "introduction": {
         "title": "Introduction",
         "description": "Welcome to SecDesk@Home - your shield against cybercriminals in an increasingly digitized world. As technology advances, so do the threats, and SecDesk couldn't stand idly by any longer. We've witnessed too many hard-earned dollars fall into the hands of cybercriminals, and enough is enough. It's time for a solution designed to protect individuals like you who are active online.",
-        "image": "/introductiondoubletick.svg",
+        "image": {
+            "path":"/introductiondoubletick.svg",
+            "title": "introduction",
+            "dHeight": "calc((100vw / 1920)*200)",
+            "dWidth": "calc((100vw / 1920)*200)",
+            "mHeight": "calc((100vw / 393)*129)",
+            "mWidth": "calc((100vw / 393)*129)"
+        },
+        "background": {
+            "dHeight": "calc((100vw / 1920)*307.29)",
+            "dWidth": "calc((100vw / 1920)*329.61)",
+            "mHeight": "calc((100vw / 393)*191.93)",
+            "mWidth": "calc((100vw / 393)*240)"
+        },
         "image_position": "right",
-        "button_name": "Know More",
+        "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "paddingImageContent": ""
@@ -74,9 +87,22 @@
     "yourShield": {
         "title": "Your Shield",
         "description": "SecDesk@Home is more than just a security subscription; it's your personalized defense mechanism crafted by the security specialists at SecDesk. Our mission is clear: to create a more secure world, and SecDesk@Home extends that mission directly to you, the consumer market. With our comprehensive security measures in place, you can navigate the digital landscape with confidence, knowing that your personal information and hard-earned assets are safeguarded against cyber threats.",
-        "image": "/yourshield.svg",
+        "image": {
+            "path":"/yourshield.svg",
+            "title": "introduction",
+            "dHeight": "calc((100vw / 1920)*200)",
+            "dWidth": "calc((100vw / 1920)*200)",
+            "mHeight": "calc((100vw / 393)*129)",
+            "mWidth": "calc((100vw / 393)*129)"
+        },
+        "background": {
+            "dHeight": "calc((100vw / 1920)*307.29)",
+            "dWidth": "calc((100vw / 1920)*329.61)",
+            "mHeight": "calc((100vw / 393)*191.93)",
+            "mWidth": "calc((100vw / 393)*240)"
+        },
         "image_position": "left",
-        "button_name": "Know More",
+        "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "",
         "paddingImageContent": "calc((100vw / 1920) * 0)"
@@ -84,9 +110,22 @@
     "jointheMovement": {
         "title": "Join the Movement",
         "description": "Take control of your online security today by joining the SecDesk@Home community. Together, we can build a safer digital environment for everyone. Don't let cybercriminals dictate your online experience any longer. With SecDesk@Home, you have the power to protect yourself and contribute to a more secure world. Join us in our mission and secure your peace of mind with SecDesk@Home.",
-        "image": "/jointhemovement.svg",
+        "image": {
+            "path":"/jointhemovement.svg",
+            "title": "introduction",
+            "dHeight": "calc((100vw / 1920)*200)",
+            "dWidth": "calc((100vw / 1920)*200)",
+            "mHeight": "calc((100vw / 393)*129)",
+            "mWidth": "calc((100vw / 393)*129)"
+        },
+        "background": {
+            "dHeight": "calc((100vw / 1920)*307.29)",
+            "dWidth": "calc((100vw / 1920)*329.61)",
+            "mHeight": "calc((100vw / 393)*191.93)",
+            "mWidth": "calc((100vw / 393)*240)"
+        },
         "image_position": "right",
-        "button_name": "Know More",
+        "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "paddingImageContent": ""
@@ -420,7 +459,20 @@
       },
       "newsLetter":{
         "title": "Stay up to date with the latest in security with the Secdesk security newsletter!",
-        "image": "/newsletter.svg",
+        "image": {
+            "path":"/newsletter.svg",
+            "title": "newsletter",
+            "dHeight": "calc((100vw / 1920)*220.85)",
+            "dWidth": "calc((100vw / 1920)*246.48)",
+            "mHeight": "calc((100vw / 393)*132.51)",
+            "mWidth": "calc((100vw / 393)*147.89)"
+        },
+        "background": {
+            "dHeight": "calc((100vw / 1920)*307)",
+            "dWidth": "calc((100vw / 1920)*330)",
+            "mHeight": "calc((100vw / 393)*217)",
+            "mWidth": "calc((100vw / 393)*271.35)"
+        },
         "image_position": "right",
         "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
