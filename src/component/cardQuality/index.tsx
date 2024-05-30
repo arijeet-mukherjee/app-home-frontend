@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import Card from "./Card"
+import dynamic from 'next/dynamic';
+const Card = dynamic(() => import('./Card'));
 import styles from "./quality.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
