@@ -4,7 +4,7 @@
 .cardbox-card {
     display: grid;
     grid-template-columns: auto auto;
-    height: max-content;
+    height: min-content;
     justify-content: center;
     align-items: center;
     gap: 70px;
@@ -70,18 +70,15 @@
 }
 
 .button-icon {
+    display: grid;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
 }
 
 .cardbox-button {
     width: 120px;
-    height: 20px;
     background-color: var(--text-button-background-color-primary);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: grid;
     padding: 10px 34px;
     justify-content: center;
     align-items: center;

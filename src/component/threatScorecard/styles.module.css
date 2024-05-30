@@ -1,0 +1,426 @@
+@import url("../../global.module.css");
+
+div {
+    letter-spacing: 1px;
+}
+
+.scorecard-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    gap: 12px
+}
+
+.vunerability-section {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 8px;
+}
+
+.threat-section {
+    display: grid;
+    grid-template-rows: 3fr auto;
+    gap: 8px;
+}
+
+.threatcalculator-section {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    background: #08031B;
+    border-radius: calc((100vw / 1920) * 37.25);
+}
+
+.threatcalculator-text {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 1px;
+    margin-top: calc((100vw / 1920) * 30.05);
+    margin-left: calc((100vw / 1920) * 49.01);
+}
+
+.threatcalculator-title {
+    font-family: "Inter";
+    font-size: calc((100vw / 1920) *20);
+    font-weight: 800;
+    line-height: calc((100vw / 1920) *30.59);
+    letter-spacing: -0.2901960790157318px;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.riskstatus {
+    font-family: "DM Sans";
+    font-size: calc((100vw / 1920) * 16);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) *24);
+    text-align: left;
+    color: #87888C;
+}
+
+.threatscore {
+    font-family: "Roboto";
+    font-size: calc((100vw / 1920) * 40);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) *40);
+    text-align: left;
+    color: #938EF0;
+}
+
+.totalthreat {
+    font-family: "DM Sans";
+    font-size: calc((100vw / 1920) *16);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) *24);
+    text-align: left;
+    color: #87888C;
+}
+
+.progressbar {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.getcouponrefresh-section {
+    display: grid;
+    grid-template-columns: 2fr auto;
+    gap: 10px;
+}
+
+.button-text {
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-size: calc((100vw / 1920) *16);
+    line-height: calc((100vw / 1920) *24);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    align-items: center;
+    color: var(--text-icon-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.button-icon {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.getcoupon-button {
+    background-color: var(--text-button-background-color-primary);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: calc((100vw/1920) * 10) calc((100vw / 1920) * 34);
+    border-radius: 70px;
+}
+
+.refresh-button {
+    background-color: #08031B;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: calc((100vw/1920) * 10) calc((100vw / 1920) * 34);
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px;
+}
+
+
+.vunerability-percentage {
+    display: grid;
+    grid-template-rows: auto auto;
+    /* height: calc((100vw/1920) * 286); */
+    background: #08031B;
+    border-radius: calc((100vw/1920) * 37.25);
+    padding-top: calc((100vw/1920) * 30.05);
+    padding-left: calc((100vw/1920) * 23);
+    padding-bottom: calc((100vw/1920) * 30.05);
+
+}
+
+.vunerability-header {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.vunerability-title {
+    font-family: "Inter";
+    font-size: calc((100vw / 1920) * 20.04);
+    font-weight: 800;
+    line-height: calc((100vw / 1920) * 30.59);
+    letter-spacing: -0.2901960790157318px;
+    justify-content: left;
+    color: #FFFFFF;
+}
+
+.vunerability-heading {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 3.5fr 1.5fr;
+    font-family: "DM Sans";
+    font-size: calc((100vw / 1920) *18);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) * 24);
+    justify-content: left;
+}
+
+.vunerability-report {
+    display: grid;
+    gap: 20px;
+}
+
+
+.discount-coupon-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.discount-section {
+    padding: calc((100vw / 1920) *15) calc((100vw / 1920) *20);
+    border-radius: calc((100vw / 1920) *15);
+    background: #08031B;
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+}
+
+.discount-percent {
+    font-family: "DM Sans";
+    font-size: calc((100vw / 1920) *70);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) * 81);
+    color: #938EF0;
+}
+
+.discount-text {
+    font-family: "Roboto";
+    font-size: calc((100vw / 1920) *18);
+    font-weight: 400;
+    line-height: calc((100vw / 1920) * 28);
+    color: #FFFFFF;
+}
+
+.couponcode-message-section {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+
+}
+
+.couponcode-section {
+    display: grid;
+    padding: calc((100vw / 1920) * 21) calc((100vw / 1920) * 41);
+    border-radius: calc((100vw / 1920) * 14);
+    background: #402EA1;
+    align-content: center;
+    justify-items: center;
+}
+
+.couponcode {
+    font-family: "Roboto";
+    font-size: calc((100vw / 1920) * 18);
+    font-weight: 400;
+    line-height: calc((100vw / 1920) * 28);
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+}
+
+.message-section {
+    border-radius: calc((100vw / 1920) * 12);
+    background: #08031B;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.message-profilephoto {
+    display: grid;
+    border-radius: 50%;
+    justify-content: center;
+    align-content: center;
+}
+
+.makeImageCircular {
+    border-radius: 50%;
+    border: 1px solid #402EA1;
+}
+
+.message-name {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    text-align: left;
+}
+
+.message-username {
+    font-family: "Poppins";
+    font-size: calc((100vw / 1920) * 12.91);
+    font-weight: 500;
+    line-height: calc((100vw / 1920) * 19.37);
+    text-align: left;
+    justify-items: center;
+    color: #938EF0;
+}
+
+.message-forcustomer {
+    font-family: "Poppins";
+    font-size: calc((100vw / 1920) *10);
+    font-weight: 400;
+    line-height: calc((100vw / 1920) *15);
+    text-align: left;
+    align-content: center;
+    justify-items: center;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1200px) {
+
+    .scorecard-section {
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+        width: 100%;
+        height: max-content;
+    }
+
+    .vunerability-percentage {
+        padding: 10px;
+        padding-bottom: 15px;
+        border-radius: 14px;
+    }
+
+    .threatcalculator-section {
+        grid-column: 1;
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .discount-coupon-section {
+        grid-row: 3;
+    }
+
+    .threatcalculator-text{
+        margin: 0px;
+    }
+    
+    .threatcalculator-title {
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 16.8px;
+        text-align: left;
+    }
+
+    .riskstatus {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px
+    }
+
+    .threatscore {
+        font-family: "DM Sans";
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    .totalthreat {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px
+    }
+
+    .button-text {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .vunerability-title {
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 16.8px;
+    }
+
+    .vunerability-heading {
+        font-family: "DM Sans";
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+
+    .vunerability-report {
+        gap: 10px;
+    }
+
+    .discount-section {
+        border-radius: 15px;
+    }
+
+    .discount-percent {
+        font-family: "DM Sans";
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    .discount-text {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        text-align: left;
+    }
+
+    .message-section {
+        border-radius: 12px;
+    }
+
+    .message-username {
+        font-family: "DM Sans";
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.4px;
+    }
+
+    .message-forcustomer {
+        font-family: "DM Sans";
+        font-size: 7px;
+        font-weight: 400;
+        line-height: 8.4px;
+    }
+
+    .message-profilephoto {
+        padding: 5px;
+    }
+
+    .couponcode-section {
+        border-radius: 9px;
+    }
+
+    .couponcode {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        text-align: left;
+    }
+
+    .couponcode-message-section {
+        gap: 5px;
+    }
+}

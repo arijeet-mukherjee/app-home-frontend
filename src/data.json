@@ -2,38 +2,47 @@
     "header": {
         "navigation_bar": {
             "logo": {
+        "navigation_bar": {
+            "logo": {
                 "src": "secdesk_logo.svg",
                 "alt": "SecDesk Logo",
                 "href": "/"
             },
             "button": {
+            "button": {
                 "label": "contact",
                 "action_svg": "phone.svg"
             },
             "navbarItems": [
+            "navbarItems": [
                 {
                     "label": "Introduction",
                     "url": "/",
+                    "dditem": []
                     "dditem": []
                 },
                 {
                     "label": "USP",
                     "url": "/",
                     "dditem": []
+                    "dditem": []
                 },
                 {
                     "label": "Offering",
                     "url": "/",
+                    "dditem": []
                     "dditem": []
                 },
                 {
                     "label": "More",
                     "url": "/",
                     "dditem": []
+                    "dditem": []
                 },
                 {
                     "label": "Quiz",
                     "url": "/",
+                    "dditem": []
                     "dditem": []
                 },
                 {
@@ -100,6 +109,7 @@
             "backgroundName": "netherland",
             "backgroundUrl": "/netherland.svg"
         },
+        "branding": "© Secdesk, Netherlands",
         "branding": "© Secdesk, Netherlands",
         "content": [
             {
