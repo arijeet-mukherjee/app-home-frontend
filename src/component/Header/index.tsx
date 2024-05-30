@@ -68,8 +68,10 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                                     handledd();
                                 }}
                             >{item.label}
-                                <span className={styles.arrowDown}></span>
-                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={0} />}
+                                <span className={styles.arrowDown} style={{
+                                    transform: open ? 'rotate(180deg)' : ''
+                                }}></span>
+                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
                             </Link>
                         </div>)
                 })
@@ -88,13 +90,10 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                                     handledd();
                                 }}
                                 >{item.label}
-                                    <Image
-                                        src={'downHollowArrow.svg'}
-                                        width={12}
-                                        height={7}
-                                        alt='language dropdown'
-                                    />
-                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={80} />}
+                                    <span className={styles.arrowDown} style={{
+                                        transform: open ? 'rotate(180deg)' : ''
+                                    }}></span>
+                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
                                 </Link>
                             </div>
                         )

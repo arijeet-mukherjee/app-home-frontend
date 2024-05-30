@@ -48,6 +48,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState 
             <div className={styles.navModalBackground}>
                 <Image src='/navModalBackground.svg'
                     alt="nav modal background"
+                    objectFit='cover'
                     fill={true}
                 />
             </div>
