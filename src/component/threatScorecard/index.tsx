@@ -7,15 +7,27 @@ import LineProgressBar from '../common/LineProgressBar';
 import Link from 'next/link';
 import { useState } from 'react';
 import VulnerabilityThreat from '@component/common/VulnerabilityThreat';
+
+type CategoryStats = {
+    correctCount: number;
+    totalCount: number;
+};
+
 interface ThreatScorecardProps {
-    score: number
-    totalthreat: number
+    categoryScores: { [key: string]: CategoryStats };
+    totalCorrectScore: number
+};
+
+
+const calculatePercentage = (stats: CategoryStats) => {
+    return ((stats.correctCount / stats.totalCount) * 100).toFixed(0);
 };
 
 const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardProps) => {
 
-    const { score, totalthreat } = props;
-    const value = 60;
+    const { categoryScores, totalCorrectScore } = props;
+    let fixedtotalCorrectScore = Number(totalCorrectScore.toFixed(0));
+    const remainingThreat = 100 - fixedtotalCorrectScore;
     return (
         <div className={styles["scorecard-section"]}  >
             <div className={styles["vunerability-section"]} >
@@ -30,10 +42,14 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                         </div>
                     </div>
                     <div className={styles["vunerability-report"]}>
-                        <VulnerabilityThreat index={"01"} name={"MAlware threat"} percent={60} />
-                        <VulnerabilityThreat index={"02"} name={"MAlware threat"} percent={30} />
-                        <VulnerabilityThreat index={"03"} name={"MAlware threat"} percent={20} />
-                        <VulnerabilityThreat index={"04"} name={"MAlware threat"} percent={80} />
+                        {Object.keys(categoryScores).map((category, index) => {
+                            let formattedIndex = (index + 1).toString().padStart(2, '0')
+                            return (
+                                <div key={category}>
+                                    <VulnerabilityThreat index={formattedIndex} name={category} percent={Number(calculatePercentage(categoryScores[category]))} />
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
                 <div className={styles["discount-coupon-section"]}>
@@ -43,7 +59,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                     </div>
                     <div className={styles["couponcode-message-section"]}>
                         <div className={styles["message-section"]}>
-                            <div className={styles["message-profilephoto"]} style={{borderRadius: "50%"}}>
+                            <div className={styles["message-profilephoto"]} style={{ borderRadius: "50%" }}>
                                 <Image src="/profilepicture.jpeg" className={styles.makeImageCircular} alt="arrow right" width={34.43} height={34.43} />
                             </div>
                             <div className={styles["message-name"]}>
@@ -63,11 +79,11 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                     <div className={styles["threatcalculator-text"]}>
                         <div className={styles["threatcalculator-title"]}>Threat Calculator</div>
                         <div className={styles["riskstatus"]}>Your Device is at risk</div>
-                        <div className={styles["threatscore"]}>Score:{score}%</div>
-                        <div className={styles["totalthreat"]}>Total Threat %:{totalthreat}%</div>
+                        <div className={styles["threatscore"]}>Score:{fixedtotalCorrectScore}%</div>
+                        <div className={styles["totalthreat"]}>Total Threat: {remainingThreat}%</div>
                     </div>
                     <div className={styles["progressbar"]}>
-                        <ProgressBar value={totalthreat} />
+                        <ProgressBar value={fixedtotalCorrectScore} />
                     </div>
                 </div>
                 <div className={styles["getcouponrefresh-section"]}>

@@ -1,32 +1,32 @@
 @import url("../../global.module.css");
 
+div {
+    letter-spacing: 1px;
+}
+
 .scorecard-section {
     display: grid;
     grid-template-columns: auto auto;
-    width: calc((100vw / 1920) * 878.75);
-    height: calc((100vw / 1920) * 434);
-    gap: calc((100vw / 1920) * 12 );
+    width: 100%;
+    gap: 12px
 }
 
 .vunerability-section {
     display: grid;
     grid-template-rows: auto auto;
-    /* width: calc((100vw / 1920) * 506); */
-    gap: calc((100vw / 1920) * 8);
+    gap: 8px;
 }
 
 .threat-section {
     display: grid;
     grid-template-rows: 3fr auto;
-    /* width: calc((100vw / 1920) * 360.75); */
-    gap: calc((100vw / 1920) * 8);
+    gap: 8px;
 }
 
 .threatcalculator-section {
     display: grid;
     grid-template-rows: auto auto;
-    gap: calc((100vw / 1920) * 8);
-    /* height: calc((100vw / 1920)* 380); */
+    gap: 8px;
     background: #08031B;
     border-radius: calc((100vw / 1920) * 37.25);
 }
@@ -34,17 +34,17 @@
 .threatcalculator-text {
     display: grid;
     grid-template-rows: auto auto auto auto;
-    gap: calc((100vw / 1920) * 1);
+    gap: 1px;
     margin-top: calc((100vw / 1920) * 30.05);
-    margin-left: calc((100vw / 1920) * 49.01); 
+    margin-left: calc((100vw / 1920) * 49.01);
 }
 
 .threatcalculator-title {
     font-family: "Inter";
-    font-size: calc((100vw / 1920) *20 );
+    font-size: calc((100vw / 1920) *20);
     font-weight: 800;
     line-height: calc((100vw / 1920) *30.59);
-    letter-spacing: -0.4901960790157318px;
+    letter-spacing: -0.2901960790157318px;
     text-align: left;
     color: #FFFFFF;
 }
@@ -84,9 +84,8 @@
 
 .getcouponrefresh-section {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: calc((100vw / 1920) * 10);
-    /* height: calc((100vw / 1920) * 48); */
+    grid-template-columns: 2fr auto;
+    gap: 10px;
 }
 
 .button-text {
@@ -118,11 +117,11 @@
 }
 
 .getcoupon-button {
-    width: calc((100vw / 1920) * 255);
     background-color: var(--text-button-background-color-primary);
     display: grid;
     justify-content: center;
     align-items: center;
+    padding: calc((100vw/1920) * 10) calc((100vw / 1920) * 34);
     border-radius: 70px;
 }
 
@@ -144,8 +143,8 @@
     /* height: calc((100vw/1920) * 286); */
     background: #08031B;
     border-radius: calc((100vw/1920) * 37.25);
-    padding-top: calc((100vw/1920) *  30.05);
-    padding-left: calc((100vw/1920) * 23 );
+    padding-top: calc((100vw/1920) * 30.05);
+    padding-left: calc((100vw/1920) * 23);
     padding-bottom: calc((100vw/1920) * 30.05);
 
 }
@@ -160,7 +159,7 @@
     font-size: calc((100vw / 1920) * 20.04);
     font-weight: 800;
     line-height: calc((100vw / 1920) * 30.59);
-    letter-spacing: -0.4901960790157318px;
+    letter-spacing: -0.2901960790157318px;
     justify-content: left;
     color: #FFFFFF;
 }
@@ -177,18 +176,18 @@
 
 .vunerability-report {
     display: grid;
-    gap: calc((100vw/1920) * 20);
+    gap: 20px;
 }
 
 
 .discount-coupon-section {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: calc((100vw / 1920) * 10);
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
 }
 
 .discount-section {
-    padding: calc((100vw / 1920) *15 ) calc((100vw / 1920) *20);
+    padding: calc((100vw / 1920) *15) calc((100vw / 1920) *20);
     border-radius: calc((100vw / 1920) *15);
     background: #08031B;
     display: grid;
@@ -216,7 +215,7 @@
 .couponcode-message-section {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: calc((100vw / 1920) * 10);
+    gap: 10px;
 
 }
 
@@ -269,7 +268,7 @@
     font-family: "Poppins";
     font-size: calc((100vw / 1920) * 12.91);
     font-weight: 500;
-    line-height: calc((100vw / 1920) * 19.37 );
+    line-height: calc((100vw / 1920) * 19.37);
     text-align: left;
     justify-items: center;
     color: #938EF0;
@@ -287,33 +286,141 @@
 }
 
 @media (max-width: 1200px) {
-    /* Your CSS code for larger than laptop or desktop screen goes here */
+
     .scorecard-section {
         grid-template-rows: auto auto;
         grid-template-columns: auto;
-        width: 100vw;
-        height: min-content;
-        overflow-x: hidden;
+        width: 100%;
+        height: max-content;
     }
 
-    .getcouponrefresh-section {
-        grid-template-rows: auto auto;
-        grid-template-columns: auto;
-        width: 100vw;
-        overflow-x: hidden;
-        justify-content: center;
-        align-items: center;
-        justify-items: center;
+    .vunerability-percentage {
+        padding: 10px;
+        padding-bottom: 15px;
+        border-radius: 14px;
     }
 
-    .getcoupon-button {
-        width: 100vw;
-        overflow-x: hidden;
+    .threatcalculator-section {
+        grid-column: 1;
+        padding: 10px;
+        border-radius: 14px;
     }
 
-    .refresh-button {
-        width: calc((100vw/1920)*86);
-        height: calc((100vw/1920)*47);
+    .discount-coupon-section {
+        grid-row: 3;
+    }
+
+    .threatcalculator-text{
+        margin: 0px;
+    }
+    
+    .threatcalculator-title {
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 16.8px;
+        text-align: left;
+    }
+
+    .riskstatus {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px
+    }
+
+    .threatscore {
+        font-family: "DM Sans";
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    .totalthreat {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px
+    }
+
+    .button-text {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .vunerability-title {
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 16.8px;
+    }
+
+    .vunerability-heading {
+        font-family: "DM Sans";
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+
+    .vunerability-report {
+        gap: 10px;
+    }
+
+    .discount-section {
+        border-radius: 15px;
+    }
+
+    .discount-percent {
+        font-family: "DM Sans";
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    .discount-text {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        text-align: left;
+    }
+
+    .message-section {
+        border-radius: 12px;
+    }
+
+    .message-username {
+        font-family: "DM Sans";
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.4px;
+    }
+
+    .message-forcustomer {
+        font-family: "DM Sans";
+        font-size: 7px;
+        font-weight: 400;
+        line-height: 8.4px;
+    }
+
+    .message-profilephoto {
+        padding: 5px;
+    }
+
+    .couponcode-section {
+        border-radius: 9px;
+    }
+
+    .couponcode {
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        text-align: left;
+    }
+
+    .couponcode-message-section {
+        gap: 5px;
     }
 }
-

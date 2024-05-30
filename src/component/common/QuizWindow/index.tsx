@@ -3,20 +3,27 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./quizwindow.module.css";
 import Image from 'next/image';
-
-//props : [{questionId : { question : "What is Your name", answer : "sas", options : ["asasa", "Arijeet", "sdsd",...], message : "This is a demo", actionName : "Click on me"  }, ...... }]
+import ThreatScorecard from '@component/threatScorecard';
 interface QuizWindow {
-    quizDetail: Array<Object>,
-
+    quizDetail: Array<Object>;
 };
 
 interface Question {
     answer: string;
 };
-
 interface QuestionObject {
     [key: string]: any;
 }
+
+type CategoryStats = {
+    correctCount: number;
+    totalCount: number;
+};
+
+const getLabel = (index: number): string => {
+    return String.fromCharCode(97 + index); // 97 is the ASCII code for 'a'
+  };
+
 
 const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
 
@@ -24,61 +31,112 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
-    const [optionchosen, setOptionchosen] = useState('');
+    const [optionchosen, setOptionchosen] = useState<String>('');
+    const [optionActiveIndex, setOptionActiveIndex] = useState<number | null>(null);
     const [disabeOption, setDisableOption] = useState(false);
     const [isCorrectAnswer, setIsCorrectOption] = useState<any>(null);
     const [questionIds, setQuestionIds] = useState<String[]>([]);
-    const scoreCalculator = () => { };
-    const answerValidator = (questionObject: Question) => {
-        return questionObject && (questionObject.answer.trim() === optionchosen.trim());
+    const [optionButtonClicked, setOptionButtonClicked] = useState<boolean>(false);
+    const [scoreDashboard, setScoreDashBoard] = useState<boolean>(false);
+    const [categoryScores, setCategoryScores] = useState<{ [key: string]: CategoryStats }>({});
+    const [totalCorrectScore, setTotalCorrectScore] = useState<number>(0);
+
+
+    const scoreCalculator = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setTotalCorrectScore((correctAnswers / quizDetail.length) * 100);
+        console.log(totalCorrectScore);
+        console.log("score button clicked")
+        setScoreDashBoard(true);
+        console.log(categoryScores)
     };
-    const optionClicked = (event: React.MouseEvent<HTMLButtonElement>, option: string) => {
+
+
+    const answerValidator = (questionObject: Question, option: string) => {
+        console.log(option)
+        return questionObject.answer && (questionObject.answer.trim() === option.trim());
+    };
+
+
+    const optionClicked = (event: React.MouseEvent<HTMLButtonElement>, option: string, optionIndex: number) => {
         event.preventDefault();
         event.stopPropagation();
-        const currentQuestion = questions[currentQuestionIndex] as Question;
+        const questionId = questionIds[currentQuestionIndex];
+        const currentQuestion: QuestionObject = questions[currentQuestionIndex];
+        console.log(currentQuestion)
+        const question = currentQuestion[questionId.toString()];
         const currentQuestionObject = {
-            answer: currentQuestion["answer"]
+            answer: question.answer
         };
+
         setOptionchosen(option);
         setDisableOption(true);
-        const ifAnswerCorrect = answerValidator(currentQuestionObject);
+       
+        categoryScores[question.category].totalCount += 1;
+
+
+        const ifAnswerCorrect = answerValidator(currentQuestionObject, option);
         if (ifAnswerCorrect) {
             setCorrectAnswers(correctAnswers + 1);
+            categoryScores[question.category].correctCount += 1;
+            console.log("correctAnswers")
             setIsCorrectOption(true);
         }
         else {
+            console.log("wrong")
             setIsCorrectOption(false);
+
         }
+        setCategoryScores({ ...categoryScores, ...categoryScores });
+        console.log(categoryScores);
     };
     const skipButtonClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         event.stopPropagation();
         setIsCorrectOption(null);
+        setOptionchosen("");
         if (currentQuestionIndex !== (totalQuestions - 1)) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
+            setDisableOption(false);
         }
     };
 
-    const checkScoreButtonClicked = () => { };
+
+
 
     useEffect(() => {
         quizDetail && setQuestions(quizDetail);
+        console.log(quizDetail)
         quizDetail && setTotalQuestions(quizDetail.length);
         quizDetail && quizDetail.length > 0 ? setCurrentQuestionIndex(0) : setCurrentQuestionIndex(-1);
+        let questionId: string[] = [];
+        const scores: { [key: string]: CategoryStats } = {};
+        
         quizDetail && quizDetail.forEach((quiz) => {
             const objectKeys = Object.keys(quiz);
-            let questionId = [...questionIds, ...objectKeys];
-            setQuestionIds(questionId);
+            questionId.push(objectKeys.toString());
         });
+
+        quizDetail.forEach((quiz) => {
+            const categoryDetails = Object.values(quiz)[0].category;
+            if (!scores[categoryDetails]) {
+                scores[categoryDetails] = { correctCount: 0, totalCount: 0 };
+            }
+        })
+
+        setCategoryScores(scores);
+        setQuestionIds([...questionId]);
+
     }, []);
 
+
     const getCurrentQuestionNode = () => {
+        console.log(optionchosen)
         const questionId = questionIds[currentQuestionIndex];
         const currentQuestion: QuestionObject = questions[currentQuestionIndex];
         const question = currentQuestion[questionId.toString()];
-        return <span>
+        return (<><span>{currentQuestionIndex + 1 + "."}</span> <p className={styles["space"]}></p><span> 
             {question.question}
-        </span>
+        </span></>)
     };
 
     const getCurrentQuestionOptionsNode = () => {
@@ -86,15 +144,36 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         const currentQuestion: QuestionObject = questions[currentQuestionIndex];
         const question = currentQuestion[questionId.toString()];
         const optionsLists = question.options;
-        console.log(optionsLists, "sdsdsd");
         return <>
-                {
-                    optionsLists.map((value:String, key:Number)=>{
-                        return <button key={Number(key)} value={value.toString()} onClick={(event)=>{optionClicked(event, value.toString())}}> {value} </button>
-                    })
-                }
-             </>
+            {
+                optionsLists.map((value: String, index: number) => {
+                    return <div key={index}>
+                        <button className={`${styles.questionoption} ${optionchosen === value && isCorrectAnswer ? styles.questionoptionclicked : ""}  ${optionchosen && value === optionchosen && optionchosen !== isCorrectAnswer ? styles.incorrect : ''}`} disabled={disabeOption && optionchosen !== value} key={index} value={value.toString()} onClick={(event) => { optionClicked(event, value.toString(), Number(index)) }}>{`${getLabel(index)}.) ${value}`} </button>
+                    </div>
+                })
+            }
+        </>
     };
+
+    const getDisplayMessage = () => {
+        const questionId = questionIds[currentQuestionIndex];
+        const currentQuestion: QuestionObject = questions[currentQuestionIndex];
+        const question = currentQuestion[questionId.toString()];
+        return <>
+            {disabeOption ? question.message : ""}
+
+        </>
+    }
+
+    const getQuestionAction = () => {
+        const questionId = questionIds[currentQuestionIndex];
+        const currentQuestion: QuestionObject = questions[currentQuestionIndex];
+        const question = currentQuestion[questionId.toString()];
+        return <>
+            {disabeOption ? question.actionName : ""}
+
+        </>
+    }
 
     return (
         <div className={styles["quiz-window"]}>
@@ -108,7 +187,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                     <div className={styles["quiz-header-right-design"]}></div>
                 </div>
             </div>
-            <div className={styles["quiz-content"]}>
+            {!scoreDashboard ? (<div className={styles["quiz-content"]}>
                 {
                     questions && questions.length > 0 &&
 
@@ -125,11 +204,25 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                         </div>
                         {
                             optionchosen && optionchosen !== '' &&
-                            <div className={styles["question-message"]}></div>
+                            <div className={styles["question-message"]}>
+                                <div className={styles["question-logo"]}>
+                                    <Image src="/micrologo.svg" alt={"sd"} width={26.28} height={26.28} />
+                                </div>
+                                <div className={styles["question-description"]}>{getDisplayMessage()}</div>
+                            </div>
                         }
                         {
                             optionchosen && optionchosen !== '' &&
-                            <div className={styles["question-action"]}></div>
+                            <div className={styles["question-action"]}>
+                                <Link href="/about" legacyBehavior>
+                                    <a className={styles["button"]}>
+                                        <span className={styles["button-text"]}>{getQuestionAction()}</span>
+                                        <span className={styles["button-icon"]}>
+                                            <Image src="/arrowrightblack.svg" alt="arrow right" width={20} height={8} />
+                                        </span>
+                                    </a>
+                                </Link>
+                            </div>
                         }
                     </div>
 
@@ -137,11 +230,21 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                 {
                     questions && questions.length > 0 &&
 
-                    <div className={styles["questions-button"]}>
+                    <div className={styles["questions-button"]} style={{ display: currentQuestionIndex === (totalQuestions - 1) ? 'none' : 'flex' }}>
                         <button onClick={(event) => { skipButtonClicked(event) }} > {optionchosen && optionchosen !== '' ? 'Next' : 'Skip'} </button>
                     </div>
                 }
-            </div>
+                {
+                    questions && questions.length > 0 &&
+
+                    <div className={styles["questions-button"]} style={{ display: currentQuestionIndex === (totalQuestions - 1) ? 'flex' : 'none' }}>
+                        <button onClick={(event) => { scoreCalculator(event) }} > {optionchosen && optionchosen !== '' ? 'Check Your Score' : 'Skip'} </button>
+                    </div>
+                }
+            </div>) : (<div className={styles["quiz-scorecontent"]}><ThreatScorecard
+                categoryScores = {categoryScores}
+                totalCorrectScore = {totalCorrectScore}
+            /></div>)}
         </div>
     );
 };

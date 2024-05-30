@@ -51,7 +51,21 @@
   font-weight: 700;
   line-height: 60px;
   font-size: calc((100vw / 1920) * 40);
-  font-size: calc(var(--size) / 5);
   color: var(--primary);
   position: absolute;
+}
+
+@media (max-width: 1200px) {
+  [role="progressbar"]::after {
+    font-family: "Roboto";
+    font-weight: 700;
+    line-height: 30px;
+    font-size: 25px;
+    color: var(--primary);
+    position: absolute;
+  }
+
+  [role="progressbar"] {
+    --size: 175px;
+  }
 }

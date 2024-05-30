@@ -8,7 +8,9 @@ import MobileNavModal from "@component/MobileNavModal";
 import Header from "@component/Header";
 import { useState } from "react";
 import ThreatScorecard from '@component/threatScorecard';
+import CardQuality from "@component/cardQuality"
 import data from '../data.json'
+import QuizWindow from "@component/common/QuizWindow";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -17,16 +19,16 @@ export default function Home() {
   };
   return (
     <div className={"container"}>
-     { modalOpen &&<MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
-      
+      {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
 
-      <Hero 
-        introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]} 
-        content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]} 
-        openModal={openModal} 
-        />
-      
-      <Shield top={95} left={1300} />
+
+      <Hero
+        introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
+        content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
+        openModal={openModal}
+      />
+
+      <Shield top={105} right={190} />
       <div style={{ padding: "calc((100vw / 1920) * 160)", transform: "translateY(-50%)" }}>
         <CardBox
           title={data.introduction.title}
@@ -58,21 +60,28 @@ export default function Home() {
           paddingLeftContent={data.jointheMovement.paddingLeftContent}
         />
       </div>
-      <ThreatScorecard
-        totalthreat={90}
-        score={40}
+      <CardQuality
+        heading={data.qualityCard.heading}
+        content={data.qualityCard.content}
+        button={data.qualityCard.button}
+        childCardProp={data.qualityCard.childCardProp}
+        background={data.qualityCard.background}
       />
-      {/* <VulnerabilityThreat
-        index={1}
-        name={"MAlware threat"}
-        percent={60}
-      /> */}
-      <Footer 
-        branding={data.footer.branding} 
-        logo={data.footer.logo} 
-        background={data.footer.background} 
-        contents={data.footer.content} 
-        socialMedias={data.footer.socialMedia}/>
+
+      <QuizWindow quizDetail={[
+        { 1: { question: "What is Your name", answer: "asasa", options: ["asasa", "Arijeet", "sdsd",], message: "Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. ", actionName: "Click on me", category: "Malware" } },
+        { 2: { question: "What is Your fav food", answer: "test1", options: ["test1", "test2", "test3",], message: "This is a demo 2", actionName: "Click on me 2", category: "Malware" } },
+        { 3: { question: "What is Your fav dance", answer: "test1", options: ["test1", "test2", "test3",], message: "This is a demo 2", actionName: "Click on me 2", category: "Threat" } },
+        { 4: { question: "What is Your fav cat", answer: "test1", options: ["test1", "test2", "test3",], message: "This is a demo 2", actionName: "Click on me 2", category: "Vuneravalty" } },
+        { 5: { question: "What is Your fav cat", answer: "test1", options: ["test1", "test2", "test3",], message: "This is a demo 2", actionName: "Click on me 2", category: "Vuneravalty" } },
+        { 5: { question: "What is Your fav cat", answer: "test1", options: ["test1", "test2", "test3",], message: "This is a demo 2", actionName: "Click on me 2", category: "Demo" } }
+      ]} />
+      <Footer
+        branding={data.footer.branding}
+        logo={data.footer.logo}
+        background={data.footer.background}
+        contents={data.footer.content}
+        socialMedias={data.footer.socialMedia} />
     </div>
   );
 }
