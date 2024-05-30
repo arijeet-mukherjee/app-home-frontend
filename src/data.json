@@ -370,18 +370,17 @@
               "buttonText": " Buy now",
               "currency": "USD",
               "currencySymbol": "$",
-              "bulletPoint": "100 GB of storage",
+              "bulletPoint": "Get the newly added services with this plan",
               "ribbonText": "MOST POPULAR",
               "period": "year"
             },
             {
               "title": "Monthly",
-              "price": 45,
-              "discountPrice": 40,
-              "buttonText": "purchase",
-              "currency": "INR",
-              "currencySymbol": "₹",
-              "bulletPoint": "40 GB of storage",
+              "price": 75,
+              "buttonText": "Buy now",
+              "currency": "USD",
+              "currencySymbol": "$",
+              "bulletPoint": "Services you need to keep you safe online",
               "ribbonText": "MOST POPULAR",
               "period": "month"
             }

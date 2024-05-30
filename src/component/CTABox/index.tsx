@@ -13,6 +13,7 @@ interface Plans {
     bulletPoint: string;
     ribbonText: string;
     period: string;
+    hookString?: string;
 
 }
 interface PlanCardProps {

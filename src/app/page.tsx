@@ -29,13 +29,13 @@ export default function Home() {
   const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
 
   const refCTABox = useRef<HTMLDivElement>(null);
-  const isVisibleCTABox = useOnScreen(refCTABox, '0px');
+  const isVisibleCTABox = useOnScreen(refCTABox, '120px');
 
   const refNewsLetter = useRef<HTMLDivElement>(null);
-  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '100px');
+  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '170px');
 
   const refFooter = useRef<HTMLDivElement>(null);
-  const isVisiblefFooter = useOnScreen(refFooter, '150px');
+  const isVisiblefFooter = useOnScreen(refFooter, '220px');
 
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = useCallback(() => {
@@ -114,7 +114,7 @@ export default function Home() {
           isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
         }
       </div>
-      <div ref={refCTABox}>
+      <div ref={refCTABox} className={styles["cardBoxRemain"]}>
         {isVisibleCTABox && <CTABox
           title={data.CallToAction.heading}
           image={data.newsLetter.image}
