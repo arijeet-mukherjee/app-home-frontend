@@ -31,7 +31,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     justify-content: center;
-    column-gap: calc((100vw / 1920) * 50);
+    gap: calc((100vw / 1920) * 50);
     align-items: center;
     transform-style: preserve-3d;
 }
