@@ -1,5 +1,6 @@
 import React from 'react'
 import CardBox from '@component/cardBox'
+import {useEffect} from 'react'
 
 interface newsLetter {
     image: string,
