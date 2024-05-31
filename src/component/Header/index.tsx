@@ -30,10 +30,7 @@ const Header: React.FC<HeaderProps> = ({ openModal }) => {
             </div>
             <div className={styles.navbar}>
                 <NavBarItem list={data.header.navigation_bar.navbarItems} />
-                <Button label={data.header.navigation_bar.button.label} 
-                action_svg={data.header.navigation_bar.button.action_svg} 
-                hc={handelClick} 
-                transform='translateX(90px)'/>
+                <Button label={data.header.navigation_bar.button.label} action_svg={data.header.navigation_bar.button.action_svg} hc={handelClick} />
             </div>
             <Image src="/burger-menu-icon.svg" alt="menu"
                 width={50}
