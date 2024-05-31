@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
             <div className={styles["header"]}>
-            {/* <Header openModal={openModal} /> */}
+            <Header openModal={openModal} />
             </div>
             <div className={styles['heroBlock']}>
                 <div className={styles["heroIntrocuction"]}>
