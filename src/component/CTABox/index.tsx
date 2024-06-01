@@ -6,7 +6,7 @@ import PlansCard from './PlansCard';
 interface Plans {
     title: string;
     price: number;
-    discountPrice: number;
+    discountPrice?: number;
     buttonText: string;
     currency: string;
     currencySymbol: string;
@@ -17,11 +17,9 @@ interface Plans {
 
 }
 interface PlanCardProps {
-    cardTitle?: string;
-    plans?:Plans[];
+    cardTitle: string;
+    plans:Plans[];
     bulletIcon: string;
-    buttonColor: string;
-    button_action_svg: string
 }
 interface CTABox {
     image?: string,
@@ -62,8 +60,6 @@ const CTABox: React.FC<CTABox> = ({
             child={<PlansCard
                 cardTitle={childProps.cardTitle}
                 plans={childProps.plans}
-                buttonColor={childProps.buttonColor}
-                button_action_svg={childProps.button_action_svg}
                 bulletIcon={childProps.bulletIcon}
             />}
         />

@@ -14,48 +14,20 @@ interface Plans {
     bulletPoint?: string;
     ribbonText?: string;
     period?: string;
-    hookString?: string;
 }
 interface PlansCardProps {
-
-    cardTitle?: string;
-    plans?: Plans[];
+    cardTitle: string;
+    plans: Plans[];
     bulletIcon: string;
-    buttonColor: string;
-    button_action_svg: string
 }
-//dummy data for the card 
-const dummyTitle = "Choose Plan";
-const dummyData = [
-    {
-        title: "Annual",
-        price: 75.99,
-        discountPrice: 40,
-        buttonText: " Buy now",
-        currency: "USD",
-        currencySymbol: "$",
-        bulletPoint: "100 GB of storage",
-        ribbonText: "MOST POPULAR",
-        period: "year"
-    },
-    {
-        title: "Monthly",
-        price: 45,
-        discountPrice: 40,
-        buttonText: "Get a loan",
-        currency: "INR",
-        currencySymbol: "₹",
-        bulletPoint: "40 GB of storage",
-        ribbonText: "MOST POPULAR",
-        period: "month"
-    }
-]
+//dummy data for the card
+
+
 const PlansCard: FC<PlansCardProps> = ({
-    cardTitle = dummyTitle,
-    plans = dummyData,
+    cardTitle,
+    plans,
     bulletIcon,
-    buttonColor,
-    button_action_svg }) => {
+}) => {
 
     const [currentPlan, setCurrentPlan] = useState(plans[0]);
 
@@ -90,14 +62,14 @@ const PlansCard: FC<PlansCardProps> = ({
                 })}
 
             </div>
-           
-           <p className={styles.discountText}>
-            {currentPlan.discountPrice? `Save ${100 - (Math.ceil((currentPlan.discountPrice / currentPlan.price) * 100))}% every month`: 'Security that is Value for Money'}
+
+            <p className={styles.discountText}>
+                {currentPlan.discountPrice ? `Save ${100 - (Math.ceil((currentPlan.discountPrice / currentPlan.price) * 100))}% every month` : 'Security that is Value for Money'}
             </p>
 
 
-            {currentPlan.discountPrice?<p className={styles.originalPrice}>{`${currentPlan.currencySymbol}${currentPlan.price}`}</p>:
-                <p className={styles.originalPrice} style={{ textDecoration : "none"}}>Say Bye to Threats at</p>
+            {currentPlan.discountPrice ? <p className={styles.originalPrice}>{`${currentPlan.currencySymbol}${currentPlan.price}`}</p> :
+                <p className={styles.originalPrice} style={{ textDecoration: "none" }}>Say Bye to Threats at</p>
             }
             <div className={styles.discountPriceContainer}>
                 <p className={styles.dicountedPrice}>{`${currentPlan.currencySymbol}${currentPlan.discountPrice || currentPlan.price}`}</p>
@@ -113,15 +85,15 @@ const PlansCard: FC<PlansCardProps> = ({
 
 
             <div className={styles["cta-button"]}>
-                    <Link href="/about" legacyBehavior>
-                        <a className={styles["button"]}>
-                            <span className={styles["button-text"]}>{currentPlan.buttonText}</span>
-                            <span className={styles["button-icon"]}>
-                                <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
-                            </span>
-                        </a>
-                    </Link>
-                </div>
+                <Link href="/about" legacyBehavior>
+                    <a className={styles["button"]}>
+                        <span className={styles["button-text"]}>{currentPlan.buttonText}</span>
+                        <span className={styles["button-icon"]}>
+                            <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
+                        </span>
+                    </a>
+                </Link>
+            </div>
 
         </div>
     )

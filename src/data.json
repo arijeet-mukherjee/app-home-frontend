@@ -452,6 +452,7 @@
             {
               "title": "Monthly",
               "price": 75,
+              "discountPrice": 40,
               "buttonText": "Buy now",
               "currency": "USD",
               "currencySymbol": "$",
