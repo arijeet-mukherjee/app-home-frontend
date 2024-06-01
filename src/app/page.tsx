@@ -120,7 +120,6 @@ export default function Home() {
       <div ref={refCTABox} className={styles["cardBoxRemain"]}>
         {isVisibleCTABox && <CTABox
           title={data.CallToAction.heading}
-          image={data.newsLetter.image}
           iconPosition={data.newsLetter.image_position}
           buttonText={data.newsLetter.button_name}
           buttonIcon={data.newsLetter.button_icon}
@@ -132,8 +131,6 @@ export default function Home() {
           childProps={{
             cardTitle: data.CallToAction.cardTitle,
             plans: data.CallToAction.plans,
-            buttonColor: data.CallToAction.buttonColor,
-            button_action_svg: data.CallToAction.button_action_svg,
             bulletIcon: data.CallToAction.bulletIcon,
           }} />
         }

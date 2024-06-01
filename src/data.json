@@ -513,8 +513,6 @@
               "period": "month"
             }
           ],
-        "buttonColor": "var(--text-button-background-color-tertiary)",
-        "button_action_svg": "arrowrightblack.svg",
         "bulletIcon": "tickBulletPoint.svg"
     }
 }
