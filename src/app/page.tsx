@@ -63,6 +63,7 @@ export default function Home() {
         <CardBox
           title={data.introduction.title}
           description={data.introduction.description}
+          background={data.introduction.background}
           image={data.introduction.image}
           iconPosition={data.introduction.image_position}
           buttonText={data.introduction.button_name}
@@ -75,6 +76,7 @@ export default function Home() {
         <CardBox
           title={data.yourShield.title}
           description={data.yourShield.description}
+          background={data.yourShield.background}
           image={data.yourShield.image}
           iconPosition={data.yourShield.image_position}
           buttonText={data.yourShield.button_name}
@@ -85,6 +87,7 @@ export default function Home() {
         <CardBox
           title={data.jointheMovement.title}
           description={data.jointheMovement.description}
+          background={data.jointheMovement.background}
           image={data.jointheMovement.image}
           iconPosition={data.jointheMovement.image_position}
           buttonText={data.jointheMovement.button_name}
@@ -139,6 +142,7 @@ export default function Home() {
         {
           isVisibleNewsLetter && <NewsLetter
             title={data.newsLetter.title}
+            background={data.newsLetter.background}
             image={data.newsLetter.image}
             iconPosition={data.newsLetter.image_position}
             buttonText={data.newsLetter.button_name}
