@@ -16,6 +16,7 @@ const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false }
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
 import { isMobile } from "@util/index";
+import QuizWindow from "@component/common/QuizWindow";
 
 export default function Home() {
   const refCardQuality = useRef<HTMLDivElement>(null);
@@ -27,11 +28,15 @@ export default function Home() {
   const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
   const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
 
+  const refQuizWindow = useRef<HTMLDivElement>(null);
+  const isVisibleQuizWindow = useOnScreen(refQuizWindow, '100px');
+
+
   const refNewsLetter = useRef<HTMLDivElement>(null);
-  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '100px');
+  const isVisibleNewsLetter = useOnScreen(refNewsLetter, '150px');
 
   const refFooter = useRef<HTMLDivElement>(null);
-  const isVisiblefFooter = useOnScreen(refFooter, '150px');
+  const isVisiblefFooter = useOnScreen(refFooter, '200px');
 
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = useCallback(() => {
@@ -113,6 +118,13 @@ export default function Home() {
           isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
         }
       </div>
+
+      <div ref={refQuizWindow} className={styles["quizCard"]} >
+        <div className={styles["quizName"]}><span>Huge discounts are waiting for you on the other side!</span></div>{
+          isVisibleQuizWindow && <QuizWindow quizDetail={data.quiz} />
+        }
+      </div>
+
       <div ref={refNewsLetter} className={styles["cardBoxRemain"]}>
         {
           isVisibleNewsLetter && <NewsLetter
@@ -132,8 +144,8 @@ export default function Home() {
       </div>
       <div ref={refFooter}>
         {
-        isVisiblefFooter &&
-            <Footer
+          isVisiblefFooter &&
+          <Footer
             branding={data.footer.branding}
             logo={data.footer.logo}
             background={data.footer.background}

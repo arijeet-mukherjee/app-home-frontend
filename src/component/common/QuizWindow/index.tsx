@@ -44,15 +44,11 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
 
     const scoreCalculator = (event: React.MouseEvent<HTMLButtonElement>) => {
         setTotalCorrectScore((correctAnswers / quizDetail.length) * 100);
-        console.log(totalCorrectScore);
-        console.log("score button clicked")
         setScoreDashBoard(true);
-        console.log(categoryScores)
     };
 
 
     const answerValidator = (questionObject: Question, option: string) => {
-        console.log(option)
         return questionObject.answer && (questionObject.answer.trim() === option.trim());
     };
 
@@ -62,7 +58,6 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         event.stopPropagation();
         const questionId = questionIds[currentQuestionIndex];
         const currentQuestion: QuestionObject = questions[currentQuestionIndex];
-        console.log(currentQuestion)
         const question = currentQuestion[questionId.toString()];
         const currentQuestionObject = {
             answer: question.answer
@@ -78,16 +73,13 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         if (ifAnswerCorrect) {
             setCorrectAnswers(correctAnswers + 1);
             categoryScores[question.category].correctCount += 1;
-            console.log("correctAnswers")
             setIsCorrectOption(true);
         }
         else {
-            console.log("wrong")
             setIsCorrectOption(false);
 
         }
         setCategoryScores({ ...categoryScores, ...categoryScores });
-        console.log(categoryScores);
     };
     const skipButtonClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -105,7 +97,6 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
 
     useEffect(() => {
         quizDetail && setQuestions(quizDetail);
-        console.log(quizDetail)
         quizDetail && setTotalQuestions(quizDetail.length);
         quizDetail && quizDetail.length > 0 ? setCurrentQuestionIndex(0) : setCurrentQuestionIndex(-1);
         let questionId: string[] = [];
@@ -130,7 +121,6 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
 
 
     const getCurrentQuestionNode = () => {
-        console.log(optionchosen)
         const questionId = questionIds[currentQuestionIndex];
         const currentQuestion: QuestionObject = questions[currentQuestionIndex];
         const question = currentQuestion[questionId.toString()];

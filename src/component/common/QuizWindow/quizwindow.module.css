@@ -3,17 +3,15 @@
 .quiz-window {
     background: #fff;
     border-radius: 15px;
-    width: min-content;
     height: max-content;
     display: grid;
+    width: 100%;
     grid-template-rows: max-content auto;
-    /* transition: 3000ms ease-in-out; */
 }
 
 .quiz-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100vw;
     height: 62.69px;
     background: #402EA1;
     border-radius: 15px 14px 0px 0px;
@@ -71,18 +69,7 @@
     align-items: center;
     position: absolute;
     bottom: 10%;
-    /* height: 66px; */
     width: 100%;
-    /* height: min-content;
-    width: min-content; */
-    /* width: 69px;
-    height: 48px; */
-    /* top: 115px;
-    left: 1072px; */
-    /* padding: 10px 15px 10px 15px;
-    gap: 10px;
-    color: #fff;
-     */
 }
 
 .questions-button button {
@@ -108,7 +95,6 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    /* identical to box height, or 136% */
     display: flex;
     align-items: center;
     letter-spacing: -0.392157px;
