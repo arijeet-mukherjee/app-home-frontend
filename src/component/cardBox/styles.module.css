@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6, p{
 .cardbox-card {
     display: grid;
     grid-template-columns: auto auto;
-    height: min-content;
+    height: max-content;
     justify-content: center;
     align-items: center;
     gap: 70px;
@@ -112,6 +112,7 @@ h1, h2, h3, h4, h5, h6, p{
     display: grid;
     justify-content: center;
     align-items: center;
+    margin-top: 5px;
 }
 
 .cardbox-button {
