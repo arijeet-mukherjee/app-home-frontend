@@ -1,0 +1,247 @@
+@import "../../../global.module.css";
+
+.quiz-window {
+    background: #fff;
+    border-radius: 15px;
+    height: max-content;
+    display: grid;
+    width: 100%;
+    grid-template-rows: max-content auto;
+}
+
+.quiz-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 62.69px;
+    background: #402EA1;
+    border-radius: 15px 14px 0px 0px;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-header-left {
+    justify-self: start;
+    width: 78.6px;
+    height: 19.9px;
+    display: grid;
+    padding-left: 70px;
+    gap: 4px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.quiz-header-left-design {
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.quiz-header-right {
+    justify-self: end;
+    width: 122.9px;
+    height: 10.61px;
+    padding-right: 70px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.quiz-header-right-design {
+    background: #FFFFFF;
+    border-radius: 10.6667px;
+}
+
+.quiz-content {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.questions-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    grid-column: 2;
+    align-items: center;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+}
+
+.questions-button button {
+    background-color: #402EA1;
+    color: #FFFFFF;
+    border-radius: 19px;
+    width: 80%;
+    height: 45px;
+    margin-right: 90px;
+}
+
+.questions-section {
+    display: grid;
+    grid-template-rows: max-content auto auto auto;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.question-text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.392157px;
+    color: #343434;
+}
+
+
+.question-text {
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: left;
+}
+
+.question-options {
+    display: flex;
+    gap: 10px;
+}
+
+.questionoption {
+    background: var(--SHADOW-FILL, #D9D9D982);
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    width: max-content;
+    height: 48px;
+    padding: 10px 15px 10px 15px;
+    gap: 10px;
+    border-radius: 19px;
+    border: 1px solid #402EA1;
+}
+
+.questionoptionclicked {
+    background: var(--Brand-Color-Algae-Green, #55E5A0) !important;
+}
+
+
+.incorrect {
+    background: red;
+}
+
+.question-message {
+    display: grid;
+    grid-template-columns: min-content auto;
+    word-break: break-all;
+}
+
+
+.question-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-description {
+    display: grid;
+    text-align: left;
+    align-content: center;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    word-break: break-word;
+}
+
+.button-text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    align-items: center;
+    color: #343434;
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.button-icon {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-action {
+    width: 247px;
+    background-color: #55E5A0;
+    display: grid;
+    padding: 10px 34px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px;
+}
+
+
+.quiz-scorecontent {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 140px;
+    padding-right: 140px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.space {
+    width: 2px;
+}
+
+
+@media (max-width: 1100px) {
+    .quiz-content {
+        width: auto;
+        height: auto;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .questions-button {
+        grid-column: 1;
+        align-items: center;
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-left: 15px;
+    }
+
+    .quiz-scorecontent {
+        width: auto;
+        padding: 20px;
+    }
+
+
+    .question-options {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+}
