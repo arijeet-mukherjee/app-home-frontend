@@ -28,7 +28,7 @@ interface newsLetter {
     goTo: string,
     fullGradient?: boolean
 }
-const NewsLetter: React.FC<newsLetter> = ({background, image, title, iconPosition, buttonIcon, buttonText, goTo, paddingLeftContent, inputBox, bulletPointImg, bulletPoints }) => {
+const NewsLetter: React.FC<newsLetter> = ({background, image, title, iconPosition, buttonIcon, buttonText, goTo, paddingLeftContent, inputBox, bulletPointImg, bulletPoints, fullGradient }) => {
     return(
             <CardBox 
             background={background}
@@ -43,6 +43,7 @@ const NewsLetter: React.FC<newsLetter> = ({background, image, title, iconPositio
             paddingLeftContent={paddingLeftContent}
             gridArea={{cardContent:'1/1', cardImage:'2/1'}}
             goTo={goTo}
+            fullGradient={true}
             />
     )
 }
