@@ -18,6 +18,13 @@ interface ThreatScorecardProps {
     totalCorrectScore: number
 };
 
+const getCoupon = () => {
+    console.log("clicked");
+}
+
+const restartQuiz = () => {
+    console.log("restart quiz");
+}
 
 const calculatePercentage = (stats: CategoryStats) => {
     return ((stats.correctCount / stats.totalCount) * 100).toFixed(0);
@@ -69,7 +76,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                             </div>
                         </div>
                         <div className={styles["couponcode-section"]}>
-                            <div className={styles["couponcode"]}>Coupon Code : AdityA</div>
+                            <div className={styles["couponcode"]}>Coupon Code : SEC****4***</div>
                         </div>
                     </div>
                 </div>
@@ -87,30 +94,24 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                     </div>
                 </div>
                 <div className={styles["getcouponrefresh-section"]}>
-                    <div className={styles["getcoupon-button"]}>
-                        <Link href="/about" legacyBehavior>
-                            <a className={styles["button"]}>
-                                <span className={styles["button-text"]}>Get Coupon Code</span>
-                                <span className={styles["button-icon"]}>
-                                    <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
-                                </span>
-                            </a>
-                        </Link>
-
+                    <div className={styles["getcoupon-button"]} onClick={getCoupon}>
+                        <a>
+                            <span className={styles["button-text"]}>Get Coupon Code</span>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
+                            </span>
+                        </a>
                     </div>
-                    <div className={styles["refresh-button"]}>
-                        <Link href="/about" legacyBehavior>
-                            <a className={styles["button"]}>
-                                <span className={styles["button-icon"]}>
-                                    <Image src="/refreshicon.svg" alt="arrow right" width={39.83} height={23.31} />
-                                </span>
-                            </a>
-                        </Link>
+                    <div className={styles["refresh-button"]} onClick={restartQuiz}>
+                        <a>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/refreshicon.svg" alt="arrow right" width={39.83} height={23.31} />
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
 export default ThreatScorecard;
