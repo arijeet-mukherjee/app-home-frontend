@@ -116,3 +116,4 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
 };
 
 export default Header;
+

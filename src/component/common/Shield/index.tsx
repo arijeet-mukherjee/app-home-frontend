@@ -1,8 +1,8 @@
 'use client'
 import React from 'react';
-import Link from 'next/link';
 import styles from "./shield.module.css";
 import Image from 'next/image';
+import { useAppSelector } from '@store/store';
 
 interface ShieldProps {
     top: number;
@@ -10,8 +10,9 @@ interface ShieldProps {
 };
 
 const Shield: React.FC<ShieldProps> = ({ top, right }) => {
+    const shield = useAppSelector(state => state.shield);
     return (
-        <div className={styles["shield-parent"]} style={{ top: `${top}px`, right: `${right}px` }}>
+        <div className={styles["shield-parent"]} style={{ top: `${shield?.top ?? top}px`, right: `${shield.right ?? right}px` }}>
             <div className={styles["shield"]}>
                 <div className={styles["shield-top"]}>
                     <div className={styles["shield-line"]}></div>
