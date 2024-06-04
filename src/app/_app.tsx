@@ -49,14 +49,13 @@ export default function Home() {
     }
   }, [])
   return (
-    <div className={styles["container"]}>
-      {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
-
-
+    <div className={styles["container"]}>  
+      {modalOpen && <MobileNavModal  modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
       <Hero
         introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
         content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
         openModal={openModal}
+        modalState={modalOpen}
       />
 
       <Shield top={105} right={190} />
@@ -155,5 +154,6 @@ export default function Home() {
       </div>
       <TawkChatWidget />
     </div>
+    
   );
 }

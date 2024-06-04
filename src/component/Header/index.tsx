@@ -32,14 +32,14 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
     useEffect(() => {
         if (isMobile()) {
             setLogoSize({
-                height: 23,
-                width: 85
+                height: 63,
+                width: 125
             })
         }
     }, []);
     return (
         <nav className={styles.header}>
-            <div className={styles.Logo}>
+            <div>
                 <Link href={data.header.navigation_bar.logo.href}>
                     <Image
                         src={data.header.navigation_bar.logo.src}
@@ -103,8 +103,9 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
             </div>
             <div className={styles.burgerMenuLogo}>
                 <Image src={modalState ? "/closebtn.svg" : "/burger-menu-icon.svg"} alt="menu"
-                    width={24}
-                    height={24}
+                    height={35}
+                    width={35}
+                    
                     onClick={(e) => {
                         e.preventDefault();
                         openModal();
@@ -116,4 +117,3 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
 };
 
 export default Header;
-

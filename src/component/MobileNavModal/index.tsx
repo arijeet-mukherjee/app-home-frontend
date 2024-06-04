@@ -33,9 +33,9 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState 
                 {data.header.navigation_bar.navbarItems?.map((item, index) => {
                     if (item.dditem?.length === 0) {
                         return (
-                            <div aria-label={item.label} key={index} className={styles.navItmCont}>
+                            
                                 <Link className={styles.navItem} href={item.url} >{item.label}</Link>
-                            </div>
+                            
                         )
                     }
 

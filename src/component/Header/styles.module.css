@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: 2fr 3fr;
     align-items: center;
-    height: 48px;
     margin: auto;
     gap: 20px;
     font-family: var(--framer-font-family);
@@ -63,7 +62,8 @@
     }
     .logo{
         width: calc((100vw / 393)* 85);
-        height: auto;
+        height: calc((100vw / 393)* 23);
+        align-self: center;
     }
 
     .navbar {
@@ -73,7 +73,7 @@
     .burgerMenuLogo {
         display: flex;
         color: white;
-        font-size: x-large;
+        align-items: center;
     }
 
     .mobileLang {

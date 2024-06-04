@@ -12,21 +12,33 @@
 }
 
 .tile {
-    background-color: var(  --text-button-background-color-secondary);
-    padding: 0.5rem;
+    background-color: #938EF0;
+    padding-left: calc((100vw / 1920)*19);
+    padding-right: calc((100vw / 1920)*19);
+    padding-bottom: calc((100vw / 1920)*5);
+    padding-top: calc((100vw / 1920)*5);
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
 .tile:hover {
-    background-color: rgb(117, 72, 207);
+    background-color: var(--text-button-background-color-secondary);
     
 }
 
-.ddItem {
+.ddItem {   
 
     color: var(--text-tertiary-color);
     font-weight: 200;
     color: black;
 }
+
+@media (max-width: 1100px) {
+   .tile {
+        padding-left: calc((100vw / 393)*19);
+        padding-right: calc((100vw / 393)*19);
+        padding-bottom: calc((100vw / 393)*5);
+        padding-top: calc((100vw / 393)*5);
+    }
+  }
