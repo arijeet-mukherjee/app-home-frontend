@@ -6,14 +6,15 @@ import PlansCard from './PlansCard';
 interface Plans {
     title: string;
     price: number;
-    discountPrice?: number;
+    discountPrice: number;
     buttonText: string;
     currency: string;
     currencySymbol: string;
     bulletPoint: string;
     ribbonText: string;
     period: string;
-    hookString?: string;
+    hookStringOne: string;
+    hookStringTwo: String;
 
 }
 interface PlanCardProps {
@@ -22,30 +23,22 @@ interface PlanCardProps {
     bulletIcon: string;
 }
 interface CTABox {
-    image?: string,
     title: string,
     iconPosition: string,
-    buttonText: string,
-    buttonIcon: string,
     paddingLeftContent: string,
-    inputBox: string,
     bulletPointImg: string,
     bulletPoints: Array<string>,
     goTo: string,
     childProps: PlanCardProps;
 }
 const CTABox: React.FC<CTABox> = ({ 
-    image,
     title,
     iconPosition,
-    buttonIcon,
-    buttonText,
-    goTo,
     paddingLeftContent,
-    inputBox,
     bulletPointImg,
     bulletPoints,
-    childProps }) => {
+    childProps,
+goTo}) => {
 
     return (
         <CardBox
@@ -57,6 +50,7 @@ const CTABox: React.FC<CTABox> = ({
             paddingLeftContent={paddingLeftContent}
             gridArea={{ cardContent: '1/1', cardImage: '2/1' }}
             paddingImageContent={'0px'}
+            fullGradient={true}
             child={<PlansCard
                 cardTitle={childProps.cardTitle}
                 plans={childProps.plans}

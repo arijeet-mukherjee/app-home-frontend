@@ -12,6 +12,7 @@ const CardBox = dynamic(() => import('@component/cardBox'), {
 const MobileNavModal = dynamic(() => import('@component/MobileNavModal'));
 const CardQuality = dynamic(() => import('@component/cardQuality'), { ssr: false });
 const Carousel = dynamic(() => import('@component/Carousel'), { ssr: false });
+const CTABox = dynamic(() => import('@component/CTABox'), { ssr: false });
 const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
@@ -27,6 +28,9 @@ export default function Home() {
 
   const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
   const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
+
+  const refCTABox = useRef<HTMLDivElement>(null);
+  const isVisibleCTABox = useOnScreen(refCTABox, '120px');
 
   const refQuizWindow = useRef<HTMLDivElement>(null);
   const isVisibleQuizWindow = useOnScreen(refQuizWindow, '100px');
@@ -122,6 +126,22 @@ export default function Home() {
       <div ref={refQuizWindow} className={styles["quizCard"]} >
         <div className={styles["quizName"]}><span>Huge discounts are waiting for you on the other side!</span></div>{
           isVisibleQuizWindow && <QuizWindow quizDetail={data.quiz} />
+        }
+      </div>
+
+      <div ref={refCTABox} className={styles["cardBoxRemain"]}>
+        {isVisibleCTABox && <CTABox
+          title={data.CallToAction.heading}
+          iconPosition={data.newsLetter.image_position}
+          paddingLeftContent={data.newsLetter.paddingLeftContent}
+          bulletPointImg={data.newsLetter.bulletPointImg}
+          bulletPoints={data.CallToAction.description}
+          goTo={data.newsLetter.goTo}
+          childProps={{
+            cardTitle: data.CallToAction.cardTitle,
+            plans: data.CallToAction.plans,
+            bulletIcon: data.CallToAction.bulletIcon,
+          }} />
         }
       </div>
 

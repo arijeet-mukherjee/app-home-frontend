@@ -2,18 +2,22 @@ import styles from './styles.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useRef, useEffect, useState } from 'react';
+import data from "../../../data.json";
 
 
 interface Plans {
-    title?: string;
+    title: string;
     price: number;
-    discountPrice?: number;
-    buttonText?: string;
-    currency?: string;
-    currencySymbol?: string;
-    bulletPoint?: string;
-    ribbonText?: string;
-    period?: string;
+    discountPrice: number;
+    buttonText: string;
+    currency: string;
+    currencySymbol: string;
+    bulletPoint: string;
+    ribbonText: string;
+    period: string;
+    hookStringOne: string;
+    hookStringTwo: String;
+
 }
 interface PlansCardProps {
     cardTitle: string;
@@ -64,12 +68,13 @@ const PlansCard: FC<PlansCardProps> = ({
             </div>
 
             <p className={styles.discountText}>
-                {currentPlan.discountPrice ? `Save ${100 - (Math.ceil((currentPlan.discountPrice / currentPlan.price) * 100))}% every month` : 'Security that is Value for Money'}
+            {currentPlan.hookStringOne}
             </p>
 
 
-            {currentPlan.discountPrice ? <p className={styles.originalPrice}>{`${currentPlan.currencySymbol}${currentPlan.price}`}</p> :
-                <p className={styles.originalPrice} style={{ textDecoration: "none" }}>Say Bye to Threats at</p>
+            {currentPlan.hookStringTwo ? <p className={styles.originalPrice} style={{ textDecoration: "none" }}>{`${currentPlan.hookStringTwo}`}</p> :
+            <p className={styles.originalPrice}>{`${currentPlan.currencySymbol}${currentPlan.price}`}</p> 
+                
             }
             <div className={styles.discountPriceContainer}>
                 <p className={styles.dicountedPrice}>{`${currentPlan.currencySymbol}${currentPlan.discountPrice || currentPlan.price}`}</p>

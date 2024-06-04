@@ -602,18 +602,22 @@
               "currencySymbol": "$",
               "bulletPoint": "Get the newly added services with this plan",
               "ribbonText": "MOST POPULAR",
-              "period": "year"
+              "period": "year",
+              "hookStringOne" : "Get upto 40% off",
+              "hookStringTwo" : ""
             },
             {
               "title": "Monthly",
-              "price": 75,
-              "discountPrice": 40,
+              "price": 0,
+              "discountPrice": 75,
               "buttonText": "Buy now",
               "currency": "USD",
               "currencySymbol": "$",
               "bulletPoint": "Services you need to keep you safe online",
               "ribbonText": "MOST POPULAR",
-              "period": "month"
+              "period": "month",
+              "hookStringOne" : "Security that is Value for Money",
+              "hookStringTwo" : "Say Bye to Threats at"
             }
           ],
         "bulletIcon": "tickBulletPoint.svg"
