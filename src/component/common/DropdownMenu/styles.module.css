@@ -1,18 +1,44 @@
 @import url("../../../global.module.css");
+
 .dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: var(--text-icon-color);
-    align-items: center;
-    border-radius: 15px;
-    min-width: 200px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    background-color: black;
+    width: auto;
     z-index: 100;
+    gap: 0.1rem;
+
 }
 
-.ddItem {
-    color: var(--text-tertiary-color);
-    font-weight: 600;
+.tile {
+    background-color: #938EF0;
+    padding-left: calc((100vw / 1920)*19);
+    padding-right: calc((100vw / 1920)*19);
+    padding-bottom: calc((100vw / 1920)*5);
+    padding-top: calc((100vw / 1920)*5);
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
+
+.tile:hover {
+    background-color: var(--text-button-background-color-secondary);
+    
+}
+
+.ddItem {   
+
+    color: var(--text-tertiary-color);
+    font-weight: 200;
+    color: black;
+}
+
+@media (max-width: 1100px) {
+   .tile {
+        padding-left: calc((100vw / 393)*19);
+        padding-right: calc((100vw / 393)*19);
+        padding-bottom: calc((100vw / 393)*5);
+        padding-top: calc((100vw / 393)*5);
+    }
+  }

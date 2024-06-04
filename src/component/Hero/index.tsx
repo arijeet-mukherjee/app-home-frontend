@@ -10,9 +10,10 @@ interface HeroProps {
     introduction: Array<string>;
     content: Array<string>;
     openModal: Function;
+    modalState: boolean;
 };
 
-const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal }) => {
+const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
@@ -21,7 +22,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
             <div className={styles["header"]}>
-            <Header openModal={openModal} />
+            <Header openModal={openModal} modalState={modalState}/>
             </div>
             <div className={styles['heroBlock']}>
                 <div className={styles["heroIntrocuction"]}>
