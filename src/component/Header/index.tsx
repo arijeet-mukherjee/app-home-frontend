@@ -37,8 +37,12 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
             })
         }
     }, []);
+
+    const headerStyle = {
+        gridTemplateColumns:'3fr 1fr'
+      }
     return (
-        <nav className={styles.header}>
+        <nav className={styles.header} style={modalState ? {}: headerStyle} >
             <div>
                 <Link href={data.header.navigation_bar.logo.href}>
                     <Image
@@ -79,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
 
                 <Button label={data.header.navigation_bar.button.label} action_svg={data.header.navigation_bar.button.action_svg} hc={handelClick} />
             </div>
-            <div className={styles.mobileLang}>
+            {modalState && <div className={styles.mobileLang}>
                 {data.header.navigation_bar.navbarItems?.map((item, index) => {
                     if (item.dditem?.length !== 0) {
                         return (
@@ -93,14 +97,14 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                                     <span className={styles.arrowDown} style={{
                                         transform: open ? 'rotate(180deg)' : ''
                                     }}></span>
-                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
+                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={55} />}
                                 </Link>
                             </div>
                         )
                     }
                 })
                 }
-            </div>
+            </div>}
             <div className={styles.burgerMenuLogo}>
                 <Image src={modalState ? "/closebtn.svg" : "/burger-menu-icon.svg"} alt="menu"
                     height={35}

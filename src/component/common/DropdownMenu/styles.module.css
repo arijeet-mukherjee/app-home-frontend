@@ -22,17 +22,20 @@
     align-items: center;
 }
 
+.ddItem {   
+    color: var(--background-color-dark);
+    font-weight: 200;
+}
+
 .tile:hover {
     background-color: var(--text-button-background-color-secondary);
+    > .ddItem{
+        color: white;
+    }
     
 }
 
-.ddItem {   
 
-    color: var(--text-tertiary-color);
-    font-weight: 200;
-    color: black;
-}
 
 @media (max-width: 1100px) {
    .tile {

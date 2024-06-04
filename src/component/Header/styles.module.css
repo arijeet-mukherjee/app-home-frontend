@@ -65,6 +65,10 @@
         height: calc((100vw / 393)* 23);
         align-self: center;
     }
+    .headerInModal{
+        grid-template-columns: 3fr 1fr;
+        justify-content: space-between;
+    }
 
     .navbar {
         display: none;
@@ -74,6 +78,7 @@
         display: flex;
         color: white;
         align-items: center;
+        justify-self: flex-end;
     }
 
     .mobileLang {
