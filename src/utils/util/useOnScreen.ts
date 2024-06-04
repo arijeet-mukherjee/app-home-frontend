@@ -12,7 +12,9 @@ function useOnScreen(ref: RefObject<HTMLElement>, rootMargin: string = '0px'): b
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIntersecting(true);
-                    observer.unobserve(ref.current!);
+                    if (ref.current) {
+                        observer.unobserve(ref.current);
+                    }
                 }
             },
             {
@@ -23,7 +25,9 @@ function useOnScreen(ref: RefObject<HTMLElement>, rootMargin: string = '0px'): b
             observer.observe(ref.current);
         }
         return () => {
-            observer.unobserve(ref.current!);
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
         };
     }, []); // Empty array ensures that effect is only run on mount and unmount
 

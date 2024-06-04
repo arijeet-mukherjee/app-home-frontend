@@ -65,7 +65,7 @@
         "title": "Introduction",
         "description": "Welcome to SecDesk@Home - your shield against cybercriminals in an increasingly digitized world. As technology advances, so do the threats, and SecDesk couldn't stand idly by any longer. We've witnessed too many hard-earned dollars fall into the hands of cybercriminals, and enough is enough. It's time for a solution designed to protect individuals like you who are active online.",
         "image": {
-            "path":"/introductiondoubletick.svg",
+            "path": "/introductiondoubletick.svg",
             "title": "introduction",
             "dHeight": "calc((100vw / 1920)*200)",
             "dWidth": "calc((100vw / 1920)*200)",
@@ -88,7 +88,7 @@
         "title": "Your Shield",
         "description": "SecDesk@Home is more than just a security subscription; it's your personalized defense mechanism crafted by the security specialists at SecDesk. Our mission is clear: to create a more secure world, and SecDesk@Home extends that mission directly to you, the consumer market. With our comprehensive security measures in place, you can navigate the digital landscape with confidence, knowing that your personal information and hard-earned assets are safeguarded against cyber threats.",
         "image": {
-            "path":"/yourshield.svg",
+            "path": "/yourshield.svg",
             "title": "introduction",
             "dHeight": "calc((100vw / 1920)*200)",
             "dWidth": "calc((100vw / 1920)*200)",
@@ -111,7 +111,7 @@
         "title": "Join the Movement",
         "description": "Take control of your online security today by joining the SecDesk@Home community. Together, we can build a safer digital environment for everyone. Don't let cybercriminals dictate your online experience any longer. With SecDesk@Home, you have the power to protect yourself and contribute to a more secure world. Join us in our mission and secure your peace of mind with SecDesk@Home.",
         "image": {
-            "path":"/jointhemovement.svg",
+            "path": "/jointhemovement.svg",
             "title": "introduction",
             "dHeight": "calc((100vw / 1920)*200)",
             "dWidth": "calc((100vw / 1920)*200)",
@@ -226,13 +226,13 @@
                         "pathMobile": "/trustworthy2.svg",
                         "name": "trustworthy"
                     },
-                    "bg":{
+                    "bg": {
                         "backgroundColorDesktop": "var(--light-color)",
                         "backgroundColorMobile": "var(--text-button-background-color-primary)",
                         "backgroundImg": "/qualitybackground-part4.svg",
                         "backgroundPosition": "left top"
                     },
-                    "textColor":{
+                    "textColor": {
                         "desktop": "var(--dark-color)",
                         "mobile": "var(--light-color)"
                     },
@@ -242,7 +242,7 @@
                         "backgroundColorMobile": "var(--light-color)",
                         "textColorMobile": "var(--text-button-background-color-primary)",
                         "desktopText": "",
-                        "mobileText":"",
+                        "mobileText": "",
                         "mobileImg": "/arrowrightprimary.svg",
                         "desktopImg": "",
                         "url": "/"
@@ -256,13 +256,13 @@
                         "pathMobile": "/accessible2.svg",
                         "name": "accessible"
                     },
-                    "bg":{
+                    "bg": {
                         "backgroundColorDesktop": "var(--light-color)",
                         "backgroundColorMobile": "var(--light-color)",
                         "backgroundImg": "/qualitybackground-part2.svg",
                         "backgroundPosition": "right top"
                     },
-                    "textColor":{
+                    "textColor": {
                         "desktop": "var(--dark-color)",
                         "mobile": "var(--dark-color)"
                     },
@@ -272,7 +272,7 @@
                         "backgroundColorMobile": "var(--light-color)",
                         "textColorMobile": "var(--text-button-background-color-primary)",
                         "desktopText": "",
-                        "mobileText":"",
+                        "mobileText": "",
                         "mobileImg": "",
                         "desktopImg": "",
                         "url": "/"
@@ -288,13 +288,13 @@
                         "pathMobile": "/available2.svg",
                         "name": "available"
                     },
-                    "bg":{
+                    "bg": {
                         "backgroundColorDesktop": "var(--text-button-background-color-primary)",
                         "backgroundColorMobile": "var(--light-color)",
                         "backgroundImg": "/qualitybackground-part1.svg",
                         "backgroundPosition": "right bottom"
                     },
-                    "textColor":{
+                    "textColor": {
                         "desktop": "var(--light-color)",
                         "mobile": "var(--dark-color)"
                     },
@@ -304,7 +304,7 @@
                         "backgroundColorMobile": "var(--text-button-background-color-primary)",
                         "textColorMobile": "var(--light-color)",
                         "desktopText": "",
-                        "mobileText":"",
+                        "mobileText": "",
                         "mobileImg": "/arrowrightwhite.svg",
                         "desktopImg": "",
                         "url": "/"
@@ -318,13 +318,13 @@
                         "pathMobile": "/multilingual2.svg",
                         "name": "multilingual"
                     },
-                    "bg":{
+                    "bg": {
                         "backgroundColorDesktop": "var(--light-color)",
                         "backgroundColorMobile": "var(--light-color)",
                         "backgroundImg": "/qualitybackground-part3.svg",
                         "backgroundPosition": "left bottom"
                     },
-                    "textColor":{
+                    "textColor": {
                         "desktop": "var(--dark-color)",
                         "mobile": "var(--dark-color)"
                     },
@@ -334,7 +334,7 @@
                         "backgroundColorMobile": "var(--text-button-background-color-primary)",
                         "textColorMobile": "var(--light-color)",
                         "desktopText": "Request",
-                        "mobileText":"Request Now",
+                        "mobileText": "Request Now",
                         "mobileImg": "/arrowrightwhite.svg",
                         "desktopImg": "/arrowrightwhite.svg",
                         "url": "/"
@@ -349,56 +349,64 @@
         "toggleScrollButtonPosition": true,
         "hideIndicator": true,
         "isBackgroundDark": true,
-        "cardProps": [{
-          "image": "/utc.svg",
-          "title": "Understanding Terms and Conditions 0",
-          "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/helpdesk.svg",
-          "title": "Helpdesk 1",
-          "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
-          "url": "/carousel-card-link",
-          "toggleButton": true,
-          "buttonText": "Subscribe"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 2",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/utc.svg",
-          "title": "Understanding Terms and Conditions 3",
-          "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/helpdesk.svg",
-          "title": "Helpdesk 4",
-          "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
-          "url": "/carousel-card-link",
-          "toggleButton": true,
-          "buttonText": "Subscribe"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 5",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 6",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }]
+        "cardProps": [
+            {
+                "image": "/utc.svg",
+                "title": "Understanding Terms and Conditions 0",
+                "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/helpdesk.svg",
+                "title": "Helpdesk 1",
+                "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
+                "url": "/carousel-card-link",
+                "toggleButton": true,
+                "buttonText": "Subscribe"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 2",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/utc.svg",
+                "title": "Understanding Terms and Conditions 3",
+                "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/helpdesk.svg",
+                "title": "Helpdesk 4",
+                "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
+                "url": "/carousel-card-link",
+                "toggleButton": true,
+                "buttonText": "Subscribe"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 5",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 6",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            }
+        ]
     },
     "carouselUpcomingSubscription": {
         "title": "That’s not all folks!",
@@ -406,61 +414,155 @@
         "toggleScrollButtonPosition": true,
         "hideIndicator": true,
         "isBackgroundDark": false,
-        "cardProps": [{
-          "image": "/utc.svg",
-          "title": "Understanding Terms and Conditions 0",
-          "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/helpdesk.svg",
-          "title": "Helpdesk 1",
-          "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
-          "url": "/carousel-card-link",
-          "toggleButton": true,
-          "buttonText": "Subscribe"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 2",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/utc.svg",
-          "title": "Understanding Terms and Conditions 3",
-          "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/helpdesk.svg",
-          "title": "Helpdesk 4",
-          "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
-          "url": "/carousel-card-link",
-          "toggleButton": true,
-          "buttonText": "Subscribe"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 5",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }, {
-          "image": "/leakcred.svg",
-          "title": "Leaked Credentials 6",
-          "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
-          "url": "/carousel-card-link",
-          "toggleButton": false,
-          "buttonText": "Learn More"
-        }]
-      },
-      "newsLetter":{
+        "cardProps": [
+            {
+                "image": "/utc.svg",
+                "title": "Understanding Terms and Conditions 0",
+                "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/helpdesk.svg",
+                "title": "Helpdesk 1",
+                "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
+                "url": "/carousel-card-link",
+                "toggleButton": true,
+                "buttonText": "Subscribe"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 2",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/utc.svg",
+                "title": "Understanding Terms and Conditions 3",
+                "description": "Tired of deciphering dense legal jargon? We've got you covered. Our platform provides easily digestible summaries of terms and conditions, so you can understand exactly what you're getting yourself into.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/helpdesk.svg",
+                "title": "Helpdesk 4",
+                "description": "Need assistance navigating the complexities of cybersecurity? Our helpdesk is here to lend a helping hand. Reserve a 30-minute call with our security experts and get answers to all your burning security questions.",
+                "url": "/carousel-card-link",
+                "toggleButton": true,
+                "buttonText": "Subscribe"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 5",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            },
+            {
+                "image": "/leakcred.svg",
+                "title": "Leaked Credentials 6",
+                "description": "Safeguard your online accounts and check whether your credentials have leaked on the internet. Whether it's a password leak or a data breach, our system keeps a watchful eye on the web, ensuring that you're always one step ahead of cyber threats.",
+                "url": "/carousel-card-link",
+                "toggleButton": false,
+                "buttonText": "Learn More"
+            }
+        ]
+    },
+    "quiz": [
+        {
+            "1": {
+                "question": "What is Your name",
+                "answer": "asasa",
+                "options": [
+                    "asasa",
+                    "AZUs",
+                    "sdsd"
+                ],
+                "message": "Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. ",
+                "actionName": "Click on me",
+                "category": "Malware"
+            }
+        },
+        {
+            "2": {
+                "question": "What is Your fav food",
+                "answer": "test1",
+                "options": [
+                    "test1",
+                    "test2",
+                    "test3"
+                ],
+                "message": "This is a demo 2",
+                "actionName": "Click on me 2",
+                "category": "Malware"
+            }
+        },
+        {
+            "3": {
+                "question": "What is Your fav dance",
+                "answer": "test1",
+                "options": [
+                    "test1",
+                    "test2",
+                    "test3"
+                ],
+                "message": "This is a demo 2",
+                "actionName": "Click on me 2",
+                "category": "Threat"
+            }
+        },
+        {
+            "4": {
+                "question": "What is Your fav cat",
+                "answer": "test1",
+                "options": [
+                    "test1",
+                    "test2",
+                    "test3"
+                ],
+                "message": "This is a demo 2",
+                "actionName": "Click on me 2",
+                "category": "Vuneravalty"
+            }
+        },
+        {
+            "5": {
+                "question": "What is Your fav cat",
+                "answer": "test1",
+                "options": [
+                    "test1",
+                    "test2",
+                    "test3"
+                ],
+                "message": "This is a demo 2",
+                "actionName": "Click on me 2",
+                "category": "Vuneravalty"
+            }
+        },
+        {
+            "6": {
+                "question": "What is Your fav cat",
+                "answer": "test1",
+                "options": [
+                    "test1",
+                    "test2",
+                    "test3"
+                ],
+                "message": "This is a demo 2",
+                "actionName": "Click on me 2",
+                "category": "Demo"
+            }
+        }
+    ],
+    "newsLetter": {
         "title": "Stay up to date with the latest in security with the Secdesk security newsletter!",
         "image": {
-            "path":"/newsletter.svg",
+            "path": "/newsletter.svg",
             "title": "newsletter",
             "dHeight": "calc((100vw / 1920)*220.85)",
             "dWidth": "calc((100vw / 1920)*246.48)",
@@ -479,8 +581,9 @@
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "inputBox": "Email*",
         "bulletPointImg": "/tickmark.svg",
-        "bulletPoints":[
-            "Stay up-to-date with the trends, so you can focus your security effort", "Increase your security posture"
+        "bulletPoints": [
+            "Stay up-to-date with the trends, so you can focus your security effort",
+            "Increase your security posture"
         ],
         "goTo": "#"
     },
