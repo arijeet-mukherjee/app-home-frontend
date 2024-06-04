@@ -17,13 +17,13 @@
 
 .navbar {
     display: grid;
-    gap: 20px;
+    gap: calc((100vw / 1920 )* 40);
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
     grid-auto-flow: column;
     align-items: center;
-    transform: translateX(110px);
+    transform: translateX(100px);
 }
 
 .navItem {
