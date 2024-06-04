@@ -1,6 +1,6 @@
 @import url("../global.module.css");
 
-.container{
+.container {
     width: 100vw;
     overflow-x: hidden;
 }
@@ -26,8 +26,29 @@
     gap: 60px;
 }
 
-.whiteBackground{
+.whiteBackground {
     background: var(--text-icon-color);
+}
+
+.quizCard {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-top: calc((100vw / 1920)* 117) ;
+    padding-right: calc((100vw / 1920)* 320) ;
+    padding-bottom: calc((100vw / 1920)* 117) ;
+    padding-left: calc((100vw / 1920)* 320) ;
+    margin-bottom: calc((100vw / 1920)* 60);
+    background: var(--background-color-dark);
+}
+
+.quizName {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc((100vw/1920)*40);
+    line-height: 90px;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 @media(max-width: 1100px) {
@@ -41,12 +62,21 @@
         margin-bottom: 25px;
     }
 
-    .cardBoxFirst{
+    .cardBoxFirst {
         padding: 0px;
         margin-top: -10%;
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 5px;
+    }
+
+    .quizName {
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 25px;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+        text-align: left;
     }
 
     .cardBoxRemain {
@@ -68,4 +98,10 @@
         width: 100vw;
         padding: calc((100vw / 393) * 1);
     }
+
+    .quizCard {
+        gap: 0 !important;
+        padding: 20px;
+    }
+
 }

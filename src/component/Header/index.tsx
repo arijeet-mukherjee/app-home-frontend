@@ -46,3 +46,4 @@ const Header: React.FC<HeaderProps> = ({ openModal }) => {
 };
 
 export default Header;
+
