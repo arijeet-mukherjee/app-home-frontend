@@ -2,7 +2,6 @@ import styles from './styles.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useRef, useEffect, useState } from 'react';
-import data from "../../../data.json";
 
 
 interface Plans {
