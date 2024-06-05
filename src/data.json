@@ -7,7 +7,7 @@
                 "href": "/"
             },
             "button": {
-                "label": "contact",
+                "label": "Contact",
                 "action_svg": "phone.svg"
             },
             "navbarItems": [
