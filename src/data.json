@@ -586,5 +586,42 @@
             "Increase your security posture"
         ],
         "goTo": "#"
+    },
+
+    "CallToAction": {
+    "heading": "Secured Internet Browsing With Our Subscription Plan",
+    "description":["Don’t lose your money to online scammers", "Subscribe now to become more secure.", "All newly added services FREE with the annual subscription."],
+    "cardTitle": "Choose a Plan",
+        "plans": [
+            {
+              "title": "Annual",
+              "price": 75.99,
+              "discountPercentage": 40,
+              "buttonText": " Buy now",
+              "currency": "USD",
+              "currencySymbol": "$",
+              "bulletPoint": "Get the newly added services with this plan",
+              "ribbonText": "MOST POPULAR",
+              "period": "year",
+              "hookStringOne" : "Security that is Value for Money",
+              "hookStringTwo" : ""
+            },
+            {
+              "title": "Monthly",
+              "price": 75,
+              "discountPercentage": 0,
+              "buttonText": "Buy now",
+              "currency": "USD",
+              "currencySymbol": "$",
+              "bulletPoint": "Services you need to keep you safe online",
+              "ribbonText": "MOST POPULAR",
+              "period": "month",
+              "hookStringOne" : "Security that is Value for Money",
+              "hookStringTwo" : "Say Bye to Threats at"
+            }
+          ],
+        "bulletIcon": "tickBulletPoint.svg"
     }
 }
+
+ 
