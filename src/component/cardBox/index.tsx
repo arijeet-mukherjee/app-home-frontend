@@ -4,7 +4,8 @@ import styles from './styles.module.css';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useState, ReactNode } from 'react';
-import { isMobile } from '@util/index';
+import { isMobile, emailVerified } from '@util/index';
+
 interface CardBoxProps {
     background?:{
         mHeight: string;
@@ -50,29 +51,27 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     const [email, setEmail] = useState('');
     const inputEmail = useRef<HTMLInputElement>(null!);
 
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     function handelInput(event: React.ChangeEvent<HTMLInputElement>) {
         setEmail(event.target.value);
-        if (inputEmail.current) {
-            if (!emailRegex.test(email)) {
-                inputEmail.current.style.outline = "red solid";
-            }
-            else {
-                inputEmail.current.style.outline = "black solid";
-            }
+
+        if(emailVerified(email)) {
+            inputEmail.current.style.outline = "#343a40 solid";
         }
-    }
+        else {
+            inputEmail.current.style.outline = "#dc3545 solid";
+        }
+    };
 
     const handelSubmit = () => {
 
-        if (emailRegex.test(email)) {
+        if (emailVerified(email)) {
             alert(email + " created successfully");
             window.open(`${props.goTo}`, '_self');
         }
         else {
             alert("Please enter a valid email address");
         }
-    }
+    };
 
 
     useEffect(() => {
@@ -101,7 +100,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
             setCardImageStyle({ gridColumn: props.iconPosition == "right" ? 2 : 1, gridRow: 1, paddingLeft: props.paddingImageContent ? props.paddingImageContent : 0 });
             setCardGradient({ background: props.iconPosition == "left" ? "linear-gradient(270.59deg, #FFFFFF 35.89%, #C7D5E0 79.41%)" : "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)", gridRow: 1 });
         }
-    }, [])
+    }, []);
 
     const { image, background, title, description, iconPosition, buttonText, inputBox, bulletPointImg, bulletPoints, child } = props;
     return (
