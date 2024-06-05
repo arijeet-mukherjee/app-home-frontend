@@ -2,12 +2,13 @@ import styles from './styles.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useRef, useEffect, useState } from 'react';
+import { priceAfterDiscount } from '@util/index';
 
 
 interface Plans {
     title: string;
     price: number;
-    discountPrice: number;
+    discountPercentage : number;
     buttonText: string;
     currency: string;
     currencySymbol: string;
@@ -33,6 +34,7 @@ const PlansCard: FC<PlansCardProps> = ({
 }) => {
 
     const [currentPlan, setCurrentPlan] = useState(plans[0]);
+    
 
     const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
@@ -67,7 +69,8 @@ const PlansCard: FC<PlansCardProps> = ({
             </div>
 
             <p className={styles.discountText}>
-            {currentPlan.hookStringOne}
+            
+            { (currentPlan.discountPercentage > 0)? `Get upto ${currentPlan.discountPercentage}% off ` :currentPlan.hookStringOne}
             </p>
 
 
@@ -76,7 +79,7 @@ const PlansCard: FC<PlansCardProps> = ({
                 
             }
             <div className={styles.discountPriceContainer}>
-                <p className={styles.dicountedPrice}>{`${currentPlan.currencySymbol}${currentPlan.discountPrice || currentPlan.price}`}</p>
+                <p className={styles.dicountedPrice}>{`${currentPlan.currencySymbol}${ priceAfterDiscount(currentPlan.price, currentPlan.discountPercentage) || currentPlan.price}`}</p>
                 <p>{`${currentPlan.currency} /${currentPlan.period}`}</p>
             </div>
             <div className={styles.bulletPointContainer}>

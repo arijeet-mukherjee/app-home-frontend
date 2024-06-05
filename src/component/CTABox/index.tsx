@@ -6,7 +6,7 @@ import PlansCard from './PlansCard';
 interface Plans {
     title: string;
     price: number;
-    discountPrice: number;
+    discountPercentage: number;
     buttonText: string;
     currency: string;
     currencySymbol: string;
