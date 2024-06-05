@@ -101,3 +101,8 @@ export function throttler(fn: (...args: any[]) => any, delay: number): (...args:
 export const isMobile = () => {
     return typeof window !== 'undefined' && window.matchMedia("(max-width: 1100px)").matches;
 }
+
+export const priceAfterDiscount = (originalPrice: number, discountPercentage: number): number => {
+    const discountAmount = (originalPrice * discountPercentage) / 100;
+    return Math.round(originalPrice - discountAmount);
+}
