@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { shieldReducer } from "@store/shieldSlice";
+import { quizRefreshReducer } from "./quizRefreshSlice";
 import logger from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
@@ -10,10 +11,18 @@ const shieldPersistConfig = {
   storage,
 };
 
+const quizRefreshPersistConfig = {
+  key: 'quiz',
+  storage,
+};
+
+
 const persistedReducer = persistReducer(shieldPersistConfig, shieldReducer);
+const persistQuizReducer = persistReducer(quizRefreshPersistConfig, quizRefreshReducer);
+
 
 export const store = configureStore({
-  reducer: { shield: persistedReducer },
+  reducer: { shield: persistedReducer, refreshQuiz : persistQuizReducer },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(logger),
 });

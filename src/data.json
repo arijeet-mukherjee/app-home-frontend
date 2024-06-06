@@ -130,6 +130,17 @@
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
         "paddingImageContent": ""
     },
+
+    "quiz" : [
+        { "1": { "question": "What is Your name", "answer": "asasa", "options": ["asasa", "Arijeet", "sdsd"], "message": "Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. Avoid the risk of Shoulder Surfing and get yourself the top-notch security and online privacy that you deserve. ", "actionName": "Click on me", "category": "Malware" } },
+        { "2": { "question": "What is Your fav food", "answer": "test1", "options": ["test1", "test2", "test3"], "message": "This is a demo 2", "actionName": "Click on me 2", "category": "Malware" } },
+        { "3": { "question": "What is Your fav dance", "answer": "test1", "options": ["test1", "test2", "test3"], "message": "This is a demo 2", "actionName": "Click on me 2", "category": "Threat" } },
+        { "4": { "question": "What is Your fav cat", "answer": "test1", "options": ["test1", "test2", "test3"], "message": "This is a demo 2", "actionName": "Click on me 2", "category": "Vuneravalty" } },
+        { "5": { "question": "What is Your fav cat", "answer": "test1", "options": ["test1", "test2", "test3"], "message": "This is a demo 2", "actionName": "Click on me 2", "category": "Vuneravalty" } },
+        { "6": { "question": "What is Your fav cat", "answer": "test1", "options": ["test1", "test2", "test3"], "message": "This is a demo 2", "actionName": "Click on me 2", "category": "Demo" } }
+      ],
+
+
     "footer": {
         "logo": {
             "logoName": "secDesk logo",
