@@ -1,12 +1,13 @@
 'use client'
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './styles.module.css';
-import Image, { StaticImageData } from 'next/image';
-import ProgressBar from '../common/ProgressBar';
-import LineProgressBar from '../common/LineProgressBar';
-import Link from 'next/link';
-import { useState } from 'react';
-import VulnerabilityThreat from '@component/common/VulnerabilityThreat';
+import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '@store/store';
+import { setQuizRefreshState } from '@store/quizRefreshSlice';
+import dynamic from 'next/dynamic';
+
+const ProgressBar = dynamic(() => import('@component/common/ProgressBar'));
+const VulnerabilityThreat = dynamic(() => import('@component/common/VulnerabilityThreat'));
 
 type CategoryStats = {
     correctCount: number;
@@ -15,15 +16,12 @@ type CategoryStats = {
 
 interface ThreatScorecardProps {
     categoryScores: { [key: string]: CategoryStats };
-    totalCorrectScore: number
+    totalCorrectScore: number,
+    resetQuizState: any
 };
 
 const getCoupon = () => {
-    console.log("clicked");
-}
 
-const restartQuiz = () => {
-    console.log("restart quiz");
 }
 
 const calculatePercentage = (stats: CategoryStats) => {
@@ -32,9 +30,18 @@ const calculatePercentage = (stats: CategoryStats) => {
 
 const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardProps) => {
 
-    const { categoryScores, totalCorrectScore } = props;
+    const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
+    const dispatch = useAppDispatch();
+
+    let { categoryScores, totalCorrectScore, resetQuizState } = props;
     let fixedtotalCorrectScore = Number(totalCorrectScore.toFixed(0));
     const remainingThreat = 100 - fixedtotalCorrectScore;
+    const restartQuiz = () => {
+        const newQuizState = {...isQuizRefreshed, quizRefresh : !isQuizRefreshed.quizRefresh}
+        dispatch(setQuizRefreshState(newQuizState));
+        resetQuizState()
+    }
+    
     return (
         <div className={styles["scorecard-section"]}  >
             <div className={styles["vunerability-section"]} >

@@ -3,7 +3,12 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./quizwindow.module.css";
 import Image from 'next/image';
-import ThreatScorecard from '@component/threatScorecard';
+import { useAppSelector, useAppDispatch } from '@store/store';
+import { setQuizRefreshState } from '@store/quizRefreshSlice';
+import dynamic from 'next/dynamic';
+
+const ThreatScorecard = dynamic(() => import('@component/threatScorecard'));
+
 interface QuizWindow {
     quizDetail: Array<Object>;
 };
@@ -21,7 +26,7 @@ type CategoryStats = {
 };
 
 const getLabel = (index: number): string => {
-    return String.fromCharCode(97 + index); // 97 is the ASCII code for 'a'
+    return String.fromCharCode(97 + index);
   };
 
 
@@ -40,13 +45,22 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
     const [scoreDashboard, setScoreDashBoard] = useState<boolean>(false);
     const [categoryScores, setCategoryScores] = useState<{ [key: string]: CategoryStats }>({});
     const [totalCorrectScore, setTotalCorrectScore] = useState<number>(0);
+    
+    const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
+    const currentIndex = useAppSelector(state => state.refreshQuiz.currentIndex);
+    const dispatch = useAppDispatch();
 
 
     const scoreCalculator = (event: React.MouseEvent<HTMLButtonElement>) => {
+        var newQuizState = {...isQuizRefreshed, quizRefresh : !isQuizRefreshed.quizRefresh}
+        dispatch(setQuizRefreshState(newQuizState));
+        setDisableOption(false)
+        setOptionchosen("")
         setTotalCorrectScore((correctAnswers / quizDetail.length) * 100);
+        setCurrentQuestionIndex(currentIndex)
+        console.log(correctAnswers, categoryScores)
         setScoreDashBoard(true);
     };
-
 
     const answerValidator = (questionObject: Question, option: string) => {
         return questionObject.answer && (questionObject.answer.trim() === option.trim());
@@ -77,10 +91,10 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         }
         else {
             setIsCorrectOption(false);
-
         }
         setCategoryScores({ ...categoryScores, ...categoryScores });
     };
+
     const skipButtonClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         event.stopPropagation();
@@ -92,10 +106,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         }
     };
 
-
-
-
-    useEffect(() => {
+    const resetQuizState = () => {
         quizDetail && setQuestions(quizDetail);
         quizDetail && setTotalQuestions(quizDetail.length);
         quizDetail && quizDetail.length > 0 ? setCurrentQuestionIndex(0) : setCurrentQuestionIndex(-1);
@@ -113,10 +124,13 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                 scores[categoryDetails] = { correctCount: 0, totalCount: 0 };
             }
         })
-
+        setCorrectAnswers(0);
         setCategoryScores(scores);
         setQuestionIds([...questionId]);
+    }
 
+    useEffect(() => {
+        resetQuizState();
     }, []);
 
 
@@ -177,7 +191,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                     <div className={styles["quiz-header-right-design"]}></div>
                 </div>
             </div>
-            {!scoreDashboard ? (<div className={styles["quiz-content"]}>
+            {!isQuizRefreshed.quizRefresh ? (<div className={styles["quiz-content"]}>
                 {
                     questions && questions.length > 0 &&
 
@@ -234,6 +248,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
             </div>) : (<div className={styles["quiz-scorecontent"]}><ThreatScorecard
                 categoryScores = {categoryScores}
                 totalCorrectScore = {totalCorrectScore}
+                resetQuizState = {resetQuizState}
             /></div>)}
         </div>
     );
