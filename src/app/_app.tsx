@@ -12,6 +12,7 @@ const CardBox = dynamic(() => import('@component/cardBox'), {
 const MobileNavModal = dynamic(() => import('@component/MobileNavModal'));
 const CardQuality = dynamic(() => import('@component/cardQuality'), { ssr: false });
 const Carousel = dynamic(() => import('@component/Carousel'), { ssr: false });
+const CTABox = dynamic(() => import('@component/CTASection'), { ssr: false });
 const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
@@ -27,6 +28,9 @@ export default function Home() {
 
   const refCarouselUpcomingSubscription = useRef<HTMLDivElement>(null);
   const isVisibleCarouselUpcomingSubscription = useOnScreen(refCarouselUpcomingSubscription, '70px');
+
+  const refCTABox = useRef<HTMLDivElement>(null);
+  const isVisibleCTABox = useOnScreen(refCTABox, '120px');
 
   const refQuizWindow = useRef<HTMLDivElement>(null);
   const isVisibleQuizWindow = useOnScreen(refQuizWindow, '100px');
@@ -49,14 +53,13 @@ export default function Home() {
     }
   }, [])
   return (
-    <div className={styles["container"]}>
-      {modalOpen && <MobileNavModal closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
-
-
+    <div className={styles["container"]}>  
+      {modalOpen && <MobileNavModal  modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
       <Hero
         introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
         content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
         openModal={openModal}
+        modalState={modalOpen}
       />
 
       <Shield top={105} right={190} />
@@ -125,6 +128,22 @@ export default function Home() {
         }
       </div>
 
+      <div ref={refCTABox} className={styles["cardBoxRemain"]}>
+        {isVisibleCTABox && <CTABox
+          title={data.CallToAction.heading}
+          iconPosition={data.newsLetter.image_position}
+          paddingLeftContent={data.newsLetter.paddingLeftContent}
+          bulletPointImg={data.newsLetter.bulletPointImg}
+          bulletPoints={data.CallToAction.description}
+          goTo={data.newsLetter.goTo}
+          childProps={{
+            cardTitle: data.CallToAction.cardTitle,
+            plans: data.CallToAction.plans,
+            bulletIcon: data.CallToAction.bulletIcon,
+          }} />
+        }
+      </div>
+
       <div ref={refNewsLetter} className={styles["cardBoxRemain"]}>
         {
           isVisibleNewsLetter && <NewsLetter
@@ -155,5 +174,6 @@ export default function Home() {
       </div>
       <TawkChatWidget />
     </div>
+    
   );
 }

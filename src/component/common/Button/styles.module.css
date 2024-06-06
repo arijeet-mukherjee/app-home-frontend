@@ -16,9 +16,20 @@
     font-size: 17px;
     font-family: var(--framer-font-family);
     word-wrap: break-word;
-    transform: translateX(90px);
+    transition: all 500ms ease-in-out;
 }
 
-.button:hover {
-    background-color: var(--text-button-background-color-secondary);
+.button img{
+    transition: all 500ms ease-in-out;
 }
+.button:hover {
+    background-color: var(  --text-button-background-color-primary);
+    color: white; 
+    
+    > img{
+        filter: invert(1);
+    }
+
+
+}
+
