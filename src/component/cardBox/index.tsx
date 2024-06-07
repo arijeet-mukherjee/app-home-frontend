@@ -64,12 +64,17 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
 
     const handelSubmit = () => {
 
-        if (emailVerified(email)) {
-            alert(email + " created successfully");
-            window.open(`${props.goTo}`, '_self');
+        if(inputBox){   
+            if (emailVerified(email)) {
+                alert(email + " created successfully");
+                typeof window !== undefined && window.open(`${props.goTo}`, '_self');
+            }
+            else {
+                alert("Please enter a valid email address");
+            }
         }
-        else {
-            alert("Please enter a valid email address");
+        else{
+            typeof window !== undefined && window.open(`${props.goTo}`, '_self');
         }
     };
 
@@ -138,7 +143,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                             </a>
                         </div>
                     </div>)
-                    :buttonText? (<div className={styles["cardbox-button"]}>
+                    :buttonText? (<div className={styles["cardbox-button"]} onClick={handelSubmit}>
                         <a className={styles["button"]}>
                             <span className={styles["button-text"]}>{buttonText}</span>
                             <span className={styles["button-icon"]}>

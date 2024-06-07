@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 
 const ThreatScorecard = dynamic(() => import('@component/threatScorecard'));
 
+import GetCoupon from '../GetCoupon';
 interface QuizWindow {
     quizDetail: Array<Object>;
 };
@@ -45,7 +46,8 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
     const [scoreDashboard, setScoreDashBoard] = useState<boolean>(false);
     const [categoryScores, setCategoryScores] = useState<{ [key: string]: CategoryStats }>({});
     const [totalCorrectScore, setTotalCorrectScore] = useState<number>(0);
-    
+    const [getCoupon, setGetCoupon] = useState<boolean>(false);
+
     const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
     const currentIndex = useAppSelector(state => state.refreshQuiz.currentIndex);
     const dispatch = useAppDispatch();
@@ -191,6 +193,9 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                     <div className={styles["quiz-header-right-design"]}></div>
                 </div>
             </div>
+
+            {!getCoupon ? 
+            <>
             {!isQuizRefreshed.quizRefresh ? (<div className={styles["quiz-content"]}>
                 {
                     questions && questions.length > 0 &&
@@ -230,10 +235,10 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                         }
                     </div>
 
-                }
+}
                 {
                     questions && questions.length > 0 &&
-
+                    
                     <div className={styles["questions-button"]} style={{ display: currentQuestionIndex === (totalQuestions - 1) ? 'none' : 'flex' }}>
                         <button onClick={(event) => { skipButtonClicked(event) }} > {optionchosen && optionchosen !== '' ? 'Next' : 'Skip'} </button>
                     </div>
@@ -245,11 +250,17 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                         <button onClick={(event) => { scoreCalculator(event) }} > {optionchosen && optionchosen !== '' ? 'Check Your Score' : 'Skip'} </button>
                     </div>
                 }
-            </div>) : (<div className={styles["quiz-scorecontent"]}><ThreatScorecard
+            </div>) : (<div className={styles["quiz-scorecontent"]}>
+                 <ThreatScorecard
                 categoryScores = {categoryScores}
                 totalCorrectScore = {totalCorrectScore}
                 resetQuizState = {resetQuizState}
+                setGetCoupon={setGetCoupon}
             /></div>)}
+            </>
+            :
+            <GetCoupon/>
+            }
         </div>
     );
 };

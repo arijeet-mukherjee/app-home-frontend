@@ -129,6 +129,11 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
        }
     }
   },[]);
+
+  function handelClick() {
+    typeof window !== undefined && window.open( button?.url, '_self');
+}
+
   return (
     <div className={styles.homeQuality}>
       <div className={styles.intro}>
@@ -142,15 +147,13 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
         }
           <p className={styles.introContent} aria-label={content}>{content}</p>
           {button &&
-            <div className={styles["home-button"]} role='button'>
-              <Link href={button.url} tabIndex={0} legacyBehavior>
+            <div className={styles["home-button"]} role='button' tabIndex={0} onClick={handelClick}>
                 <a className={styles["button"]}>
                   <span className={styles["button-text"]} aria-label={button.name}>{button.name}</span>
                   <span style={{display:'flex', alignItems:'center'}}>
                     <Image src="/arrowrightwhite.svg" className={styles.buttonImage} alt="arrow right"  width={39.83} height={25} />
                   </span>
                 </a>
-              </Link>
             </div>
           }
       </div>
