@@ -86,8 +86,8 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
     box4: '2/2'
   });
   const [translate, setTranslate] = useState({
-    left: '0 -20px',
-    right: '0 20px'
+    left: -20,
+    right: 20
   });
 
   useEffect(() => {
@@ -99,8 +99,8 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
         box4: '3/1'
      }); 
      setTranslate({
-        left: '0 0',
-        right: '0 0'
+        left: 0,
+        right: 0
      });
 
      if(heading && heading.length > 2){
@@ -131,7 +131,7 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
   },[]);
 
   function handelClick() {
-    typeof window !== undefined && window.open( button?.url, '_self');
+    typeof window !== 'undefined' && window.open( button?.url, '_self');
 }
 
   return (

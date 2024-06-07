@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
     }
 
     function handelClick() {
-        typeof window !== undefined && window.open(`/`, '_self');
+        typeof window !== 'undefined' && window.open(`/`, '_self');
     }
 
     return (

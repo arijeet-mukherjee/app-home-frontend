@@ -67,14 +67,14 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         if(inputBox){   
             if (emailVerified(email)) {
                 alert(email + " created successfully");
-                typeof window !== undefined && window.open(`${props.goTo}`, '_self');
+                typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
             }
             else {
                 alert("Please enter a valid email address");
             }
         }
         else{
-            typeof window !== undefined && window.open(`${props.goTo}`, '_self');
+            typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
         }
     };
 

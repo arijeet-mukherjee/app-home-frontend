@@ -24,7 +24,7 @@ interface CardProps {
     desktop?: string;
     mobile?: string;
   };
-  translate?: string;
+  translate?: number;
   gridArea?: string;
   button?: {
     backgroundColorDesktop?: string,
@@ -63,11 +63,11 @@ const Card: React.FC<CardProps> = ({ heading, content, image, bg, textColor, tra
   }, []);
 
   function handelClick() {
-    typeof window !== undefined && window.open(button?.url, '_self');
+    typeof window !== 'undefined' && window.open(button?.url, '_self');
 }
 
   return (
-    <div className={styles.card} style={{ backgroundColor: backgroundColor, color: txtColor, backgroundImage: backgroundImage, backgroundRepeat: 'no-repeat', backgroundSize: 'calc((100vw / 393)*173)', backgroundPosition: bg?.backgroundPosition, translate: translate, gridArea: gridArea }}>
+    <div className={styles.card} style={{ backgroundColor: backgroundColor, color: txtColor, backgroundImage: backgroundImage, backgroundRepeat: 'no-repeat', backgroundSize: 'calc((100vw / 393)*173)', backgroundPosition: bg?.backgroundPosition, transform: `translate(0, ${translate}px)`, gridArea: gridArea }}>
       {image && cardImage &&
       <div className={styles['cardImgContainer']}>
         <Image src={cardImage} alt={image?.name} height={60} width={60} className={styles.cardImage} />
