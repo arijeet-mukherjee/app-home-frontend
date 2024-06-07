@@ -1,8 +1,12 @@
 'use client';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './styles.module.css';
+import Header from '@component/Header';
+import Button from '@component/common/Button';
+import Shield from '@component/common/Shield';
+import data from '../../data.json'
 
 interface dd {
     label: string;
@@ -17,58 +21,37 @@ interface navlink {
 interface MobileNavModalProps {
     list: navlink[];
     closeModal: Function;
+    modalState: boolean;
 }
-const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal }) => {
+const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState }) => {
     return (
         <div className={styles.mobileNavModal}>
-            <Image src="closebtn.svg"
-                alt='close button'
-                width={50}
-                height={50}
-                className={styles.closebtn}
-                aria-label='close button'
-                tabIndex={0}
-                onClick={(e) => {
-                    e.preventDefault();
-                    closeModal();
-                }}
-            />
-            {
-                list?.map((item, index) => {
-                    return (
-                        <div className={styles.menuItem} key={index}>
-                            <Link href={item.url} aria-label={item.label}
-                                style={{
-                                    color: "white",
-                                    textDecoration: "none",
-                                    fontWeight: "400px",
-                                    fontFamily: 'DM Sans',
-                                    fontSize: "30px",
+            <div className={styles.headerContainer}>
+                <Header openModal={closeModal} modalState={modalState} />
+            </div>
+            <div className={styles.navBar}>
+                {data.header.navigation_bar.navbarItems?.map((item, index) => {
+                    if (item.dditem?.length === 0) {
+                        return (
+                            
+                                <Link className={styles.navItem} href={item.url} >{item.label}</Link>
+                            
+                        )
+                    }
 
-                                }}
-                            >{item.label}</Link>
-                            {
-                                item.dditem?.map((dditem, index) => {
-                                   
-                                    return (
-
-                                        <div className={styles.ddItem} key={index} aria-label={`${dditem.label}`}>
-                                            <Link href={dditem.url}
-                                            style={{
-                                                textDecoration:"none",
-                                                color:"white",
-                                                fontFamily:"DM Sans"
-                                            }}
-                                            >{dditem.label}</Link>
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
-                    );
-                })
-            }
-
+                }
+                )}
+            </div>
+            <div className={styles.btnContainer}>
+                <Button label={data.header.navigation_bar.button.label} action_svg={data.header.navigation_bar.button.action_svg} />
+            </div>
+            <div className={styles.navModalBackground}>
+                <Image src='/navModalBackground.svg'
+                    alt="nav modal background"
+                    objectFit='cover'
+                    fill={true}
+                />
+            </div>
         </div>
     );
 };

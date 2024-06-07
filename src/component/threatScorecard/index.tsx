@@ -1,12 +1,13 @@
 'use client'
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './styles.module.css';
-import Image, { StaticImageData } from 'next/image';
-import ProgressBar from '../common/ProgressBar';
-import LineProgressBar from '../common/LineProgressBar';
-import Link from 'next/link';
-import { useState } from 'react';
-import VulnerabilityThreat from '@component/common/VulnerabilityThreat';
+import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '@store/store';
+import { setQuizRefreshState } from '@store/quizRefreshSlice';
+import dynamic from 'next/dynamic';
+
+const ProgressBar = dynamic(() => import('@component/common/ProgressBar'));
+const VulnerabilityThreat = dynamic(() => import('@component/common/VulnerabilityThreat'));
 
 type CategoryStats = {
     correctCount: number;
@@ -15,9 +16,13 @@ type CategoryStats = {
 
 interface ThreatScorecardProps {
     categoryScores: { [key: string]: CategoryStats };
-    totalCorrectScore: number
+    totalCorrectScore: number,
+    resetQuizState: any
 };
 
+const getCoupon = () => {
+
+}
 
 const calculatePercentage = (stats: CategoryStats) => {
     return ((stats.correctCount / stats.totalCount) * 100).toFixed(0);
@@ -25,9 +30,18 @@ const calculatePercentage = (stats: CategoryStats) => {
 
 const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardProps) => {
 
-    const { categoryScores, totalCorrectScore } = props;
+    const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
+    const dispatch = useAppDispatch();
+
+    let { categoryScores, totalCorrectScore, resetQuizState } = props;
     let fixedtotalCorrectScore = Number(totalCorrectScore.toFixed(0));
     const remainingThreat = 100 - fixedtotalCorrectScore;
+    const restartQuiz = () => {
+        const newQuizState = {...isQuizRefreshed, quizRefresh : !isQuizRefreshed.quizRefresh}
+        dispatch(setQuizRefreshState(newQuizState));
+        resetQuizState()
+    }
+    
     return (
         <div className={styles["scorecard-section"]}  >
             <div className={styles["vunerability-section"]} >
@@ -69,7 +83,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                             </div>
                         </div>
                         <div className={styles["couponcode-section"]}>
-                            <div className={styles["couponcode"]}>Coupon Code : AdityA</div>
+                            <div className={styles["couponcode"]}>Coupon Code : SEC****4***</div>
                         </div>
                     </div>
                 </div>
@@ -87,30 +101,24 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                     </div>
                 </div>
                 <div className={styles["getcouponrefresh-section"]}>
-                    <div className={styles["getcoupon-button"]}>
-                        <Link href="/about" legacyBehavior>
-                            <a className={styles["button"]}>
-                                <span className={styles["button-text"]}>Get Coupon Code</span>
-                                <span className={styles["button-icon"]}>
-                                    <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
-                                </span>
-                            </a>
-                        </Link>
-
+                    <div className={styles["getcoupon-button"]} onClick={getCoupon}>
+                        <a>
+                            <span className={styles["button-text"]}>Get Coupon Code</span>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
+                            </span>
+                        </a>
                     </div>
-                    <div className={styles["refresh-button"]}>
-                        <Link href="/about" legacyBehavior>
-                            <a className={styles["button"]}>
-                                <span className={styles["button-icon"]}>
-                                    <Image src="/refreshicon.svg" alt="arrow right" width={39.83} height={23.31} />
-                                </span>
-                            </a>
-                        </Link>
+                    <div className={styles["refresh-button"]} onClick={restartQuiz}>
+                        <a>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/refreshicon.svg" alt="arrow right" width={39.83} height={23.31} />
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
 export default ThreatScorecard;
