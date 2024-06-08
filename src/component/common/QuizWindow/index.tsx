@@ -58,7 +58,6 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
         setOptionchosen("")
         setTotalCorrectScore((correctAnswers / quizDetail.length) * 100);
         setCurrentQuestionIndex(currentIndex)
-        console.log(correctAnswers, categoryScores)
         setScoreDashBoard(true);
     };
 
