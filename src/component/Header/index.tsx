@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
         gridTemplateColumns: '3fr 1fr'
     }
     return (
-        <nav className={styles.header} style={{}} >
+        <nav className={styles.header}>
             <div >
                 <Link href={data.header.navigation_bar.logo.href}>
                     <Image
