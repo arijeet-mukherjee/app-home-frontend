@@ -2,16 +2,19 @@
 
 .mobileNavModal {
     background-color: var(--primary-background-dark-color);
-    height: 100vh;
     width: 100vw;
     box-sizing: border-box;
     color: var(--text-icon-color);
-    padding:0px;
-    margin: 0px;  font-family: 'Roboto';
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto';
     padding: 0px;
     margin: 0px;
     position: fixed;
     z-index: 10000;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 500ms;
     overflow: hidden;
 
 }
@@ -24,17 +27,18 @@
     display: grid;
     grid-template-rows: auto;
     margin: auto;
-    margin-top: calc((100vw /393)*50);
-    margin-bottom: calc((100vw /393)*50);
+    margin-top: calc((100vw /393)*30);
+    margin-bottom: calc((100vw /393)*30);
     width: fit-content;
-    gap:calc((100vw /393)*20);
-    
-    
+    gap: calc((100vw /393)*12);
+
+
 }
+
 .navItem {
     color: white;
     text-decoration: none;
-    padding: 5px;
+    padding: calc((100vw / 393)*5);
     padding-bottom: calc((100vw / 393)*10);
     font-size: calc((100vw / 393)* 14);
     border-bottom: 1px solid transparent;
@@ -54,11 +58,7 @@
     z-index: 500;
 }
 
-.closebtn {
 
-    align-self: end;
-    margin: 2rem;
-}
 
 .navModalBackground {
     position: absolute;
@@ -68,4 +68,3 @@
     width: 100vw;
     height: 30vh;
 }
-

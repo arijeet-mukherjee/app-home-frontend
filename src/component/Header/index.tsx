@@ -39,17 +39,18 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
     }, []);
 
     const headerStyle = {
-        gridTemplateColumns:'3fr 1fr'
-      }
+        gridTemplateColumns: '3fr 1fr'
+    }
     return (
-        <nav className={styles.header} style={modalState ? {}: headerStyle} >
-            <div>
+        <nav className={styles.header} style={{}} >
+            <div >
                 <Link href={data.header.navigation_bar.logo.href}>
                     <Image
                         src={data.header.navigation_bar.logo.src}
                         alt={data.header.navigation_bar.logo.alt}
                         width={logoSize.width}
                         height={logoSize.height}
+                        className={styles.logo}
                     />
                 </Link>
             </div>
@@ -63,20 +64,20 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                         )
                     }
                     return (
-                        <div aria-label={item.label} key={index}>
+                        <div aria-label={item.label} key={index} className={styles.navItem}>
                             <Link
-                                className={styles.navItem}
                                 href=""
                                 onClick={(e) => {
                                     e.preventDefault;
                                     handledd();
                                 }}
+                                style={{ color: 'white' }}
                             >{item.label}
-                                <span className={styles.arrowDown} style={{
-                                    transform: open ? 'rotate(180deg)' : ''
-                                }}></span>
                                 {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
                             </Link>
+                            <span className={styles.arrowDown} style={{
+                                transform: open ? 'rotate(180deg)' : ''
+                            }}></span>
                         </div>)
                 })
                 }
@@ -109,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                 <Image src={modalState ? "/closebtn.svg" : "/burger-menu-icon.svg"} alt="menu"
                     height={35}
                     width={35}
-                    
+                    className={styles.burgerSize}
                     onClick={(e) => {
                         e.preventDefault();
                         openModal();

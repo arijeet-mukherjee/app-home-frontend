@@ -34,13 +34,6 @@ const PlansCard: FC<PlansCardProps> = ({
 }) => {
 
     const [currentPlan, setCurrentPlan] = useState(plans[0]);
-    
-
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (ref.current) console.log(ref.current.getBoundingClientRect());
-
-    }, []);
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>, plan: Plans) => {
         e.preventDefault();
@@ -48,7 +41,7 @@ const PlansCard: FC<PlansCardProps> = ({
     }
 
     return (
-        <div className={styles.card} ref={ref}>
+        <div className={styles.card}>
             <div className={styles.ribbon}>
                 {currentPlan.ribbonText}
             </div>

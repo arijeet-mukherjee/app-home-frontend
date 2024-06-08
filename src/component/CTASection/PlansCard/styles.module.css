@@ -44,7 +44,7 @@
     color: var(--primary-background-dark-color);
     font-size: calc((100vw / 1920)*18);
     justify-content: space-evenly;
-
+    
 
 }
 
@@ -53,11 +53,17 @@
     color: var(--text-button-background-color-primary);
     border-radius: calc((100vw / 1920)*11);
     font-weight: 600;
+    
 
 
 }
 .allPlansTab{
     padding: calc((100vw / 1920)*12);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;    
+}
+.allPlansTab:hover{
+    scale: 1.1;
 }
 .discountText {
     font-size: calc((100vw / 1920)*18);
@@ -180,14 +186,15 @@ a {
     .planPicker {
         font-size: calc((100vw / 393)* 15);
         padding: calc((100vw / 393) * 5);
-        border-radius: calc((100vw / 393)*13);
+        border-radius: calc((100vw / 393)*8);
     }
     .activePlan{
        
-        border-radius: calc((100vw / 393)*8);
+        border-radius: calc((100vw / 393)*6);
     }
     .allPlansTab{
         padding: calc((100vw / 393)*8);
+        font-size: calc((100vw / 393)*13);
     }
 
     .ribbon {
@@ -220,8 +227,8 @@ a {
         font-size: calc((100vw / 393)* 23);
     }
     .cta-button{
-        padding-top:calc((100vw / 393)* 2);
-        padding-bottom:calc((100vw / 393)* 2);
+        padding-top:calc((100vw / 393)* 5);
+        padding-bottom:calc((100vw / 393)* 5);
         padding-left: calc((100vw / 393)* 20);
         padding-right: calc((100vw / 393)* 20);
         
