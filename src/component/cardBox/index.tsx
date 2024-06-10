@@ -54,7 +54,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     function handelInput(event: React.ChangeEvent<HTMLInputElement>) {
         setEmail(event.target.value);
 
-        if(emailVerified(email)) {
+        if(emailVerified(event.target.value)) {
             inputEmail.current.style.outline = "#343a40 solid";
         }
         else {
@@ -62,8 +62,8 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         }
     };
 
-    const handelSubmit = () => {
-
+    const handelSubmit = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
         if(inputBox){   
             if (emailVerified(email)) {
                 alert(email + " created successfully");

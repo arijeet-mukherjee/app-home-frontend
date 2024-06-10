@@ -19,7 +19,8 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
         throw new Error("Introduction and content must be an array of two strings");
     }
 
-    function handelClick() {
+    function handelClick(e: React.MouseEvent<HTMLDivElement>) {
+        e.preventDefault();
         typeof window !== 'undefined' && window.open(`/`, '_self');
     }
 

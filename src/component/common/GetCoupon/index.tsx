@@ -25,7 +25,7 @@ const GetCoupon = () => {
         }
         else {
             setInputs({ ...inputs, [e.target.name]: e.target.value });
-            if (emailVerified(inputs.email)) {
+            if (emailVerified(e.target.value)) {
                 emailBox.current.style.border = '1px solid #402ea1'
             }
             else {
