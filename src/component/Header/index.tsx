@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
     })
     const [open, setOpen] = useState(false);
 
-    const handledd = () => {
+    const handledd: Function = () => {
         setOpen(!open)
     }
 
@@ -64,7 +64,6 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                         )
                     }
                     return (
-
                         <div aria-label={item.label} key={index}
                             className={styles.navItem}
                             onClick={(e) => {
@@ -89,18 +88,18 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                 {data.header.navigation_bar.navbarItems?.map((item, index) => {
                     if (item.dditem?.length !== 0) {
                         return (
-                            <div aria-label={item.label} key={index}>
-
-                                <Link className={styles.navItem} href="" onClick={(e) => {
+                            <div aria-label={item.label} key={index}
+                                className={styles.navItem}
+                                onClick={(e) => {
                                     e.preventDefault;
                                     handledd();
                                 }}
-                                >{item.label}
-                                    <span className={styles.arrowDown} style={{
-                                        transform: open ? 'rotate(180deg)' : ''
-                                    }}></span>
-                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={55} />}
-                                </Link>
+                                style={{ color: 'white' }}
+                            >{item.label}
+                                <span className={styles.arrowDown} style={{
+                                    transform: open ? 'rotate(180deg)' : ''
+                                }}></span>
+                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
                             </div>
                         )
                     }
