@@ -64,21 +64,22 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState }) => {
                         )
                     }
                     return (
-                        <div aria-label={item.label} key={index} className={styles.navItem}>
-                            <Link
-                                href=""
-                                onClick={(e) => {
-                                    e.preventDefault;
-                                    handledd();
-                                }}
-                                style={{ color: 'white' }}
-                            >{item.label}
-                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
-                            </Link>
+
+                        <div aria-label={item.label} key={index}
+                            className={styles.navItem}
+                            onClick={(e) => {
+                                e.preventDefault;
+                                handledd();
+                            }}
+                            style={{ color: 'white' }}
+                        >{item.label}
                             <span className={styles.arrowDown} style={{
                                 transform: open ? 'rotate(180deg)' : ''
                             }}></span>
-                        </div>)
+                            {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
+                        </div>
+
+                    )
                 })
                 }
 

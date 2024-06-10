@@ -16,8 +16,8 @@ const DDMenu: React.FC<DDMenuProps> = ({ list, offsetX = 0, offsetY = 0}) => {
         <div className={styles.dropdown} style={{ transform: `translateX(${offsetX}px) translateY(${offsetY}px)` }} aria-label='language menu'>
             {list?.map((item, index) => {
                 return (
-                    <div className={styles.tile}>
-                    <Link href={`${item.url}`} aria-label={item.label} className={styles.ddItem} key={index}>{item.label}</Link>
+                    <div className={styles.tile} key={index}>
+                    <Link href={`${item.url}`} aria-label={item.label} className={styles.ddItem} >{item.label}</Link>
                     </div>
                 )
             })}
