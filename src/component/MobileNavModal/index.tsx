@@ -38,7 +38,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState 
                     if (item.dditem?.length === 0) {
                         return (
 
-                            <Link className={styles.navItem} href={item.url} >{item.label}</Link>
+                            <Link className={styles.navItem} href={item.url} key={index} >{item.label}</Link>
 
                         )
                     }
