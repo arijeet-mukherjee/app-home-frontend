@@ -98,6 +98,7 @@
     line-height: calc((100vw / 1920) * 24);
     font-weight: 500;
     color: var(--text-icon-color);
+    cursor: pointer;
 }
 
 @media(max-width: 1100px) {
