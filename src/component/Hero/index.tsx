@@ -18,6 +18,12 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
     }
+
+    function handelClick(e: React.MouseEvent<HTMLDivElement>) {
+        e.preventDefault();
+        typeof window !== 'undefined' && window.open(`/`, '_self');
+    }
+
     return (
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
@@ -60,15 +66,13 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                     </p>
                 </div>
                 {/** Write a button with text on left and icon on right */}
-                <div className={styles["hero-button"]}>
-                    <Link href="/about" legacyBehavior>
+                <div className={styles["hero-button"]} tabIndex={0} onClick={handelClick}>
                         <a className={styles["button"]}>
                             <span className={styles["button-text"]}>Get In Touch</span>
                             <span className={styles["button-icon"]}>
                                 <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
                             </span>
                         </a>
-                    </Link>
                 </div>
             </div>
             <div className={styles['emptyArea']}></div>

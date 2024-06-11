@@ -54,7 +54,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     function handelInput(event: React.ChangeEvent<HTMLInputElement>) {
         setEmail(event.target.value);
 
-        if(emailVerified(email)) {
+        if(emailVerified(event.target.value)) {
             inputEmail.current.style.outline = "#343a40 solid";
         }
         else {
@@ -62,14 +62,19 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         }
     };
 
-    const handelSubmit = () => {
-
-        if (emailVerified(email)) {
-            alert(email + " created successfully");
-            window.open(`${props.goTo}`, '_self');
+    const handelSubmit = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        if(inputBox){   
+            if (emailVerified(email)) {
+                alert(email + " created successfully");
+                typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
+            }
+            else {
+                alert("Please enter a valid email address");
+            }
         }
-        else {
-            alert("Please enter a valid email address");
+        else{
+            typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
         }
     };
 
@@ -138,7 +143,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                             </a>
                         </div>
                     </div>)
-                    :buttonText? (<div className={styles["cardbox-button"]}>
+                    :buttonText? (<div className={styles["cardbox-button"]} onClick={handelSubmit}>
                         <a className={styles["button"]}>
                             <span className={styles["button-text"]}>{buttonText}</span>
                             <span className={styles["button-icon"]}>

@@ -82,7 +82,8 @@
         "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
-        "paddingImageContent": ""
+        "paddingImageContent": "",
+        "goTo": "#"
     },
     "yourShield": {
         "title": "Your Shield",
@@ -105,7 +106,8 @@
         "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "",
-        "paddingImageContent": "calc((100vw / 1920) * 0)"
+        "paddingImageContent": "calc((100vw / 1920) * 0)",
+        "goTo": "#"
     },
     "jointheMovement": {
         "title": "Join the Movement",
@@ -128,7 +130,8 @@
         "button_name": "Subscribe",
         "button_icon": "/arrowrightwhite.svg",
         "paddingLeftContent": "calc((100vw / 1920) * 0)",
-        "paddingImageContent": ""
+        "paddingImageContent": "",
+        "goTo": "#"
     },
 
     "quiz" : [

@@ -76,6 +76,7 @@ export default function Home() {
           buttonIcon={data.introduction.button_icon}
           paddingLeftContent={data.introduction.paddingLeftContent}
           paddingImageContent={data.introduction.paddingImageContent}
+          goTo={data.introduction.goTo}
         />
       </div>
       <div className={styles["cardBoxRemain"]}>
@@ -89,6 +90,7 @@ export default function Home() {
           buttonIcon={data.yourShield.button_icon}
           paddingLeftContent={data.yourShield.paddingLeftContent}
           paddingImageContent={data.yourShield.paddingImageContent}
+          goTo={data.yourShield.goTo}
         />
         <CardBox
           title={data.jointheMovement.title}
@@ -100,6 +102,7 @@ export default function Home() {
           buttonIcon={data.jointheMovement.button_icon}
           paddingLeftContent={data.jointheMovement.paddingLeftContent}
           paddingImageContent={data.jointheMovement.paddingImageContent}
+          goTo={data.jointheMovement.goTo}
         />
       </div>
       <div ref={refCardQuality} className={styles["whiteBackground"]}>

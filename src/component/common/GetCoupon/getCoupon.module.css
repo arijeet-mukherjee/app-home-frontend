@@ -8,6 +8,7 @@
     box-sizing: border-box;
     font-family: 'roboto', sans-serif;
     align-items: center;
+    padding: 40px 70px;
 }
 
 .inputContainer{

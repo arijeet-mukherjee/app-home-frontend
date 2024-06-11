@@ -18,10 +18,11 @@ interface ThreatScorecardProps {
     categoryScores: { [key: string]: CategoryStats };
     totalCorrectScore: number,
     resetQuizState: any
+    setGetCoupon : Function;
 };
 
-const getCoupon = () => {
-
+const getCoupon = (setGetCoupon: Function) => {
+    setGetCoupon(true);
 }
 
 const calculatePercentage = (stats: CategoryStats) => {
@@ -33,7 +34,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
     const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
     const dispatch = useAppDispatch();
 
-    let { categoryScores, totalCorrectScore, resetQuizState } = props;
+    let { categoryScores, totalCorrectScore, resetQuizState, setGetCoupon } = props;
     let fixedtotalCorrectScore = Number(totalCorrectScore.toFixed(0));
     const remainingThreat = 100 - fixedtotalCorrectScore;
     const restartQuiz = () => {
@@ -101,7 +102,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                     </div>
                 </div>
                 <div className={styles["getcouponrefresh-section"]}>
-                    <div className={styles["getcoupon-button"]} onClick={getCoupon}>
+                    <div className={styles["getcoupon-button"]} onClick={()=>getCoupon(setGetCoupon)}>
                         <a>
                             <span className={styles["button-text"]}>Get Coupon Code</span>
                             <span className={styles["button-icon"]}>
