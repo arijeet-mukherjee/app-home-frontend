@@ -91,6 +91,7 @@ a {
     align-items: center;
     display: flex;
     background-color: var(--text-button-background-color-primary);
+    border: 1px solid transparent;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 10px;

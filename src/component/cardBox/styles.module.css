@@ -118,6 +118,7 @@ h1, h2, h3, h4, h5, h6, p{
     width: calc((100vw/1920)*194);
     height: calc((100vw/1920)*44);
     background-color: var(--text-button-background-color-primary);
+    border: 1px solid transparent;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
