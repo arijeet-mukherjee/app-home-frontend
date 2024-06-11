@@ -6,6 +6,7 @@
     align-items: center;
     font-family: roboto;
     gap: 30px;
+    padding: calc((100vw/1920)*60) 0;
 }
 
 h1{
@@ -118,6 +119,7 @@ a {
 @media screen and (max-width : 1100px) {
     .homeQuality{
         flex-direction: column;
+        padding: calc((100vw/393)*30) 0;
     }
     .background{
         display: none;
