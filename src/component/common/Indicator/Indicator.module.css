@@ -5,8 +5,8 @@
     border: 1px;
     border-radius: 50%;
     transition: 200ms;
-    height: 18px;
-    width: 18px;
+    height: calc((100vw / 1920) * 18);
+    width: calc((100vw / 1920) * 18);
 }
 
 .dot-button-active {

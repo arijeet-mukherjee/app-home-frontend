@@ -67,6 +67,7 @@
     font-family: 'Roboto';
     margin: 0;
     font-style: normal;
+    font-size: calc((100vw / 1920) * 20);
     font-weight: 800;
     color: var(--text-secondary-color);
     letter-spacing: -0.490196px;
@@ -78,6 +79,7 @@
     font-style: normal;
     font-weight: 400;
     color: var(--text-tertiary-color);
+    font-size: calc((100vw / 1920) * 18);
     word-break: break-word;
 }
 
