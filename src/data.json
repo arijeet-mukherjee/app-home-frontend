@@ -628,7 +628,7 @@
               "currency": "USD",
               "currencySymbol": "$",
               "bulletPoint": "Services you need to keep you safe online",
-              "ribbonText": "MOST POPULAR",
+              "ribbonText": "",
               "period": "month",
               "hookStringOne" : "Security that is Value for Money",
               "hookStringTwo" : "Say Bye to Threats at"
