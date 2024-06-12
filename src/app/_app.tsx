@@ -1,11 +1,11 @@
 'use client'
 import React, { useState, useRef, useCallback } from "react";
 import dynamic from 'next/dynamic';
-import data from '../data.json';
 import styles from './app.module.css';
 import useOnScreen from "@util/useOnScreen";
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
+import { useAppSelector } from '@store/store';
 const CardBox = dynamic(() => import('@component/cardBox'), {
   loading: () => <p>Loading.....</p>
 });
@@ -20,6 +20,8 @@ import { isMobile } from "@util/index";
 import QuizWindow from "@component/common/QuizWindow";
 
 export default function Home() {
+  const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
+  const data = require(`../component/data/${globalLanguage.globalLanguage}.json`);
   const refCardQuality = useRef<HTMLDivElement>(null);
   const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
 
@@ -53,13 +55,14 @@ export default function Home() {
     }
   }, [])
   return (
-    <div className={styles["container"]}>  
-      {modalOpen && <MobileNavModal  modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} />}
+    <div className={styles["container"]}>
+      {modalOpen && <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} />}
       <Hero
         introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
         content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
         openModal={openModal}
         modalState={modalOpen}
+        headerData={data.header}
       />
 
       <Shield top={105} right={190} />
@@ -177,6 +180,6 @@ export default function Home() {
       </div>
       <TawkChatWidget />
     </div>
-    
+
   );
 }
