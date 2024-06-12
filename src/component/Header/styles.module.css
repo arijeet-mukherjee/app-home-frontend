@@ -4,8 +4,6 @@
     display: grid;
     grid-template-columns: 2fr 3fr;
     align-items: center;
-    margin: auto;
-    gap: 20px;
     font-family: var(--framer-font-family);
     font-weight: 400;
 
@@ -13,32 +11,39 @@
 
 .logo {
     /* styling on logo goes here */
+    width: calc((100vw / 1920) * 176);
+    height: calc((100vw / 1920) * 48);
 }
 
 .navbar {
     display: grid;
-    gap: calc((100vw / 1920 )* 40);
     font-weight: 400;
-    font-size: 18px;
+    font-size: calc((100vw / 1920)*18);
     line-height: 28px;
     grid-auto-flow: column;
     align-items: center;
+    justify-content: space-between;
     transform: translateX(100px);
 }
 
 .navItem {
     color: var(--text-icon-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     gap: 10px;
+    cursor: pointer;
 }
 
 .arrowDown {
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 8px solid var(--text-icon-color);
+    border-left: calc((100vw/1920)*5) solid transparent;
+    border-right: calc((100vw/1920)*5) solid transparent;
+    border-top: calc((100vw/1920)*8) solid var(--text-icon-color);
     transition: transform 900ms ease;
-    
+
 }
 
 
@@ -48,9 +53,16 @@
 
 .mobileLang {
     display: none;
+    cursor: pointer;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1400px) {
+    .header {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
     .header {
         display: grid;
         grid-template-columns: 3fr 1fr auto;
@@ -59,13 +71,17 @@
         margin-right: 0px;
         justify-content: space-between;
         align-items: center;
+        font-size: calc((100vw/393)*14);
+
     }
-    .logo{
+
+    .logo {
         width: calc((100vw / 393)* 85);
         height: calc((100vw / 393)* 23);
         align-self: center;
     }
-    .headerInModal{
+
+    .headerInModal {
         grid-template-columns: 3fr 1fr;
         justify-content: space-between;
     }
@@ -81,9 +97,20 @@
         justify-self: flex-end;
     }
 
+    .burgerSize {
+        height: calc((100vw / 393)* 30);
+        width: calc((100vw / 393)* 30);
+    }
+
     .mobileLang {
         display: block;
-        justify-self: flex-end;
+        justify-self: center;
+    }
+    .arrowDown {
+        border-left: calc((100vw/393)*4) solid transparent;
+        border-right: calc((100vw/393)*4) solid transparent;
+        border-top: calc((100vw/393)*6) solid var(--text-icon-color);
+    
     }
 
 }

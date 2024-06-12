@@ -25,7 +25,11 @@ interface MobileNavModalProps {
 }
 const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState }) => {
     return (
-        <div className={styles.mobileNavModal}>
+        <div className={styles.mobileNavModal} style={modalState ? {
+            height: '100vh'
+        } : {
+            height: '0vh',
+        }}>
             <div className={styles.headerContainer}>
                 <Header openModal={closeModal} modalState={modalState} />
             </div>
@@ -33,9 +37,9 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState 
                 {data.header.navigation_bar.navbarItems?.map((item, index) => {
                     if (item.dditem?.length === 0) {
                         return (
-                            
-                                <Link className={styles.navItem} href={item.url} >{item.label}</Link>
-                            
+
+                            <Link className={styles.navItem} href={item.url} key={index} >{item.label}</Link>
+
                         )
                     }
 
