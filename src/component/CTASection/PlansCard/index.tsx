@@ -41,7 +41,7 @@ const PlansCard: FC<PlansCardProps> = ({
     }
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} aria-label={'Subscription Box'}>
             <div className={styles.ribbon}>
                 {currentPlan.ribbonText}
             </div>
@@ -82,19 +82,14 @@ const PlansCard: FC<PlansCardProps> = ({
                     className={styles.bulletIcon}></Image>
                 <p>{`${currentPlan.bulletPoint}`}</p>
             </div>
-
-
-            <div className={styles["cta-button"]}>
-                <Link href="/about" legacyBehavior>
-                    <a className={styles["button"]}>
-                        <span className={styles["button-text"]}>{currentPlan.buttonText}</span>
-                        <span className={styles["button-icon"]}>
-                            <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
-                        </span>
-                    </a>
-                </Link>
-            </div>
-
+            <div className={styles["cardbox-button"]} >
+                        <a className={styles["button"]}>
+                            <span className={styles["button-text"]}>{currentPlan.buttonText}</span>
+                            <span className={styles["button-icon"]}>
+                                <Image src="/arrowrightwhite.svg" alt="arrow right" className={styles.arrowImg} width={39.83} height={23.31} />
+                            </span>
+                        </a>
+                    </div>
         </div>
     )
 }
