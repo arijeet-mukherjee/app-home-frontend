@@ -1,17 +1,18 @@
 
+
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from "./styles.module.css";
 import Button from '../common/Button';
 import Link from 'next/link';
 import DDMenu from '@component/common/DropdownMenu';
-import { useAppSelector } from '@store/store';
 import { isMobile } from '@util/index';
+import { useAppSelector } from '@store/store';
 
 
 interface HeaderProps {
     openModal: Function;
-    modalState: boolean
+    modalState: boolean;
     headerData: any;
 };
 
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
     })
     const [open, setOpen] = useState(false);
     const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
-    const handledd = () => {
+    const handledd: Function = () => {
         setOpen(!open)
     }
 
@@ -43,14 +44,15 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
         gridTemplateColumns: '3fr 1fr'
     }
     return (
-        <nav className={styles.header} style={modalState ? {} : headerStyle} >
-            <div>
+        <nav className={styles.header}>
+            <div >
                 <Link href={headerData.navigation_bar.logo.href}>
                     <Image
                         src={headerData.navigation_bar.logo.src}
                         alt={headerData.navigation_bar.logo.alt}
                         width={logoSize.width}
                         height={logoSize.height}
+                        className={styles.logo}
                     />
                 </Link>
             </div>
@@ -64,21 +66,21 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                         )
                     }
                     return (
-                        <div aria-label={item.label} key={index}>
-                            <Link
-                                className={styles.navItem}
-                                href=""
-                                onClick={(e) => {
-                                    e.preventDefault;
-                                    handledd();
-                                }}
-                            >{globalLanguage.globalLanguage}
-                                <span className={styles.arrowDown} style={{
-                                    transform: open ? 'rotate(180deg)' : ''
-                                }}></span>
-                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
-                            </Link>
-                        </div>)
+                        <div aria-label={item.label} key={index}
+                            className={styles.navItem}
+                            onClick={(e) => {
+                                e.preventDefault;
+                                handledd();
+                            }}
+                            style={{ color: 'white' }}
+                        >{globalLanguage.globalLanguage}
+                            <span className={styles.arrowDown} style={{
+                                transform: open ? 'rotate(180deg)' : ''
+                            }}></span>
+                            {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
+                        </div>
+
+                    )
                 })
                 }
 
@@ -88,18 +90,18 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                 {headerData.navigation_bar.navbarItems?.map((item: any, index: any) => {
                     if (item.dditem?.length !== 0) {
                         return (
-                            <div aria-label={item.label} key={index}>
-
-                                <Link className={styles.navItem} href="" onClick={(e) => {
+                            <div aria-label={item.label} key={index}
+                                className={styles.navItem}
+                                onClick={(e) => {
                                     e.preventDefault;
                                     handledd();
                                 }}
-                                >{globalLanguage.globalLanguage}
-                                    <span className={styles.arrowDown} style={{
-                                        transform: open ? 'rotate(180deg)' : ''
-                                    }}></span>
-                                    {open && <DDMenu list={item.dditem} offsetX={0} offsetY={55} />}
-                                </Link>
+                                style={{ color: 'white' }}
+                            >{globalLanguage.globalLanguage}
+                                <span className={styles.arrowDown} style={{
+                                    transform: open ? 'rotate(180deg)' : ''
+                                }}></span>
+                                {open && <DDMenu list={item.dditem} offsetX={0} offsetY={70} />}
                             </div>
                         )
                     }
@@ -110,6 +112,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                 <Image src={modalState ? "/closebtn.svg" : "/burger-menu-icon.svg"} alt="menu"
                     height={35}
                     width={35}
+                    className={styles.burgerSize}
                     onClick={(e) => {
                         e.preventDefault();
                         openModal();

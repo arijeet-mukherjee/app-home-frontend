@@ -1,7 +1,7 @@
 @import url("../../global.module.css");
 
 div {
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .scorecard-section {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from './styles.module.css';
 import Header from '@component/Header';
 import Button from '@component/common/Button';
-import { useAppSelector, useAppDispatch } from '@store/store';
+import { useAppDispatch } from '@store/store';
 import { setGlobalLanguage } from '@store/globalLanguageSlice';
 
 interface dd {
@@ -26,13 +26,16 @@ interface MobileNavModalProps {
     navbarData: any;
 }
 const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState, headerData, navbarData }) => {
-    const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
     const dispatch = useAppDispatch();
     const handleLanguage = (lang: string) => {
         dispatch(setGlobalLanguage({ globalLanguage: lang }))
     }
     return (
-        <div className={styles.mobileNavModal}>
+        <div className={styles.mobileNavModal} style={modalState ? {
+            height: '100vh'
+        } : {
+            height: '0vh',
+        }}>
             <div className={styles.headerContainer}>
                 <Header openModal={closeModal} modalState={modalState} headerData={headerData} />
             </div>
@@ -41,7 +44,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState,
                     if (item.dditem?.length === 0) {
                         return (
 
-                            <Link className={styles.navItem} href={item.url} onClick={() => handleLanguage(item.label)} >{item.label}</Link>
+                            <Link className={styles.navItem} href={item.url} key={index} onClick={() => handleLanguage(item.label)} >{item.label}</Link>
 
                         )
                     }
