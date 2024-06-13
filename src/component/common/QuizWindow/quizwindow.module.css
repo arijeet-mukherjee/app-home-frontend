@@ -305,6 +305,7 @@
         font-size: calc((100vw / 343)* 10);
         font-weight: 400;
         line-height: calc((100vw / 343)* 12);
+        margin-right: calc((100vw / 343)* 57);
     }
     
     
