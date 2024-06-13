@@ -12,9 +12,10 @@ interface HeroProps {
     content: Array<string>;
     openModal: Function;
     modalState: boolean;
+    headerData: any;
 };
 
-const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState }) => {
+const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState, headerData }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
 
     const [checkMobile, setCheckMobile] = useState<boolean>(false);
@@ -36,7 +37,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
             <div className={styles["header"]}>
-                <Header openModal={openModal} modalState={modalState} />
+                <Header openModal={openModal} modalState={modalState} headerData={headerData} />
             </div>
             <div className={styles['heroBlock']}>
                 <div className={styles["heroIntroduction"]}>
@@ -75,6 +76,12 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                 </div>
                 {/** Write a button with text on left and icon on right */}
                 <div className={styles["hero-button"]} tabIndex={0} onClick={handelClick}>
+                    <a className={styles["button"]}>
+                        <span className={styles["button-text"]}>Get In Touch</span>
+                        <span className={styles["button-icon"]}>
+                            <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
+                        </span>
+                    </a>
                     <a className={styles["button"]}>
                         <span className={styles["button-text"]}>Get In Touch</span>
                         <span className={styles["button-icon"]}>
