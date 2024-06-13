@@ -1,9 +1,10 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./hero.module.css";
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { isMobile } from '@util/index';
 const Header = dynamic(() => import('@component/Header'));
 interface HeroProps {
     // Your props goes here
@@ -16,9 +17,16 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState, headerData }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
+
+    const [checkMobile, setCheckMobile] = useState<boolean>(false);
+
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
     }
+
+    useEffect(() => {
+        setCheckMobile(isMobile())
+    })
 
     function handelClick(e: React.MouseEvent<HTMLDivElement>) {
         e.preventDefault();
@@ -32,7 +40,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                 <Header openModal={openModal} modalState={modalState} headerData={headerData} />
             </div>
             <div className={styles['heroBlock']}>
-                <div className={styles["heroIntrocuction"]}>
+                <div className={styles["heroIntroduction"]}>
                     <p style={{ margin: "0", padding: "0" }}>
                         <span className={styles['framer-text']}>
                             {introduction && introduction[0]}
@@ -59,10 +67,10 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                     </p>
                     <p>
 
-                        {content && content[1] ? (<>
+                        {!checkMobile && (content && content[1]) ? (<>
                             <span className={styles['hear-back-text']}>{content[1].split('.')[0] + "."}</span><br />
                             <span className={styles['hear-back-text']}>{content[1].split('.').slice(1).join(' ') + "."}</span>
-                        </>) : <></>}
+                        </>) : <> <span className={styles['hear-back-text']}>{content[1]}</span><br /></>}
 
                     </p>
                 </div>
@@ -72,6 +80,12 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                         <span className={styles["button-text"]}>Get In Touch</span>
                         <span className={styles["button-icon"]}>
                             <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
+                        </span>
+                    </a>
+                    <a className={styles["button"]}>
+                        <span className={styles["button-text"]}>Get In Touch</span>
+                        <span className={styles["button-icon"]}>
+                            <Image src="/arrowrightblack.svg" alt="arrow right" className={styles.arrowImg} width={21.37} height={9.77} />
                         </span>
                     </a>
                 </div>

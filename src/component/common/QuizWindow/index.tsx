@@ -214,7 +214,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                             optionchosen && optionchosen !== '' &&
                             <div className={styles["question-message"]}>
                                 <div className={styles["question-logo"]}>
-                                    <Image src="/micrologo.svg" alt={"sd"} width={26.28} height={26.28} />
+                                    <Image src="/micrologo.svg" alt={"sd"}  className={styles.logoImg} width={26.28} height={26.28} />
                                 </div>
                                 <div className={styles["question-description"]}>{getDisplayMessage()}</div>
                             </div>
@@ -226,7 +226,7 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                                     <a className={styles["button"]}>
                                         <span className={styles["button-text"]}>{getQuestionAction()}</span>
                                         <span className={styles["button-icon"]}>
-                                            <Image src="/arrowrightblack.svg" alt="arrow right" width={20} height={8} />
+                                            <Image src="/arrowrightblack.svg" alt="arrow right" className={styles.arrowImg} width={20} height={8} />
                                         </span>
                                     </a>
                                 </Link>

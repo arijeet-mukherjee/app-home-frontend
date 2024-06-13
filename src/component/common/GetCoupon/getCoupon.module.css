@@ -8,7 +8,10 @@
     box-sizing: border-box;
     font-family: 'roboto', sans-serif;
     align-items: center;
-    padding: 40px 70px;
+    padding-left: calc((100vw / 1920)* 70);
+    padding-right: calc((100vw / 1920)* 70);
+    padding-top: calc((100vw / 1920)* 40);
+    padding-bottom: calc((100vw / 1920)* 40);
 }
 
 .inputContainer{
@@ -82,6 +85,7 @@
         grid-template-columns: 1fr;
         row-gap: calc((100vw / 393)* 15);
         justify-items: flex-start;
+        padding: calc((100vw / 393)* 20);
     }
 
     .inputContainer{

@@ -106,14 +106,14 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                         <a>
                             <span className={styles["button-text"]}>Get Coupon Code</span>
                             <span className={styles["button-icon"]}>
-                                <Image src="/arrowrightwhite.svg" alt="arrow right" width={39.83} height={23.31} />
+                                <Image src="/arrowrightwhite.svg" alt="arrow right" className={styles.arrowImg} width={39.83} height={23.31} />
                             </span>
                         </a>
                     </div>
                     <div className={styles["refresh-button"]} onClick={restartQuiz}>
                         <a>
                             <span className={styles["button-icon"]}>
-                                <Image src="/refreshicon.svg" alt="arrow right" width={39.83} height={23.31} />
+                                <Image src="/refreshicon.svg" alt="arrow right" className={styles.refreshImg} width={39.83} height={23.31} />
                             </span>
                         </a>
                     </div>

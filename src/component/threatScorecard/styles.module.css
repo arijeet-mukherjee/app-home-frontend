@@ -8,25 +8,25 @@ div {
     display: grid;
     grid-template-columns: auto auto;
     width: 100%;
-    gap: 12px
+    gap: calc((100vw / 1920) * 12);
 }
 
 .vunerability-section {
     display: grid;
     grid-template-rows: auto auto;
-    gap: 8px;
+    gap: calc((100vw / 1920) * 8);
 }
 
 .threat-section {
     display: grid;
     grid-template-rows: 3fr auto;
-    gap: 8px;
+    gap: calc((100vw / 1920) * 8);
 }
 
 .threatcalculator-section {
     display: grid;
     grid-template-rows: auto auto;
-    gap: 8px;
+    gap: calc((100vw / 1920) *8);
     background: #08031B;
     border-radius: calc((100vw / 1920) * 37.25);
 }
@@ -34,7 +34,7 @@ div {
 .threatcalculator-text {
     display: grid;
     grid-template-rows: auto auto auto auto;
-    gap: 1px;
+    gap: calc((100vw / 1920) * 2);
     margin-top: calc((100vw / 1920) * 30.05);
     margin-left: calc((100vw / 1920) * 49.01);
 }
@@ -85,7 +85,7 @@ div {
 .getcouponrefresh-section {
     display: grid;
     grid-template-columns: 2fr auto;
-    gap: 10px;
+    gap: calc((100vw / 1920) * 10);
 }
 
 .button-text {
@@ -179,14 +179,14 @@ div {
 
 .vunerability-report {
     display: grid;
-    gap: 20px;
+    gap: calc((100vw / 1920) * 20);
 }
 
 
 .discount-coupon-section {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 10px;
+    gap: calc((100vw / 1920) * 10);
 }
 
 .discount-section {
@@ -218,7 +218,7 @@ div {
 .couponcode-message-section {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 10px;
+    gap: calc((100vw / 1920) * 10);
 
 }
 
@@ -258,6 +258,8 @@ div {
 .makeImageCircular {
     border-radius: 50%;
     border: 1px solid #402EA1;
+    width: calc((100vw / 1920)* 34);
+    height: calc((100vw / 1920)* 34);
 }
 
 .message-name {
@@ -288,6 +290,16 @@ div {
     color: #FFFFFF;
 }
 
+.arrowImg{
+    width: calc((100vw / 1920)* 30);
+    height: calc((100vw / 1920)* 20);
+}
+
+.refreshImg{
+    width: calc((100vw / 1920)* 20);
+    height: calc((100vw / 1920)* 20);
+}
+
 @media (max-width: 1200px) {
 
     .scorecard-section {
@@ -295,22 +307,25 @@ div {
         grid-template-columns: auto;
         width: 100%;
         height: max-content;
+        gap: calc((100vw / 393)* 12);
     }
 
     .vunerability-percentage {
-        padding: 10px;
-        padding-bottom: 15px;
-        border-radius: 14px;
+        padding: calc((100vw / 393)* 10);
+        padding-bottom: calc((100vw / 393)* 15);
+        border-radius: calc((100vw / 393)* 14);
     }
 
     .threatcalculator-section {
         grid-column: 1;
-        padding: 10px;
-        border-radius: 14px;
+        padding: calc((100vw / 393)* 10);
+        border-radius: calc((100vw / 393)* 14);
+        gap: calc((100vw / 393)* 8);
     }
 
     .discount-coupon-section {
         grid-row: 3;
+        gap: calc((100vw / 343) * 5);
     }
 
     .threatcalculator-text{
@@ -319,111 +334,153 @@ div {
     
     .threatcalculator-title {
         font-family: "DM Sans";
-        font-size: 14px;
+        font-size: calc((100vw / 393)* 14);
         font-weight: 700;
-        line-height: 16.8px;
+        line-height: calc((100vw / 393)*16.8);
         text-align: left;
     }
 
     .riskstatus {
         font-family: "DM Sans";
-        font-size: 10px;
+        font-size: calc((100vw / 393)*10);
         font-weight: 400;
-        line-height: 12px
+        line-height: calc((100vw / 393)* 12)
     }
 
     .threatscore {
         font-family: "DM Sans";
-        font-size: 25px;
+        font-size: calc((100vw / 393)* 25);
         font-weight: 700;
-        line-height: 30px;
+        line-height: calc((100vw / 393)* 30);
     }
 
     .totalthreat {
         font-family: "DM Sans";
-        font-size: 10px;
+        font-size: calc((100vw / 393)* 10);
         font-weight: 400;
-        line-height: 12px
+        line-height: calc((100vw / 393)*12);
     }
 
     .button-text {
-        font-size: 14px;
+        font-size: calc((100vw / 393)* 14);
         font-weight: 400;
     }
 
     .vunerability-title {
         font-family: "DM Sans";
-        font-size: 14px;
+        font-size: calc((100vw / 393)* 14);
         font-weight: 700;
-        line-height: 16.8px;
+        line-height: calc((100vw / 393)*16);
     }
 
     .vunerability-heading {
         font-family: "DM Sans";
-        font-size: 12px;
+        font-size: calc((100vw / 393)* 12);
         font-weight: 500;
-        line-height: 24px;
+        line-height: calc((100vw / 393)* 24);
     }
 
     .vunerability-report {
-        gap: 10px;
+        gap: calc((100vw / 343) * 10);
     }
 
     .discount-section {
-        border-radius: 15px;
+        border-radius: calc((100vw / 393)* 15);
     }
 
     .discount-percent {
         font-family: "DM Sans";
-        font-size: 25px;
+        font-size: calc((100vw / 393)* 25);
         font-weight: 700;
-        line-height: 30px;
+        line-height: calc((100vw / 393)* 30);
     }
 
     .discount-text {
         font-family: "DM Sans";
-        font-size: 10px;
+        font-size: calc((100vw / 393)* 10);
         font-weight: 400;
-        line-height: 12px;
-        text-align: left;
+        line-height: calc((100vw / 393)*12);
     }
 
     .message-section {
-        border-radius: 12px;
+        border-radius: calc((100vw / 393)* 12);
     }
 
     .message-username {
         font-family: "DM Sans";
         letter-spacing: 1px;
-        font-size: 12px;
+        font-size: calc((100vw / 393)* 12);
         font-weight: 400;
-        line-height: 14.4px;
+        line-height: calc((100vw / 393)* 14);
     }
 
     .message-forcustomer {
         font-family: "DM Sans";
-        font-size: 7px;
+        font-size: calc((100vw / 393)* 7);
         font-weight: 400;
-        line-height: 8.4px;
+        line-height: calc((100vw / 393)* 8);
     }
 
     .message-profilephoto {
-        padding: 5px;
+        padding: calc((100vw / 393)* 5);
     }
 
     .couponcode-section {
-        border-radius: 9px;
+        border-radius: calc((100vw / 393)*9);
     }
 
     .couponcode {
         font-family: "DM Sans";
-        font-size: 10px;
+        font-size: calc((100vw / 393)* 10);
         font-weight: 400;
-        line-height: 12px;
-        text-align: left;
+        line-height: calc((100vw / 393)* 12);
     }
 
     .couponcode-message-section {
-        gap: 5px;
+        gap: calc((100vw / 393) * 5);
     }
+
+    .arrowImg{
+        width: calc((100vw / 393)* 20);
+        height: calc((100vw / 393)* 20);
+    }
+
+    .refreshImg{
+        width: calc((100vw / 393)* 18);
+        height: calc((100vw / 393)* 18);
+    }
+
+    .refresh-button {
+        padding: calc((100vw / 393) * 5) calc((100vw / 393) * 6);
+        width: calc((100vw / 393) * 49);
+        height: calc((100vw / 393) * 20); 
+    }
+
+    .getcoupon-button {
+        padding: calc((100vw / 393) * 5) calc((100vw / 393) * 7) calc((100vw / 393) * 5) calc((100vw / 393) * 14);
+    }
+
+    .makeImageCircular {
+        width: calc((100vw / 393)* 27);
+        height: calc((100vw / 393)* 27);
+    
+    }
+
+    .vunerability-section {
+        gap: calc((100vw / 343) * 8);
+    }
+
+    .threat-section {
+        gap: calc((100vw / 343) * 8);
+    }
+
+    .threatcalculator-text {
+        gap: calc((100vw / 343) * 2);
+    }
+
+    .getcouponrefresh-section {
+        gap: calc((100vw / 343) * 5);
+    }
+    
+    
 }
