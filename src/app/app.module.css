@@ -16,14 +16,14 @@
 }
 
 .cardBoxFirst {
-    padding: 160px 160px 0px 160px;
-    margin-top: calc(-50vh);
+    padding: calc((100vw / 1920)* 160) calc((100vw / 1920)* 160) 0px calc((100vw / 1920)* 160);
+    margin-top: -20%;
 }
 
 .cardBoxRemain {
-    padding: 0 160px;
+    padding: 0 calc((100vw / 1920)* 160);
     display: block;
-    gap: 60px;
+    gap: calc((100vw / 1920)* 60);
 }
 
 .whiteBackground {
@@ -46,12 +46,12 @@
     font-style: normal;
     font-weight: 600;
     font-size: calc((100vw/1920)*40);
-    line-height: 90px;
+    line-height: calc((100vw/1920)*90);
     color: #FFFFFF;
     text-align: center;
 }
 
-@media(max-width: 1100px) {
+@media(max-width: 1200px) {
     .carousel-container-1 {
         position: relative;
         background: linear-gradient(to bottom, #0A041F 30%, transparent 70%);
@@ -64,7 +64,7 @@
 
     .cardBoxFirst {
         padding: 0px;
-        margin-top: -10%;
+        margin-top: -5%;
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 5px;
@@ -72,10 +72,10 @@
 
     .quizName {
         font-weight: 700;
-        font-size: 21px;
-        line-height: 25px;
+        font-size: calc((100vw/343)* 21);
+        line-height: calc((100vw/343)*25);
         word-wrap: break-word;
-        margin-bottom: 20px;
+        margin-bottom: calc((100vw/343)*20);
         text-align: left;
     }
 
@@ -103,5 +103,4 @@
         gap: 0 !important;
         padding: 20px;
     }
-
 }

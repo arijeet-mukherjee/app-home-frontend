@@ -2,7 +2,7 @@
 
 .quiz-window {
     background: #fff;
-    border-radius: 15px;
+    border-radius: calc((100vw / 1920)* 15);
     height: max-content;
     display: grid;
     width: 100%;
@@ -12,9 +12,9 @@
 .quiz-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 62.69px;
+    height: calc((100vw / 1920)* 62.69);
     background: #402EA1;
-    border-radius: 15px 14px 0px 0px;
+    border-radius: calc((100vw / 1920)* 15) calc((100vw / 1920)* 14) 0px 0px;
     padding: 0px;
     justify-content: center;
     align-items: center;
@@ -22,11 +22,11 @@
 
 .quiz-header-left {
     justify-self: start;
-    width: 78.6px;
-    height: 19.9px;
+    width: calc((100vw / 1920)* 78.6);
+    height: calc((100vw / 1920)* 19.9);
     display: grid;
-    padding-left: 70px;
-    gap: 4px;
+    padding-left: calc((100vw / 1920)* 70);
+    gap: calc((100vw / 1920)* 4);
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -37,16 +37,16 @@
 
 .quiz-header-right {
     justify-self: end;
-    width: 122.9px;
-    height: 10.61px;
-    padding-right: 70px;
+    width: calc((100vw / 1920)* 122.9);
+    height: calc((100vw / 1920)* 10.61);
+    padding-right: calc((100vw / 1920)* 70);
     display: grid;
     grid-template-columns: 1fr;
 }
 
 .quiz-header-right-design {
     background: #FFFFFF;
-    border-radius: 10.6667px;
+    border-radius: calc((100vw / 1920)* 10.6667);
 }
 
 .quiz-content {
@@ -55,10 +55,10 @@
     height: auto;
     display: grid;
     grid-template-columns: 9fr 1fr;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: calc((100vw / 1920)* 70);
+    padding-right: calc((100vw / 1920)* 70);
+    padding-top: calc((100vw / 1920)* 10);
+    padding-bottom: calc((100vw / 1920)* 10);
 }
 
 .questions-button {
@@ -70,32 +70,37 @@
     position: absolute;
     bottom: 10%;
     width: 100%;
+
 }
 
 .questions-button button {
     background-color: #402EA1;
     color: #FFFFFF;
-    border-radius: 19px;
-    width: 80%;
-    height: 45px;
-    margin-right: 90px;
+    border-radius: calc((100vw / 1920)* 19);
+    width: 90%;
+    height: calc((100vw / 1920)* 45);
+    margin-right: calc((100vw / 1920)* 90);
     cursor: pointer;
+    font-family: "DM Sans";
+    font-size: calc((100vw / 1920)* 16);
+    font-weight: 500;
+    line-height: calc((100vw / 1920)* 24);
 }
 
 .questions-section {
     display: grid;
     grid-template-rows: max-content auto auto auto;
-    gap: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    gap: calc((100vw / 1920)* 10);
+    padding-top: calc((100vw / 1920)* 20);
+    padding-bottom: calc((100vw / 1920)* 20);
 }
 
 .question-text {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: calc((100vw / 1920)* 18);
+    line-height: calc((100vw / 1920)* 24);
     display: flex;
     align-items: center;
     letter-spacing: -0.392157px;
@@ -105,27 +110,33 @@
 
 .question-text {
     font-family: "Roboto";
-    font-size: 18px;
+    font-size: calc((100vw / 1920)* 18);
     font-weight: 500;
-    line-height: 28px;
+    line-height: calc((100vw / 1920)* 28);
     text-align: left;
 }
 
 .question-options {
     display: flex;
-    gap: 10px;
+    gap: calc((100vw / 1920)* 10);
     cursor: pointer;
 }
 
 .questionoption {
     background: var(--SHADOW-FILL, #D9D9D982);
-    box-shadow: 0px 4px 4px 0px #0000001A;
+    box-shadow: 0px calc((100vw / 1920)* 4) calc((100vw / 1920)* 4) 0px #0000001A;
     width: max-content;
-    height: 48px;
-    padding: 10px 15px 10px 15px;
-    gap: 10px;
-    border-radius: 19px;
+    height: calc((100vw / 1920)* 48);
+    padding: calc((100vw / 1920)* 10) calc((100vw / 1920)* 15) calc((100vw / 1920)* 10) calc((100vw / 1920)* 15);
+    gap: calc((100vw / 1920)* 10);
+    border-radius: calc((100vw / 1920)* 19);
     border: 1px solid #402EA1;
+    font-family: "Roboto";
+    font-size: calc((100vw / 1920)* 18);
+    font-weight: 400;
+    line-height: calc((100vw / 1920)* 28);
+    text-align: left;
+    cursor: pointer;
 }
 
 .questionoptionclicked {
@@ -140,7 +151,7 @@
 .question-message {
     display: grid;
     grid-template-columns: min-content auto;
-    gap: 5px;
+    gap: calc((100vw / 1920)* 5);
 }
 
 
@@ -155,17 +166,17 @@
     text-align: left;
     align-content: center;
     font-family: "Roboto";
-    font-size: 18px;
+    font-size: calc((100vw / 1920)* 18);
     font-weight: 400;
-    line-height: 28px;
+    line-height: calc((100vw / 1920)* 28);
     word-break: break-word;
 }
 
 .button-text {
     font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: calc((100vw / 1920)* 18);
+    line-height: calc((100vw / 1920)* 24);
     text-align: center;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -189,13 +200,13 @@
 }
 
 .question-action {
-    width: 247px;
+    width: calc((100vw / 1920)* 247);
     background-color: #55E5A0;
     display: grid;
-    padding: 10px 34px;
+    padding: calc((100vw / 1920)* 10) calc((100vw / 1920)* 34);
     justify-content: center;
     align-items: center;
-    border-radius: 70px;
+    border-radius: calc((100vw / 1920)* 70);
     cursor: pointer;
 }
 
@@ -206,25 +217,37 @@
     height: auto;
     display: grid;
     grid-template-columns: 1fr;
-    padding-left: 140px;
-    padding-right: 140px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-left: calc((100vw / 1920)* 140);
+    padding-right: calc((100vw / 1920)* 140);
+    padding-top: calc((100vw / 1920)* 30);
+    padding-bottom: calc((100vw / 1920)* 30);
 }
 
 .space {
-    width: 2px;
+    width: calc((100vw / 1920)* 2);
+}
+
+.logoImg {
+    height: calc((100vw / 1920)* 27);
+    width: calc((100vw / 1920)* 27);
+}
+
+.arrowImg {
+    height: calc((100vw / 1920)* 10);
+    width: calc((100vw / 1920)* 22);
 }
 
 
-@media (max-width: 1100px) {
+
+@media (max-width: 1200px) {
     .quiz-content {
         width: auto;
         height: auto;
         display: grid;
         grid-template-rows: auto 1fr;
         grid-template-columns: 1fr;
-        padding: 20px;
+        padding: calc((100vw / 393)* 20);
+        gap: calc((100vw / 393)* 10);
     }
 
     .questions-button {
@@ -233,18 +256,110 @@
         position: relative;
         height: auto;
         width: 100%;
-        margin-left: 15px;
+        margin-left: calc((100vw / 393)* 15);
     }
 
     .quiz-scorecontent {
         width: auto;
-        padding: 20px;
+        padding: calc((100vw / 393)* 20);
+    }
+
+    .quiz-window {
+        border-radius: calc((100vw / 343)* 8);
     }
 
 
     .question-options {
         display: grid;
         grid-template-rows: auto;
-        gap: 10px;
+        gap: calc((100vw / 393)* 10);
+    }
+
+    
+    .quiz-header {
+        height: calc((100vw / 343)* 40);
+        border-radius: calc((100vw / 343)* 8) calc((100vw / 343)* 8) 0px 0px;
+    }
+    
+    .quiz-header-left {
+        width: calc((100vw / 343)* 28);
+        height: calc((100vw / 343)* 8);
+        padding-left: calc((100vw / 343)* 20);
+        gap: calc((100vw / 343)* 2);
+    }
+    
+    .quiz-header-right {
+        justify-self: end;
+        width: calc((100vw / 343)* 24);
+        height: calc((100vw / 343)* 8);
+        padding-right: calc((100vw / 343)* 25);
+    }
+    
+    .quiz-header-right-design {
+        border-radius: calc((100vw / 343)* 10.6667);
+    }
+    
+    .questions-button button {
+        border-radius: calc((100vw / 343)* 100);
+        height: calc((100vw / 343)* 32);
+        font-size: calc((100vw / 343)* 10);
+        font-weight: 400;
+        line-height: calc((100vw / 343)* 12);
+    }
+    
+    
+    .question-text {
+        font-weight: 700;
+        font-size: calc((100vw / 343)* 12);
+        line-height: calc((100vw / 343)* 14.4);
+    }
+     
+    .questionoption {
+        height: calc((100vw / 343)* 32);
+        padding: calc((100vw / 343)* 10) calc((100vw / 343)* 11) calc((100vw / 343)* 10) calc((100vw / 343)* 11);
+        gap: calc((100vw / 343)* 10);
+        border-radius: calc((100vw / 343)* 13);
+        font-size: calc((100vw / 343)* 10);
+        line-height: calc((100vw / 343)* 12);
+    }
+    
+   
+    .question-message {
+        gap: calc((100vw / 343)* 5);
+    }
+    
+    .question-description {
+        font-size: calc((100vw / 343)* 12);
+        font-weight: 400;
+        line-height: calc((100vw / 343)* 14.4);
+    }
+    
+    .button-text {
+        font-size: calc((100vw / 343)* 12);
+        line-height: calc((100vw / 343)* 14.4);
+    }
+    
+    .question-action {
+        width: calc((100vw / 343)* 117);
+        padding: calc((100vw / 343)* 7) calc((100vw / 343)* 7) calc((100vw / 343)* 7) calc((100vw / 343)* 15);
+        border-radius: calc((100vw / 343)* 100);
+    }
+    
+    .space {
+        width: calc((100vw / 343)* 2);
+    }
+    
+    .logoImg {
+        height: calc((100vw / 343)* 15);
+        width: calc((100vw / 343)* 15);
+    }
+    
+    .arrowImg {
+        height: calc((100vw / 343)* 8);
+        width: calc((100vw / 343)* 11);
+    }
+
+    .questions-section {
+        gap: calc((100vw / 343)* 10);
     }
 }

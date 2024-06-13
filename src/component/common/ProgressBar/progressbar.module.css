@@ -49,7 +49,7 @@
   content: counter(percentage) '%';
   font-family: "Roboto";
   font-weight: 700;
-  line-height: 60px;
+  line-height: calc((100vw / 1920) * 60);
   font-size: calc((100vw / 1920) * 40);
   color: var(--primary);
   position: absolute;
@@ -59,13 +59,13 @@
   [role="progressbar"]::after {
     font-family: "Roboto";
     font-weight: 700;
-    line-height: 30px;
-    font-size: 25px;
+    line-height: calc((100vw / 393)* 30);
+    font-size: calc((100vw / 393)* 25);
     color: var(--primary);
     position: absolute;
   }
 
   [role="progressbar"] {
-    --size: 175px;
+    --size: calc((100vw / 393)* 175);
   }
 }
