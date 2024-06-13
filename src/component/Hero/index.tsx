@@ -79,12 +79,6 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                     <a className={styles["button"]}>
                         <span className={styles["button-text"]}>Get In Touch</span>
                         <span className={styles["button-icon"]}>
-                            <Image src="/arrowrightblack.svg" alt="arrow right" width={19.43} height={7.77} />
-                        </span>
-                    </a>
-                    <a className={styles["button"]}>
-                        <span className={styles["button-text"]}>Get In Touch</span>
-                        <span className={styles["button-icon"]}>
                             <Image src="/arrowrightblack.svg" alt="arrow right" className={styles.arrowImg} width={21.37} height={9.77} />
                         </span>
                     </a>
