@@ -68,7 +68,7 @@ export default function Home() {
 
         <Hero
           introduction={["Internet can be a dangerous place,", "Do you sometimes worry"]}
-          content={["About the online scams?", "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
+          content={[["About the online scams?", "About the phsihing attack?", "About the hacking attack?"], "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."]}
           openModal={openModal}
           modalState={modalOpen}
           headerData={data.header}
