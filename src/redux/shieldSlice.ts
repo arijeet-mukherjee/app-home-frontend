@@ -17,7 +17,6 @@ export const shieldSlice = createSlice({
   initialState,
   reducers: {
     setShieldState: (state, action: PayloadAction<ShieldState>) => {
-      console.log('shield pa', action.payload)
       state.top = action.payload.top;
       state.right = action.payload.right;
       state.visible = action.payload.visible;
