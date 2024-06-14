@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                 })
                 }
 
-                <Button label={headerData.navigation_bar.button.label} action_svg={headerData.navigation_bar.button.action_svg} hc={handelClick} />
+                <Button label={headerData.navigation_bar.button.label} action_svg={headerData.navigation_bar.button.action_svg} hc={handelClick} id='contact' />
             </div>
             {modalState && <div className={styles.mobileLang}>
                 {headerData.navigation_bar.navbarItems?.map((item: any, index: any) => {
