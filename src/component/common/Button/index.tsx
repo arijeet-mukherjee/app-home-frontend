@@ -26,7 +26,6 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg
       let rect = elementRef?.current?.getBoundingClientRect() || { top: 0, height: 0, right: 0, left: 0 , width: 0};
       if (id === 'contact') {
         const newShieldState = { ...shield };
-        console.log('shield', newShieldState, "rect", rect)
         if (isMobile()) {
           newShieldState.visible = false;
           newShieldState.right = typeof window !== 'undefined' ? window.innerWidth * 0.5 : 0;
@@ -36,7 +35,6 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg
           newShieldState.top = rect.top + rect.height;
           if (typeof window !== 'undefined') {
             newShieldState.right = (window.innerWidth) / 1920 * 160;
-            console.log('window.innerWidth', window.innerWidth)
             if(window.innerWidth <= 1728) {
               newShieldState.right = rect.left - ((window.innerWidth) / 1920 * 32);
             } else {
