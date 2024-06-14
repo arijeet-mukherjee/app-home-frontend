@@ -8,11 +8,12 @@
             },
             "button": {
                 "label": "Contact",
-                "action_svg": "phone.svg"
+                "action_svg": "phone.svg",
+                "id"  : "contact"
             },
             "navbarItems": [
                 {
-                    "label": "Introduction",
+                    "label": "Invoering",
                     "url": "/",
                     "dditem": []
                 },
