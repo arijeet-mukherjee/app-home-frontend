@@ -9,7 +9,7 @@ const Header = dynamic(() => import('@component/Header'));
 interface HeroProps {
     // Your props goes here
     introduction: Array<string>;
-    content: Array<string>;
+    content: Array<any>;
     openModal: Function;
     modalState: boolean;
     headerData: any;
@@ -19,6 +19,8 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
     //If either introduction or content length is not eqaul to 2, throw an error
 
     const [checkMobile, setCheckMobile] = useState<boolean>(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentText, setCurrentText] = useState('');
 
     if (introduction.length !== 2 || content.length !== 2) {
         throw new Error("Introduction and content must be an array of two strings");
@@ -26,7 +28,18 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
 
     useEffect(() => {
         setCheckMobile(isMobile())
-    })
+    });
+
+    useEffect(() => {
+        setCurrentText(content[0][currentIndex]);
+
+        const timeoutId = setTimeout(() => {
+            // If currentIndex is at the last index, wrap around to 0; otherwise, increment currentIndex
+            setCurrentIndex(currentIndex < content[0].length - 1 ? currentIndex + 1 : 0);
+        }, 5000); // Adjust this value to match the duration of your typewriter animation
+
+        return () => clearTimeout(timeoutId); // Clean up the timeout when the component unmounts or currentIndex changes
+    }, [currentIndex]);
 
     function handelClick(e: React.MouseEvent<HTMLDivElement>) {
         e.preventDefault();
@@ -53,18 +66,18 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                     </p>
                 </div>
                 <div className={styles["heroContent"]}>
-                    <p>
+                    <div style={{ display: "flex", gap: "10px", width: "max-content" }}>
                         {content && content[0] ?
 
                             (
                                 <>
-                                    <span className={styles['about-text']}>{content[0].split(' ')[0] + " "}</span>
-                                    <span className={styles['online-text']}>{content[0].split(' ').slice(1).join(' ')}</span>
+                                    <div className={styles['about-text']}>{content[0][0].split(' ')[0] + " "}</div>
+                                    <div key={currentText} className={`${styles['online-text']} ${styles.typewriter}`}>{currentText.split(' ').slice(1).join(' ')}</div>
                                 </>
                             )
 
                             : <></>}
-                    </p>
+                    </div>
                     <p>
 
                         {!checkMobile && (content && content[1]) ? (<>
