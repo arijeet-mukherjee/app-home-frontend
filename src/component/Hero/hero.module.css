@@ -1,5 +1,10 @@
 @import url("../../global.module.css");
 
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
 .hero {
     display: grid;
     height: max-content;
@@ -71,6 +76,7 @@
 }
 
 .about-text {
+    display: inline-block;
     color: var(--text-primary-color);
     font-size: calc((100vw / 1920) * 40);
     font-family: "Roboto", sans-serif;
@@ -86,6 +92,12 @@
     line-height: calc((100vw / 1920) * 2.5rem);
     font-weight: 400;
     font-style: normal;
+    display: inline-block;
+    width: max-content;
+    border-right: 2px solid;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
 }
 
 .hear-back-text {
@@ -199,4 +211,10 @@
         width: calc((100vw / 393)* 11);
         height: calc((100vw / 393)* 8);
     }
+}
+
+/* The typewriter cursor effect */
+@keyframes blinkTextCursor {
+    from {border-right-color: transparent;}
+    to {border-right-color: inherit;}
 }
