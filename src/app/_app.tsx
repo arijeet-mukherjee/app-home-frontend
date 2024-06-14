@@ -5,6 +5,8 @@ import styles from './app.module.css';
 import useOnScreen from "@util/useOnScreen";
 import Hero from "@component/Hero";
 import Shield from "@component/common/Shield";
+import { setShieldState } from '@store/shieldSlice';
+import { useAppDispatch } from '@store/store';
 import { useAppSelector } from '@store/store';
 const CardBox = dynamic(() => import('@component/cardBox'), {
   loading: () => <p>Loading.....</p>
@@ -44,9 +46,14 @@ export default function Home() {
   const refFooter = useRef<HTMLDivElement>(null);
   const isVisiblefFooter = useOnScreen(refFooter, '200px');
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);    
+  
+  const dispatch = useAppDispatch();
+  const shield = useAppSelector(state => state.shield);
+
   const openModal = useCallback(() => {
     setModalOpen(prevModalOpen => !prevModalOpen);
+    dispatch(setShieldState({ ...shield, top: 80 ,visible: true }));
   }, []);
   const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
   React.useEffect(() => {
@@ -67,7 +74,7 @@ export default function Home() {
           headerData={data.header}
         />
 
-        <Shield top={105} right={190} />
+        <Shield top={shield.top} right={shield.right} />
         <div className={styles["cardBoxFirst"]}>
           <CardBox
             title={data.introduction.title}
