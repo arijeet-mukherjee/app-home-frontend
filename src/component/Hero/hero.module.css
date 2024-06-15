@@ -1,8 +1,13 @@
 @import url("../../global.module.css");
 
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
 .hero {
     display: grid;
-    height: 964px;
+    height: max-content;
     grid-template-rows: auto 1fr 1fr;
     background-color: var(--primary-background-dark-color);
     padding-left: var(--hero-section-left-padding);
@@ -18,87 +23,96 @@
 .heroBlock {
     display: grid;
     grid-auto-rows: auto auto auto auto;
-    gap: 12px;
+    gap: calc((100vh / 1900) * 12);
 }
 
 .heroContent {
     display: grid;
-    gap: 12px;
+    gap: calc((100vw / 1920) * 12);
 }
 
-@media (max-width: 1100px) { 
+@media (max-width: 1200px) {
 
-    .hero { 
+    .hero {
         grid-template-rows: 1fr;
-        height: auto; 
-        padding: 20px; 
-        }
+        height: auto;
+        padding: 20px;
+    }
 
     .emptyArea {
         height: 50px;
-        }
+    }
 }
 
 @media (min-width: 1200px) {
+
     /* Your CSS code for larger than laptop or desktop screen goes here */
     .framer-text {
-        font-size: 72px;
+        font-size: calc((100vw / 1920) * 62);
     }
+
     .secondary-text {
-        font-size: 72px;
+        font-size: calc((100vw / 1920) * 62);
     }
 }
 
 
-.framer-text{
+.framer-text {
     font-family: "DM Sans", sans-serif;
     font-weight: 700;
     color: var(--framer-text-color, #000);
-    font-size: 62px;
+    font-size: calc((100vw / 1920) * 62);
     text-transform: var(--framer-text-transform, none);
     text-decoration: var(--framer-text-decoration, none);
     text-align: var(--framer-text-alignment, start);
 }
 
-.secondary-text{
+.secondary-text {
     color: var(--text-primary-color);
-    font-size: 62px;
+    font-size: calc((100vw / 1920) * 62);
     font-weight: 700;
     font-family: "DM Sans", sans-serif;
-    line-height: 72px;
+    line-height: calc((100vw / 1920) * 72);
 }
 
-.about-text{
+.about-text {
+    display: inline-block;
     color: var(--text-primary-color);
-    font-size: 40px;
+    font-size: calc((100vw / 1920) * 40);
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 400;
-    line-height: 2.5rem;
+    line-height: calc((100vw / 1920) * 2.5rem);
 }
 
-.online-text{
+.online-text {
     color: var(--framer-text-color, #000);
-    font-size: 40px;
+    font-size: calc((100vw / 1920) * 40);
     font-family: "Roboto", sans-serif;
-    line-height: 2.5rem;
+    line-height: calc((100vw / 1920) * 2.5rem);
     font-weight: 400;
     font-style: normal;
+    display: inline-block;
+    width: max-content;
+    border-right: 2px solid;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
 }
 
 .hear-back-text {
-    color : var(--framer-text-color, #000);
+    color: var(--framer-text-color, #000);
     font-family: "Roboto", sans-serif;
-    font-size: 18px;
+    font-size: calc((100vw / 1920) * 18);
     font-weight: 400;
     font-style: normal;
-    line-height: 1.5rem;
+    line-height: calc((100vw / 1920) * 1.5rem);
 }
 
 .button-text {
     font-family: "DM Sans", sans-serif;
     font-style: normal;
-    font-size: 16px;
+    font-size: calc((100vw / 1920) * 16);
     line-height: 24px;
     text-align: center;
     font-weight: 500;
@@ -110,6 +124,11 @@
     flex-shrink: 0;
 }
 
+.button-icon {
+    justify-content: center;
+    align-items: center;
+}
+
 /* All a tag inside hero class none text-decoration */
 .hero a {
     text-decoration: none;
@@ -118,7 +137,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: calc((100vw / 1920) * 10);
 }
 
 .hero-button {
@@ -128,10 +147,74 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 10px;
-    height: min-content;
+    height: calc((100vw/1920)*30);
     width: min-content;
-    padding: 10px 34px;
+    padding: calc((100vw / 1920) * 10) calc((100vw / 1920) * 34);
     justify-content: center;
     overflow: visible;
     cursor: pointer;
+}
+
+.arrowImg{
+    width: calc((100vw / 1920)* 21);
+    height: calc((100vw / 1920)* 10);
+}
+
+@media (max-width: 1200px) {
+    .framer-text {
+        font-size: calc((100vw/393)* 21);
+        font-weight: 700;
+        line-height: calc((100vw/393)* 25.2);
+    }
+
+    .secondary-text {
+        font-size: calc((100vw/393)* 21);
+        font-weight: 700;
+        line-height: calc((100vw/393)* 25.2);
+    }
+
+    .about-text {
+        font-size: calc((100vw/393) * 17);
+        font-weight: 400;
+        line-height: calc((100vw/393)* 20.4);
+    }
+
+    .online-text {
+        font-size: calc((100vw/393) * 17);
+        font-weight: 400;
+        line-height: calc((100vw/393)* 20.4);
+
+    }
+
+    .hear-back-text {
+        font-size: calc((100vw/393) * 10);
+        font-weight: 400;
+        line-height: calc((100vw/393) * 12);
+    }
+
+    .hero-button{
+        width: calc((100vw / 393)* 125);
+        height: calc((100vw / 393)* 28);
+        padding: calc((100vw / 393)* 5) calc((100vw / 393)* 14);
+    }
+
+    .button{
+        gap: calc((100vw/393)*4);
+    }
+
+    .button-text{
+        font-size: calc((100vw/393)*14);
+        font-weight: 400;
+    }
+
+    .arrowImg{
+        width: calc((100vw / 393)* 11);
+        height: calc((100vw / 393)* 8);
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blinkTextCursor {
+    from {border-right-color: transparent;}
+    to {border-right-color: inherit;}
 }

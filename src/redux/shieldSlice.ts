@@ -8,7 +8,7 @@ export interface ShieldState {
 
 const initialState: ShieldState = {
   top: 105,
-  right: 190,
+  right: 210,
   visible: true
 };
 
@@ -17,7 +17,9 @@ export const shieldSlice = createSlice({
   initialState,
   reducers: {
     setShieldState: (state, action: PayloadAction<ShieldState>) => {
-        state = action.payload;
+      state.top = action.payload.top;
+      state.right = action.payload.right;
+      state.visible = action.payload.visible;
     },
   },
 });
