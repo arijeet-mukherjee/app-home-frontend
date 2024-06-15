@@ -31,8 +31,6 @@ const Indicator: React.FC<IndicatorProps> = (props: IndicatorProps) => {
         setActive(isActive);
     }, [isActive]);
 
-    // isBackgroundDark ? styles["dot-button-active"] = 
-
     return (
         <>
             <button className={`${styles["dot-button"]} ${active ? styles["dot-button-active"] : ""}`} style={{ "backgroundColor": `${active && !dark ? "#402ea1" : ""}` }} onClick={handleClick}>

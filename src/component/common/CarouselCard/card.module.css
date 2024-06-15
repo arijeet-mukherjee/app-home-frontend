@@ -3,7 +3,7 @@
 @keyframes movement {
     0% {
         transform: translateX(20%);
-        transition-duration: 2000ms;
+        transition-duration: 3000ms;
         opacity: 0;
         animation-direction: normal;
         animation-delay: 0ms;
@@ -11,14 +11,14 @@
 
     50% {
         transform: translateX(10%);
-        transition-duration: 2000ms;
+        transition-duration: 3000ms;
         opacity: 0;
         animation-direction: normal;
         animation-delay: 0ms;
     }
 
     100% {
-        transition-duration: 2000ms;
+        transition-duration: 3000ms;
         transform: translateX(0);
         opacity: 1;
         animation-direction: normal;
@@ -31,7 +31,7 @@
     grid-template-rows: repeat(2, 1fr);
     box-sizing: border-box;
     height: calc((100vw / 1920) * 600);
-    transition-duration: 1000ms;
+    transition: 3000ms smooth;
 }
 
 .animation {

@@ -30,19 +30,24 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
     const { title, description, toggleScrollButtonPosition, hideIndicator, cardProps, isBackgroundDark } = props;
 
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [currentIndex, setCurrentIndex] = React.useState(2);
     const [cardPropsState, setCardPropsState] = React.useState(cardProps);
     const [indicator, setIndicator] = React.useState<Number[]>([]);
 
     const touchStartX = useRef(0);
     const cards: number = cardProps.length;
-    const slides: number = Math.ceil(cards / 3);
+    const slides: number = cards - 2;
 
     const scrollDesktop = () => {
-        if (cards - currentIndex < 3) {
-            setCardPropsState([...cardProps.slice(currentIndex, currentIndex + (cards - currentIndex))]);
+        if (cards == currentIndex + 1) {
+            // if (cards - currentIndex == 2) {
+            //     setCardPropsState([...cardProps.slice(currentIndex, cards), ...cardProps.slice(0, (cards - currentIndex - 1))]);
+            // } else {
+            //     setCardPropsState([...cardProps.slice(currentIndex, cards), ...cardProps.slice(0, 2)]);
+            // }
+            setCurrentIndex(2);
         } else {
-            setCardPropsState(cardProps.slice(currentIndex, currentIndex + 3));
+            setCardPropsState(cardProps.slice(currentIndex - 2, currentIndex + 1));
         }
     }
 
@@ -77,12 +82,16 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
         const buttonTracker: Map<number, number> = new Map();
 
         buttonTracker.set(0, 0);
-        for (let i = 1; i < slides; i++) {
+        for (let i = 1; i <= slides; i++) {
             buttonTracker.set(i, i + 2);
         }
-        if (cards % 3 != 0) {
-            buttonTracker.set(slides - 1, Math.floor(cards / 3) * 3);
-        }
+        // if (cards % 3 != 0) {
+        //     buttonTracker.set(slides - 1, Math.floor(cards / 3) * 3);
+        // }
+        // setIndicator(Array.from(buttonTracker.values()));
+        // for (let i = 2; i < cards; i++) {
+        //     buttonTracker.set(i, i - 2);
+        // }
         setIndicator(Array.from(buttonTracker.values()));
     }
 
@@ -117,11 +126,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
 
     React.useEffect(() => {
         const timer = setInterval(() => {
-            if (isMobile()) {
-                setCurrentIndex((prevIndex) => (prevIndex === cards - 1 ? 0 : prevIndex + 1));
-            } else {
-                setCurrentIndex((prevIndex) => (prevIndex === cards - 1 ? 0 : prevIndex + 3));
-            }
+            setCurrentIndex((prevIndex) => (prevIndex === cards + 2 ? 2 : prevIndex + 1));
         }, 3000);
 
         return () => {
@@ -163,15 +168,15 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
                 })}
             </ div>
             <div className={`${styles["carousel-dot-button"]}`}>
-                {indicator && indicator.map((value, key) => {
+                {/* {indicator && indicator.map((value, key) => {
                     let IndicatorProps = {
                         currentIndex: value as number,
-                        isActive: currentIndex === value,
+                        isActive: currentIndex - 2 === value,
                         onClick: dotClick,
                         isBackgroundDark: isBackgroundDark
                     }
                     return <Indicator {...IndicatorProps} key={key} />
-                })}
+                })} */}
             </div>
         </div>
     )
