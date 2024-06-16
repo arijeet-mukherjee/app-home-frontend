@@ -40,7 +40,7 @@ div {
 }
 
 .threatcalculator-title {
-    font-family: "Inter";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) *20);
     font-weight: 800;
     line-height: calc((100vw / 1920) *30.59);
@@ -59,7 +59,7 @@ div {
 }
 
 .threatscore {
-    font-family: "Roboto";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) * 40);
     font-weight: 500;
     line-height: calc((100vw / 1920) *40);
@@ -123,8 +123,7 @@ div {
     justify-content: center;
     align-items: center;
     padding: calc((100vw/1920) * 10) calc((100vw / 1920) * 34);
-    border-radius: 70px;
-    cursor: pointer;
+    border-radius: calc((100vw/1920) * 70);
 }
 
 .refresh-button {
@@ -135,7 +134,7 @@ div {
     padding: calc((100vw/1920) * 10) calc((100vw / 1920) * 34);
     justify-content: center;
     align-items: center;
-    border-radius: 70px;
+    border-radius: calc((100vw/1920) * 70);
     cursor: pointer;
 }
 
@@ -158,7 +157,7 @@ div {
 }
 
 .vunerability-title {
-    font-family: "Inter";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) * 20.04);
     font-weight: 800;
     line-height: calc((100vw / 1920) * 30.59);
@@ -208,7 +207,7 @@ div {
 }
 
 .discount-text {
-    font-family: "Roboto";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) *18);
     font-weight: 400;
     line-height: calc((100vw / 1920) * 28);
@@ -232,7 +231,7 @@ div {
 }
 
 .couponcode {
-    font-family: "Roboto";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) * 18);
     font-weight: 400;
     line-height: calc((100vw / 1920) * 28);
@@ -270,7 +269,7 @@ div {
 }
 
 .message-username {
-    font-family: "Poppins";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) * 12.91);
     font-weight: 500;
     line-height: calc((100vw / 1920) * 19.37);
@@ -280,7 +279,7 @@ div {
 }
 
 .message-forcustomer {
-    font-family: "Poppins";
+    font-family: "DM Sans";
     font-size: calc((100vw / 1920) *10);
     font-weight: 400;
     line-height: calc((100vw / 1920) *15);

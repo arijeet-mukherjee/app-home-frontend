@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                     </p>
                 </div>
                 <div className={styles["heroContent"]}>
-                    <div style={{ display: "flex", gap: "10px", width: "max-content" }}>
+                    <div className={styles["about-spacing"]} style={{ display: "flex", width: "max-content" }}>
                         {content && content[0] ?
 
                             (
