@@ -122,7 +122,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
             } else {
                 setCurrentIndex((prevIndex) => (prevIndex === cards - 1 ? 0 : prevIndex + 3));
             }
-        }, 3000);
+        }, 11000);
 
         return () => {
             clearInterval(timer);
@@ -158,8 +158,8 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
             </div>
             <div className={`${styles["carousel-content"]} `} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                 {cardPropsState && cardPropsState.map((cardProp: CardProps, index: number) => {
-                    let newCardProp = { ...cardProp, currentIndex, animate: true };
-                    return <CarouselCard {...newCardProp} key={index} />
+                    let newCardProp = { ...cardProp, animate: true };
+                    return <CarouselCard {...newCardProp} key={Math.random()} />
                 })}
             </ div>
             <div className={`${styles["carousel-dot-button"]}`}>
