@@ -53,11 +53,8 @@
                 }
             ]
         },
-        "text": [
-            "Internet can be a dangerous place, Do you sometimes worry",
-            "About the online scams?",
-            "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions"
-        ],
+        "introduction" : ["Internet can be a dangerous place,", "Do you sometimes worry"],
+        "content" : [["About the online scams?", "About the legitimacy of the sites?", "About the terms and agreements?", "About the online data leaks?", "About the hacking risks?", "About the virus attacks?", "About the believing everything online?"], "We hear these worries a lot from our clients, parents, teenagers, and friends outside IT industry, we could go on and on. Security is difficult and people from all layers of security struggle with these questions."],
         "secdeskLogo": "",
         "rightArrowIcon": "",
         "button-name": "Get in Touch"
@@ -481,7 +478,7 @@
     "quiz": [
         {
             "1": {
-                "question": "What is Your name",
+                "question": "Which of the following is a common method used by cybercriminals to gain unauthorized access to sensitive information?",
                 "answer": "asasa",
                 "options": [
                     "asasa",

@@ -23,7 +23,7 @@
 .heroBlock {
     display: grid;
     grid-auto-rows: auto auto auto auto;
-    gap: calc((100vh / 1900) * 12);
+    gap: calc((100vw / 1920) * 12);
 }
 
 .heroContent {
@@ -97,7 +97,7 @@
     border-right: 2px solid;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
-    animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
+    animation: typewriter 2.5s steps(44) 1s 1 normal both, blinkTextCursor 800ms steps(44) infinite normal;
 }
 
 .hear-back-text {
@@ -160,15 +160,24 @@
     height: calc((100vw / 1920)* 10);
 }
 
+.about-spacing {
+    gap: calc((100vw / 1920)* 12);
+}
+
 @media (max-width: 1200px) {
+
+    .heroBlock {
+        gap: calc((100vw / 393) * 12);
+    }
+
     .framer-text {
-        font-size: calc((100vw/393)* 21);
+        font-size: calc((100vw/393)* 20);
         font-weight: 700;
         line-height: calc((100vw/393)* 25.2);
     }
 
     .secondary-text {
-        font-size: calc((100vw/393)* 21);
+        font-size: calc((100vw/393)* 20);
         font-weight: 700;
         line-height: calc((100vw/393)* 25.2);
     }
@@ -210,6 +219,10 @@
     .arrowImg{
         width: calc((100vw / 393)* 11);
         height: calc((100vw / 393)* 8);
+    }
+
+    .about-spacing {
+        gap: calc((100vw / 393)* 5);
     }
 }
 

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const Animation = () => {
     
 
-
     return(
         <div className={styles.animation}>
         <Image src="/coupontick.svg" alt="tick sticker" className={styles.couponTick} height={50} width={50} /> 

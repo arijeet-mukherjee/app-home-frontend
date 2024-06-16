@@ -102,24 +102,15 @@
     font-size: calc((100vw / 1920)* 18);
     line-height: calc((100vw / 1920)* 24);
     display: flex;
-    align-items: center;
+    align-items: start;
+    
     letter-spacing: -0.392157px;
     color: #343434;
-}
-
-
-.question-text {
-    font-family: "Roboto";
-    font-size: calc((100vw / 1920)* 18);
-    font-weight: 500;
-    line-height: calc((100vw / 1920)* 28);
-    text-align: left;
 }
 
 .question-options {
     display: flex;
     gap: calc((100vw / 1920)* 10);
-    cursor: pointer;
 }
 
 .questionoption {
@@ -132,7 +123,7 @@
     border-radius: calc((100vw / 1920)* 19);
     border: 1px solid #402EA1;
     font-family: "Roboto";
-    font-size: calc((100vw / 1920)* 18);
+    font-size: calc((100vw / 1920)* 16);
     font-weight: 400;
     line-height: calc((100vw / 1920)* 28);
     text-align: left;
@@ -145,7 +136,7 @@
 
 
 .incorrect {
-    background: red;
+    background: #F44336;
 }
 
 .question-message {
@@ -313,6 +304,7 @@
         font-weight: 700;
         font-size: calc((100vw / 343)* 12);
         line-height: calc((100vw / 343)* 14.4);
+        align-items: start;
     }
      
     .questionoption {

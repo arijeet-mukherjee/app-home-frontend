@@ -38,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({ label, action_svg, svg_height = 18, svg
             if(window.innerWidth <= 1728) {
               newShieldState.right = rect.left - ((window.innerWidth) / 1920 * 32);
             } else {
-              newShieldState.right = rect.left + ((window.innerWidth) / 1920 * 0.5);
+              newShieldState.right = rect.left + ((window.innerWidth) / 1920 * -32);
             }
           } else {
             newShieldState.right = rect.left - 32;
