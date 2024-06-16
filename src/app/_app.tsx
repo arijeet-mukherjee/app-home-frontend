@@ -18,12 +18,15 @@ const CTABox = dynamic(() => import('@component/CTASection'), { ssr: false });
 const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
+const QuizWindow = dynamic(() => import('@component/common/QuizWindow'), { ssr: false });
 import { isMobile } from "@util/index";
-import QuizWindow from "@component/common/QuizWindow";
 
 export default function Home() {
   const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
   const data = require(`../component/data/${globalLanguage.globalLanguage}.json`);
+
+  const refIntroduction = useRef<HTMLDivElement>(null);
+
   const refCardQuality = useRef<HTMLDivElement>(null);
   const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
 
@@ -46,14 +49,22 @@ export default function Home() {
   const refFooter = useRef<HTMLDivElement>(null);
   const isVisiblefFooter = useOnScreen(refFooter, '200px');
 
-  const [modalOpen, setModalOpen] = useState(false);    
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const refList = {
+    "Introduction": refIntroduction,
+    "USP": refCardQuality,
+    "Offering": refCTABox,
+    "More": refNewsLetter,
+    "Quiz": refQuizWindow,
+  }
+
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
   const openModal = useCallback(() => {
     setModalOpen(prevModalOpen => !prevModalOpen);
-    dispatch(setShieldState({ ...shield, top: 80 ,visible: true }));
+    dispatch(setShieldState({ ...shield, top: 80, visible: true }));
   }, []);
   const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
   React.useEffect(() => {
@@ -72,10 +83,11 @@ export default function Home() {
           openModal={openModal}
           modalState={modalOpen}
           headerData={data.header}
+          refList={refList}
         />
 
         <Shield top={shield.top} right={shield.right} />
-        <div className={styles["cardBoxFirst"]}>
+        <div className={styles["cardBoxFirst"]} ref={refIntroduction}>
           <CardBox
             title={data.introduction.title}
             description={data.introduction.description}
