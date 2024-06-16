@@ -13,11 +13,12 @@ interface CardProps {
     url: string,
     toggleButton: boolean,
     buttonText: string,
-    currentIndex: number,
+    key: number
+    // currentIndex: number,
     animate: boolean
 }
 const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
-    const { image, title, description, url, toggleButton, buttonText, currentIndex, animate } = props;
+    const { image, title, description, url, toggleButton, buttonText, animate, key } = props;
     const [animater, setAnimater] = React.useState("");
     const [starPath, setStarPath] = React.useState("url(/starvector.svg)");
     const [imageHeight, setImageHeight] = React.useState(178.67);
@@ -30,17 +31,17 @@ const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
             setImageHeight(128.99);
         }
     }, []);
-
+    // console.log(currentIndex, "card");
     React.useEffect(() => {
         setAnimater(animate ? "animation" : "");
-    }, [currentIndex]);
+    }, []);
 
     return (
-        <div className={styles["carousel-card"] + " " + styles[`${animater}`]}>
+        <div className={styles["carousel-card"] + " " + styles[`${animate ? "animation" : ""}`]} key={key}>
             <div className={styles["carousel-card-image"]}>
                 <div className={styles["card-image-outer"]} style={{ backgroundImage: starPath, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
-                    <div className={styles["card-image-inner"]}>
-                        <Image src={image} alt={title} height={imageHeight} width={imageWidth} sizes="(max-width: 1100px) calc((100vw / 393) * 120.33)" />
+                    <div>
+                        <Image src={image} alt={title} height={imageHeight} width={imageWidth} className={styles["card-image-inner"]} />
                     </div>
                 </div>
             </div>

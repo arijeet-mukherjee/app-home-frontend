@@ -31,7 +31,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     justify-content: center;
-    gap: calc((100vw / 1920) * 50);
+    gap: calc((100vw / 1920) * 110);
     align-items: center;
     transform-style: preserve-3d;
 }
@@ -86,8 +86,8 @@
 
 .carousel-dot-button {
     display: flex;
-    padding-top: 25px;
-    gap: 10px;
+    padding-top: calc((100vw / 1920) * 25);
+    gap: calc((100vw / 1920) * 10);
     justify-content: center;
     align-items: center;
 }
@@ -127,8 +127,8 @@
         gap: calc((100vw / 393) * 10);
         margin-bottom: 10px;
     }
-    
-     .carousel-wrapper {
+
+    .carousel-wrapper {
         padding-top: 15px;
         padding-bottom: 5px;
     }

@@ -33,10 +33,10 @@
 .quizCard {
     display: grid;
     grid-template-rows: auto 1fr;
-    padding-top: calc((100vw / 1920)* 117) ;
-    padding-right: calc((100vw / 1920)* 320) ;
-    padding-bottom: calc((100vw / 1920)* 117) ;
-    padding-left: calc((100vw / 1920)* 320) ;
+    padding-top: calc((100vw / 1920)* 117);
+    padding-right: calc((100vw / 1920)* 320);
+    padding-bottom: calc((100vw / 1920)* 117);
+    padding-left: calc((100vw / 1920)* 320);
     margin-bottom: calc((100vw / 1920)* 60);
     background: var(--background-color-dark);
 }
@@ -81,7 +81,7 @@
 
     .cardBoxRemain {
         padding: 0px;
-        margin: 5px;
+        /* margin: 5px; */
     }
 
     /* .carousel-container-1::before {
@@ -96,7 +96,7 @@
 
     .carousel-container-2 {
         width: 100vw;
-        padding: calc((100vw / 393) * 1);
+        /* padding: calc((100vw / 393) * 1); */
     }
 
     .quizCard {
