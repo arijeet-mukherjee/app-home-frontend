@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refL
                     className={styles.burgerSize}
                     onClick={(e) => {
                         e.preventDefault();
-                        openModal();
+                        openModal(false, "");
                     }}
                 />
             </div>

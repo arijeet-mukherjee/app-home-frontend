@@ -19,7 +19,7 @@ const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false }
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
 const QuizWindow = dynamic(() => import('@component/common/QuizWindow'), { ssr: false });
-import { isMobile } from "@util/index";
+import { isMobile, goTo } from "@util/index";
 
 export default function Home() {
   const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
@@ -51,22 +51,31 @@ export default function Home() {
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const refList = {
-    "Introduction": refIntroduction,
-    "USP": refCardQuality,
-    "Offering": refCTABox,
-    "More": refNewsLetter,
-    "Quiz": refQuizWindow,
-  }
+  const [refList, setRefList] = React.useState<{ [key: string]: any }>({});
+  React.useEffect(() => {
+    let ListIndex: [] = data.header.navigation_bar.navbarItems
+    let refListValues = [refIntroduction, refCardQuality, refCTABox, refNewsLetter, refQuizWindow]
+    for (let i = 0; i < 5; i++) {
+      setRefList((prev: any) => ({ ...prev, [ListIndex[i].label]: refListValues[i] }))
+    }
+  }, [data])
+  console.log(refList)
 
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
-  const openModal = useCallback(() => {
+  const openModal = useCallback((gotocaller: boolean, item?: String) => {
     setModalOpen(prevModalOpen => !prevModalOpen);
     dispatch(setShieldState({ ...shield, top: 80, visible: true }));
+    if (gotocaller) {
+      setTimeout(() => {
+        goTo(refList[item])
+      }, 400);
+    }
   }, []);
+
   const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
+
   React.useEffect(() => {
     if (isMobile()) {
       setCarouselStyle({ backgroundImage: "url(/worldmap.svg)", background: "linear-gradient(to bottom, #0A041F 30%, transparent 30%)" });

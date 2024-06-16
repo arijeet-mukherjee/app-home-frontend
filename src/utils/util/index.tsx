@@ -24,9 +24,18 @@ export function goToTop() {
 }
 
 export function goTo(ref: any) {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
-    // if (ref.current) {
-    // }
+    if (isMobile()) {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+        // if (ref.current) {
+        // }
+    } else {
+        setTimeout(() => {
+            if (ref.current) {
+                ref.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 300);
+
+    }
 }
 
 export function emailVerified(email: string): boolean {

@@ -25,7 +25,7 @@ interface MobileNavModalProps {
     modalState: boolean;
     headerData: any;
     navbarData: any;
-    ref : any;
+    ref: any;
 }
 const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState, headerData, navbarData, ref }) => {
     const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
@@ -33,6 +33,7 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState,
     const handleLanguage = (lang: string) => {
         dispatch(setGlobalLanguage({ globalLanguage: lang }))
     }
+
     return (
         <div className={styles.mobileNavModal} style={modalState ? {
             height: '100vh'
@@ -46,12 +47,9 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState,
                 {list?.map((item, index) => {
                     if (item.dditem?.length === 0) {
                         return (
-
-                            <div className={styles.navItem} onClick={() => goTo(ref[item.label])} key={index} >{item.label}</div>
-
+                            <div className={styles.navItem} onClick={() => closeModal(true, item.label)} key={index} >{item.label}</div>
                         )
                     }
-
                 }
                 )}
             </div>
