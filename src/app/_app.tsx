@@ -74,7 +74,7 @@ export default function Home() {
   }, [])
   return (
     <>
-      <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} />
+      <MobileNavModal ref={refList} modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} />
       <div className={styles["container"]} style={modalOpen ? { height: '100vh', overflow: 'hidden' } : {}}>
 
         <Hero
@@ -138,12 +138,12 @@ export default function Home() {
             />
           }
         </div>
-        <div className={styles["carousel-container-1"] + " " + styles["cardBoxRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
+        <div className={styles["carousel-container-1"] + " " + styles["cardCarousalRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
           {
             isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
           }
         </div>
-        <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} ref={refCarouselUpcomingSubscription}>
+        <div className={styles["carousel-container-2"] + " " + styles["cardCarousalRemain"]} ref={refCarouselUpcomingSubscription}>
           {
             isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
           }
