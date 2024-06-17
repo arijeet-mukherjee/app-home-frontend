@@ -1,4 +1,9 @@
 "use client";
+declare global {
+  interface Window {
+    Tawk_API: any;
+  }
+}
 import { useEffect } from 'react';
 
 const TawkToWidget: React.FC = () => {
@@ -11,6 +16,14 @@ const TawkToWidget: React.FC = () => {
       s1.charset = 'UTF-8';
       s1.setAttribute('crossorigin', '*');
       document.head.appendChild(s1);
+
+      s1.onload = () => {
+        if (window.Tawk_API) {
+          window.Tawk_API.onLoad = function(){
+            window.Tawk_API.showWidget();
+          };
+        }
+      };
 
       return () => {
         document.head.removeChild(s1);
