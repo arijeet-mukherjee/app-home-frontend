@@ -23,18 +23,17 @@ export function goToTop() {
     });
 }
 
-export function goTo(ref: any) {
+export async function goTo(ref: any) {
     if (isMobile()) {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-        // if (ref.current) {
-        // }
+        if (ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
     } else {
         setTimeout(() => {
             if (ref.current) {
                 ref.current.scrollIntoView({ behavior: 'smooth' });
             }
         }, 300);
-
     }
 }
 

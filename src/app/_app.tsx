@@ -51,20 +51,30 @@ export default function Home() {
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [refList, setRefList] = React.useState<{ [key: string]: any }>({});
+  let ListIndex = data.header.navigation_bar.navbarItems
+  let refListValues = [refIntroduction, refCardQuality, refCTABox, refNewsLetter, refQuizWindow]
+  const [refList, setRefList] = React.useState<{ [key: string]: any }>({
+    [ListIndex[0].label]: refIntroduction,
+    [ListIndex[1].label]: refCardQuality,
+    [ListIndex[2].label]: refCTABox,
+    [ListIndex[3].label]: refNewsLetter,
+    [ListIndex[4].label]: refQuizWindow,
+  });
   React.useEffect(() => {
-    let ListIndex: [] = data.header.navigation_bar.navbarItems
-    let refListValues = [refIntroduction, refCardQuality, refCTABox, refNewsLetter, refQuizWindow]
-    for (let i = 0; i < 5; i++) {
-      setRefList((prev: any) => ({ ...prev, [ListIndex[i].label]: refListValues[i] }))
-    }
-  }, [data])
-  console.log(refList)
+    let ListIndex = data.header.navigation_bar.navbarItems
+    setRefList({
+      [ListIndex[0].label]: refIntroduction,
+      [ListIndex[1].label]: refCardQuality,
+      [ListIndex[2].label]: refCTABox,
+      [ListIndex[3].label]: refNewsLetter,
+      [ListIndex[4].label]: refQuizWindow,
+    })
+  }, [globalLanguage.globalLanguage, modalOpen])
 
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
-  const openModal = useCallback((gotocaller: boolean, item?: String) => {
+  const openModal = useCallback((gotocaller: boolean, refList: Object, item: String) => {
     setModalOpen(prevModalOpen => !prevModalOpen);
     dispatch(setShieldState({ ...shield, top: 80, visible: true }));
     if (gotocaller) {
@@ -83,7 +93,7 @@ export default function Home() {
   }, [])
   return (
     <>
-      <MobileNavModal ref={refList} modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} />
+      <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} refList={refList} />
       <div className={styles["container"]} style={modalOpen ? { height: '100vh', overflow: 'hidden' } : {}}>
 
         <Hero

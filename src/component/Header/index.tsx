@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refL
                     if (item.dditem?.length === 0) {
                         return (
                             <div aria-label={item.label} key={index}>
-                                <Link className={styles.navItem} href={item.url} onClick={() => goTo(refList[item.label])}>{item.label}</Link>
+                                <Link className={styles.navItem} href={item.url} onClick={async () => await goTo(refList[item.label])}>{item.label}</Link>
                             </div>
                         )
                     }
@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refL
                     className={styles.burgerSize}
                     onClick={(e) => {
                         e.preventDefault();
-                        openModal(false, "");
+                        openModal(false, refList, "");
                     }}
                 />
             </div>

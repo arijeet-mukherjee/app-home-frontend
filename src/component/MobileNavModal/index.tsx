@@ -15,7 +15,7 @@ interface dd {
 }
 
 interface navlink {
-    label: string;
+    label: String;
     url: string;
     dditem?: dd[];
 }
@@ -25,15 +25,14 @@ interface MobileNavModalProps {
     modalState: boolean;
     headerData: any;
     navbarData: any;
-    ref: any;
+    refList: {};
 }
-const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState, headerData, navbarData, ref }) => {
+const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState, headerData, navbarData, refList }) => {
     const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
     const dispatch = useAppDispatch();
     const handleLanguage = (lang: string) => {
         dispatch(setGlobalLanguage({ globalLanguage: lang }))
     }
-
     return (
         <div className={styles.mobileNavModal} style={modalState ? {
             height: '100vh'
@@ -41,13 +40,13 @@ const MobileNavModal: FC<MobileNavModalProps> = ({ list, closeModal, modalState,
             height: '0vh',
         }}>
             <div className={styles.headerContainer}>
-                <Header refList={ref} openModal={closeModal} modalState={modalState} headerData={headerData} />
+                <Header refList={refList} openModal={closeModal} modalState={modalState} headerData={headerData} />
             </div>
             <div className={styles.navBar}>
                 {list?.map((item, index) => {
                     if (item.dditem?.length === 0) {
                         return (
-                            <div className={styles.navItem} onClick={() => closeModal(true, item.label)} key={index} >{item.label}</div>
+                            <div className={styles.navItem} onClick={() => closeModal(true, refList, item.label)} key={index} >{item.label}</div>
                         )
                     }
                 }
