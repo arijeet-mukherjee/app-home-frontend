@@ -59,7 +59,7 @@ export default function Home() {
     [ListIndex[2].label]: refCTABox,
     [ListIndex[3].label]: refNewsLetter,
     [ListIndex[4].label]: refQuizWindow,
-  });
+  } as { [key: string]: React.RefObject<HTMLDivElement> });
   React.useEffect(() => {
     let ListIndex = data.header.navigation_bar.navbarItems
     setRefList({
@@ -74,7 +74,7 @@ export default function Home() {
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
-  const openModal = useCallback((gotocaller: boolean, refList: Object, item: String) => {
+  const openModal = useCallback((gotocaller: boolean, refList: any, item: string) => {
     setModalOpen(prevModalOpen => !prevModalOpen);
     dispatch(setShieldState({ ...shield, top: 80, visible: true }));
     if (gotocaller) {
