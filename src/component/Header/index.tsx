@@ -6,16 +6,17 @@ import Button from '../common/Button';
 import Link from 'next/link';
 import { useAppSelector } from '@store/store';
 import DDMenu from '@component/common/DropdownMenu';
-import { isMobile } from '@util/index';
+import { isMobile, goTo } from '@util/index';
 
 
 interface HeaderProps {
     openModal: Function;
     modalState: boolean;
     headerData: any;
+    refList: any,
 };
 
-const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) => {
+const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refList }) => {
     const [logoSize, setLogoSize] = useState({
         height: 48,
         width: 176
@@ -60,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                     if (item.dditem?.length === 0) {
                         return (
                             <div aria-label={item.label} key={index}>
-                                <Link className={styles.navItem} href={item.url} >{item.label}</Link>
+                                <Link className={styles.navItem} href={item.url} onClick={async () => await goTo(refList[item.label])}>{item.label}</Link>
                             </div>
                         )
                     }
@@ -114,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData }) =>
                     className={styles.burgerSize}
                     onClick={(e) => {
                         e.preventDefault();
-                        openModal();
+                        openModal(false, refList, "");
                     }}
                 />
             </div>

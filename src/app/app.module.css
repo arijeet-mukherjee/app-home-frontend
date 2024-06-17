@@ -26,6 +26,12 @@
     gap: calc((100vw / 1920)* 60);
 }
 
+.cardCarousalRemain {
+    padding: 0 calc((100vw / 1920)* 160);
+    display: block;
+    gap: calc((100vw / 1920)* 60);
+}
+
 .whiteBackground {
     background: var(--text-icon-color);
 }
@@ -81,8 +87,13 @@
 
     .cardBoxRemain {
         padding: 0px;
-        /* margin: 5px; */
+        margin: 5px;
     }
+
+    .cardCarousalRemain {
+        padding: 0px;       
+    }
+    
 
     /* .carousel-container-1::before {
         position: absolute;

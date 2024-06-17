@@ -23,6 +23,20 @@ export function goToTop() {
     });
 }
 
+export async function goTo(ref: any) {
+    if (isMobile()) {
+        if (ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        setTimeout(() => {
+            if (ref.current) {
+                ref.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 300);
+    }
+}
+
 export function emailVerified(email: string): boolean {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailRegex.test(email)) {

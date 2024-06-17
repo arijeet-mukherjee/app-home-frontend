@@ -13,9 +13,10 @@ interface HeroProps {
     openModal: Function;
     modalState: boolean;
     headerData: any;
+    refList: any
 };
 
-const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState, headerData }) => {
+const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal, modalState, headerData, refList }) => {
     //If either introduction or content length is not eqaul to 2, throw an error
 
     const [checkMobile, setCheckMobile] = useState<boolean>(false);
@@ -50,7 +51,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
         <div className={styles["hero"]}>
             {/* Your component content goes here */}
             <div className={styles["header"]}>
-                <Header openModal={openModal} modalState={modalState} headerData={headerData} />
+                <Header openModal={openModal} modalState={modalState} headerData={headerData} refList={refList} />
             </div>
             <div className={styles['heroBlock']}>
                 <div className={styles["heroIntroduction"]}>

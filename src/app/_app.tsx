@@ -18,12 +18,15 @@ const CTABox = dynamic(() => import('@component/CTASection'), { ssr: false });
 const NewsLetter = dynamic(() => import('@component/NewsLetter'), { ssr: false });
 const Footer = dynamic(() => import('@component/Footer'), { ssr: false });
 const TawkChatWidget = dynamic(() => import('@component/common/TawkChat'), { ssr: false });
-import { isMobile } from "@util/index";
-import QuizWindow from "@component/common/QuizWindow";
+const QuizWindow = dynamic(() => import('@component/common/QuizWindow'), { ssr: false });
+import { isMobile, goTo } from "@util/index";
 
 export default function Home() {
   const globalLanguage = useAppSelector<any>(state => state.globalLanguage);
   const data = require(`../component/data/${globalLanguage.globalLanguage}.json`);
+
+  const refIntroduction = useRef<HTMLDivElement>(null);
+
   const refCardQuality = useRef<HTMLDivElement>(null);
   const isVisibleCardQuality = useOnScreen(refCardQuality, '0px');
 
@@ -46,16 +49,43 @@ export default function Home() {
   const refFooter = useRef<HTMLDivElement>(null);
   const isVisiblefFooter = useOnScreen(refFooter, '200px');
 
-  const [modalOpen, setModalOpen] = useState(false);    
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
+  let ListIndex = data.header.navigation_bar.navbarItems
+  let refListValues = [refIntroduction, refCardQuality, refCTABox, refNewsLetter, refQuizWindow]
+  const [refList, setRefList] = React.useState<{ [key: string]: any }>({
+    [ListIndex[0].label]: refIntroduction,
+    [ListIndex[1].label]: refCardQuality,
+    [ListIndex[2].label]: refCTABox,
+    [ListIndex[3].label]: refNewsLetter,
+    [ListIndex[4].label]: refQuizWindow,
+  } as { [key: string]: React.RefObject<HTMLDivElement> });
+  React.useEffect(() => {
+    let ListIndex = data.header.navigation_bar.navbarItems
+    setRefList({
+      [ListIndex[0].label]: refIntroduction,
+      [ListIndex[1].label]: refCardQuality,
+      [ListIndex[2].label]: refCTABox,
+      [ListIndex[3].label]: refNewsLetter,
+      [ListIndex[4].label]: refQuizWindow,
+    })
+  }, [globalLanguage.globalLanguage, modalOpen])
+
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
-  const openModal = useCallback(() => {
+  const openModal = useCallback((gotocaller: boolean, refList: any, item: string) => {
     setModalOpen(prevModalOpen => !prevModalOpen);
-    dispatch(setShieldState({ ...shield, top: 80 ,visible: true }));
+    dispatch(setShieldState({ ...shield, top: 80, visible: true }));
+    if (gotocaller) {
+      setTimeout(() => {
+        goTo(refList[item])
+      }, 400);
+    }
   }, []);
+
   const [carouselStyle, setCarouselStyle] = useState<any>({ backgroundImage: "url(/worldmap.svg)", backgroundSize: "contain", backgroundRepeat: "no-repeat" });
+
   React.useEffect(() => {
     if (isMobile()) {
       setCarouselStyle({ backgroundImage: "url(/worldmap.svg)", background: "linear-gradient(to bottom, #0A041F 30%, transparent 30%)" });
@@ -63,7 +93,7 @@ export default function Home() {
   }, [])
   return (
     <>
-      <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} />
+      <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} refList={refList} />
       <div className={styles["container"]} style={modalOpen ? { height: '100vh', overflow: 'hidden' } : {}}>
 
         <Hero
@@ -72,10 +102,11 @@ export default function Home() {
           openModal={openModal}
           modalState={modalOpen}
           headerData={data.header}
+          refList={refList}
         />
 
         <Shield top={shield.top} right={shield.right} />
-        <div className={styles["cardBoxFirst"]}>
+        <div className={styles["cardBoxFirst"]} ref={refIntroduction}>
           <CardBox
             title={data.introduction.title}
             description={data.introduction.description}
@@ -126,12 +157,12 @@ export default function Home() {
             />
           }
         </div>
-        <div className={styles["carousel-container-1"] + " " + styles["cardBoxRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
+        <div className={styles["carousel-container-1"] + " " + styles["cardCarousalRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
           {
             isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
           }
         </div>
-        <div className={styles["carousel-container-2"] + " " + styles["cardBoxRemain"]} ref={refCarouselUpcomingSubscription}>
+        <div className={styles["carousel-container-2"] + " " + styles["cardCarousalRemain"]} ref={refCarouselUpcomingSubscription}>
           {
             isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
           }
