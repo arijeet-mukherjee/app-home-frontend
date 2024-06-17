@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
 
     function handelClick(e: React.MouseEvent<HTMLDivElement>) {
         e.preventDefault();
-        typeof window !== 'undefined' && window.open(`/`, '_self');
+        typeof window !== 'undefined' && window.Tawk_API?.maximize();
     }
 
     return (
