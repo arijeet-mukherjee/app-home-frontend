@@ -71,6 +71,10 @@ export default function Home() {
     })
   }, [globalLanguage.globalLanguage, modalOpen])
 
+  const redirectComponent = useCallback((item: string) => {
+    goTo(refList[item])
+  }, []);
+
   const dispatch = useAppDispatch();
   const shield = useAppSelector(state => state.shield);
 
@@ -93,7 +97,7 @@ export default function Home() {
   }, [])
   return (
     <>
-      <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} refList={refList} />
+      {isMobile() ? <MobileNavModal modalState={modalOpen} closeModal={openModal} list={data.header.navigation_bar.navbarItems} headerData={data.header} navbarData={data.header.navigation_bar} refList={refList} /> : <></>}
       <div className={styles["container"]} style={modalOpen ? { height: '100vh', overflow: 'hidden' } : {}}>
 
         <Hero
@@ -118,6 +122,7 @@ export default function Home() {
             paddingLeftContent={data.introduction.paddingLeftContent}
             paddingImageContent={data.introduction.paddingImageContent}
             goTo={data.introduction.goTo}
+            redirectComponent={redirectComponent}
           />
         </div>
         <div className={styles["cardBoxRemain"]}>
@@ -132,6 +137,7 @@ export default function Home() {
             paddingLeftContent={data.yourShield.paddingLeftContent}
             paddingImageContent={data.yourShield.paddingImageContent}
             goTo={data.yourShield.goTo}
+            redirectComponent={redirectComponent}
           />
           <CardBox
             title={data.jointheMovement.title}
@@ -144,6 +150,7 @@ export default function Home() {
             paddingLeftContent={data.jointheMovement.paddingLeftContent}
             paddingImageContent={data.jointheMovement.paddingImageContent}
             goTo={data.jointheMovement.goTo}
+            redirectComponent={redirectComponent}
           />
         </div>
         <div ref={refCardQuality} className={styles["whiteBackground"]}>
