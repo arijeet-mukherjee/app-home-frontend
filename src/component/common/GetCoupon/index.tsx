@@ -5,7 +5,12 @@ import { useRef, useState } from 'react';
 import { emailVerified } from '@util/index';
 import Image from 'next/image';
 
-const GetCoupon = () => {
+interface GetCouponProps {
+    GetCouponInMyInboxButton: string;
+}
+
+
+const GetCoupon : React.FC<GetCouponProps> = ({ GetCouponInMyInboxButton }) => {
     const [inputs, setInputs] = useState({ name: '', email: '' });
     const closeName = useRef<HTMLImageElement>(null!);
     const closeEmail = useRef<HTMLImageElement>(null!);
@@ -74,7 +79,7 @@ const GetCoupon = () => {
                 </div>
                 <div className={styles["coupon-button"]} role='button' onClick={handelClick}>
                     <a className={styles["button"]}>
-                        <span className={styles["button-text"]} aria-label="Get coupon in my inbox">Get Coupon in My Inbox</span>
+                        <span className={styles["button-text"]} aria-label="Get coupon in my inbox">{GetCouponInMyInboxButton}</span>
                     </a>
                 </div>
             </div>

@@ -19,6 +19,24 @@ interface ThreatScorecardProps {
     totalCorrectScore: number,
     resetQuizState: any
     setGetCoupon : Function;
+    quizContent: {
+        VulnerabilityTitle: string;
+        Threat: string;
+        Security: string;
+        ThreatCalculator : string;
+        YourDeviceIsAtRisk: string;
+        Score: string;
+        TotalThreat: string;
+        DiscountPercent : string;
+        DiscountText: string;
+        Message: string;
+        couponText: string;
+        getCouponCodebutton: string;
+        GetCouponInMyInboxButton : string;
+        Skip : string;
+        Next : string;
+        CheckYourScore: string;
+    };
 };
 
 const getCoupon = (setGetCoupon: Function) => {
@@ -34,7 +52,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
     const isQuizRefreshed  = useAppSelector(state => state.refreshQuiz)
     const dispatch = useAppDispatch();
 
-    let { categoryScores, totalCorrectScore, resetQuizState, setGetCoupon } = props;
+    let { categoryScores, totalCorrectScore, resetQuizState, setGetCoupon, quizContent } = props;
     let fixedtotalCorrectScore = Number(totalCorrectScore.toFixed(0));
     const remainingThreat = 100 - fixedtotalCorrectScore;
     const restartQuiz = () => {
@@ -48,11 +66,11 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
             <div className={styles["vunerability-section"]} >
                 <div className={styles["vunerability-percentage"]}>
                     <div className={styles["vunerability-header"]}>
-                        <div className={styles["vunerability-title"]}>Vulnerability Percentage</div>
+                        <div className={styles["vunerability-title"]}>{quizContent.VulnerabilityTitle}</div>
                         <div className={styles["vunerability-heading"]}>
                             <div>#</div>
-                            <div>Threat</div>
-                            <div>Security Level</div>
+                            <div>{quizContent.Threat}</div>
+                            <div>{quizContent.Security}</div>
                             <div>%</div>
                         </div>
                     </div>
@@ -69,8 +87,8 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                 </div>
                 <div className={styles["discount-coupon-section"]}>
                     <div className={styles["discount-section"]}>
-                        <div className={styles["discount-percent"]}>50%</div>
-                        <div className={styles["discount-text"]}>Discount</div>
+                        <div className={styles["discount-percent"]}>{quizContent.DiscountPercent}</div>
+                        <div className={styles["discount-text"]}>{quizContent.DiscountText}</div>
                     </div>
                     <div className={styles["couponcode-message-section"]}>
                         <div className={styles["message-section"]}>
@@ -79,12 +97,12 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                             </div>
                             <div className={styles["message-name"]}>
                                 <div className={styles["message-username"]}>Youri Van Der Zwart</div>
-                                <div className={styles["message-forcustomer"]}>Hi, you did great. Want us to help you?</div>
+                                <div className={styles["message-forcustomer"]}>{quizContent.Message}</div>
 
                             </div>
                         </div>
                         <div className={styles["couponcode-section"]}>
-                            <div className={styles["couponcode"]}>Coupon Code : SEC****4***</div>
+                            <div className={styles["couponcode"]}>{quizContent.couponText}</div>
                         </div>
                     </div>
                 </div>
@@ -92,10 +110,10 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
             <div className={styles["threat-section"]}>
                 <div className={styles["threatcalculator-section"]}>
                     <div className={styles["threatcalculator-text"]}>
-                        <div className={styles["threatcalculator-title"]}>Threat Calculator</div>
-                        <div className={styles["riskstatus"]}>Your Device is at risk</div>
-                        <div className={styles["threatscore"]}>Score:{fixedtotalCorrectScore}%</div>
-                        <div className={styles["totalthreat"]}>Total Threat: {remainingThreat}%</div>
+                        <div className={styles["threatcalculator-title"]}>{quizContent.ThreatCalculator}</div>
+                        <div className={styles["riskstatus"]}>{quizContent.YourDeviceIsAtRisk}</div>
+                        <div className={styles["threatscore"]}>{quizContent.Score}: {fixedtotalCorrectScore}%</div>
+                        <div className={styles["totalthreat"]}>{quizContent.TotalThreat}: {remainingThreat}%</div>
                     </div>
                     <div className={styles["progressbar"]}>
                         <ProgressBar value={fixedtotalCorrectScore} />
@@ -104,7 +122,7 @@ const ThreatScorecard: React.FC<ThreatScorecardProps> = (props: ThreatScorecardP
                 <div className={styles["getcouponrefresh-section"]}>
                     <div className={styles["getcoupon-button"]} onClick={()=>getCoupon(setGetCoupon)}>
                         <a>
-                            <span className={styles["button-text"]}>Get Coupon Code</span>
+                            <span className={styles["button-text"]}>{quizContent.getCouponCodebutton}</span>
                             <span className={styles["button-icon"]}>
                                 <Image src="/arrowrightwhite.svg" alt="arrow right" className={styles.arrowImg} width={39.83} height={23.31} />
                             </span>

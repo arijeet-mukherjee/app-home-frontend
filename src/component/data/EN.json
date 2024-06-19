@@ -561,6 +561,25 @@
             }
         }
     ],
+
+    "quizContent" : {
+        "VulnerabilityTitle": "Vulnerability Percentage",
+        "Threat": "Threat",
+        "Security": "Security Level",
+        "ThreatCalculator" : "Threat Calculator",
+        "YourDeviceIsAtRisk": "Your Device is at risk",
+        "Score": "Score",
+        "TotalThreat": "Total Threat",
+        "DiscountPercent" : "50%",
+        "DiscountText": "Discount",
+        "Message": "Hi, you did great. Want us to help you?",
+        "couponText": "Coupon Code : SEC****4***",
+        "getCouponCodebutton": "Get Coupon Code",
+        "GetCouponInMyInboxButton" : "Get Coupon in My Inbox",
+        "Skip" : "Skip",
+        "Next" : "Next",
+        "CheckYourScore": "Check Your Score"
+    },
     "newsLetter": {
         "title": "Stay up to date with the latest in security with the Secdesk security newsletter!",
         "image": {

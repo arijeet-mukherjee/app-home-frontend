@@ -12,6 +12,24 @@ const ThreatScorecard = dynamic(() => import('@component/threatScorecard'));
 import GetCoupon from '../GetCoupon';
 interface QuizWindow {
     quizDetail: Array<Object>;
+    quizContent: {
+        VulnerabilityTitle: string;
+        Threat: string;
+        Security: string;
+        ThreatCalculator : string;
+        YourDeviceIsAtRisk: string;
+        Score: string;
+        TotalThreat: string;
+        DiscountPercent : string;
+        DiscountText: string;
+        Message: string;
+        couponText: string;
+        getCouponCodebutton: string;
+        GetCouponInMyInboxButton : string;
+        Skip : string;
+        Next : string;
+        CheckYourScore: string;
+    };
 };
 
 interface Question {
@@ -31,7 +49,7 @@ const getLabel = (index: number): string => {
   };
 
 
-const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
+const QuizWindow: React.FC<QuizWindow> = ({ quizDetail, quizContent }) => {
 
     const [questions, setQuestions] = useState<Object[]>([]);
     const [totalQuestions, setTotalQuestions] = useState(0);
@@ -239,14 +257,14 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                     questions && questions.length > 0 &&
                     
                     <div className={styles["questions-button"]} style={{ display: currentQuestionIndex === (totalQuestions - 1) ? 'none' : 'flex' }}>
-                        <button onClick={(event) => { skipButtonClicked(event) }} > {optionchosen && optionchosen !== '' ? 'Next' : 'Skip'} </button>
+                        <button onClick={(event) => { skipButtonClicked(event) }} > {optionchosen && optionchosen !== '' ? `${quizContent.Next}` : `${quizContent.Skip}`} </button>
                     </div>
                 }
                 {
                     questions && questions.length > 0 &&
 
                     <div className={styles["questions-button"]} style={{ display: currentQuestionIndex === (totalQuestions - 1) ? 'flex' : 'none' }}>
-                        <button onClick={(event) => { scoreCalculator(event) }} > {optionchosen && optionchosen !== '' ? 'Check Your Score' : 'Skip'} </button>
+                        <button onClick={(event) => { scoreCalculator(event) }} > {optionchosen && optionchosen !== '' ? `${quizContent.CheckYourScore}` : `${quizContent.Skip}`} </button>
                     </div>
                 }
             </div>) : (<div className={styles["quiz-scorecontent"]}>
@@ -255,10 +273,11 @@ const QuizWindow: React.FC<QuizWindow> = ({ quizDetail }) => {
                 totalCorrectScore = {totalCorrectScore}
                 resetQuizState = {resetQuizState}
                 setGetCoupon={setGetCoupon}
+                quizContent={quizContent}
             /></div>)}
             </>
             :
-            <GetCoupon/>
+            <GetCoupon GetCouponInMyInboxButton={quizContent.GetCouponInMyInboxButton}/>
             }
         </div>
     );
