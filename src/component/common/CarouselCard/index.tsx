@@ -15,10 +15,11 @@ interface CardProps {
     buttonText: string,
     key: number
     // currentIndex: number,
-    animate: boolean
+    animate: boolean,
+    redirectComponent: Function
 }
 const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
-    const { image, title, description, url, toggleButton, buttonText, animate, key } = props;
+    const { image, title, description, url, toggleButton, buttonText, animate, key, redirectComponent } = props;
     const [animater, setAnimater] = React.useState("");
     const [starPath, setStarPath] = React.useState("url(/starvector.svg)");
     const [imageHeight, setImageHeight] = React.useState(178.67);
@@ -49,9 +50,7 @@ const CarouselCard: React.FC<CardProps> = (props: CardProps) => {
                 <h3 className={styles["carousel-card-title"]}>{title}</h3>
                 <p className={styles["carousel-card-description"]}>{description}</p>
                 {toggleButton && (
-                    <Link href={url} legacyBehavior>
-                        <p className={styles["carousel-card-button"]}>{buttonText}</p>
-                    </Link>
+                    <p className={styles["carousel-card-button"]} onClick={() => redirectComponent(url)}>{buttonText}</p>
                 )}
             </div>
         </div>
