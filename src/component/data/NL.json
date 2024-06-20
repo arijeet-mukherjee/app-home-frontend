@@ -188,9 +188,9 @@
                 "socialIcon": "/twitter.svg"
             },
             {
-                "socialName": "Youtube",
+                "socialName": "LinkedIn",
                 "socialUrl": "/",
-                "socialIcon": "/youtube.svg"
+                "socialIcon": "/linkedin.svg"
             },
             {
                 "socialName": "Instagram",
@@ -198,9 +198,9 @@
                 "socialIcon": "/insta.svg"
             },
             {
-                "socialName": "Spotify",
+                "socialName": "Tiktok",
                 "socialUrl": "/",
-                "socialIcon": "/spotify.svg"
+                "socialIcon": "/tiktok.svg"
             }
         ]
     },
@@ -562,6 +562,26 @@
             }
         }
     ],
+
+    "quizContent" : {
+        "VulnerabilityTitle": "Vulnerability Percentage",
+        "Threat": "Threat",
+        "Security": "Security Level",
+        "ThreatCalculator" : "Threat Calculator",
+        "YourDeviceIsAtRisk": "Your Device is at risk",
+        "Score": "Score",
+        "TotalThreat": "Total Threat",
+        "DiscountPercent" : "50%",
+        "DiscountText": "Discounta",
+        "Message": "Hi, you did greata. Want us to help you?",
+        "couponText": "Coupon Code : SEC****4***",
+        "getCouponCodebutton": "Get Coupona Code",
+        "GetCouponInMyInboxButton" : "Get Coupon in My mail box",
+        "Skip" : "Skip",
+        "Next" : "Next",
+        "CheckYourScore": "Check Your Score"
+    },
+
     "newsLetter": {
         "title": "Stay up to date with the latest in security with the Secdesk security newsletter!",
         "image": {
