@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useState, ReactNode } from 'react';
-import { isMobile, emailVerified } from '@util/index';
+import { isMobile, emailVerified, makeWebServiceCall } from '@util/index';
 
 interface CardBoxProps {
     background?: {
@@ -38,7 +38,7 @@ interface CardBoxProps {
     goTo?: string,
     fullGradient?: boolean,
     child?: ReactNode,
-    redirectComponent: Function
+    redirectComponent?: any
 };
 
 const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
@@ -67,8 +67,19 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
         e.preventDefault();
         if (inputBox) {
             if (emailVerified(email)) {
-                alert(email + " created successfully");
-                typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
+                makeWebServiceCall(process.env.API_URL + '/newsletter/subscribe', 'post', {
+                    id: Math.random(),
+                    email: email?.toString(),
+                    subscriptionUrl: typeof window !== 'undefined' ? window.location.host : ''
+                })
+                    .then(data => {
+                        console.log(data);
+                        alert(email + " created successfully");
+                        typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
             }
             else {
                 alert("Please enter a valid email address");
