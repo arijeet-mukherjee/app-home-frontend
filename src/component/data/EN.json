@@ -187,9 +187,9 @@
                 "socialIcon": "/twitter.svg"
             },
             {
-                "socialName": "Youtube",
+                "socialName": "LinkedIn",
                 "socialUrl": "/",
-                "socialIcon": "/youtube.svg"
+                "socialIcon": "/linkedin.svg"
             },
             {
                 "socialName": "Instagram",
@@ -197,9 +197,9 @@
                 "socialIcon": "/insta.svg"
             },
             {
-                "socialName": "Spotify",
+                "socialName": "Tiktok",
                 "socialUrl": "/",
-                "socialIcon": "/spotify.svg"
+                "socialIcon": "/tiktok.svg"
             }
         ]
     },
