@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic';
 const Card = dynamic(() => import('./Card'));
 import styles from "./quality.module.css"
@@ -9,6 +9,7 @@ import { isMobile } from '@util/index';
 interface qualityCard {
   heading?: Array<string>;
   content?: string;
+  redirectComponent: Function;
   background?: {
     name: string;
     path: string;
@@ -26,7 +27,7 @@ interface qualityCard {
         pathMobile?: string;
         name: string;
       }
-      bg?:{
+      bg?: {
         backgroundColorDesktop?: string;
         backgroundColorMobile?: string;
         backgroundImg?: string;
@@ -50,7 +51,7 @@ interface qualityCard {
         pathMobile?: string;
         name: string;
       }
-      bg?:{
+      bg?: {
         backgroundColorDesktop?: string;
         backgroundColorMobile?: string;
         backgroundImg?: string;
@@ -75,7 +76,7 @@ interface qualityCard {
   }
 }
 
-const QualityCard: React.FC<qualityCard> = ({ heading, content, background, button, childCardProp }) => {
+const QualityCard: React.FC<qualityCard> = ({ heading, content, background, button, childCardProp, redirectComponent }) => {
 
   const [title, setTitle] = useState<string[]>([]);
 
@@ -92,78 +93,74 @@ const QualityCard: React.FC<qualityCard> = ({ heading, content, background, butt
 
   useEffect(() => {
     if (isMobile()) {
-     setGridArea({
+      setGridArea({
         box1: '4/1',
         box2: '2/1',
         box3: '1/1',
         box4: '3/1'
-     }); 
-     setTranslate({
+      });
+      setTranslate({
         left: 0,
         right: 0
-     });
+      });
 
-     if(heading && heading.length > 2){
-      let arr: string[] = [];
-      for(let i = heading.length-1; i >= 0; i-=2){
-        if(heading[i] && heading[i-1]){
-          let h1 = heading[i];
-          let h2 = heading[i-1];
+      if (heading && heading.length > 2) {
+        let arr: string[] = [];
+        for (let i = heading.length - 1; i >= 0; i -= 2) {
+          if (heading[i] && heading[i - 1]) {
+            let h1 = heading[i];
+            let h2 = heading[i - 1];
             let temp = h2.concat(h1);
             arr.push(temp);
           }
-          else if(heading[i]){
+          else if (heading[i]) {
             let h1 = heading[i];
             arr.push(h1);
           }
         }
         setTitle(arr.reverse());
-     }
-     else if(heading && heading.length){
-      setTitle(heading);
-     }
-    } 
-    else{
-      if(heading && heading.length){
+      }
+      else if (heading && heading.length) {
         setTitle(heading);
-       }
+      }
     }
-  },[]);
-
-  function handelClick() {
-    typeof window !== 'undefined' && window.open( button?.url, '_self');
-}
+    else {
+      if (heading && heading.length) {
+        setTitle(heading);
+      }
+    }
+  }, []);
 
   return (
     <div className={styles.homeQuality}>
       <div className={styles.intro}>
-        {heading && 
-        <div>  
-        {title?.map((head, index)=>{
-          return <h1 className={styles.introHeading} key={index} aria-label={head}>{head}</h1>
-        })
+        {heading &&
+          <div>
+            {title?.map((head, index) => {
+              return <h1 className={styles.introHeading} key={index} aria-label={head}>{head}</h1>
+            })
+            }
+          </div>
         }
-        </div>
+        <p className={styles.introContent} aria-label={content}>{content}</p>
+        {button &&
+          <div className={styles["home-button"]} role='button' tabIndex={0} onClick={() => redirectComponent(button.url)}>
+            <a className={styles["button"]}>
+              <span className={styles["button-text"]} aria-label={button.name} >{button.name}</span>
+              <span style={{ display: 'flex', alignItems: 'center' }}>
+                <Image src="/arrowrightwhite.svg" className={styles.buttonImage} alt="arrow right" width={39.83} height={25} />
+              </span>
+            </a>
+          </div>
         }
-          <p className={styles.introContent} aria-label={content}>{content}</p>
-          {button &&
-            <div className={styles["home-button"]} role='button' tabIndex={0} onClick={handelClick}>
-                <a className={styles["button"]}>
-                  <span className={styles["button-text"]} aria-label={button.name}>{button.name}</span>
-                  <span style={{display:'flex', alignItems:'center'}}>
-                    <Image src="/arrowrightwhite.svg" className={styles.buttonImage} alt="arrow right"  width={39.83} height={25} />
-                  </span>
-                </a>
-            </div>
-          }
       </div>
       <div className={styles.cardContainer}>
-        <Image src={background?.path ? background.path : "/qualitybackground.svg"} alt={background?.name ? background.name : "background"} fill={true} className={styles.background}/>
+        <Image src={background?.path ? background.path : "/qualitybackground.svg"} alt={background?.name ? background.name : "background"} fill={true} className={styles.background} />
         <div className={styles.subCardContainer}>
-            <Card heading={childCardProp?.left?.[0]?.heading} content={childCardProp?.left?.[0]?.content} image={childCardProp?.left?.[0]?.image} bg={childCardProp?.left?.[0]?.bg} textColor={childCardProp?.left?.[0]?.textColor} translate={translate.left} gridArea={gridArea.box1} button={childCardProp?.left?.[0]?.button}/>
-            <Card heading={childCardProp?.left?.[1]?.heading} content={childCardProp?.left?.[1]?.content} image={childCardProp?.left?.[1]?.image} bg={childCardProp?.left?.[1]?.bg} textColor={childCardProp?.left?.[1]?.textColor} translate={translate.left} gridArea={gridArea.box2} button={childCardProp?.left?.[1]?.button}/>
-            <Card heading={childCardProp?.right?.[0]?.heading} content={childCardProp?.right?.[0]?.content} image={childCardProp?.right?.[0]?.image} bg={childCardProp?.right?.[0]?.bg} textColor={childCardProp?.right?.[0]?.textColor} translate={translate.right} gridArea={gridArea.box3} button={childCardProp?.right?.[0]?.button}/>
-            <Card heading={childCardProp?.right?.[1]?.heading} content={childCardProp?.right?.[1]?.content} image={childCardProp?.right?.[1]?.image} bg={childCardProp?.right?.[1]?.bg} textColor={childCardProp?.right?.[1]?.textColor} translate={translate.right} gridArea={gridArea.box4} button={childCardProp?.right?.[1]?.button}/>
+          <Card heading={childCardProp?.left?.[0]?.heading} content={childCardProp?.left?.[0]?.content} image={childCardProp?.left?.[0]?.image} bg={childCardProp?.left?.[0]?.bg} textColor={childCardProp?.left?.[0]?.textColor} translate={translate.left} gridArea={gridArea.box1} button={childCardProp?.left?.[0]?.button} />
+          <Card heading={childCardProp?.left?.[1]?.heading} content={childCardProp?.left?.[1]?.content} image={childCardProp?.left?.[1]?.image} bg={childCardProp?.left?.[1]?.bg} textColor={childCardProp?.left?.[1]?.textColor} translate={translate.left} gridArea={gridArea.box2} button={childCardProp?.left?.[1]?.button} />
+          <Card heading={childCardProp?.right?.[0]?.heading} content={childCardProp?.right?.[0]?.content} image={childCardProp?.right?.[0]?.image} bg={childCardProp?.right?.[0]?.bg} textColor={childCardProp?.right?.[0]?.textColor} translate={translate.right} gridArea={gridArea.box3} button={childCardProp?.right?.[0]?.button} />
+          <Card heading={childCardProp?.right?.[1]?.heading} content={childCardProp?.right?.[1]?.content} image={childCardProp?.right?.[1]?.image} bg={childCardProp?.right?.[1]?.bg} textColor={childCardProp?.right?.[1]?.textColor} translate={translate.right} gridArea={gridArea.box4} button={childCardProp?.right?.[1]?.button} />
         </div>
       </div>
     </div>

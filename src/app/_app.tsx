@@ -161,17 +161,18 @@ export default function Home() {
               button={data.qualityCard.button}
               childCardProp={data.qualityCard.childCardProp}
               background={data.qualityCard.background}
+              redirectComponent={redirectComponent}
             />
           }
         </div>
         <div className={styles["carousel-container-1"] + " " + styles["cardCarousalRemain"]} style={carouselStyle} ref={refCarouselCurrentSubscription}>
           {
-            isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} />
+            isVisibleCarouselCurrentSubscription && <Carousel {...data.carouselCurrentSubscription} redirectComponent={redirectComponent} />
           }
         </div>
         <div className={styles["carousel-container-2"] + " " + styles["cardCarousalRemain"]} ref={refCarouselUpcomingSubscription}>
           {
-            isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} />
+            isVisibleCarouselUpcomingSubscription && <Carousel {...data.carouselUpcomingSubscription} redirectComponent={redirectComponent} />
           }
         </div>
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from "./card.module.css"
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { isMobile } from '@util/index';
+import { isMobile, goToTop } from '@util/index';
 
 interface CardProps {
   heading?: string;
@@ -63,27 +63,27 @@ const Card: React.FC<CardProps> = ({ heading, content, image, bg, textColor, tra
   }, []);
 
   function handelClick() {
-    typeof window !== 'undefined' && window.open(button?.url, '_self');
-}
+    goToTop()
+  }
 
   return (
     <div className={styles.card} style={{ backgroundColor: backgroundColor, color: txtColor, backgroundImage: backgroundImage, backgroundRepeat: 'no-repeat', backgroundSize: 'calc((100vw / 393)*173)', backgroundPosition: bg?.backgroundPosition, transform: `translate(0, calc((100vw/1920)*${translate}))`, gridArea: gridArea }}>
       {image && cardImage &&
-      <div className={styles['cardImgContainer']}>
-        <Image src={cardImage} alt={image?.name} height={60} width={60} className={styles.cardImage} />
+        <div className={styles['cardImgContainer']}>
+          <Image src={cardImage} alt={image?.name} height={60} width={60} className={styles.cardImage} />
         </div>
       }
       <h3 aria-label={heading} className={styles.heading}>{heading}</h3>
       <p aria-label={content} className={styles.content}>{content}</p>
-      {buttonTxt && button && <div className={styles["card-button"]} tabIndex={0} style={{backgroundColor: buttonColor}} onClick={handelClick} role='button'>
-          <a className={styles["button"]}>
-            <span className={styles["button-text"]} style={{color: buttonTextColor}}>{buttonTxt}</span>
-            <span className={styles['button-icon']}>
-              {buttonImg &&
-               <Image src={buttonImg} className={styles.buttonImage} alt="arrow right" width={30} height={23.31} />
-              }
-            </span>
-          </a>
+      {buttonTxt && button && <div className={styles["card-button"]} tabIndex={0} style={{ backgroundColor: buttonColor }} onClick={handelClick} role='button'>
+        <a className={styles["button"]}>
+          <span className={styles["button-text"]} style={{ color: buttonTextColor }}>{buttonTxt}</span>
+          <span className={styles['button-icon']}>
+            {buttonImg &&
+              <Image src={buttonImg} className={styles.buttonImage} alt="arrow right" width={30} height={23.31} />
+            }
+          </span>
+        </a>
       </div>}
     </div>
   )

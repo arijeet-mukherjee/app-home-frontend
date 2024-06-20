@@ -16,6 +16,7 @@ interface CardProps {
     url: string,
     toggleButton: boolean,
     buttonText: string,
+    redirectComponent: Function
 }
 
 interface CarouselProps {
@@ -25,10 +26,11 @@ interface CarouselProps {
     hideIndicator: boolean,
     cardProps: CardProps[],
     isBackgroundDark: boolean
+    redirectComponent: Function
 };
 
 const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
-    const { title, description, toggleScrollButtonPosition, hideIndicator, cardProps, isBackgroundDark } = props;
+    const { title, description, toggleScrollButtonPosition, hideIndicator, cardProps, isBackgroundDark, redirectComponent } = props;
 
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [cardPropsState, setCardPropsState] = React.useState(cardProps);
@@ -120,7 +122,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
             if (isMobile()) {
                 setCurrentIndex((prevIndex) => (prevIndex === cards - 1 ? 0 : prevIndex + 1));
             } else {
-                setCurrentIndex((prevIndex) => (prevIndex === cards - 1 ? 0 : prevIndex + 3));
+                setCurrentIndex((prevIndex) => (((cards - prevIndex - 1) < 3) ? 0 : prevIndex + 3));
             }
         }, 11000);
 
@@ -159,7 +161,7 @@ const Carousel: React.FC<CarouselProps> = (props: CarouselProps) => {
             <div className={`${styles["carousel-content"]} `} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                 {cardPropsState && cardPropsState.map((cardProp: CardProps, index: number) => {
                     let newCardProp = { ...cardProp, animate: true };
-                    return <CarouselCard {...newCardProp} key={Math.random()} />
+                    return <CarouselCard {...newCardProp} key={Math.random()} redirectComponent={redirectComponent} />
                 })}
             </ div>
             <div className={`${styles["carousel-dot-button"]}`}>
