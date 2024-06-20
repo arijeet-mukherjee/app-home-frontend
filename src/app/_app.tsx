@@ -9,7 +9,7 @@ import { setShieldState } from '@store/shieldSlice';
 import { useAppDispatch } from '@store/store';
 import { useAppSelector } from '@store/store';
 const CardBox = dynamic(() => import('@component/cardBox'), {
-  loading: () => <p>Loading.....</p>
+  loading: () => <></>
 });
 const MobileNavModal = dynamic(() => import('@component/MobileNavModal'));
 const CardQuality = dynamic(() => import('@component/cardQuality'), { ssr: false });
