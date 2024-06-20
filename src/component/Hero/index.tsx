@@ -91,7 +91,7 @@ const Hero: React.FC<HeroProps> = React.memo(({ introduction, content, openModal
                 {/** Write a button with text on left and icon on right */}
                 <div className={styles["hero-button"]} tabIndex={0} onClick={handelClick}>
                     <a className={styles["button"]}>
-                        <span className={styles["button-text"]}>Get In Touch</span>
+                        <span className={styles["button-text"]}>{headerData["button-name"]}</span>
                         <span className={styles["button-icon"]}>
                             <Image src="/arrowrightblack.svg" alt="arrow right" className={styles.arrowImg} width={21.37} height={9.77} />
                         </span>
