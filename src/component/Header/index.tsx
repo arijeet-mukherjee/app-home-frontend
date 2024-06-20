@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refL
                 })
                 }
             </div>}
-            <div className={styles.burgerMenuLogo}>
+            {isMobile() ? <div className={styles.burgerMenuLogo}>
                 <Image src={modalState ? "/closebtn.svg" : "/burger-menu-icon.svg"} alt="menu"
                     height={35}
                     width={35}
@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ openModal, modalState, headerData, refL
                         openModal(false, refList, "");
                     }}
                 />
-            </div>
+            </div> : <></>}
         </nav>
     );
 };

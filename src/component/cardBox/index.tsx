@@ -7,13 +7,13 @@ import { useState, ReactNode } from 'react';
 import { isMobile, emailVerified } from '@util/index';
 
 interface CardBoxProps {
-    background?:{
+    background?: {
         mHeight: string;
         mWidth: string;
         dHeight: string;
         dWidth: string;
     }
-    image?:{
+    image?: {
         path: string;
         title: string;
         mHeight: string;
@@ -37,7 +37,8 @@ interface CardBoxProps {
     }
     goTo?: string,
     fullGradient?: boolean,
-    child?: ReactNode
+    child?: ReactNode,
+    redirectComponent: Function
 };
 
 const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
@@ -45,8 +46,8 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     const [cardContentStyle, setCardContentStyle] = useState({});
     const [cardImageStyle, setCardImageStyle] = useState({});
     const [cardGradient, setCardGradient] = useState({});
-    const [imageSize, setImageSize] = useState({height:props.image?.dHeight, width:props.image?.dWidth});
-    const [backgroundSize, setBackgroundSize] = useState({height: props.background?.dHeight, width: props.background?.dWidth})
+    const [imageSize, setImageSize] = useState({ height: props.image?.dHeight, width: props.image?.dWidth });
+    const [backgroundSize, setBackgroundSize] = useState({ height: props.background?.dHeight, width: props.background?.dWidth })
     const [starPath, setStarPath] = React.useState("url(/starvector.svg)");
     const [email, setEmail] = useState('');
     const inputEmail = useRef<HTMLInputElement>(null!);
@@ -54,7 +55,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
     function handelInput(event: React.ChangeEvent<HTMLInputElement>) {
         setEmail(event.target.value);
 
-        if(emailVerified(event.target.value)) {
+        if (emailVerified(event.target.value)) {
             inputEmail.current.style.outline = "#343a40 solid";
         }
         else {
@@ -64,7 +65,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
 
     const handelSubmit = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        if(inputBox){   
+        if (inputBox) {
             if (emailVerified(email)) {
                 alert(email + " created successfully");
                 typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
@@ -73,8 +74,8 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                 alert("Please enter a valid email address");
             }
         }
-        else{
-            typeof window !== 'undefined' && window.open(`${props.goTo}`, '_self');
+        else {
+            props.redirectComponent(props.goTo);
         }
     };
 
@@ -85,10 +86,10 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
 
         if (check === true) {
             setStarPath("url(/starvectormobile.svg)");
-            setImageSize({height: props.image?.mHeight, width: props.image?.mWidth});
-            setBackgroundSize({height: props.background?.mHeight, width: props.background?.mWidth});
+            setImageSize({ height: props.image?.mHeight, width: props.image?.mWidth });
+            setBackgroundSize({ height: props.background?.mHeight, width: props.background?.mWidth });
 
-            if(props.fullGradient){
+            if (props.fullGradient) {
                 setCardGradient({ background: "linear-gradient(108.31deg, #FFFFFF 34.81%, #C7D5E0 78.11%)" });
             }
 
@@ -121,7 +122,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                         {bulletPoints.map((points, index) => {
                             return (
                                 <div key={index} className={styles.bulletPoints}>
-                                    {bulletPointImg && <Image src={bulletPointImg} alt='bullet point'className={styles.bulletPointImg} width={20} height={20} />}
+                                    {bulletPointImg && <Image src={bulletPointImg} alt='bullet point' className={styles.bulletPointImg} width={20} height={20} />}
                                     <p className={styles.bulletPointsTxt}>{points}</p>
                                 </div>
                             )
@@ -132,7 +133,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                 }
 
                 {inputBox && buttonText ?
-                    ( <div className={styles.inputBoxWithButton}>
+                    (<div className={styles.inputBoxWithButton}>
                         <input type="email" name='email' placeholder={inputBox} ref={inputEmail} value={email} onChange={handelInput} className={styles.inputBox} />
                         <div className={styles["cardbox-button"]} onClick={handelSubmit}>
                             <a className={styles["button"]}>
@@ -143,7 +144,7 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                             </a>
                         </div>
                     </div>)
-                    :buttonText? (<div className={styles["cardbox-button"]} onClick={handelSubmit}>
+                    : buttonText ? (<div className={styles["cardbox-button"]} onClick={handelSubmit}>
                         <a className={styles["button"]}>
                             <span className={styles["button-text"]}>{buttonText}</span>
                             <span className={styles["button-icon"]}>
@@ -152,15 +153,15 @@ const CardBox: React.FC<CardBoxProps> = (props: CardBoxProps) => {
                         </a>
                     </div>
                     )
-                    :<></>
+                        : <></>
                 }
             </div>
             {(image || child) &&
-            <div className={styles["cardbox-image"]} style={cardImageStyle}>
-                <div className={styles["card-image-outer"]} style={{ width: backgroundSize.width, height: backgroundSize.height, backgroundImage: starPath, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
-                  {image &&  <Image src={image?.path} alt={image?.title} style={{width:imageSize.width, height:imageSize.height}} width={200} height={200} />}               </div>
-                {child && child}
-            </div>
+                <div className={styles["cardbox-image"]} style={cardImageStyle}>
+                    <div className={styles["card-image-outer"]} style={{ width: backgroundSize.width, height: backgroundSize.height, backgroundImage: starPath, backgroundPosition: "center", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
+                        {image && <Image src={image?.path} alt={image?.title} style={{ width: imageSize.width, height: imageSize.height }} width={200} height={200} />}               </div>
+                    {child && child}
+                </div>
             }
         </div>
     );

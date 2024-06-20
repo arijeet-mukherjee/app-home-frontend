@@ -23,7 +23,6 @@
     grid-auto-flow: column;
     align-items: center;
     justify-content: space-between;
-    transform: translateX(100px);
 }
 
 .navItem {
@@ -106,11 +105,12 @@
         display: block;
         justify-self: center;
     }
+
     .arrowDown {
         border-left: calc((100vw/393)*4) solid transparent;
         border-right: calc((100vw/393)*4) solid transparent;
         border-top: calc((100vw/393)*6) solid var(--text-icon-color);
-    
+
     }
 
 }
