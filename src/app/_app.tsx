@@ -176,7 +176,7 @@ export default function Home() {
         </div>
 
         <div ref={refQuizWindow} className={styles["quizCard"]} >
-          <div className={styles["quizName"]}><span>Huge discounts are waiting for you on the other side!</span></div>{
+          <div className={styles["quizName"]}><span>{data.translatableText?.discountMsg ?? "Huge discounts are waiting for you on the other side!"}</span></div>{
             isVisibleQuizWindow && <QuizWindow quizDetail={data.quiz} quizContent={data.quizContent} />
           }
         </div>
