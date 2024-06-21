@@ -21,13 +21,13 @@
 .loader img {
     width: calc((100vw / 1920) * 100);
     height: calc((100vw / 1920) * 100);
-    margin-left: calc((100vw / 1920) * 40);
+    margin-left: calc((100vw / 1920) * 62);
     fill: #08031b;;
 }
 
 .loadingText {
     display: block;
-    font-size: calc((100vw / 1920) * 16);
+    font-size: calc((100vw / 1920) * 32);
     font-weight: 500;
     font-style: bold;
     color: #08031b;
